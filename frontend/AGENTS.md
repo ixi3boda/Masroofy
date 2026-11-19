@@ -25,9 +25,23 @@ Run lint and typecheck before declaring any task done.
 
 ## Navigation & Routing
 
-- Use **Expo Router** for all navigation. Routes live in `src/app/` — every file there is a screen, `_layout.tsx` files define navigators. Keep non-route code (components, hooks, utils) outside `src/app/`.
+- Use **Expo Router** for all navigation. Routes live in `src/app/` — every file there is a thin route file that just re-exports the real screen component (`export { default } from '@screens/XScreen'`). `_layout.tsx` files define navigators. Keep non-route code (components, hooks, utils) outside `src/app/`.
 - Import `Link`, `router`, and `useLocalSearchParams` from `expo-router`.
 - Docs: https://docs.expo.dev/router/introduction.md
+
+## Project structure & conventions
+
+- **One `screens` folder.** Every screen component lives flat in `src/screens/` (e.g. `src/screens/LoginScreen.tsx`), regardless of which flow/feature it belongs to. Route files in `src/app/` stay thin wrappers that import from `@screens/*` — all layout, state, and logic for a screen lives in its `src/screens` file.
+- **Reusable components, strictly.** Before writing new UI, check `src/components/{atoms,molecules,organisms,templates}` for something that already does the job. Extend or compose an existing component instead of duplicating markup/styles inline in a screen. Only add a new component when nothing in the tree already covers it.
+- **Atomic structure, strictly.** `src/components` stays organized as atoms → molecules → organisms → templates, each layer composed only from the layer(s) below it:
+  - `atoms`: smallest building blocks (Text, Button, Input, Icon, Chip…), no business logic.
+  - `molecules`: small compositions of atoms (BrandMark, SummaryCard, OtpCodeField…).
+  - `organisms`: larger, often screen-section-sized compositions (AuthHeader…).
+  - `templates`: page-level layout shells screens plug content into (AuthScreenLayout…).
+  - Screens (`src/screens`) compose templates/organisms/molecules/atoms — they should not reimplement layout primitives those layers already provide.
+- **State management: Zustand.** Use a Zustand store (`src/store`) for any state shared across screens/components (session/auth state, in-progress multi-step flows, anything that needs to survive navigation). Local `useState`/`useReducer` is fine for state that belongs to a single screen or component and nothing else — don't reach for Zustand for that.
+- **Clean code, strictly.** No dead code, no unused exports/props, no commented-out blocks, no speculative abstractions for things you don't need yet. Keep components small and single-purpose; prefer composition over large multi-responsibility components or screens.
+- **Memoize when it actually helps.** Reach for `useMemo` / `useCallback` / `React.memo` when a component re-renders often with expensive children, or when a stable reference is needed to avoid re-rendering children (e.g. callbacks passed to `FlatList` items) — not reflexively on every component/function.
 
 ## Building with EAS
 
