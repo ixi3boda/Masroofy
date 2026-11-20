@@ -72,7 +72,7 @@ export const mockAuthService = {
     return { email };
   },
 
-  async verifySignUpCode(email: string, code: string): Promise<{ email: string }> {
+  async verifySignUpCode(email: string, code: string): Promise<AuthUser> {
     await wait();
     const key = normalize(email);
     const pending = pendingSignUps.get(key);
@@ -82,7 +82,7 @@ export const mockAuthService = {
     }
     users.set(key, pending);
     pendingSignUps.delete(key);
-    return { email: key };
+    return { email: key, fullName: pending.fullName };
   },
 
   async resendSignUpCode(_email: string): Promise<void> {

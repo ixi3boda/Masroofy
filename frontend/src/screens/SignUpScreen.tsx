@@ -10,10 +10,12 @@ import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import AuthScreenLayout from '@components/templates/AuthScreenLayout';
 import { mockAuthService, MockAuthError } from '@/services/mockAuthService';
 import { getEmailError, getNewPasswordError, getRequiredError } from '@/utils/validators';
+import { useGoBack } from '@/hooks/useBackNavigation';
 
 type FieldName = 'fullName' | 'email' | 'password';
 
 const SignUpScreen: React.FC = () => {
+  const goBack = useGoBack('/(auth)/welcome');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -55,7 +57,7 @@ const SignUpScreen: React.FC = () => {
   return (
     <AuthScreenLayout
       title="Create an account"
-      onBack={() => router.back()}
+      onBack={goBack}
       footer={
         <>
           <Button
@@ -67,7 +69,7 @@ const SignUpScreen: React.FC = () => {
           <Button
             title="Already have an account? Log in"
             variant="outline"
-            onPress={() => router.push('/(auth)/login')}
+            onPress={() => router.dismissTo('/(auth)/login')}
           />
         </>
       }

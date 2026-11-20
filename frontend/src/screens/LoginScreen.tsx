@@ -10,6 +10,8 @@ import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import AuthScreenLayout from '@components/templates/AuthScreenLayout';
 import { mockAuthService, MockAuthError, MOCK_TEST_ACCOUNTS } from '@/services/mockAuthService';
 import { getEmailError, getRequiredError } from '@/utils/validators';
+import { useGoBack } from '@/hooks/useBackNavigation';
+import { useSessionStore } from '@/store/sessionStore';
 
 type FieldName = 'email' | 'password';
 
@@ -19,6 +21,8 @@ const LoginScreen: React.FC = () => {
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const signIn = useSessionStore((state) => state.signIn);
+  const goBack = useGoBack('/(auth)/welcome');
 
   const setField = (field: FieldName, value: string) => {
     if (field === 'email') setEmail(value);
@@ -37,7 +41,7 @@ const LoginScreen: React.FC = () => {
 
     setSubmitting(true);
     try {
-      await mockAuthService.logIn(email, password);
+      signIn(await mockAuthService.logIn(email, password));
       router.replace('/(app)/home');
     } catch (error) {
       setFormError(error instanceof MockAuthError ? error.message : 'Something went wrong. Try again.');
@@ -49,7 +53,7 @@ const LoginScreen: React.FC = () => {
   return (
     <AuthScreenLayout
       title="Log in"
-      onBack={() => router.back()}
+      onBack={goBack}
       footer={
         <>
           <Button
@@ -61,7 +65,7 @@ const LoginScreen: React.FC = () => {
           <Button
             title="Create an account"
             variant="outline"
-            onPress={() => router.push('/(auth)/sign-up')}
+            onPress={() => router.dismissTo('/(auth)/sign-up')}
           />
         </>
       }

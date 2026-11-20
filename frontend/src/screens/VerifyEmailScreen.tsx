@@ -12,6 +12,8 @@ import AuthScreenLayout from '@components/templates/AuthScreenLayout';
 import { mockAuthService, MockAuthError, MOCK_VERIFICATION_CODE } from '@/services/mockAuthService';
 import { maskEmail } from '@/utils/maskEmail';
 import { useCountdown } from '@/hooks/useCountdown';
+import { useGoBack } from '@/hooks/useBackNavigation';
+import { useSessionStore } from '@/store/sessionStore';
 
 const CODE_LENGTH = 6;
 const RESEND_COOLDOWN_SECONDS = 30;
@@ -23,6 +25,8 @@ const VerifyEmailScreen: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [resending, setResending] = useState(false);
   const { remaining, isDone, restart } = useCountdown(RESEND_COOLDOWN_SECONDS);
+  const signIn = useSessionStore((state) => state.signIn);
+  const goBack = useGoBack('/(auth)/sign-up');
 
   const code = digits.join('');
 
@@ -30,7 +34,7 @@ const VerifyEmailScreen: React.FC = () => {
     setError(null);
     setSubmitting(true);
     try {
-      await mockAuthService.verifySignUpCode(email, code);
+      signIn(await mockAuthService.verifySignUpCode(email, code));
       router.replace('/(app)/home');
     } catch (err) {
       setError(err instanceof MockAuthError ? err.message : 'Something went wrong. Try again.');
@@ -52,7 +56,7 @@ const VerifyEmailScreen: React.FC = () => {
   return (
     <AuthScreenLayout
       title="Verify signup email"
-      onBack={() => router.back()}
+      onBack={goBack}
       footer={
         <Button
           title="Verify email"

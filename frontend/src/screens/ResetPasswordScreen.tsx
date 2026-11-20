@@ -11,6 +11,7 @@ import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import AuthScreenLayout from '@components/templates/AuthScreenLayout';
 import { mockAuthService } from '@/services/mockAuthService';
 import { getNewPasswordError, getPasswordMatchError } from '@/utils/validators';
+import { useGoBack } from '@/hooks/useBackNavigation';
 
 const REQUIREMENTS = [
   '○ At least 8 characters',
@@ -25,6 +26,7 @@ const ResetPasswordScreen: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const goBack = useGoBack('/(auth)/login');
 
   const canSubmit = password.length >= 8 && password === confirmPassword;
 
@@ -38,7 +40,7 @@ const ResetPasswordScreen: React.FC = () => {
     setSubmitting(true);
     try {
       await mockAuthService.resetPassword(email, password);
-      router.push('/(auth)/password-updated');
+      router.replace('/(auth)/password-updated');
     } finally {
       setSubmitting(false);
     }
@@ -47,11 +49,11 @@ const ResetPasswordScreen: React.FC = () => {
   return (
     <AuthScreenLayout
       title="Set new password"
-      onBack={() => router.back()}
+      onBack={goBack}
       footer={
         <>
           <Button title="Update password" onPress={handleSubmit} loading={submitting} disabled={!canSubmit} />
-          <Button title="Back to log in" variant="outline" onPress={() => router.push('/(auth)/login')} />
+          <Button title="Back to log in" variant="outline" onPress={() => router.dismissTo('/(auth)/login')} />
         </>
       }
     >

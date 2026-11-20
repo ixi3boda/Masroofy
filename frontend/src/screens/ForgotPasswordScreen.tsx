@@ -11,11 +11,13 @@ import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import AuthScreenLayout from '@components/templates/AuthScreenLayout';
 import { mockAuthService } from '@/services/mockAuthService';
 import { getEmailError } from '@/utils/validators';
+import { useGoBack } from '@/hooks/useBackNavigation';
 
 const ForgotPasswordScreen: React.FC = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const goBack = useGoBack('/(auth)/login');
 
   const handleSubmit = async () => {
     const error = getEmailError(email);
@@ -36,11 +38,11 @@ const ForgotPasswordScreen: React.FC = () => {
   return (
     <AuthScreenLayout
       title="Forgot password"
-      onBack={() => router.back()}
+      onBack={goBack}
       footer={
         <>
           <Button title="Request reset link" onPress={handleSubmit} loading={submitting} disabled={!email} />
-          <Button title="Back to log in" variant="outline" onPress={() => router.back()} />
+          <Button title="Back to log in" variant="outline" onPress={() => router.dismissTo('/(auth)/login')} />
         </>
       }
     >

@@ -13,16 +13,20 @@ import AuthHeader from '@components/organisms/AuthHeader';
 export interface AuthScreenLayoutProps {
   title: string;
   onBack?: () => void;
+  /** Replaces the back arrow, e.g. a "Cancel" link. */
+  headerLeft?: ReactNode;
+  /** Trailing header action, e.g. a compact "Save Changes" button. */
+  headerRight?: ReactNode;
   /** Primary screen content, laid out in a vertical, scrollable column. */
   children: ReactNode;
   /** Sticky action buttons pinned to the bottom of the screen. */
   footer?: ReactNode;
 }
 
-const AuthScreenLayout: React.FC<AuthScreenLayoutProps> = ({ title, onBack, children, footer }) => {
+const AuthScreenLayout: React.FC<AuthScreenLayoutProps> = ({ title, onBack, headerLeft, headerRight, children, footer }) => {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
-      <AuthHeader title={title} onBack={onBack} />
+      <AuthHeader title={title} onBack={onBack} left={headerLeft} right={headerRight} />
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}

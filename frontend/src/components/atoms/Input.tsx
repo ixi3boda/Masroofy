@@ -7,8 +7,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { colors, radii } from '@theme/index';
+import { colors } from '@theme/index';
 import AppText from './Text';
+import { fieldStyles } from './fieldStyles';
 
 export interface InputProps {
   label?: string;
@@ -54,15 +55,15 @@ const Input: React.FC<InputProps> = ({
   return (
     <View style={[styles.wrapper, style]}>
       {label ? (
-        <AppText variant="label12" color={colors.text.secondary} style={styles.label}>
+        <AppText variant="label12" color={colors.text.secondary} style={fieldStyles.label}>
           {label}
         </AppText>
       ) : null}
 
-      <View style={[styles.field, { borderColor }]}>
+      <View style={[fieldStyles.box, { borderColor }]}>
         {leftIcon ? <View style={styles.sideIcon}>{leftIcon}</View> : null}
         <TextInput
-          style={styles.input}
+          style={[fieldStyles.value, styles.input]}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
@@ -78,11 +79,11 @@ const Input: React.FC<InputProps> = ({
       </View>
 
       {hasError && errorMessage ? (
-        <AppText variant="body12" color={colors.tone.error.foreground} style={styles.helper}>
+        <AppText variant="body12" color={colors.tone.error.foreground} style={fieldStyles.helper}>
           {errorMessage}
         </AppText>
       ) : hint ? (
-        <AppText variant="body12" color={colors.text.secondary} style={styles.helper}>
+        <AppText variant="body12" color={colors.text.secondary} style={fieldStyles.helper}>
           {hint}
         </AppText>
       ) : null}
@@ -92,28 +93,8 @@ const Input: React.FC<InputProps> = ({
 
 const styles = StyleSheet.create({
   wrapper: { width: '100%' },
-  label: { marginBottom: 7 },
-  field: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderRadius: radii.md,
-    height: 48,
-    paddingHorizontal: 16,
-  },
-  input: {
-    flex: 1,
-    height: '100%',
-    fontFamily: 'Inter_400Regular',
-    fontSize: 15,
-    letterSpacing: 0.3,
-    color: colors.text.primary,
-    paddingVertical: 0,
-  },
+  input: { height: '100%', paddingVertical: 0 },
   sideIcon: { alignItems: 'center', justifyContent: 'center' },
-  helper: { marginTop: 4 },
 });
 
 export default Input;

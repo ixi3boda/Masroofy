@@ -9,7 +9,7 @@ export const colors = {
   background: '#F5F6F7',
   surface: '#FFFFFF',
   surfaceMuted: '#EBEEF0',
-  notification: '#EF4E4E',
+  danger: '#EF4E4E',
 
   text: {
     primary: '#242D35',
@@ -23,6 +23,7 @@ export const colors = {
 
   overlay: {
     onBrand: 'rgba(255, 255, 255, 0.25)',
+    scrim: 'rgba(36, 45, 53, 0.4)',
   },
 
   border: {

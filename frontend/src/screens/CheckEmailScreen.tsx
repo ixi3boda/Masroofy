@@ -13,6 +13,7 @@ import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import AuthScreenLayout from '@components/templates/AuthScreenLayout';
 import { mockAuthService, MockAuthError, MOCK_VERIFICATION_CODE } from '@/services/mockAuthService';
 import { useCountdown } from '@/hooks/useCountdown';
+import { useGoBack } from '@/hooks/useBackNavigation';
 
 const CODE_LENGTH = 6;
 const RESEND_COOLDOWN_SECONDS = 30;
@@ -24,6 +25,7 @@ const CheckEmailScreen: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [resending, setResending] = useState(false);
   const { remaining, isDone, restart } = useCountdown(RESEND_COOLDOWN_SECONDS);
+  const goBack = useGoBack('/(auth)/forgot-password');
 
   const code = digits.join('');
 
@@ -53,7 +55,7 @@ const CheckEmailScreen: React.FC = () => {
   return (
     <AuthScreenLayout
       title="Check your email"
-      onBack={() => router.back()}
+      onBack={goBack}
       footer={<Button title="Verify Code" onPress={handleVerify} loading={submitting} disabled={code.length < CODE_LENGTH} />}
     >
       <Chip label="Confirmation preview" tone="info" />

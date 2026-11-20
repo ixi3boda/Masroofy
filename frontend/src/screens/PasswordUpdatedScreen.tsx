@@ -8,13 +8,19 @@ import StateSummary from '@components/molecules/StateSummary';
 import SummaryCard from '@components/molecules/SummaryCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import { useHardwareBack } from '@/hooks/useBackNavigation';
+
+// The reset is finished, so every "back" lands on login rather than the reset form.
+const returnToLogin = () => router.dismissTo('/(auth)/login');
 
 const PasswordUpdatedScreen: React.FC = () => {
+  useHardwareBack(returnToLogin);
+
   return (
     <AuthScreenLayout
       title="Password updated"
-      onBack={() => router.back()}
-      footer={<Button title="Continue to Login" onPress={() => router.replace('/(auth)/login')} />}
+      onBack={returnToLogin}
+      footer={<Button title="Continue to Login" onPress={returnToLogin} />}
     >
       <Chip label="Confirmation preview" tone="info" />
 
