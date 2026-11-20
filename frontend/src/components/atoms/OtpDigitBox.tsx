@@ -1,24 +1,28 @@
 import React, { forwardRef } from 'react';
-import { StyleSheet, TextInput, TextInputProps } from 'react-native';
+import { StyleSheet, TextInput, TextInputInstance, TextInputProps } from 'react-native';
 import { colors, radii } from '@theme/index';
 
 export interface OtpDigitBoxProps extends Pick<TextInputProps, 'onKeyPress'> {
   value: string;
-  onChangeText: (text: string) => void;
+  /** Every digit the box received: one when typed, several when a code is pasted or autofilled. */
+  onChangeText: (digits: string) => void;
+  /** Offer the OS one-time-code autofill on this box (the first one). */
+  autoFillCode?: boolean;
   /** Muted background used on the "verify email" code entry; white on the rest. */
   filled?: boolean;
 }
 
-const OtpDigitBox = forwardRef<TextInput, OtpDigitBoxProps>(
-  ({ value, onChangeText, onKeyPress, filled = false }, ref) => {
+const OtpDigitBox = forwardRef<TextInputInstance, OtpDigitBoxProps>(
+  ({ value, onChangeText, onKeyPress, autoFillCode = false, filled = false }, ref) => {
     return (
       <TextInput
         ref={ref}
         value={value}
-        onChangeText={(text) => onChangeText(text.replace(/[^0-9]/g, '').slice(-1))}
+        onChangeText={(text) => onChangeText(text.replace(/[^0-9]/g, ''))}
         onKeyPress={onKeyPress}
-        maxLength={1}
         keyboardType="number-pad"
+        autoComplete={autoFillCode ? 'one-time-code' : 'off'}
+        textContentType={autoFillCode ? 'oneTimeCode' : 'none'}
         textAlign="center"
         style={[styles.box, filled && styles.filled]}
       />

@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { StyleProp, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
+import React, { useLayoutEffect, useRef } from 'react';
+import { StyleProp, StyleSheet, TextInputInstance, View, ViewStyle } from 'react-native';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import OtpDigitBox from '@components/atoms/OtpDigitBox';
@@ -13,6 +13,14 @@ export interface OtpCodeFieldProps {
   style?: StyleProp<ViewStyle>;
 }
 
+/** What a box's text means: the box's old digit plus what was typed or pasted next to it. */
+const incomingDigits = (text: string, current: string): string => {
+  if (!current || text.length < 2) return text;
+  if (text.startsWith(current)) return text.slice(current.length);
+  if (text.endsWith(current)) return text.slice(0, -current.length);
+  return text;
+};
+
 const OtpCodeField: React.FC<OtpCodeFieldProps> = ({
   label,
   length = 6,
@@ -21,19 +29,36 @@ const OtpCodeField: React.FC<OtpCodeFieldProps> = ({
   filled = false,
   style,
 }) => {
-  const inputs = useRef<(TextInput | null)[]>([]);
+  const inputs = useRef<(TextInputInstance | null)[]>([]);
+  // Newest digits, also between renders, so fast typing never writes over a digit just entered.
+  const latest = useRef(value);
+  useLayoutEffect(() => {
+    latest.current = value;
+  }, [value]);
 
-  const setDigit = (index: number, digit: string) => {
-    const next = [...value];
-    next[index] = digit;
-    onChange(next);
-    if (digit && index < length - 1) {
-      inputs.current[index + 1]?.focus();
+  const handleChange = (index: number, text: string) => {
+    const next = [...latest.current];
+    const incoming = incomingDigits(text, next[index] ?? '');
+
+    if (!incoming) {
+      next[index] = '';
+    } else {
+      // One digit typed, or a whole code pasted / autofilled: fill this box and the ones after it.
+      incoming
+        .slice(0, length - index)
+        .split('')
+        .forEach((digit, offset) => {
+          next[index + offset] = digit;
+        });
     }
+
+    latest.current = next;
+    onChange(next);
+    if (incoming) inputs.current[Math.min(index + incoming.length, length - 1)]?.focus();
   };
 
   const handleKeyPress = (index: number, key: string) => {
-    if (key === 'Backspace' && !value[index] && index > 0) {
+    if (key === 'Backspace' && !latest.current[index] && index > 0) {
       inputs.current[index - 1]?.focus();
     }
   };
@@ -49,8 +74,9 @@ const OtpCodeField: React.FC<OtpCodeFieldProps> = ({
               inputs.current[index] = ref;
             }}
             value={value[index] ?? ''}
-            onChangeText={(digit) => setDigit(index, digit)}
+            onChangeText={(text) => handleChange(index, text)}
             onKeyPress={({ nativeEvent }) => handleKeyPress(index, nativeEvent.key)}
+            autoFillCode={index === 0}
             filled={filled}
           />
         ))}
