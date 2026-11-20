@@ -109,6 +109,10 @@ const LoginScreen: React.FC = () => {
         hasError={!!fieldErrors.password}
         errorMessage={fieldErrors.password}
         secureTextEntry
+        returnKeyType="go"
+        onSubmitEditing={() => {
+          if (email && password && !submitting) handleSubmit();
+        }}
       />
 
       <Button

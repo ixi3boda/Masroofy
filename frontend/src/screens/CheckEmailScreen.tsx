@@ -78,7 +78,7 @@ const CheckEmailScreen: React.FC = () => {
       {isMock ? <Chip label={copy.previewChip} tone="info" /> : null}
 
       <StateSummary icon="mail-check" heading={copy.heading} description={copy.description} />
-      <EmailPreviewRow email={email} caption={copy.emailCaption} />
+      <EmailPreviewRow email={email} caption={isMock ? copy.emailCaption : undefined} />
 
       <SummaryCard heading={copy.nextStepsHeading} rows={copy.nextSteps} />
 

@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import {
   KeyboardTypeOptions,
+  ReturnKeyTypeOptions,
   StyleProp,
   StyleSheet,
   TextInput,
@@ -27,6 +28,10 @@ export interface InputProps {
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
   /** Grows into a text area, e.g. for pasting a bank SMS. */
   multiline?: boolean;
+  /** Label of the keyboard's action key, e.g. `go` on the last field of a form. */
+  returnKeyType?: ReturnKeyTypeOptions;
+  /** The keyboard's action key or Enter (web) was pressed. */
+  onSubmitEditing?: () => void;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -45,6 +50,8 @@ const Input: React.FC<InputProps> = ({
   keyboardType,
   autoCapitalize,
   multiline = false,
+  returnKeyType,
+  onSubmitEditing,
   style,
 }) => {
   const [focused, setFocused] = useState(false);
@@ -77,6 +84,8 @@ const Input: React.FC<InputProps> = ({
           editable={editable}
           keyboardType={keyboardType}
           autoCapitalize={autoCapitalize}
+          returnKeyType={returnKeyType}
+          onSubmitEditing={onSubmitEditing}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         />
