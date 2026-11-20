@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
@@ -8,27 +8,34 @@ import StateSummary from '@components/molecules/StateSummary';
 import OtpCodeField from '@components/molecules/OtpCodeField';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { isMockSource } from '@/config/env';
 import { RESEND_COOLDOWN_SECONDS, VERIFICATION_CODE_LENGTH } from '@/constants/app';
 import { MOCK_VERIFICATION_CODE } from '@/mocks';
 import { ROUTES } from '@/navigation/routes';
 import { authService } from '@/services/authService';
-import { useSessionStore } from '@/store/sessionStore';
 import { strings } from '@/strings';
-import { getErrorMessage } from '@/utils/errors';
+import { getErrorMessage, isApiError } from '@/utils/errors';
 import { maskEmail } from '@/utils/maskEmail';
-import { useCountdown } from '@/hooks/useCountdown';
+import { useResendCode } from '@/hooks/useResendCode';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
 const copy = strings.auth.verifyEmail;
 
+/**
+ * Params: `email`; `resendIn` (seconds until Resend, from sign-up); `resend=1`
+ * when opened from Login for an unverified email — login sends no code, so
+ * this screen asks for one when it opens.
+ */
 const VerifyEmailScreen: React.FC = () => {
-  const { email = '' } = useLocalSearchParams<{ email?: string }>();
+  const { email = '', resendIn, resend } = useLocalSearchParams<{ email?: string; resendIn?: string; resend?: string }>();
+  const resendOnOpen = resend === '1';
   const [digits, setDigits] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const [resending, setResending] = useState(false);
-  const { remaining, isDone, restart } = useCountdown(RESEND_COOLDOWN_SECONDS);
-  const signIn = useSessionStore((state) => state.signIn);
+  const resendCode = useResendCode(
+    () => authService.resendSignUpCode(email),
+    resendOnOpen ? 0 : Number(resendIn) || RESEND_COOLDOWN_SECONDS
+  );
   const goBack = useGoBack(ROUTES.auth.signUp);
 
   const code = digits.join('');
@@ -37,9 +44,14 @@ const VerifyEmailScreen: React.FC = () => {
     setError(null);
     setSubmitting(true);
     try {
-      signIn(await authService.verifySignUpCode(email, code));
-      router.replace(ROUTES.app.home);
+      const { email: verifiedEmail } = await authService.verifySignUpCode(email, code);
+      router.replace({ pathname: ROUTES.auth.login, params: { email: verifiedEmail } });
     } catch (err) {
+      if (isApiError(err, 'EMAIL_ALREADY_VERIFIED')) {
+        router.replace({ pathname: ROUTES.auth.login, params: { email } });
+        return;
+      }
+      if (isApiError(err, 'INVALID_CODE')) setDigits([]);
       setError(getErrorMessage(err));
     } finally {
       setSubmitting(false);
@@ -47,14 +59,19 @@ const VerifyEmailScreen: React.FC = () => {
   };
 
   const handleResend = async () => {
-    setResending(true);
+    setError(null);
     try {
-      await authService.resendSignUpCode(email);
-      restart();
-    } finally {
-      setResending(false);
+      if (await resendCode.resend()) setDigits([]);
+    } catch (err) {
+      setError(getErrorMessage(err));
     }
   };
+
+  useEffect(() => {
+    if (resendOnOpen) resendCode.resend().catch((err) => setError(getErrorMessage(err)));
+    // Runs once when the screen opens.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ScreenLayout
@@ -83,17 +100,21 @@ const VerifyEmailScreen: React.FC = () => {
       )}
 
       <Button
-        title={isDone ? strings.common.resendCode : strings.common.resendCodeIn(remaining)}
+        title={resendCode.isDone ? strings.common.resendCode : strings.common.resendCodeIn(resendCode.remaining)}
         variant="outline"
         onPress={handleResend}
-        disabled={!isDone}
-        loading={resending}
+        disabled={!resendCode.isDone}
+        loading={resendCode.resending}
       />
 
-      <Chip label={copy.previewChip} tone="info" />
-      <AppText variant="body12" color={colors.text.secondary}>
-        {copy.previewNotice(MOCK_VERIFICATION_CODE)}
-      </AppText>
+      {isMockSource('auth') ? (
+        <>
+          <Chip label={copy.previewChip} tone="info" />
+          <AppText variant="body12" color={colors.text.secondary}>
+            {copy.previewNotice(MOCK_VERIFICATION_CODE)}
+          </AppText>
+        </>
+      ) : null}
     </ScreenLayout>
   );
 };

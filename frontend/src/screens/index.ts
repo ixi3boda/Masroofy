@@ -1,3 +1,4 @@
+export { default as StartupScreen } from './StartupScreen';
 export { default as WelcomeScreen } from './WelcomeScreen';
 export { default as SignUpScreen } from './SignUpScreen';
 export { default as VerifyEmailScreen } from './VerifyEmailScreen';

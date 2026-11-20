@@ -8,9 +8,11 @@ import Card from '@components/atoms/Card';
 import StateSummary from '@components/molecules/StateSummary';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { isMockSource } from '@/config/env';
 import { ROUTES } from '@/navigation/routes';
 import { authService } from '@/services/authService';
 import { strings } from '@/strings';
+import { getErrorMessage, isApiError } from '@/utils/errors';
 import { getEmailError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
@@ -32,8 +34,21 @@ const ForgotPasswordScreen: React.FC = () => {
     setEmailError(undefined);
     setSubmitting(true);
     try {
-      const { email: requestedEmail } = await authService.requestPasswordReset(email);
-      router.push({ pathname: ROUTES.auth.checkEmail, params: { email: requestedEmail } });
+      const { email: requestedEmail, verification } = await authService.requestPasswordReset(email);
+      router.push({
+        pathname: ROUTES.auth.checkEmail,
+        params: { email: requestedEmail, resendIn: String(verification.resendAvailableInSeconds) },
+      });
+    } catch (error) {
+      // A code was sent less than a minute ago: go on to the code screen with the remaining wait.
+      if (isApiError(error, 'RESEND_COOLDOWN')) {
+        router.push({
+          pathname: ROUTES.auth.checkEmail,
+          params: { email: email.trim().toLowerCase(), resendIn: String(error.details.retryAfterSeconds ?? '') },
+        });
+        return;
+      }
+      setEmailError(getErrorMessage(error));
     } finally {
       setSubmitting(false);
     }
@@ -77,7 +92,9 @@ const ForgotPasswordScreen: React.FC = () => {
         ) : null}
       </Card>
 
-      <FeedbackBanner tone="info" title={copy.previewTitle} message={copy.previewMessage} />
+      {isMockSource('auth') ? (
+        <FeedbackBanner tone="info" title={copy.previewTitle} message={copy.previewMessage} />
+      ) : null}
     </ScreenLayout>
   );
 };
