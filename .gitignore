@@ -1,1 +1,10 @@
 .DS_Store
+
+# Safety net: never commit local secrets anywhere in the repo.
+.env
+.env.*
+!.env.example
+secrets/
+*firebase-adminsdk*.json
+service-account*.json
+docker-compose.override.yml
