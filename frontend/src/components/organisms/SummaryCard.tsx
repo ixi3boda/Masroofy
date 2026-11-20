@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
-import Card from '@components/atoms/Card';
-import Divider from '@components/atoms/Divider';
+import DividedCard from '@components/molecules/DividedCard';
 
 export interface SummaryCardProps {
   heading: string;
@@ -13,18 +12,15 @@ export interface SummaryCardProps {
   style?: StyleProp<ViewStyle>;
 }
 
+/** Text-only DividedCard: a heading over short lines (tips, steps, recovery advice). */
 const SummaryCard: React.FC<SummaryCardProps> = ({ heading, rows, rowVariant = 'body14', style }) => (
-  <Card style={style}>
-    <AppText variant="subheading16">{heading}</AppText>
-    {rows.map((row, index) => (
-      <Fragment key={row}>
-        {index > 0 ? <Divider /> : null}
-        <AppText variant={rowVariant} color={rowVariant === 'body14' ? colors.text.secondary : undefined}>
-          {row}
-        </AppText>
-      </Fragment>
+  <DividedCard title={heading} style={style}>
+    {rows.map((row) => (
+      <AppText key={row} variant={rowVariant} color={rowVariant === 'body14' ? colors.text.secondary : undefined}>
+        {row}
+      </AppText>
     ))}
-  </Card>
+  </DividedCard>
 );
 
 export default SummaryCard;

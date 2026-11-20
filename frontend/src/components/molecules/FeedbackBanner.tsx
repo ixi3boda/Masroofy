@@ -9,6 +9,7 @@ const TONE_ICON: Record<ChipTone, IconName> = {
   info: 'info',
   success: 'circle-check',
   error: 'triangle-alert',
+  warning: 'circle-alert',
 };
 
 export interface FeedbackBannerProps {

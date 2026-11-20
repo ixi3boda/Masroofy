@@ -4,7 +4,7 @@ import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Card from '@components/atoms/Card';
 import Input from '@components/atoms/Input';
-import FeedbackBanner from './FeedbackBanner';
+import FeedbackBanner from '@components/molecules/FeedbackBanner';
 
 export interface AmountEntryCardProps {
   /** Small uppercase context line, e.g. "Manual entry · October 2026". */

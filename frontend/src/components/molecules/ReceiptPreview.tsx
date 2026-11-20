@@ -4,30 +4,52 @@ import { colors, radii } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Divider from '@components/atoms/Divider';
 
+export interface ReceiptLineItem {
+  label: string;
+  amount: string;
+}
+
 export interface ReceiptPreviewProps {
   merchant: string;
   /** e.g. "Cairo, Egypt · Receipt 4821" */
   subtitle: string;
   date: string;
   time: string;
+  /** Itemised lines between the date and the total (full capture/selection views). */
+  items?: ReceiptLineItem[];
   /** e.g. "TOTAL · EGP" */
   totalLabel: string;
   total: string;
   /** e.g. "Paid by card •4821 · VAT included" */
   footnote?: string;
+  /** e.g. "Thank you for shopping with us" */
+  closingNote?: string;
 }
 
-/** Paper-slip rendering of an attached or scanned receipt. */
+const Line: React.FC<{ left: string; right: string }> = ({ left, right }) => (
+  <View style={styles.row}>
+    <AppText variant="subheading14">{left}</AppText>
+    <AppText variant="subheading14">{right}</AppText>
+  </View>
+);
+
+/** Paper-slip rendering of an attached, selected or scanned receipt. */
 const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
   merchant,
   subtitle,
   date,
   time,
+  items,
   totalLabel,
   total,
   footnote,
+  closingNote,
 }) => (
-  <View style={styles.slip} accessible accessibilityLabel={`Receipt from ${merchant}, ${date} ${time}, total ${total}`}>
+  <View
+    style={styles.slip}
+    accessible
+    accessibilityLabel={`Receipt from ${merchant}, ${date} ${time}, total ${total}`}
+  >
     <AppText variant="subheading16" align="center" style={styles.merchant}>
       {merchant}
     </AppText>
@@ -35,18 +57,18 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
       {subtitle}
     </AppText>
     <Divider />
-    <View style={styles.row}>
-      <AppText variant="subheading14">{date}</AppText>
-      <AppText variant="subheading14">{time}</AppText>
-    </View>
+    <Line left={date} right={time} />
+    {items?.map((item) => <Line key={item.label} left={item.label} right={item.amount} />)}
     <Divider />
-    <View style={styles.row}>
-      <AppText variant="subheading14">{totalLabel}</AppText>
-      <AppText variant="subheading14">{total}</AppText>
-    </View>
+    <Line left={totalLabel} right={total} />
     {footnote ? (
       <AppText variant="body12" color={colors.text.secondary} align="center">
         {footnote}
+      </AppText>
+    ) : null}
+    {closingNote ? (
+      <AppText variant="body12" color={colors.text.secondary} align="center">
+        {closingNote}
       </AppText>
     ) : null}
   </View>

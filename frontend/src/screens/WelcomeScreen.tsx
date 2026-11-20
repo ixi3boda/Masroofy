@@ -4,12 +4,12 @@ import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import BrandMark from '@components/molecules/BrandMark';
-import SummaryCard from '@components/molecules/SummaryCard';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import SummaryCard from '@components/organisms/SummaryCard';
+import ScreenLayout from '@components/templates/ScreenLayout';
 
 const WelcomeScreen: React.FC = () => {
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Welcome to Masroofy"
       footer={
         <>
@@ -39,7 +39,7 @@ const WelcomeScreen: React.FC = () => {
       <AppText variant="body12" color={colors.text.secondary}>
         Static design preview only. No account, sign-in or email action is performed.
       </AppText>
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 

@@ -7,7 +7,7 @@ import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
 import BrandMark from '@components/molecules/BrandMark';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { mockAuthService, MockAuthError, MOCK_TEST_ACCOUNTS } from '@/services/mockAuthService';
 import { getEmailError, getRequiredError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
@@ -51,7 +51,7 @@ const LoginScreen: React.FC = () => {
   };
 
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Log in"
       onBack={goBack}
       footer={
@@ -108,7 +108,7 @@ const LoginScreen: React.FC = () => {
         Static design preview only. Use {MOCK_TEST_ACCOUNTS[0].email} / {MOCK_TEST_ACCOUNTS[0].password} in
         this preview.
       </AppText>
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 

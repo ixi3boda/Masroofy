@@ -25,6 +25,8 @@ export interface InputProps {
   editable?: boolean;
   keyboardType?: KeyboardTypeOptions;
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+  /** Grows into a text area, e.g. for pasting a bank SMS. */
+  multiline?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -42,6 +44,7 @@ const Input: React.FC<InputProps> = ({
   editable = true,
   keyboardType,
   autoCapitalize,
+  multiline = false,
   style,
 }) => {
   const [focused, setFocused] = useState(false);
@@ -60,10 +63,12 @@ const Input: React.FC<InputProps> = ({
         </AppText>
       ) : null}
 
-      <View style={[fieldStyles.box, { borderColor }]}>
+      <View style={[fieldStyles.box, multiline && styles.multilineBox, { borderColor }]}>
         {leftIcon ? <View style={styles.sideIcon}>{leftIcon}</View> : null}
         <TextInput
-          style={[fieldStyles.value, styles.input]}
+          style={[fieldStyles.value, multiline ? styles.multilineInput : styles.input]}
+          multiline={multiline}
+          textAlignVertical={multiline ? 'top' : 'center'}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
@@ -94,6 +99,8 @@ const Input: React.FC<InputProps> = ({
 const styles = StyleSheet.create({
   wrapper: { width: '100%' },
   input: { height: '100%', paddingVertical: 0 },
+  multilineBox: { height: undefined, minHeight: 96, alignItems: 'flex-start', paddingVertical: 12 },
+  multilineInput: { minHeight: 72, paddingVertical: 0 },
   sideIcon: { alignItems: 'center', justifyContent: 'center' },
 });
 

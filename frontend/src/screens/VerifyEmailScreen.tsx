@@ -4,11 +4,10 @@ import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
-import Icon from '@components/atoms/Icon';
 import StateSummary from '@components/molecules/StateSummary';
 import OtpCodeField from '@components/molecules/OtpCodeField';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { mockAuthService, MockAuthError, MOCK_VERIFICATION_CODE } from '@/services/mockAuthService';
 import { maskEmail } from '@/utils/maskEmail';
 import { useCountdown } from '@/hooks/useCountdown';
@@ -54,7 +53,7 @@ const VerifyEmailScreen: React.FC = () => {
   };
 
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Verify signup email"
       onBack={goBack}
       footer={
@@ -67,7 +66,7 @@ const VerifyEmailScreen: React.FC = () => {
       }
     >
       <StateSummary
-        icon={<Icon name="mail-check" size={42} color={colors.text.inverse} />}
+        icon="mail-check"
         heading="One step to get started"
         description="Confirm your email to finish signing up for Masroofy."
         value={maskEmail(email)}
@@ -94,7 +93,7 @@ const VerifyEmailScreen: React.FC = () => {
       <AppText variant="body12" color={colors.text.secondary}>
         No verification email has been sent. Use {MOCK_VERIFICATION_CODE} in this preview.
       </AppText>
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 

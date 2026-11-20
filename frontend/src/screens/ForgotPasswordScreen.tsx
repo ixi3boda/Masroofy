@@ -5,10 +5,9 @@ import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
 import Card from '@components/atoms/Card';
-import Icon from '@components/atoms/Icon';
 import StateSummary from '@components/molecules/StateSummary';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { mockAuthService } from '@/services/mockAuthService';
 import { getEmailError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
@@ -36,7 +35,7 @@ const ForgotPasswordScreen: React.FC = () => {
   };
 
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Forgot password"
       onBack={goBack}
       footer={
@@ -47,7 +46,7 @@ const ForgotPasswordScreen: React.FC = () => {
       }
     >
       <StateSummary
-        icon={<Icon name="mail" size={42} color={colors.text.inverse} />}
+        icon="mail"
         heading="Let’s reset your password"
         description="Enter the email associated with your account to request a password reset link."
       />
@@ -74,7 +73,7 @@ const ForgotPasswordScreen: React.FC = () => {
       </Card>
 
       <FeedbackBanner tone="info" title="Email request preview" message="This is a static request screen. No email will be sent." />
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 

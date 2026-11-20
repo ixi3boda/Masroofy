@@ -8,9 +8,11 @@ export interface SectionHeaderProps {
   /** Trailing link label, e.g. "View All". Rendered only with `onAction`. */
   actionLabel?: string;
   onAction?: () => void;
+  /** Passive count/summary on the right, e.g. "2 unread" or "6 budgets". */
+  trailingText?: string;
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({ title, actionLabel, onAction }) => (
+const SectionHeader: React.FC<SectionHeaderProps> = ({ title, actionLabel, onAction, trailingText }) => (
   <View style={styles.container}>
     <AppText variant="subheading16" accessibilityRole="header">
       {title}
@@ -23,6 +25,10 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title, actionLabel, onAct
           </AppText>
         )}
       </Pressable>
+    ) : trailingText ? (
+      <AppText variant="subheading14" color={colors.text.secondary}>
+        {trailingText}
+      </AppText>
     ) : null}
   </View>
 );

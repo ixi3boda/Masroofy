@@ -1,4 +1,5 @@
 import React from 'react';
+import { spacing } from '@theme/index';
 import IconButton from '@components/atoms/IconButton';
 import { ActionChipProps } from '@components/molecules/ActionChip';
 import { QuickActionTileProps } from '@components/molecules/QuickActionTile';
@@ -9,7 +10,7 @@ import IncomeExpenseChartCard from '@components/organisms/IncomeExpenseChartCard
 import QuickActionsGrid from '@components/organisms/QuickActionsGrid';
 import RecentTransactions from '@components/organisms/RecentTransactions';
 import StatCardRow from '@components/organisms/StatCardRow';
-import AppScreenLayout from '@components/templates/AppScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { CATEGORY_LABELS } from '@/constants/transactions';
 import { mockDashboardSummary } from '@/services/mockDashboardService';
 import { formatCurrency, formatDayMonth, formatSignedCurrency } from '@/utils/formatters';
@@ -51,8 +52,10 @@ const DashboardScreen: React.FC = () => {
   }));
 
   return (
-    <AppScreenLayout
+    <ScreenLayout
       title="Masroofy Home"
+      titleAlign="start"
+      gap={spacing.xxl}
       headerRight={<IconButton name="user" accessibilityLabel="Profile" />}
       bottomBar={<BottomTabBar activeTab="home" />}
     >
@@ -81,7 +84,7 @@ const DashboardScreen: React.FC = () => {
       <BudgetProgressCard spent={totalExpense} limit={budgetLimit} periodLabel={periodLabel} />
       <IncomeExpenseChartCard income={totalSalary} expense={totalExpense} periodLabel={periodLabel} />
       <RecentTransactions transactions={transactions} />
-    </AppScreenLayout>
+    </ScreenLayout>
   );
 };
 

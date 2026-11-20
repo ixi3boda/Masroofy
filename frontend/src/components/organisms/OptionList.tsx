@@ -6,16 +6,19 @@ import OptionCard from '@components/molecules/OptionCard';
 export interface OptionListItem<T extends string> {
   value: T;
   title: string;
+  /** Always-visible helper line, e.g. "Money moved between your own funds". */
+  description?: string;
   icon?: IconName;
 }
 
 export interface OptionListProps<T extends string> {
   options: OptionListItem<T>[];
-  value: T;
+  /** `null` when nothing is chosen yet (e.g. an unclassified withdrawal). */
+  value: T | null;
   onChange: (value: T) => void;
 }
 
-/** Single-select list of option cards (category picker, account/category filters). */
+/** Single-select list of option cards (category picker, filters, classification, schedule). */
 const OptionList = <T extends string>({ options, value, onChange }: OptionListProps<T>) => (
   <View style={styles.list} accessibilityRole="radiogroup">
     {options.map((option) => {
@@ -25,7 +28,7 @@ const OptionList = <T extends string>({ options, value, onChange }: OptionListPr
           key={option.value}
           title={option.title}
           icon={option.icon}
-          description={selected ? 'Selected' : undefined}
+          description={option.description ?? (selected ? 'Selected' : undefined)}
           selected={selected}
           onPress={() => onChange(option.value)}
         />

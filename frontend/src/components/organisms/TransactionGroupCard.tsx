@@ -1,9 +1,7 @@
-import React, { Fragment } from 'react';
-import { StyleSheet } from 'react-native';
-import Card from '@components/atoms/Card';
+import React from 'react';
 import Chip, { ChipTone } from '@components/atoms/Chip';
-import Divider from '@components/atoms/Divider';
-import TransactionItem, { TransactionItemProps } from '@components/molecules/TransactionItem';
+import DividedCard from '@components/molecules/DividedCard';
+import TransactionItem, { TransactionItemProps } from './TransactionItem';
 
 export interface TransactionGroupCardProps {
   transactions: (Omit<TransactionItemProps, 'variant'> & { id: string })[];
@@ -11,21 +9,13 @@ export interface TransactionGroupCardProps {
   badge?: { label: string; tone: ChipTone };
 }
 
-/** One card of transaction rows separated by dividers (a day's entries, a saved record…). */
+/** One card of transaction rows separated by dividers (a day's entries). */
 const TransactionGroupCard: React.FC<TransactionGroupCardProps> = ({ transactions, badge }) => (
-  <Card style={styles.card}>
-    {badge ? <Chip label={badge.label} tone={badge.tone} /> : null}
-    {transactions.map(({ id, ...item }, index) => (
-      <Fragment key={id}>
-        {index > 0 ? <Divider /> : null}
-        <TransactionItem {...item} variant="plain" />
-      </Fragment>
+  <DividedCard header={badge ? <Chip label={badge.label} tone={badge.tone} /> : undefined}>
+    {transactions.map(({ id, ...item }) => (
+      <TransactionItem key={id} {...item} variant="plain" />
     ))}
-  </Card>
+  </DividedCard>
 );
-
-const styles = StyleSheet.create({
-  card: { gap: 14 },
-});
 
 export default TransactionGroupCard;

@@ -4,11 +4,10 @@ import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
-import Icon from '@components/atoms/Icon';
 import StateSummary from '@components/molecules/StateSummary';
-import SummaryCard from '@components/molecules/SummaryCard';
+import SummaryCard from '@components/organisms/SummaryCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { mockAuthService } from '@/services/mockAuthService';
 import { getNewPasswordError, getPasswordMatchError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
@@ -47,7 +46,7 @@ const ResetPasswordScreen: React.FC = () => {
   };
 
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Set new password"
       onBack={goBack}
       footer={
@@ -58,7 +57,7 @@ const ResetPasswordScreen: React.FC = () => {
       }
     >
       <StateSummary
-        icon={<Icon name="lock-keyhole" size={42} color={colors.text.inverse} />}
+        icon="lock-keyhole"
         heading="Choose a new password"
         description="Use a password you have not used for this account before."
       />
@@ -91,7 +90,7 @@ const ResetPasswordScreen: React.FC = () => {
       <AppText variant="body12" color={colors.text.secondary}>
         Static design preview only. No account, sign-in or email action is performed.
       </AppText>
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 

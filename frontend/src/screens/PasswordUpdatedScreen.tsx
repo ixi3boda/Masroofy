@@ -1,13 +1,11 @@
 import React from 'react';
 import { router } from 'expo-router';
-import { colors } from '@theme/index';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
-import Icon from '@components/atoms/Icon';
 import StateSummary from '@components/molecules/StateSummary';
-import SummaryCard from '@components/molecules/SummaryCard';
+import SummaryCard from '@components/organisms/SummaryCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { useHardwareBack } from '@/hooks/useBackNavigation';
 
 // The reset is finished, so every "back" lands on login rather than the reset form.
@@ -17,7 +15,7 @@ const PasswordUpdatedScreen: React.FC = () => {
   useHardwareBack(returnToLogin);
 
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Password updated"
       onBack={returnToLogin}
       footer={<Button title="Continue to Login" onPress={returnToLogin} />}
@@ -25,7 +23,7 @@ const PasswordUpdatedScreen: React.FC = () => {
       <Chip label="Confirmation preview" tone="info" />
 
       <StateSummary
-        icon={<Icon name="shield-check" size={42} color={colors.text.inverse} />}
+        icon="shield-check"
         heading="Password updated"
         description="Your password has been reset successfully."
       />
@@ -37,7 +35,7 @@ const PasswordUpdatedScreen: React.FC = () => {
         title="Static confirmation"
         message="No password has been changed. This preview does not authenticate an account."
       />
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 

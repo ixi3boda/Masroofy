@@ -5,9 +5,9 @@ import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
 import BrandMark from '@components/molecules/BrandMark';
-import ConsentCheckboxCard from '@components/molecules/ConsentCheckboxCard';
+import OptionCard from '@components/molecules/OptionCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { mockAuthService, MockAuthError } from '@/services/mockAuthService';
 import { getEmailError, getNewPasswordError, getRequiredError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
@@ -55,7 +55,7 @@ const SignUpScreen: React.FC = () => {
   };
 
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Create an account"
       onBack={goBack}
       footer={
@@ -109,17 +109,18 @@ const SignUpScreen: React.FC = () => {
         secureTextEntry
       />
 
-      <ConsentCheckboxCard
+      <OptionCard
+        kind="checkbox"
         title="I agree to the Terms & Privacy Policy"
         description="Consent required before creating an account"
-        checked={agreed}
-        onToggle={setAgreed}
+        selected={agreed}
+        onPress={() => setAgreed((value) => !value)}
       />
 
       <AppText variant="body12" color={colors.text.secondary}>
         Static design preview only. No account, sign-in or email action is performed.
       </AppText>
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 

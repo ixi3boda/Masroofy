@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import SectionHeader from '@components/molecules/SectionHeader';
-import TransactionItem, { TransactionItemProps } from '@components/molecules/TransactionItem';
+import TransactionItem, { TransactionItemProps } from '@components/organisms/TransactionItem';
 
 export interface RecentTransactionsProps {
   transactions: (TransactionItemProps & { id: string })[];

@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
-import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
-import Icon from '@components/atoms/Icon';
 import StateSummary from '@components/molecules/StateSummary';
 import EmailPreviewRow from '@components/molecules/EmailPreviewRow';
-import SummaryCard from '@components/molecules/SummaryCard';
+import SummaryCard from '@components/organisms/SummaryCard';
 import OtpCodeField from '@components/molecules/OtpCodeField';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import AuthScreenLayout from '@components/templates/AuthScreenLayout';
+import ScreenLayout from '@components/templates/ScreenLayout';
 import { mockAuthService, MockAuthError, MOCK_VERIFICATION_CODE } from '@/services/mockAuthService';
 import { useCountdown } from '@/hooks/useCountdown';
 import { useGoBack } from '@/hooks/useBackNavigation';
@@ -53,7 +51,7 @@ const CheckEmailScreen: React.FC = () => {
   };
 
   return (
-    <AuthScreenLayout
+    <ScreenLayout
       title="Check your email"
       onBack={goBack}
       footer={<Button title="Verify Code" onPress={handleVerify} loading={submitting} disabled={code.length < CODE_LENGTH} />}
@@ -61,7 +59,7 @@ const CheckEmailScreen: React.FC = () => {
       <Chip label="Confirmation preview" tone="info" />
 
       <StateSummary
-        icon={<Icon name="mail-check" size={42} color={colors.text.inverse} />}
+        icon="mail-check"
         heading="Check your email"
         description="We have sent a 6-digit password reset code to your email. Enter the code below to reset your password."
       />
@@ -93,7 +91,7 @@ const CheckEmailScreen: React.FC = () => {
         title="No email sent"
         message={`This design shows the request confirmation only. It has not checked an address or sent a message. Use ${MOCK_VERIFICATION_CODE} in this preview.`}
       />
-    </AuthScreenLayout>
+    </ScreenLayout>
   );
 };
 
