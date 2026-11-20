@@ -1,12 +1,15 @@
 /**
  * Color tokens — sourced from the Masroofy Figma file
- * ("01 / Welcome, Authentication & Onboarding", Colors page).
+ * ("01 / Welcome, Authentication & Onboarding", Colors page,
+ * and "02 / Home Dashboard").
  */
 export const colors = {
   primary: '#0E33F3',
   primaryLight: '#2FDAFF',
   background: '#F5F6F7',
   surface: '#FFFFFF',
+  surfaceMuted: '#EBEEF0',
+  notification: '#EF4E4E',
 
   text: {
     primary: '#242D35',
@@ -14,6 +17,12 @@ export const colors = {
     muted: '#9BA1A8',
     disabled: '#B0B8BF',
     inverse: '#FFFFFF',
+    inverseMuted: 'rgba(255, 255, 255, 0.8)',
+    tab: '#536171',
+  },
+
+  overlay: {
+    onBrand: 'rgba(255, 255, 255, 0.25)',
   },
 
   border: {

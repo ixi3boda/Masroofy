@@ -44,6 +44,7 @@ export const typography = {
     lineHeight: 16,
     letterSpacing: 0.24,
   },
+  caption10: { fontFamily: 'Inter_400Regular', fontWeight: '400', fontSize: 10, lineHeight: 12 },
 } satisfies Record<string, TextStyle>;
 
 export type TypographyVariant = keyof typeof typography;

@@ -1,2 +1,18 @@
 export { default as AuthHeader } from './AuthHeader';
 export type { AuthHeaderProps } from './AuthHeader';
+export { default as AppHeader } from './AppHeader';
+export type { AppHeaderProps } from './AppHeader';
+export { default as BottomTabBar } from './BottomTabBar';
+export type { BottomTabBarProps, TabKey } from './BottomTabBar';
+export { default as StatCardRow } from './StatCardRow';
+export type { StatCardRowProps } from './StatCardRow';
+export { default as ActionChipGroup } from './ActionChipGroup';
+export type { ActionChipGroupProps } from './ActionChipGroup';
+export { default as QuickActionsGrid } from './QuickActionsGrid';
+export type { QuickActionsGridProps } from './QuickActionsGrid';
+export { default as BudgetProgressCard } from './BudgetProgressCard';
+export type { BudgetProgressCardProps } from './BudgetProgressCard';
+export { default as IncomeExpenseChartCard } from './IncomeExpenseChartCard';
+export type { IncomeExpenseChartCardProps } from './IncomeExpenseChartCard';
+export { default as RecentTransactions } from './RecentTransactions';
+export type { RecentTransactionsProps } from './RecentTransactions';

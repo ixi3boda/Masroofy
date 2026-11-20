@@ -1,6 +1,6 @@
 /**
- * Brand gradient — used by the icon badge (diagonal) and the primary
- * button (near-vertical). Same stops, different direction in Figma.
+ * Brand gradient — used by the icon badge and highlighted surfaces (diagonal)
+ * and the primary button (near-vertical). Same stops, different direction in Figma.
  */
 const stops = ['#2FDAFF', '#0E33F3'] as const;
 
