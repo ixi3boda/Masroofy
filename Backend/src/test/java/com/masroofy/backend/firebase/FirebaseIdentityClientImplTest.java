@@ -179,7 +179,37 @@ class FirebaseIdentityClientImplTest {
         when(token.getEmail()).thenReturn("m@example.com");
         when(firebaseAuth.verifyIdToken("t", true)).thenReturn(token);
 
-        assertThat(client.verifyIdToken("t", true)).isEqualTo(new VerifiedToken("uid-1", "m@example.com"));
+        assertThat(client.verifyIdToken("t", true)).isEqualTo(new VerifiedToken("uid-1", "m@example.com", 0));
+    }
+
+    @Test
+    void verifyIdTokenReadsSessionVersionClaim() throws Exception {
+        FirebaseToken token = mock(FirebaseToken.class);
+        when(token.getUid()).thenReturn("uid-1");
+        when(token.getEmail()).thenReturn("m@example.com");
+        // Firebase decodes JSON numbers as Long or BigDecimal; any Number works.
+        when(token.getClaims()).thenReturn(java.util.Map.of(FirebaseIdentityClient.SESSION_VERSION_CLAIM, 3L));
+        when(firebaseAuth.verifyIdToken("t", true)).thenReturn(token);
+
+        assertThat(client.verifyIdToken("t", true).sessionVersion()).isEqualTo(3);
+    }
+
+    @Test
+    void setSessionVersionWritesCustomClaim() throws Exception {
+        client.setSessionVersion("uid-1", 4);
+
+        verify(firebaseAuth).setCustomUserClaims("uid-1",
+                java.util.Map.of(FirebaseIdentityClient.SESSION_VERSION_CLAIM, 4));
+    }
+
+    @Test
+    void setSessionVersionFailureIsProviderUnavailable() throws Exception {
+        FirebaseAuthException failure = authException(AuthErrorCode.CONFIGURATION_NOT_FOUND);
+        org.mockito.Mockito.doThrow(failure).when(firebaseAuth).setCustomUserClaims(any(), any());
+
+        assertThatThrownBy(() -> client.setSessionVersion("uid-1", 1))
+                .isInstanceOfSatisfying(ApiException.class,
+                        e -> assertThat(e.getErrorCode()).isEqualTo(ErrorCode.AUTH_PROVIDER_UNAVAILABLE));
     }
 
     @Test

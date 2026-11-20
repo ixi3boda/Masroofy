@@ -1,6 +1,6 @@
 # Masroofy Backend
 
-Spring Boot 3.5 (Java 17) API for the Masroofy Android app. This module covers **authentication and authorization**
+Spring Boot 3.5 (Java 17) API for the Masroofy mobile app (React Native). This module covers **authentication and authorization**
 (screens 01-01 to 01-08).
 
 - **Firebase Authentication** stores the credentials (password hashing, sign-in, ID and refresh tokens).
@@ -44,6 +44,7 @@ docker compose up -d --build
 
 - API: http://localhost:8080 (port is `BACKEND_PORT`)
 - **Swagger UI: http://localhost:8080/swagger-ui.html**. Click **Authorize** and paste the `accessToken` from login.
+- **Frontend API docs:** [../docs/frontend-api/](../docs/frontend-api/00-instructions-for-claude.md), instructions plus one file per API.
 - OpenAPI JSON: http://localhost:8080/v3/api-docs
 - PostgreSQL: `localhost:5432` (port is `DB_PORT`); data persists in the `db-data` volume.
 
@@ -77,7 +78,7 @@ With the `dev` profile (or `MAIL_PROVIDER=log`), emails are not sent. The codes 
 | `AUTH_CODE_SECRET` | yes (32+ chars) | HMAC key for stored codes and tokens |
 | `MAIL_PROVIDER` | no (`smtp`) | `smtp`, or `log` for development |
 | `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_FROM` | when `smtp` | SMTP server. Gmail: `smtp.gmail.com`, `587`, your address, and an [App Password](https://myaccount.google.com/apppasswords). `MAIL_FROM` empty = send as `MAIL_USERNAME`. The app refuses to start if `smtp` is chosen without credentials. |
-| `CORS_ALLOWED_ORIGINS` | no | Comma-separated browser origins. The Android app does not need this. |
+| `CORS_ALLOWED_ORIGINS` | no | Comma-separated browser origins. Native apps do not need this; Expo web in development needs `http://localhost:8081`. |
 | `SWAGGER_ENABLED` | no (`true`) | Set `false` to hide Swagger UI and `/v3/api-docs` |
 
 ## Tests
@@ -163,7 +164,7 @@ Every error has the same shape. The app should switch on `code`, not on `message
 |---|---|---|---|
 | `VALIDATION_FAILED` | 400 | Missing or invalid field, or terms not accepted | `fieldErrors` |
 | `MALFORMED_REQUEST` | 400 | Body is not valid JSON | |
-| `WEAK_PASSWORD` | 400 | Breaks 01-07 rules: `MIN_LENGTH`, `NUMBER_OR_SYMBOL`, `NO_PERSONAL_INFO`, `MAX_LENGTH` | `fieldErrors[].code` |
+| `WEAK_PASSWORD` | 400 | Breaks 01-07 rules: `MIN_LENGTH`, `NUMBER_OR_SYMBOL`, `NO_PERSONAL_INFO`, `MAX_LENGTH`, `COMMON_PASSWORD` | `fieldErrors[].code` |
 | `PASSWORDS_DO_NOT_MATCH` | 400 | `newPassword` ≠ `confirmPassword` | |
 | `PASSWORD_REUSED` | 400 | The new password equals the current one | |
 | `INVALID_CODE` | 400 | Wrong code | `details.remainingAttempts` |
@@ -181,12 +182,21 @@ Every error has the same shape. The app should switch on `code`, not on `message
 | `RATE_LIMITED` | 429 | Firebase throttled sign-in | |
 | `EMAIL_DELIVERY_FAILED` | 503 | SMTP failure | |
 | `AUTH_PROVIDER_UNAVAILABLE` | 503 | Firebase unreachable or misconfigured | |
+| `SERVICE_UNAVAILABLE` | 503 | Database unreachable (fails after 5 s) | |
 
 ### Security notes
 
 - Passwords never touch the database. Codes and reset tokens are stored only as HMAC-SHA256 hashes.
   Each code is single-use, expires after 10 minutes and allows 5 attempts. Asking for a new code cancels the old one.
 - Forgot password and resend give the same answer for unknown emails, so they do not reveal which emails have accounts.
-- Resetting the password revokes all refresh tokens, which signs the user out everywhere. Logout does the same.
-  Access tokens are checked for revocation on every request (`app.firebase.check-revoked`).
+  The 60 s cooldown is kept per email address (table `code_dispatches`, keyed by an HMAC of the email) and checked
+  before the account lookup, so the second call answers `429` for unknown emails too.
+- Concurrency: code checks and code issuing lock the user's row, so parallel guesses still count toward the
+  5 attempts and parallel resends get one code. Sign-up takes a PostgreSQL advisory lock per email, so parallel
+  sign-ups create one Firebase account; a failed sign-up's Firebase account is deleted with retries.
+- Resetting the password signs the user out everywhere, and so does logout. Both raise the user's `session_version`
+  (DB column and Firebase custom claim) and revoke Firebase refresh tokens. Access tokens and refresh tokens issued
+  before that are rejected immediately, even one issued a moment earlier. Firebase's own check
+  (`app.firebase.check-revoked`) works in whole seconds and misses those.
+- `refreshToken` is opaque: the backend wraps Firebase's token as `<sessionVersion>.<HMAC>.<token>`.
 - Users whose email is not verified are authenticated but cannot reach any data endpoint.

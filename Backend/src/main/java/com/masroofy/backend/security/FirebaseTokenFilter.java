@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -77,13 +78,25 @@ public class FirebaseTokenFilter extends OncePerRequestFilter {
             return;
         }
 
-        Optional<User> user = userRepository.findByFirebaseUid(verified.uid());
+        Optional<User> user;
+        try {
+            user = userRepository.findByFirebaseUid(verified.uid());
+        } catch (DataAccessResourceFailureException e) {
+            // Outside MVC, so @ControllerAdvice would not see it: answer with the documented body here.
+            errorWriter.write(request, response, ErrorCode.SERVICE_UNAVAILABLE, ErrorCode.SERVICE_UNAVAILABLE.defaultMessage());
+            return;
+        }
         if (user.isEmpty()) {
             errorWriter.write(request, response, ErrorCode.UNAUTHORIZED, "No Masroofy account for this token.");
             return;
         }
 
         User account = user.get();
+        if (verified.sessionVersion() < account.sessionVersion()) {
+            // Issued before the last logout or password reset.
+            errorWriter.write(request, response, ErrorCode.UNAUTHORIZED, "The access token has been revoked.");
+            return;
+        }
         AuthenticatedUser principal = new AuthenticatedUser(account.id(), account.firebaseUid(), account.email(),
                 account.isEmailVerified());
         String role = account.isEmailVerified() ? ROLE_USER : ROLE_UNVERIFIED;

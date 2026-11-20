@@ -16,7 +16,7 @@ public class UserRepository {
 
     private static final String COLUMNS = """
             id, firebase_uid, email, phone, full_name, base_currency, locale, timezone, fcm_token,
-            email_verified_at, terms_accepted_at, created_at, updated_at""";
+            email_verified_at, terms_accepted_at, created_at, updated_at, session_version""";
 
     static final RowMapper<User> ROW_MAPPER = (rs, rowNum) -> new User(
             rs.getObject("id", UUID.class),
@@ -31,7 +31,8 @@ public class UserRepository {
             fromDb(rs, "email_verified_at"),
             fromDb(rs, "terms_accepted_at"),
             fromDb(rs, "created_at"),
-            fromDb(rs, "updated_at"));
+            fromDb(rs, "updated_at"),
+            rs.getInt("session_version"));
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -40,7 +41,7 @@ public class UserRepository {
     }
 
     public void insert(User user) {
-        jdbcTemplate.update("INSERT INTO users (" + COLUMNS + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO users (" + COLUMNS + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 user.id(),
                 user.firebaseUid(),
                 user.email(),
@@ -53,7 +54,8 @@ public class UserRepository {
                 toDb(user.emailVerifiedAt()),
                 toDb(user.termsAcceptedAt()),
                 toDb(user.createdAt()),
-                toDb(user.updatedAt()));
+                toDb(user.updatedAt()),
+                user.sessionVersion());
     }
 
     public Optional<User> findById(UUID id) {
@@ -72,6 +74,14 @@ public class UserRepository {
                 .stream().findFirst();
     }
 
+    /**
+     * Serializes work on one email address until the current transaction ends (PostgreSQL advisory lock on a hash
+     * of the email; an unrelated email that hashes the same only waits a little).
+     */
+    public void lockEmail(String email) {
+        jdbcTemplate.query("SELECT pg_advisory_xact_lock(hashtext(?))", (rs, rowNum) -> 1, email);
+    }
+
     public boolean existsByEmail(String email) {
         Boolean exists = jdbcTemplate.queryForObject(
                 "SELECT EXISTS (SELECT 1 FROM users WHERE email = ?)", Boolean.class, email);
@@ -83,5 +93,11 @@ public class UserRepository {
         return jdbcTemplate.update(
                 "UPDATE users SET email_verified_at = ?, updated_at = ? WHERE id = ? AND email_verified_at IS NULL",
                 toDb(verifiedAt), toDb(verifiedAt), id);
+    }
+
+    /** Raises session_version to {@code version}; it never goes down. Returns the number of rows changed. */
+    public int raiseSessionVersion(UUID id, int version) {
+        return jdbcTemplate.update(
+                "UPDATE users SET session_version = GREATEST(session_version, ?) WHERE id = ?", version, id);
     }
 }

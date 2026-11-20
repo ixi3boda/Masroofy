@@ -43,8 +43,34 @@ class UserControllerTest {
     private UserRepository userRepository;
 
     private static User user(boolean verified) {
+        return user(verified, 0);
+    }
+
+    private static User user(boolean verified, int sessionVersion) {
         return new User(USER_ID, "uid-1", "mariam@example.com", null, "Mariam Ali", "EGP", "en", "Africa/Cairo",
-                null, verified ? NOW : null, NOW, NOW, NOW);
+                null, verified ? NOW : null, NOW, NOW, NOW, sessionVersion);
+    }
+
+    @Test
+    void tokenIssuedBeforeLastLogoutIs401() throws Exception {
+        when(firebase.verifyIdToken("old", true)).thenReturn(new VerifiedToken("uid-1", "mariam@example.com", 1));
+        when(userRepository.findByFirebaseUid("uid-1")).thenReturn(Optional.of(user(true, 2)));
+
+        mvc.perform(get("/api/v1/users/me").header("Authorization", "Bearer old"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.code").value("UNAUTHORIZED"))
+                .andExpect(jsonPath("$.message").value("The access token has been revoked."));
+        verifyNoInteractions(userService);
+    }
+
+    @Test
+    void tokenIssuedAfterLastLogoutIsAccepted() throws Exception {
+        when(firebase.verifyIdToken("new", true)).thenReturn(new VerifiedToken("uid-1", "mariam@example.com", 2));
+        when(userRepository.findByFirebaseUid("uid-1")).thenReturn(Optional.of(user(true, 2)));
+        when(userService.getUser(USER_ID)).thenReturn(UserResponse.from(user(true, 2)));
+
+        mvc.perform(get("/api/v1/users/me").header("Authorization", "Bearer new"))
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -68,6 +94,19 @@ class UserControllerTest {
 
         mvc.perform(get("/api/v1/users/me").header("Authorization", "bearer good"))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    void databaseDownWhileCheckingTheTokenIs503WithTheDocumentedBody() throws Exception {
+        when(firebase.verifyIdToken("good", true)).thenReturn(new VerifiedToken("uid-1", "mariam@example.com"));
+        when(userRepository.findByFirebaseUid("uid-1"))
+                .thenThrow(new org.springframework.jdbc.CannotGetJdbcConnectionException("db down"));
+
+        mvc.perform(get("/api/v1/users/me").header("Authorization", "Bearer good"))
+                .andExpect(status().isServiceUnavailable())
+                .andExpect(jsonPath("$.code").value("SERVICE_UNAVAILABLE"))
+                .andExpect(jsonPath("$.path").value("/api/v1/users/me"));
+        verifyNoInteractions(userService);
     }
 
     @Test

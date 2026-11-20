@@ -46,6 +46,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 public class AuthService {
 
     private static final Logger log = LoggerFactory.getLogger(AuthService.class);
+    private static final int ROLLBACK_ATTEMPTS = 3;
 
     private final UserRepository userRepository;
     private final AuthCodeService authCodeService;
@@ -54,10 +55,13 @@ public class AuthService {
     private final PasswordPolicy passwordPolicy;
     private final TransactionTemplate transactionTemplate;
     private final Clock clock;
+    private final RefreshTokenSeal refreshTokenSeal;
+    /** Pause between Firebase cleanup retries (attempt n waits n times this). Tests set it to zero. */
+    Duration rollbackBackoff = Duration.ofMillis(300);
 
     public AuthService(UserRepository userRepository, AuthCodeService authCodeService,
                        FirebaseIdentityClient firebase, EmailService emailService, PasswordPolicy passwordPolicy,
-                       TransactionTemplate transactionTemplate, Clock clock) {
+                       TransactionTemplate transactionTemplate, Clock clock, RefreshTokenSeal refreshTokenSeal) {
         this.userRepository = userRepository;
         this.authCodeService = authCodeService;
         this.firebase = firebase;
@@ -65,6 +69,7 @@ public class AuthService {
         this.passwordPolicy = passwordPolicy;
         this.transactionTemplate = transactionTemplate;
         this.clock = clock;
+        this.refreshTokenSeal = refreshTokenSeal;
     }
 
     // ---- 01-02 Create an account ------------------------------------------------------------------------
@@ -74,29 +79,38 @@ public class AuthService {
         String fullName = normalizeName(request.fullName());
         passwordPolicy.validate("password", request.password(), fullName, email);
 
-        if (userRepository.existsByEmail(email)) {
-            throw new ApiException(ErrorCode.EMAIL_ALREADY_IN_USE);
-        }
-
-        String firebaseUid = firebase.createUser(email, request.password(), fullName);
-        Instant now = clock.instant();
-        User user = new User(UUID.randomUUID(), firebaseUid, email, null, fullName, User.DEFAULT_CURRENCY,
-                User.DEFAULT_LOCALE, User.DEFAULT_TIMEZONE, null, null, now, now, now);
-
+        // One sign-up per email at a time: the lock covers the duplicate check, the Firebase account and the insert.
+        // Without it, parallel sign-ups each create a Firebase account (Firebase's own uniqueness does not hold
+        // under a burst) and the losers' accounts are left behind when their cleanup fails.
+        String[] createdUid = new String[1];
+        User[] created = new User[1];
         IssuedCode code;
         try {
             code = transactionTemplate.execute(status -> {
+                userRepository.lockEmail(email);
+                if (userRepository.existsByEmail(email)) {
+                    throw new ApiException(ErrorCode.EMAIL_ALREADY_IN_USE);
+                }
+                createdUid[0] = firebase.createUser(email, request.password(), fullName);
+                Instant now = clock.instant();
+                User user = new User(UUID.randomUUID(), createdUid[0], email, null, fullName, User.DEFAULT_CURRENCY,
+                        User.DEFAULT_LOCALE, User.DEFAULT_TIMEZONE, null, null, now, now, now);
                 userRepository.insert(user);
+                created[0] = user;
+                authCodeService.recordDispatch(email, AuthCodePurpose.EMAIL_VERIFICATION);
                 return authCodeService.issueCode(user.id(), AuthCodePurpose.EMAIL_VERIFICATION);
             });
         } catch (RuntimeException e) {
-            // Keep Firebase and the database consistent: no orphaned Firebase account.
-            rollbackFirebaseUser(firebaseUid);
+            if (createdUid[0] != null) {
+                // Keep Firebase and the database consistent: no orphaned Firebase account.
+                rollbackFirebaseUser(createdUid[0]);
+            }
             if (e instanceof DuplicateKeyException) {
                 throw new ApiException(ErrorCode.EMAIL_ALREADY_IN_USE);
             }
             throw e;
         }
+        User user = created[0];
 
         boolean sent = trySend(() -> emailService.sendVerificationCode(email, fullName, code.code(), codeTtl()));
         return new RegisterResponse(UserResponse.from(user), dispatch(email, code.expiresAt()), sent);
@@ -118,6 +132,8 @@ public class AuthService {
 
     public CodeDispatchResponse resendVerificationCode(EmailRequest request) {
         String email = EmailUtils.normalize(request.email());
+        // Cooldown per email before the lookup, so unknown emails answer exactly like real ones.
+        authCodeService.reserveDispatch(email, AuthCodePurpose.EMAIL_VERIFICATION);
         Optional<User> found = userRepository.findByEmail(email);
         if (found.isEmpty() || found.get().isEmailVerified()) {
             // Nothing to send; answer exactly as if a code was sent.
@@ -143,22 +159,31 @@ public class AuthService {
     }
 
     public AuthTokensResponse refresh(RefreshTokenRequest request) {
-        FirebaseSession session = firebase.refreshSession(request.refreshToken());
+        RefreshTokenSeal.Unsealed refreshToken = refreshTokenSeal.unseal(request.refreshToken())
+                .orElseThrow(() -> new ApiException(ErrorCode.INVALID_REFRESH_TOKEN));
+        FirebaseSession session = firebase.refreshSession(refreshToken.firebaseToken());
         User user = userRepository.findByFirebaseUid(session.uid())
                 .orElseThrow(() -> new ApiException(ErrorCode.INVALID_REFRESH_TOKEN));
+        if (refreshToken.sessionVersion() < user.sessionVersion()) {
+            // Issued before the last logout or password reset.
+            throw new ApiException(ErrorCode.INVALID_REFRESH_TOKEN);
+        }
         requireVerified(user);
         return tokens(session, user);
     }
 
-    /** Signs the user out on every device by revoking their Firebase refresh tokens. */
-    public void logout(String firebaseUid) {
-        firebase.revokeRefreshTokens(firebaseUid);
+    /** Signs the user out on every device: refresh tokens and every access token issued so far stop working. */
+    public void logout(UUID userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new ApiException(ErrorCode.UNAUTHORIZED));
+        endAllSessions(user);
     }
 
     // ---- 01-05 / 01-06 / 01-07 Password reset -----------------------------------------------------------
 
     public CodeDispatchResponse forgotPassword(EmailRequest request) {
         String email = EmailUtils.normalize(request.email());
+        // Cooldown per email before the lookup, so unknown emails answer exactly like real ones.
+        authCodeService.reserveDispatch(email, AuthCodePurpose.PASSWORD_RESET);
         Optional<User> found = userRepository.findByEmail(email);
         if (found.isEmpty()) {
             return genericDispatch(email);
@@ -193,7 +218,7 @@ public class AuthService {
 
         firebase.updatePassword(user.firebaseUid(), request.newPassword());
         authCodeService.consume(resetToken);
-        firebase.revokeRefreshTokens(user.firebaseUid());
+        endAllSessions(user);
         if (!user.isEmailVerified()) {
             // Receiving the reset code proves the user controls this inbox.
             markVerified(user);
@@ -221,6 +246,19 @@ public class AuthService {
                         ErrorCode.PASSWORD_REUSED.defaultMessage())), null);
     }
 
+    /**
+     * Firebase's own revocation compares whole seconds against this server's clock, so a token issued a second or
+     * two before revoking can survive it. Raising the session version closes that gap: tokens minted before carry
+     * the old value and {@code FirebaseTokenFilter} rejects them.
+     * Order: claim first (if Firebase fails, nothing has changed), then refresh tokens, then the database.
+     */
+    private void endAllSessions(User user) {
+        int next = user.sessionVersion() + 1;
+        firebase.setSessionVersion(user.firebaseUid(), next);
+        firebase.revokeRefreshTokens(user.firebaseUid());
+        userRepository.raiseSessionVersion(user.id(), next);
+    }
+
     private void markVerified(User user) {
         userRepository.markEmailVerified(user.id(), clock.instant());
         try {
@@ -239,7 +277,8 @@ public class AuthService {
     }
 
     private AuthTokensResponse tokens(FirebaseSession session, User user) {
-        return new AuthTokensResponse(session.idToken(), session.refreshToken(), AuthTokensResponse.BEARER,
+        return new AuthTokensResponse(session.idToken(),
+                refreshTokenSeal.seal(user.sessionVersion(), session.refreshToken()), AuthTokensResponse.BEARER,
                 session.expiresInSeconds(), UserResponse.from(user));
     }
 
@@ -257,11 +296,25 @@ public class AuthService {
         return Duration.ofSeconds(authCodeService.codeTtlSeconds());
     }
 
+    /** Firebase sometimes answers INTERNAL to a delete right after a create, so the cleanup is retried. */
     private void rollbackFirebaseUser(String firebaseUid) {
-        try {
-            firebase.deleteUser(firebaseUid);
-        } catch (RuntimeException cleanupFailure) {
-            log.error("Could not delete Firebase user {} after a failed sign-up", firebaseUid, cleanupFailure);
+        for (int attempt = 1; attempt <= ROLLBACK_ATTEMPTS; attempt++) {
+            try {
+                firebase.deleteUser(firebaseUid);
+                return;
+            } catch (RuntimeException cleanupFailure) {
+                if (attempt == ROLLBACK_ATTEMPTS) {
+                    log.error("Could not delete Firebase user {} after a failed sign-up", firebaseUid, cleanupFailure);
+                    return;
+                }
+                log.warn("Deleting Firebase user {} failed (attempt {}), retrying", firebaseUid, attempt);
+                try {
+                    Thread.sleep(rollbackBackoff.toMillis() * attempt);
+                } catch (InterruptedException interrupted) {
+                    Thread.currentThread().interrupt();
+                    return;
+                }
+            }
         }
     }
 

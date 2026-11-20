@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.transaction.CannotCreateTransactionException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -71,6 +73,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFound(NoResourceFoundException ex, HttpServletRequest request) {
         return respond(ErrorCode.NOT_FOUND, request, List.of());
+    }
+
+    /** The database cannot be reached (connection refused or pool timeout): 503, safe to retry. */
+    @ExceptionHandler({DataAccessResourceFailureException.class, CannotCreateTransactionException.class})
+    public ResponseEntity<ErrorResponse> handleDatabaseDown(Exception ex, HttpServletRequest request) {
+        log.error("Database unavailable on {}: {}", request.getRequestURI(), ex.getMessage());
+        return respond(ErrorCode.SERVICE_UNAVAILABLE, request, List.of());
     }
 
     @ExceptionHandler(Exception.class)

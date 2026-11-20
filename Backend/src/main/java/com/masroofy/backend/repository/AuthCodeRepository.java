@@ -46,6 +46,14 @@ public class AuthCodeRepository {
                 toDb(code.createdAt()));
     }
 
+    /**
+     * Locks the user's row until the current transaction ends, so code checks and code issuing for one user run
+     * one at a time. Without it, parallel requests all read "attempts &lt; max" and get past the attempt limit.
+     */
+    public void lockUser(UUID userId) {
+        jdbcTemplate.query("SELECT id FROM users WHERE id = ? FOR UPDATE", (rs, rowNum) -> rs.getObject(1), userId);
+    }
+
     /** The most recently issued code for this purpose, whatever its state (used for the resend cooldown). */
     public Optional<AuthCode> findLatest(UUID userId, AuthCodePurpose purpose) {
         return jdbcTemplate.query(

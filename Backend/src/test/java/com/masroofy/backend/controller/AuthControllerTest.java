@@ -92,6 +92,17 @@ class AuthControllerTest {
     }
 
     @Test
+    void databaseDownIs503ServiceUnavailable() throws Exception {
+        when(authService.register(any()))
+                .thenThrow(new org.springframework.transaction.CannotCreateTransactionException("db down"));
+
+        mvc.perform(post("/api/v1/auth/register").contentType(MediaType.APPLICATION_JSON)
+                        .content(body(new RegisterRequest("Mariam Ali", "mariam@example.com", "Sunny-Nile9", true))))
+                .andExpect(status().isServiceUnavailable())
+                .andExpect(jsonPath("$.code").value("SERVICE_UNAVAILABLE"));
+    }
+
+    @Test
     void registerValidatesEveryField() throws Exception {
         mvc.perform(post("/api/v1/auth/register").contentType(MediaType.APPLICATION_JSON)
                         .content("{\"fullName\":\" \",\"email\":\"not-an-email\",\"password\":\"\",\"acceptedTerms\":false}"))
@@ -333,6 +344,6 @@ class AuthControllerTest {
 
         mvc.perform(post("/api/v1/auth/logout").header("Authorization", "Bearer good"))
                 .andExpect(status().isNoContent());
-        verify(authService).logout("uid-1");
+        verify(authService).logout(USER.id());
     }
 }

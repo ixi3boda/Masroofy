@@ -68,6 +68,7 @@ class AuthFlowIntegrationTest extends PostgresTestSupport {
     void cleanDatabase() {
         // Not @Transactional (requests run in their own transactions), so clean up explicitly.
         jdbcTemplate.update("DELETE FROM auth_codes");
+        jdbcTemplate.update("DELETE FROM code_dispatches");
         jdbcTemplate.update("DELETE FROM users");
     }
 
@@ -152,17 +153,68 @@ class AuthFlowIntegrationTest extends PostgresTestSupport {
         postJson("/api/v1/auth/password/reset", "{\"resetToken\":\"" + resetToken
                 + "\",\"newPassword\":\"Fresh-Start7\",\"confirmPassword\":\"Fresh-Start7\"}", 200);
         verify(firebase).updatePassword("uid-1", "Fresh-Start7");
+        verify(firebase).setSessionVersion("uid-1", 1);
         verify(firebase).revokeRefreshTokens("uid-1");
+
+        // The access token from before the reset no longer works, even though Firebase still accepts it
+        mvc.perform(get("/api/v1/users/me").header("Authorization", "Bearer id-1"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.code").value("UNAUTHORIZED"));
 
         // The reset token works only once
         JsonNode replay = postJson("/api/v1/auth/password/reset", "{\"resetToken\":\"" + resetToken
                 + "\",\"newPassword\":\"Fresh-Start8\",\"confirmPassword\":\"Fresh-Start8\"}", 400);
         assertThat(replay.path("code").asText()).isEqualTo("INVALID_RESET_TOKEN");
 
-        // Logout
-        mvc.perform(post("/api/v1/auth/logout").header("Authorization", "Bearer id-1"))
+        // A token minted after the reset carries session_version 1 and works
+        when(firebase.verifyIdToken("id-2", true)).thenReturn(new VerifiedToken("uid-1", EMAIL, 1));
+        mvc.perform(get("/api/v1/users/me").header("Authorization", "Bearer id-2"))
+                .andExpect(status().isOk());
+
+        // Logout ends it immediately
+        mvc.perform(post("/api/v1/auth/logout").header("Authorization", "Bearer id-2"))
                 .andExpect(status().isNoContent());
+        verify(firebase).setSessionVersion("uid-1", 2);
         verify(firebase, org.mockito.Mockito.times(2)).revokeRefreshTokens("uid-1");
+        mvc.perform(get("/api/v1/users/me").header("Authorization", "Bearer id-2"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void urlsRejectedByTheFirewallGetTheDocumentedErrorBody() throws Exception {
+        // MockMvc normalizes "//" before the firewall sees it, so call the registered handler directly;
+        // the hard test (SEC-10..15) checks the wiring with raw URLs against the running server.
+        var handler = context.getBean(org.springframework.security.web.firewall.RequestRejectedHandler.class);
+        var request = new org.springframework.mock.web.MockHttpServletRequest("GET", "/api/v1//users/me");
+        var response = new org.springframework.mock.web.MockHttpServletResponse();
+
+        handler.handle(request, response, new org.springframework.security.web.firewall.RequestRejectedException("//"));
+
+        JsonNode body = json.readTree(response.getContentAsString());
+        assertThat(response.getStatus()).isEqualTo(400);
+        assertThat(body.path("code").asText()).isEqualTo("MALFORMED_REQUEST");
+        assertThat(body.path("path").asText()).isEqualTo("/api/v1//users/me");
+    }
+
+    @Test
+    void secondResendAnswersTheSameForKnownAndUnknownEmails() throws Exception {
+        when(firebase.createUser(anyString(), anyString(), anyString())).thenReturn("uid-1");
+        postJson("/api/v1/auth/register", "{\"fullName\":\"Mariam Ali\",\"email\":\"mariam@example.com\","
+                + "\"password\":\"Sunny-Nile9\",\"acceptedTerms\":true}", 201);
+
+        // Sign-up started the cooldown for the real email; an unknown email gets it on its first call.
+        postJson("/api/v1/auth/email-verification/resend", "{\"email\":\"mariam@example.com\"}", 429);
+        postJson("/api/v1/auth/email-verification/resend", "{\"email\":\"nobody@example.com\"}", 202);
+        JsonNode unknown = postJson("/api/v1/auth/email-verification/resend", "{\"email\":\"nobody@example.com\"}", 429);
+        assertThat(unknown.path("code").asText()).isEqualTo("RESEND_COOLDOWN");
+
+        postJson("/api/v1/auth/password/forgot", "{\"email\":\"mariam@example.com\"}", 202);
+        postJson("/api/v1/auth/password/forgot", "{\"email\":\"nobody@example.com\"}", 202);
+        JsonNode known = postJson("/api/v1/auth/password/forgot", "{\"email\":\"mariam@example.com\"}", 429);
+        JsonNode stranger = postJson("/api/v1/auth/password/forgot", "{\"email\":\"nobody@example.com\"}", 429);
+        assertThat(known.path("code").asText()).isEqualTo(stranger.path("code").asText()).isEqualTo("RESEND_COOLDOWN");
+        assertThat(jdbcTemplate.queryForObject("SELECT count(*) FROM code_dispatches WHERE email_hash LIKE '%@%'",
+                Integer.class)).isZero();
     }
 
     @Test

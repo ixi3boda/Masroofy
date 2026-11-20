@@ -109,7 +109,7 @@ public class AuthController {
             content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(@AuthenticationPrincipal AuthenticatedUser user) {
-        authService.logout(user.firebaseUid());
+        authService.logout(user.userId());
         return ResponseEntity.noContent().build();
     }
 

@@ -6,6 +6,7 @@ import com.masroofy.backend.exception.ErrorCode;
 import com.masroofy.backend.model.AuthCode;
 import com.masroofy.backend.model.AuthCodePurpose;
 import com.masroofy.backend.repository.AuthCodeRepository;
+import com.masroofy.backend.repository.CodeDispatchRepository;
 import com.masroofy.backend.util.SecureCodes;
 import java.time.Clock;
 import java.time.Duration;
@@ -14,22 +15,39 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionTemplate;
 
 /** Issues and checks one-time email codes and password-reset tokens. */
 @Service
 public class AuthCodeService {
 
+    /** Rows older than this can no longer block a resend, so they are purged. */
+    private static final Duration DISPATCH_RETENTION = Duration.ofDays(1);
+
     private final AuthCodeRepository repository;
+    private final CodeDispatchRepository dispatchRepository;
     private final SecureCodes secureCodes;
     private final AuthProperties properties;
     private final Clock clock;
+    private final TransactionTemplate transactionTemplate;
 
-    public AuthCodeService(AuthCodeRepository repository, SecureCodes secureCodes, AuthProperties properties,
-                           Clock clock) {
+    public AuthCodeService(AuthCodeRepository repository, CodeDispatchRepository dispatchRepository,
+                           SecureCodes secureCodes, AuthProperties properties, Clock clock,
+                           TransactionTemplate transactionTemplate) {
         this.repository = repository;
+        this.dispatchRepository = dispatchRepository;
         this.secureCodes = secureCodes;
         this.properties = properties;
         this.clock = clock;
+        this.transactionTemplate = transactionTemplate;
+    }
+
+    private enum Verdict { ACCEPTED, NO_ACTIVE_CODE, TOO_MANY_ATTEMPTS, WRONG_CODE }
+
+    private record Outcome(Verdict verdict, int remainingAttempts) {
+        static Outcome of(Verdict verdict) {
+            return new Outcome(verdict, 0);
+        }
     }
 
     public record IssuedCode(String code, Instant expiresAt) {
@@ -53,6 +71,11 @@ public class AuthCodeService {
      */
     public IssuedCode issueCode(UUID userId, AuthCodePurpose purpose) {
         requireCodePurpose(purpose);
+        return transactionTemplate.execute(status -> issueCodeLocked(userId, purpose));
+    }
+
+    private IssuedCode issueCodeLocked(UUID userId, AuthCodePurpose purpose) {
+        repository.lockUser(userId);
         Instant now = clock.instant();
         Optional<AuthCode> latest = repository.findLatest(userId, purpose);
         if (latest.isPresent()) {
@@ -76,30 +99,75 @@ public class AuthCodeService {
      */
     public void verifyCode(UUID userId, AuthCodePurpose purpose, String code) {
         requireCodePurpose(purpose);
-        Instant now = clock.instant();
-        AuthCode active = repository.findLatestActive(userId, purpose, now)
-                .orElseThrow(() -> new ApiException(ErrorCode.INVALID_OR_EXPIRED_CODE));
+        // Decide inside the locked transaction, throw after it commits: a failed attempt must stay counted.
+        Outcome outcome = transactionTemplate.execute(status -> verifyCodeLocked(userId, purpose, code));
+        switch (outcome.verdict()) {
+            case ACCEPTED -> { }
+            case NO_ACTIVE_CODE -> throw new ApiException(ErrorCode.INVALID_OR_EXPIRED_CODE);
+            case TOO_MANY_ATTEMPTS -> throw new ApiException(ErrorCode.TOO_MANY_ATTEMPTS);
+            case WRONG_CODE -> throw new ApiException(ErrorCode.INVALID_CODE,
+                    Map.of("remainingAttempts", outcome.remainingAttempts()));
+        }
+    }
 
+    private Outcome verifyCodeLocked(UUID userId, AuthCodePurpose purpose, String code) {
+        repository.lockUser(userId);
+        Instant now = clock.instant();
+        Optional<AuthCode> found = repository.findLatestActive(userId, purpose, now);
+        if (found.isEmpty()) {
+            return Outcome.of(Verdict.NO_ACTIVE_CODE);
+        }
+        AuthCode active = found.get();
         if (active.attempts() >= properties.maxCodeAttempts()) {
             repository.consume(active.id(), now);
-            throw new ApiException(ErrorCode.TOO_MANY_ATTEMPTS);
+            return Outcome.of(Verdict.TOO_MANY_ATTEMPTS);
         }
         if (!secureCodes.matches(code, active.codeHash())) {
             int attempts = repository.incrementAttempts(active.id());
             if (attempts == 0) {
-                throw new ApiException(ErrorCode.INVALID_OR_EXPIRED_CODE);
+                return Outcome.of(Verdict.NO_ACTIVE_CODE);
             }
             int remaining = properties.maxCodeAttempts() - attempts;
             if (remaining <= 0) {
                 repository.consume(active.id(), now);
-                throw new ApiException(ErrorCode.TOO_MANY_ATTEMPTS);
+                return Outcome.of(Verdict.TOO_MANY_ATTEMPTS);
             }
-            throw new ApiException(ErrorCode.INVALID_CODE, Map.of("remainingAttempts", remaining));
+            return new Outcome(Verdict.WRONG_CODE, remaining);
         }
         if (!repository.consume(active.id(), now)) {
-            // Another request consumed it first.
-            throw new ApiException(ErrorCode.INVALID_OR_EXPIRED_CODE);
+            return Outcome.of(Verdict.NO_ACTIVE_CODE);
         }
+        return Outcome.of(Verdict.ACCEPTED);
+    }
+
+    /**
+     * The resend cooldown for "Resend code" and "Forgot password", applied per email address BEFORE looking the
+     * account up. Unknown and known emails therefore get identical answers, and parallel requests cannot share
+     * one slot.
+     *
+     * @throws ApiException {@link ErrorCode#RESEND_COOLDOWN} with {@code retryAfterSeconds}
+     */
+    public void reserveDispatch(String normalizedEmail, AuthCodePurpose purpose) {
+        requireCodePurpose(purpose);
+        Instant now = clock.instant();
+        dispatchRepository.deleteOlderThan(now.minus(DISPATCH_RETENTION));
+        Optional<Instant> takenAt = dispatchRepository.reserve(dispatchKey(normalizedEmail, purpose), purpose, now,
+                now.minus(properties.resendCooldown()));
+        if (takenAt.isPresent()) {
+            long retryAfter = Math.max(1, ceilSeconds(
+                    Duration.between(now, takenAt.get().plus(properties.resendCooldown()))));
+            throw new ApiException(ErrorCode.RESEND_COOLDOWN, Map.of("retryAfterSeconds", retryAfter));
+        }
+    }
+
+    /** Starts the per-email cooldown without checking it (sign-up sends the first code). */
+    public void recordDispatch(String normalizedEmail, AuthCodePurpose purpose) {
+        requireCodePurpose(purpose);
+        dispatchRepository.record(dispatchKey(normalizedEmail, purpose), purpose, clock.instant());
+    }
+
+    private String dispatchKey(String normalizedEmail, AuthCodePurpose purpose) {
+        return secureCodes.hash("code-dispatch:" + purpose.name() + ":" + normalizedEmail);
     }
 
     /** Issues the token that authorises "Set new password"; any earlier reset token stops working. */

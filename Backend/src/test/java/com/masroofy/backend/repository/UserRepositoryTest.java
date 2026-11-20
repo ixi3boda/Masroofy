@@ -75,6 +75,14 @@ class UserRepositoryTest extends PostgresTestSupport {
     }
 
     @Test
+    void emailLockCanBeTakenInsideATransaction() {
+        // @JdbcTest runs each test in a transaction, which is where the advisory lock lives.
+        repository.lockEmail("mariam@example.com");
+        repository.lockEmail("mariam@example.com");   // re-entrant for the same transaction
+        assertThat(repository.existsByEmail("mariam@example.com")).isFalse();
+    }
+
+    @Test
     void markEmailVerifiedOnlyOnce() {
         User user = newUser("mariam@example.com", "uid-1");
         repository.insert(user);
@@ -87,5 +95,19 @@ class UserRepositoryTest extends PostgresTestSupport {
         assertThat(reloaded.emailVerifiedAt()).isEqualTo(verifiedAt);
         assertThat(reloaded.updatedAt()).isEqualTo(verifiedAt);
         assertThat(reloaded.isEmailVerified()).isTrue();
+    }
+
+    @Test
+    void sessionVersionStartsAtZeroAndOnlyGoesUp() {
+        User user = newUser("mariam@example.com", "uid-1");
+        repository.insert(user);
+        assertThat(repository.findById(user.id()).orElseThrow().sessionVersion()).isZero();
+
+        assertThat(repository.raiseSessionVersion(user.id(), 2)).isEqualTo(1);
+        assertThat(repository.findById(user.id()).orElseThrow().sessionVersion()).isEqualTo(2);
+
+        // A late, stale logout must not lower it.
+        repository.raiseSessionVersion(user.id(), 1);
+        assertThat(repository.findById(user.id()).orElseThrow().sessionVersion()).isEqualTo(2);
     }
 }

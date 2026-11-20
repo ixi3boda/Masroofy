@@ -32,6 +32,7 @@ import com.masroofy.backend.model.AuthCode;
 import com.masroofy.backend.model.AuthCodePurpose;
 import com.masroofy.backend.model.User;
 import com.masroofy.backend.repository.UserRepository;
+import com.masroofy.backend.util.SecureCodes;
 import com.masroofy.backend.service.AuthCodeService.IssuedCode;
 import com.masroofy.backend.service.AuthCodeService.IssuedToken;
 import java.time.Clock;
@@ -71,12 +72,15 @@ class AuthServiceTest {
     private EmailService emailService;
 
     private AuthService service;
+    private final RefreshTokenSeal seal = new RefreshTokenSeal(
+            new SecureCodes("test-secret-test-secret-test-secret-123", new java.security.SecureRandom()));
 
     @BeforeEach
     void setUp() {
         TransactionTemplate tx = new TransactionTemplate(mock(PlatformTransactionManager.class));
         service = new AuthService(userRepository, authCodeService, firebase, emailService, new PasswordPolicy(), tx,
-                Clock.fixed(NOW, ZoneOffset.UTC));
+                Clock.fixed(NOW, ZoneOffset.UTC), seal);
+        service.rollbackBackoff = Duration.ZERO;
         lenient().when(authCodeService.codeLength()).thenReturn(6);
         lenient().when(authCodeService.codeTtlSeconds()).thenReturn(600L);
         lenient().when(authCodeService.resendCooldownSeconds()).thenReturn(60L);
@@ -172,6 +176,48 @@ class AuthServiceTest {
         }
 
         @Test
+        void signUpIsSerializedPerEmailBeforeFirebaseIsCalled() {
+            when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
+            when(firebase.createUser(EMAIL, GOOD_PASSWORD, "Mariam Ali")).thenReturn(UID);
+            when(authCodeService.issueCode(any(), any())).thenReturn(new IssuedCode("042517", NOW.plusSeconds(600)));
+
+            service.register(request);
+
+            InOrder order = inOrder(userRepository, firebase, authCodeService);
+            order.verify(userRepository).lockEmail(EMAIL);
+            order.verify(userRepository).existsByEmail(EMAIL);
+            order.verify(firebase).createUser(EMAIL, GOOD_PASSWORD, "Mariam Ali");
+            order.verify(userRepository).insert(any());
+            order.verify(authCodeService).recordDispatch(EMAIL, AuthCodePurpose.EMAIL_VERIFICATION);
+            order.verify(authCodeService).issueCode(any(), eq(AuthCodePurpose.EMAIL_VERIFICATION));
+        }
+
+        @Test
+        void firebaseCleanupIsRetriedUntilItWorks() {
+            when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
+            when(firebase.createUser(anyString(), anyString(), anyString())).thenReturn(UID);
+            doThrow(new DuplicateKeyException("uk_users_firebase_uid")).when(userRepository).insert(any());
+            doThrow(new ApiException(ErrorCode.AUTH_PROVIDER_UNAVAILABLE))
+                    .doThrow(new ApiException(ErrorCode.AUTH_PROVIDER_UNAVAILABLE))
+                    .doNothing()
+                    .when(firebase).deleteUser(UID);
+
+            assertError(() -> service.register(request), ErrorCode.EMAIL_ALREADY_IN_USE);
+            verify(firebase, org.mockito.Mockito.times(3)).deleteUser(UID);
+        }
+
+        @Test
+        void emailTakenInFirebaseOnlyDeletesNothing() {
+            when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
+            when(firebase.createUser(anyString(), anyString(), anyString()))
+                    .thenThrow(new ApiException(ErrorCode.EMAIL_ALREADY_IN_USE));
+
+            assertError(() -> service.register(request), ErrorCode.EMAIL_ALREADY_IN_USE);
+            verify(firebase, never()).deleteUser(any());
+            verify(userRepository, never()).insert(any());
+        }
+
+        @Test
         void accountIsStillCreatedWhenEmailFails() {
             when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
             when(firebase.createUser(anyString(), anyString(), anyString())).thenReturn(UID);
@@ -242,6 +288,16 @@ class AuthServiceTest {
         }
 
         @Test
+        void resendCooldownIsCheckedBeforeTheLookupSoUnknownEmailsAnswerTheSame() {
+            doThrow(new ApiException(ErrorCode.RESEND_COOLDOWN)).when(authCodeService)
+                    .reserveDispatch("nobody@example.com", AuthCodePurpose.EMAIL_VERIFICATION);
+
+            assertError(() -> service.resendVerificationCode(new EmailRequest("Nobody@Example.com")),
+                    ErrorCode.RESEND_COOLDOWN);
+            verify(userRepository, never()).findByEmail(any());
+        }
+
+        @Test
         void resendSendsANewCode() {
             User user = user(false);
             when(userRepository.findByEmail(EMAIL)).thenReturn(Optional.of(user));
@@ -280,7 +336,8 @@ class AuthServiceTest {
             AuthTokensResponse response = service.login(new LoginRequest(" Mariam@Example.com", GOOD_PASSWORD));
 
             assertThat(response.accessToken()).isEqualTo("id-token");
-            assertThat(response.refreshToken()).isEqualTo("refresh-token");
+            assertThat(seal.unseal(response.refreshToken()))
+                    .contains(new RefreshTokenSeal.Unsealed(0, "refresh-token"));
             assertThat(response.tokenType()).isEqualTo("Bearer");
             assertThat(response.expiresIn()).isEqualTo(3600);
             assertThat(response.user().email()).isEqualTo(EMAIL);
@@ -320,7 +377,10 @@ class AuthServiceTest {
             when(firebase.refreshSession("refresh-token")).thenReturn(session());
             when(userRepository.findByFirebaseUid(UID)).thenReturn(Optional.of(user(true)));
 
-            assertThat(service.refresh(new RefreshTokenRequest("refresh-token")).accessToken()).isEqualTo("id-token");
+            AuthTokensResponse response = service.refresh(new RefreshTokenRequest(seal.seal(0, "refresh-token")));
+
+            assertThat(response.accessToken()).isEqualTo("id-token");
+            assertThat(seal.unseal(response.refreshToken())).contains(new RefreshTokenSeal.Unsealed(0, "refresh-token"));
         }
 
         @Test
@@ -328,15 +388,61 @@ class AuthServiceTest {
             when(firebase.refreshSession("refresh-token")).thenReturn(session());
             when(userRepository.findByFirebaseUid(UID)).thenReturn(Optional.empty());
 
-            assertError(() -> service.refresh(new RefreshTokenRequest("refresh-token")),
+            assertError(() -> service.refresh(new RefreshTokenRequest(seal.seal(0, "refresh-token"))),
                     ErrorCode.INVALID_REFRESH_TOKEN);
         }
 
         @Test
-        void logoutRevokesRefreshTokens() {
-            service.logout(UID);
+        void refreshTokenIssuedBeforeLastLogoutIsRejected() {
+            User user = new User(user(true).id(), UID, EMAIL, null, "Mariam Ali", "EGP", "en", "Africa/Cairo", null,
+                    NOW, NOW, NOW, NOW, 2);
+            when(firebase.refreshSession("refresh-token")).thenReturn(session());
+            when(userRepository.findByFirebaseUid(UID)).thenReturn(Optional.of(user));
 
-            verify(firebase).revokeRefreshTokens(UID);
+            assertError(() -> service.refresh(new RefreshTokenRequest(seal.seal(1, "refresh-token"))),
+                    ErrorCode.INVALID_REFRESH_TOKEN);
+        }
+
+        @Test
+        void unsealedOrTamperedRefreshTokenNeverReachesFirebase() {
+            String sealed = seal.seal(0, "refresh-token");
+            for (String bad : new String[] {"refresh-token", "5" + sealed.substring(1), sealed + "x"}) {
+                assertError(() -> service.refresh(new RefreshTokenRequest(bad)), ErrorCode.INVALID_REFRESH_TOKEN);
+            }
+            verifyNoInteractions(firebase);
+        }
+
+        @Test
+        void logoutRaisesSessionVersionAndRevokesRefreshTokens() {
+            User user = user(true);
+            when(userRepository.findById(user.id())).thenReturn(Optional.of(user));
+
+            service.logout(user.id());
+
+            InOrder order = inOrder(firebase, userRepository);
+            order.verify(firebase).setSessionVersion(UID, 1);
+            order.verify(firebase).revokeRefreshTokens(UID);
+            order.verify(userRepository).raiseSessionVersion(user.id(), 1);
+        }
+
+        @Test
+        void logoutChangesNothingWhenFirebaseIsUnavailable() {
+            User user = user(true);
+            when(userRepository.findById(user.id())).thenReturn(Optional.of(user));
+            doThrow(new ApiException(ErrorCode.AUTH_PROVIDER_UNAVAILABLE)).when(firebase).setSessionVersion(UID, 1);
+
+            assertError(() -> service.logout(user.id()), ErrorCode.AUTH_PROVIDER_UNAVAILABLE);
+            verify(firebase, never()).revokeRefreshTokens(anyString());
+            verify(userRepository, never()).raiseSessionVersion(any(), eq(1));
+        }
+
+        @Test
+        void logoutForDeletedProfileIsUnauthorized() {
+            UUID id = UUID.randomUUID();
+            when(userRepository.findById(id)).thenReturn(Optional.empty());
+
+            assertError(() -> service.logout(id), ErrorCode.UNAUTHORIZED);
+            verifyNoInteractions(firebase);
         }
     }
 
@@ -385,6 +491,16 @@ class AuthServiceTest {
         }
 
         @Test
+        void forgotCooldownIsCheckedBeforeTheLookupSoUnknownEmailsAnswerTheSame() {
+            doThrow(new ApiException(ErrorCode.RESEND_COOLDOWN)).when(authCodeService)
+                    .reserveDispatch("nobody@example.com", AuthCodePurpose.PASSWORD_RESET);
+
+            assertError(() -> service.forgotPassword(new EmailRequest("nobody@example.com")),
+                    ErrorCode.RESEND_COOLDOWN);
+            verify(userRepository, never()).findByEmail(any());
+        }
+
+        @Test
         void verifyResetCodeForUnknownEmailLooksLikeWrongCode() {
             when(userRepository.findByEmail(EMAIL)).thenReturn(Optional.empty());
 
@@ -404,10 +520,12 @@ class AuthServiceTest {
                     new ResetPasswordRequest("reset-token", "Fresh-Start7", "Fresh-Start7"));
 
             assertThat(response.message()).contains("reset successfully");
-            InOrder order = inOrder(firebase, authCodeService);
+            InOrder order = inOrder(firebase, authCodeService, userRepository);
             order.verify(firebase).updatePassword(UID, "Fresh-Start7");
             order.verify(authCodeService).consume(resetToken);
+            order.verify(firebase).setSessionVersion(UID, 1);
             order.verify(firebase).revokeRefreshTokens(UID);
+            order.verify(userRepository).raiseSessionVersion(user.id(), 1);
             verify(userRepository, never()).markEmailVerified(any(), any());
         }
 

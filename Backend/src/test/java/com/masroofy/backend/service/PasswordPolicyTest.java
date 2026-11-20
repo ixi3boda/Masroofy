@@ -18,7 +18,7 @@ class PasswordPolicyTest {
     private final PasswordPolicy policy = new PasswordPolicy();
 
     @ParameterizedTest
-    @ValueSource(strings = {"Sunny-Nile9", "kofta#lover", "12345678", "blue horse 7"})
+    @ValueSource(strings = {"Sunny-Nile9", "kofta#lover", "kite-runner-71", "blue horse 7"})
     void acceptsPasswordsMeetingEveryRequirement(String password) {
         assertThat(policy.check(password, NAME, EMAIL)).isEmpty();
     }
@@ -43,6 +43,27 @@ class PasswordPolicyTest {
     @ValueSource(strings = {"MARIAM2024!", "xx-ali-xx-9", "mariam.ali#1"})
     void rejectsPasswordsContainingNameOrEmail(String password) {
         assertThat(policy.check(password, NAME, EMAIL)).containsExactly(Rule.NO_PERSONAL_INFO);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"12345678", "87654321", "!!!!!!!!", "password1", "Password123!", "P@ssw0rd",
+            "Qwerty123!", "qwertyuiop1", "1q2w3e4r", "Football#1"})
+    void rejectsCommonOrEasilyGuessedPasswords(String password) {
+        assertThat(policy.check(password, NAME, EMAIL)).contains(Rule.COMMON_PASSWORD);
+    }
+
+    @Test
+    void sequencesAndRepeatsAreCaughtWithoutTheList() {
+        assertThat(policy.isCommon("abcdefgh")).isTrue();
+        assertThat(policy.isCommon("zyxwvuts")).isTrue();
+        assertThat(policy.isCommon("aaaaaaaa")).isTrue();
+        assertThat(policy.isCommon("asdfghjk")).isTrue();
+        assertThat(policy.isCommon("abcdefgx")).isFalse();
+    }
+
+    @Test
+    void shortPasswordsOnlyReportTheLengthRules() {
+        assertThat(policy.check("1234567", NAME, EMAIL)).containsExactly(Rule.MIN_LENGTH);
     }
 
     @Test

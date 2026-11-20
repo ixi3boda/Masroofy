@@ -18,6 +18,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.firewall.RequestRejectedHandler;
 import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
@@ -73,6 +74,16 @@ public class SecurityConfig {
                         }))
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
+    }
+
+    /**
+     * URLs refused by Spring Security's firewall ({@code //}, {@code %2e%2e}, {@code ;jsessionid}, ...) get the
+     * documented error body instead of Spring Boot's default one.
+     */
+    @Bean
+    public RequestRejectedHandler requestRejectedHandler(ErrorResponseWriter errorWriter) {
+        return (request, response, ex) -> errorWriter.write(request, response, ErrorCode.MALFORMED_REQUEST,
+                "The request URL is not allowed.");
     }
 
     static RequestMatcher publicEndpoints() {

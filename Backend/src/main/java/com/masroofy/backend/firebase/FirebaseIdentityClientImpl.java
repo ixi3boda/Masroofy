@@ -112,10 +112,25 @@ public class FirebaseIdentityClientImpl implements FirebaseIdentityClient {
     }
 
     @Override
+    public void setSessionVersion(String uid, int version) {
+        try {
+            firebaseAuth.setCustomUserClaims(uid, Map.of(SESSION_VERSION_CLAIM, version));
+        } catch (FirebaseAuthException e) {
+            if (e.getAuthErrorCode() == AuthErrorCode.USER_NOT_FOUND) {
+                throw new ApiException(ErrorCode.USER_NOT_FOUND);
+            }
+            throw unavailable("setSessionVersion", e);
+        }
+    }
+
+    @Override
     public VerifiedToken verifyIdToken(String idToken, boolean checkRevoked) {
         try {
             FirebaseToken token = firebaseAuth.verifyIdToken(idToken, checkRevoked);
-            return new VerifiedToken(token.getUid(), token.getEmail());
+            Map<String, Object> claims = token.getClaims();
+            Object version = claims == null ? null : claims.get(SESSION_VERSION_CLAIM);
+            return new VerifiedToken(token.getUid(), token.getEmail(),
+                    version instanceof Number number ? number.intValue() : 0);
         } catch (FirebaseAuthException e) {
             AuthErrorCode code = e.getAuthErrorCode();
             if (code == AuthErrorCode.USER_DISABLED) {

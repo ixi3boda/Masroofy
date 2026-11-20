@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -15,6 +16,7 @@ import com.masroofy.backend.exception.ErrorCode;
 import com.masroofy.backend.model.AuthCode;
 import com.masroofy.backend.model.AuthCodePurpose;
 import com.masroofy.backend.repository.AuthCodeRepository;
+import com.masroofy.backend.repository.CodeDispatchRepository;
 import com.masroofy.backend.service.AuthCodeService.IssuedCode;
 import com.masroofy.backend.service.AuthCodeService.IssuedToken;
 import com.masroofy.backend.util.SecureCodes;
@@ -31,6 +33,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 @ExtendWith(MockitoExtension.class)
 class AuthCodeServiceTest {
@@ -40,6 +44,8 @@ class AuthCodeServiceTest {
 
     @Mock
     private AuthCodeRepository repository;
+    @Mock
+    private CodeDispatchRepository dispatchRepository;
 
     private final SecureCodes secureCodes =
             new SecureCodes("test-secret-test-secret-test-secret-123", new SecureRandom());
@@ -50,7 +56,66 @@ class AuthCodeServiceTest {
 
     @BeforeEach
     void setUp() {
-        service = new AuthCodeService(repository, secureCodes, properties, Clock.fixed(NOW, ZoneOffset.UTC));
+        service = new AuthCodeService(repository, dispatchRepository, secureCodes, properties,
+                Clock.fixed(NOW, ZoneOffset.UTC), new TransactionTemplate(mock(PlatformTransactionManager.class)));
+    }
+
+    // ---- locking and per-email cooldown ----
+
+    @Test
+    void issuingAndCheckingCodesLockTheUserRowFirst() {
+        when(repository.findLatest(USER_ID, AuthCodePurpose.EMAIL_VERIFICATION)).thenReturn(Optional.empty());
+        service.issueCode(USER_ID, AuthCodePurpose.EMAIL_VERIFICATION);
+        when(repository.findLatestActive(USER_ID, AuthCodePurpose.EMAIL_VERIFICATION, NOW)).thenReturn(Optional.empty());
+        assertThatThrownBy(() -> service.verifyCode(USER_ID, AuthCodePurpose.EMAIL_VERIFICATION, "123456"))
+                .isInstanceOf(ApiException.class);
+
+        org.mockito.InOrder order = org.mockito.Mockito.inOrder(repository);
+        order.verify(repository).lockUser(USER_ID);
+        order.verify(repository).findLatest(USER_ID, AuthCodePurpose.EMAIL_VERIFICATION);
+        order.verify(repository).lockUser(USER_ID);
+        order.verify(repository).findLatestActive(USER_ID, AuthCodePurpose.EMAIL_VERIFICATION, NOW);
+    }
+
+    @Test
+    void reserveDispatchTakesTheSlotKeyedByAHashOfTheEmail() {
+        when(dispatchRepository.reserve(anyString(), eq(AuthCodePurpose.PASSWORD_RESET), eq(NOW),
+                eq(NOW.minusSeconds(60)))).thenReturn(Optional.empty());
+
+        service.reserveDispatch("mariam@example.com", AuthCodePurpose.PASSWORD_RESET);
+
+        ArgumentCaptor<String> key = ArgumentCaptor.forClass(String.class);
+        verify(dispatchRepository).reserve(key.capture(), eq(AuthCodePurpose.PASSWORD_RESET), eq(NOW),
+                eq(NOW.minusSeconds(60)));
+        assertThat(key.getValue()).hasSize(64).doesNotContain("mariam");
+        verify(dispatchRepository).deleteOlderThan(NOW.minus(Duration.ofDays(1)));
+    }
+
+    @Test
+    void reserveDispatchWithinTheCooldownReportsTheTimeLeft() {
+        when(dispatchRepository.reserve(anyString(), any(), any(), any()))
+                .thenReturn(Optional.of(NOW.minusSeconds(15)));
+
+        assertThatThrownBy(() -> service.reserveDispatch("nobody@example.com", AuthCodePurpose.EMAIL_VERIFICATION))
+                .isInstanceOfSatisfying(ApiException.class, e -> {
+                    assertThat(e.getErrorCode()).isEqualTo(ErrorCode.RESEND_COOLDOWN);
+                    assertThat(e.getDetails()).containsEntry("retryAfterSeconds", 45L);
+                });
+    }
+
+    @Test
+    void sameEmailGivesTheSameKeyForEveryCallAndPurposeIsPartOfIt() {
+        when(dispatchRepository.reserve(anyString(), any(), any(), any())).thenReturn(Optional.empty());
+        service.reserveDispatch("a@example.com", AuthCodePurpose.EMAIL_VERIFICATION);
+        service.recordDispatch("a@example.com", AuthCodePurpose.EMAIL_VERIFICATION);
+        service.reserveDispatch("a@example.com", AuthCodePurpose.PASSWORD_RESET);
+
+        ArgumentCaptor<String> reserved = ArgumentCaptor.forClass(String.class);
+        verify(dispatchRepository, org.mockito.Mockito.times(2)).reserve(reserved.capture(), any(), any(), any());
+        ArgumentCaptor<String> recorded = ArgumentCaptor.forClass(String.class);
+        verify(dispatchRepository).record(recorded.capture(), eq(AuthCodePurpose.EMAIL_VERIFICATION), eq(NOW));
+        assertThat(recorded.getValue()).isEqualTo(reserved.getAllValues().get(0))
+                .isNotEqualTo(reserved.getAllValues().get(1));
     }
 
     private AuthCode code(String plain, int attempts, Instant createdAt) {
