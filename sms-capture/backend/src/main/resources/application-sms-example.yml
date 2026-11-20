@@ -1,0 +1,23 @@
+# Copy what you need into your application.yml. Everything here has a default.
+app:
+  sms:
+    auto-confirm: true                 # false = every SMS transaction waits for the user's review (pure "drafts")
+    auto-confirm-min-confidence: 0.85  # below this the transaction becomes a draft (LOW_CONFIDENCE)
+    duplicate-window-minutes: 10       # same amount/type/account/merchant this close together -> POSSIBLE_DUPLICATE
+    transfer-match-window-minutes: 30  # link a transfer out and a transfer in between the user's own accounts
+    zone: Africa/Cairo                 # SMS times are local time
+    store-transaction-text: true       # keep SMS text of transactions (never of OTPs/offers)
+    senders:                           # replaces the built-in list; users can add their own via PUT /api/sms/senders
+      - { id: "NileBank",     name: "NileBank",     kind: BANK }
+      - { id: "Luxor Bank",   name: "Luxor Bank",   kind: BANK }
+      - { id: "SphinxCard",   name: "SphinxCard",   kind: CARD }
+      - { id: "Giza Finance", name: "Giza Finance", kind: CARD }
+      - { id: "DeltaPay",     name: "DeltaPay",     kind: BANK }
+      - { id: "Cairo Wallet", name: "Cairo Wallet", kind: WALLET }
+      - { id: "Pharos Pay",   name: "Pharos Pay",   kind: WALLET }
+      - { id: "Sinai Pay",    name: "Sinai Pay",    kind: WALLET }
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate               # tables come from Flyway (db/migration/V100__sms_capture.sql)

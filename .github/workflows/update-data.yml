@@ -1,0 +1,33 @@
+name: Update market data
+on:
+  schedule:
+    - cron: "0 7 * * *"   # every day at 07:00 UTC
+  workflow_dispatch:       # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      # Each step may fail (a site can block GitHub servers); the others still run.
+      - run: python scripts/update_fx.py
+        continue-on-error: true
+      - run: python scripts/update_gold_official.py
+        continue-on-error: true
+      - run: python scripts/update_stocks.py
+        continue-on-error: true
+      - run: python scripts/export_data.py
+      - name: Commit new data
+        run: |
+          git config user.name "data-bot"
+          git config user.email "data-bot@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "Update market data"
+          git push
