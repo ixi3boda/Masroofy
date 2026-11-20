@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { colors, radii } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Divider from '@components/atoms/Divider';
+import { strings } from '@/strings';
 
 export interface ReceiptLineItem {
   label: string;
@@ -48,7 +49,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
   <View
     style={styles.slip}
     accessible
-    accessibilityLabel={`Receipt from ${merchant}, ${date} ${time}, total ${total}`}
+    accessibilityLabel={strings.common.a11y.receipt(merchant, date, time, total)}
   >
     <AppText variant="subheading16" align="center" style={styles.merchant}>
       {merchant}

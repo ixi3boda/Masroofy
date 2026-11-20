@@ -4,6 +4,7 @@ import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Icon from '@components/atoms/Icon';
 import IconBadge from '@components/atoms/IconBadge';
+import { strings } from '@/strings';
 
 export interface BrandMarkProps {
   style?: StyleProp<ViewStyle>;
@@ -14,7 +15,7 @@ const BrandMark: React.FC<BrandMarkProps> = ({ style }) => (
     <IconBadge size="sm">
       <Icon name="wallet" size={36} color={colors.text.inverse} />
     </IconBadge>
-    <AppText variant="h1">Masroofy</AppText>
+    <AppText variant="h1">{strings.common.appName}</AppText>
   </View>
 );
 

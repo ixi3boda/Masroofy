@@ -8,15 +8,20 @@ import Card from '@components/atoms/Card';
 import StateSummary from '@components/molecules/StateSummary';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
-import { mockAuthService } from '@/services/mockAuthService';
+import { ROUTES } from '@/navigation/routes';
+import { authService } from '@/services/authService';
+import { strings } from '@/strings';
 import { getEmailError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
+const copy = strings.auth.forgotPassword;
+const { fields } = strings.common;
+
 const ForgotPasswordScreen: React.FC = () => {
   const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | undefined>();
   const [submitting, setSubmitting] = useState(false);
-  const goBack = useGoBack('/(auth)/login');
+  const goBack = useGoBack(ROUTES.auth.login);
 
   const handleSubmit = async () => {
     const error = getEmailError(email);
@@ -24,11 +29,11 @@ const ForgotPasswordScreen: React.FC = () => {
       setEmailError(error);
       return;
     }
-    setEmailError(null);
+    setEmailError(undefined);
     setSubmitting(true);
     try {
-      const { email: requestedEmail } = await mockAuthService.requestPasswordReset(email);
-      router.push({ pathname: '/(auth)/check-email', params: { email: requestedEmail } });
+      const { email: requestedEmail } = await authService.requestPasswordReset(email);
+      router.push({ pathname: ROUTES.auth.checkEmail, params: { email: requestedEmail } });
     } finally {
       setSubmitting(false);
     }
@@ -36,29 +41,29 @@ const ForgotPasswordScreen: React.FC = () => {
 
   return (
     <ScreenLayout
-      title="Forgot password"
+      title={copy.title}
       onBack={goBack}
       footer={
         <>
-          <Button title="Request reset link" onPress={handleSubmit} loading={submitting} disabled={!email} />
-          <Button title="Back to log in" variant="outline" onPress={() => router.dismissTo('/(auth)/login')} />
+          <Button title={copy.submit} onPress={handleSubmit} loading={submitting} disabled={!email} />
+          <Button
+            title={strings.common.backToLogin}
+            variant="outline"
+            onPress={() => router.dismissTo(ROUTES.auth.login)}
+          />
         </>
       }
     >
-      <StateSummary
-        icon="mail"
-        heading="Let’s reset your password"
-        description="Enter the email associated with your account to request a password reset link."
-      />
+      <StateSummary icon="mail" heading={copy.heading} description={copy.description} />
 
       <Card>
         <Input
-          label="Email address"
-          placeholder="Enter your email"
+          label={fields.emailLabel}
+          placeholder={fields.emailPlaceholder}
           value={email}
           onChangeText={(value) => {
             setEmail(value);
-            setEmailError(null);
+            setEmailError(undefined);
           }}
           hasError={!!emailError}
           errorMessage={emailError}
@@ -67,12 +72,12 @@ const ForgotPasswordScreen: React.FC = () => {
         />
         {!emailError ? (
           <AppText variant="body12" color={colors.text.secondary}>
-            Check the address before continuing.
+            {copy.emailHint}
           </AppText>
         ) : null}
       </Card>
 
-      <FeedbackBanner tone="info" title="Email request preview" message="This is a static request screen. No email will be sent." />
+      <FeedbackBanner tone="info" title={copy.previewTitle} message={copy.previewMessage} />
     </ScreenLayout>
   );
 };

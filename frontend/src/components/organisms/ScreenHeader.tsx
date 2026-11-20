@@ -3,6 +3,7 @@ import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import IconButton from '@components/atoms/IconButton';
+import { strings } from '@/strings';
 
 export interface ScreenHeaderProps {
   title: string;
@@ -25,7 +26,7 @@ const SIDE_MIN_WIDTH = 40;
 const ScreenHeader: React.FC<ScreenHeaderProps> = ({ title, onBack, left, right, titleAlign = 'center', style }) => {
   const centered = titleAlign === 'center';
   const leading =
-    left ?? (onBack ? <IconButton name="chevron-left" accessibilityLabel="Go back" onPress={onBack} size={32} /> : null);
+    left ?? (onBack ? <IconButton name="chevron-left" accessibilityLabel={strings.common.a11y.goBack} onPress={onBack} size={32} /> : null);
 
   return (
     <View style={[styles.container, style]}>

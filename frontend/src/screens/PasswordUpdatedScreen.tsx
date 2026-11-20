@@ -3,38 +3,34 @@ import { router } from 'expo-router';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
 import StateSummary from '@components/molecules/StateSummary';
-import SummaryCard from '@components/organisms/SummaryCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
+import SummaryCard from '@components/organisms/SummaryCard';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { ROUTES } from '@/navigation/routes';
+import { strings } from '@/strings';
 import { useHardwareBack } from '@/hooks/useBackNavigation';
 
+const copy = strings.auth.passwordUpdated;
+
 // The reset is finished, so every "back" lands on login rather than the reset form.
-const returnToLogin = () => router.dismissTo('/(auth)/login');
+const returnToLogin = () => router.dismissTo(ROUTES.auth.login);
 
 const PasswordUpdatedScreen: React.FC = () => {
   useHardwareBack(returnToLogin);
 
   return (
     <ScreenLayout
-      title="Password updated"
+      title={copy.title}
       onBack={returnToLogin}
-      footer={<Button title="Continue to Login" onPress={returnToLogin} />}
+      footer={<Button title={copy.submit} onPress={returnToLogin} />}
     >
-      <Chip label="Confirmation preview" tone="info" />
+      <Chip label={copy.previewChip} tone="info" />
 
-      <StateSummary
-        icon="shield-check"
-        heading="Password updated"
-        description="Your password has been reset successfully."
-      />
+      <StateSummary icon="shield-check" heading={copy.heading} description={copy.description} />
 
-      <SummaryCard heading="Ready to return" rows={['Use your new password the next time you log in.']} />
+      <SummaryCard heading={copy.nextHeading} rows={copy.nextSteps} />
 
-      <FeedbackBanner
-        tone="info"
-        title="Static confirmation"
-        message="No password has been changed. This preview does not authenticate an account."
-      />
+      <FeedbackBanner tone="info" title={copy.previewTitle} message={copy.previewMessage} />
     </ScreenLayout>
   );
 };

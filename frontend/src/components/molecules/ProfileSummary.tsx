@@ -5,6 +5,7 @@ import AppText from '@components/atoms/Text';
 import Avatar from '@components/atoms/Avatar';
 import Button from '@components/atoms/Button';
 import Card from '@components/atoms/Card';
+import { strings } from '@/strings';
 
 export interface ProfileSummaryProps {
   name: string;
@@ -26,7 +27,7 @@ const ProfileSummary: React.FC<ProfileSummaryProps> = ({ name, location, onEdit 
         ) : null}
       </View>
     </View>
-    {onEdit ? <Button title="Edit profile →" variant="link" size="sm" onPress={onEdit} style={styles.edit} /> : null}
+    {onEdit ? <Button title={strings.common.linkArrow(strings.common.profile.edit)} variant="link" size="sm" onPress={onEdit} style={styles.edit} /> : null}
   </Card>
 );
 

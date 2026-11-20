@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { colors, radii, shadows } from '@theme/index';
 import AppText from '@components/atoms/Text';
+import { strings } from '@/strings';
 
 export interface ConfirmDialogProps {
   visible: boolean;
@@ -23,7 +24,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({ visible, title, message, 
     onRequestClose={onDismiss}
   >
     <View style={styles.backdrop}>
-      <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} accessibilityLabel="Dismiss" />
+      <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} accessibilityLabel={strings.common.a11y.dismiss} />
       <View style={styles.dialog} accessibilityViewIsModal accessibilityRole="alert">
         <AppText variant="subheading18">{title}</AppText>
         <AppText variant="body14">{message}</AppText>

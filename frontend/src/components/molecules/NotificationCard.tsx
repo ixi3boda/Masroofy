@@ -6,6 +6,7 @@ import Button from '@components/atoms/Button';
 import Card from '@components/atoms/Card';
 import Chip, { ChipProps } from '@components/atoms/Chip';
 import Icon, { IconName } from '@components/atoms/Icon';
+import { strings } from '@/strings';
 
 export interface NotificationCardProps {
   status: Pick<ChipProps, 'label' | 'tone'>;
@@ -30,7 +31,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({ status, icon, title
     <AppText variant="body12" color={colors.text.secondary}>
       {timestamp}
     </AppText>
-    {action ? <Button title={`${action.label} →`} variant="link" size="sm" onPress={action.onPress} style={styles.action} /> : null}
+    {action ? <Button title={strings.common.linkArrow(action.label)} variant="link" size="sm" onPress={action.onPress} style={styles.action} /> : null}
   </Card>
 );
 

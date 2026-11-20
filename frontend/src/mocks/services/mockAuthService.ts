@@ -1,48 +1,16 @@
 import { AuthUser } from '@/types/auth';
+import { AppError } from '@/utils/errors';
+import { MOCK_TEST_ACCOUNTS, MOCK_VERIFICATION_CODE } from '@/mocks/data/authAccounts';
 
 /**
- * In-memory stand-in for the real auth API so the "01 / Welcome, Authentication
- * & Onboarding" screens can be built and tested end to end before the backend
- * exists. Swap this module out for the real API client once it's ready — every
- * screen only talks to the named exports below, never to the state underneath.
+ * In-memory stand-in for the auth backend so the "01 / Welcome, Authentication
+ * & Onboarding" screens can be tested end to end. Screens never import this
+ * file directly — they use `@/services/authService`, which points here today.
  */
 
 interface StoredUser extends AuthUser {
   password: string;
 }
-
-export interface MockTestAccount {
-  /** What this account is useful for, shown nowhere but QA notes/docs. */
-  scenario: string;
-  fullName: string;
-  email: string;
-  password: string;
-}
-
-/** Seed accounts for manual QA — every one of these already "exists" on load. */
-export const MOCK_TEST_ACCOUNTS: MockTestAccount[] = [
-  {
-    scenario: 'Log in happy path',
-    fullName: 'Demo User',
-    email: 'demo@masroofy.app',
-    password: 'Passw0rd!',
-  },
-  {
-    scenario: 'Sign-up "email already exists" error',
-    fullName: 'Taken Account',
-    email: 'taken@masroofy.app',
-    password: 'Passw0rd!',
-  },
-  {
-    scenario: 'Single-character mailbox name, for maskEmail edge cases',
-    fullName: 'A. Fathy',
-    email: 'a@masroofy.app',
-    password: 'Passw0rd!',
-  },
-];
-
-/** Code accepted everywhere a 6-digit verification code is asked for. */
-export const MOCK_VERIFICATION_CODE = '123456';
 
 const RESPONSE_DELAY_MS = 600;
 
@@ -56,17 +24,17 @@ const users = new Map<string, StoredUser>(
 const pendingSignUps = new Map<string, StoredUser>();
 const activeResetCodes = new Set<string>();
 
-export class MockAuthError extends Error {}
-
 const wait = (ms = RESPONSE_DELAY_MS) => new Promise((resolve) => setTimeout(resolve, ms));
 const normalize = (email: string) => email.trim().toLowerCase();
+const wrongCode = () =>
+  new AppError(`That code is incorrect. Use ${MOCK_VERIFICATION_CODE} in this preview.`);
 
 export const mockAuthService = {
   async signUp(input: { fullName: string; email: string; password: string }): Promise<{ email: string }> {
     await wait();
     const email = normalize(input.email);
     if (users.has(email) || pendingSignUps.has(email)) {
-      throw new MockAuthError('An account with this email already exists.');
+      throw new AppError('An account with this email already exists.');
     }
     pendingSignUps.set(email, { fullName: input.fullName, email, password: input.password });
     return { email };
@@ -76,10 +44,8 @@ export const mockAuthService = {
     await wait();
     const key = normalize(email);
     const pending = pendingSignUps.get(key);
-    if (!pending) throw new MockAuthError('No pending sign-up found for this email.');
-    if (code !== MOCK_VERIFICATION_CODE) {
-      throw new MockAuthError(`That code is incorrect. Use ${MOCK_VERIFICATION_CODE} in this preview.`);
-    }
+    if (!pending) throw new AppError('No pending sign-up found for this email.');
+    if (code !== MOCK_VERIFICATION_CODE) throw wrongCode();
     users.set(key, pending);
     pendingSignUps.delete(key);
     return { email: key, fullName: pending.fullName };
@@ -93,7 +59,7 @@ export const mockAuthService = {
     await wait();
     const user = users.get(normalize(email));
     if (!user || user.password !== password) {
-      throw new MockAuthError('Incorrect email or password.');
+      throw new AppError('Incorrect email or password.');
     }
     return { email: user.email, fullName: user.fullName };
   },
@@ -108,9 +74,7 @@ export const mockAuthService = {
 
   async verifyResetCode(email: string, code: string): Promise<{ email: string }> {
     await wait();
-    if (code !== MOCK_VERIFICATION_CODE) {
-      throw new MockAuthError(`That code is incorrect. Use ${MOCK_VERIFICATION_CODE} in this preview.`);
-    }
+    if (code !== MOCK_VERIFICATION_CODE) throw wrongCode();
     return { email: normalize(email) };
   },
 

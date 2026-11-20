@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { colors } from '@theme/index';
+import { strings } from '@/strings';
 
 export interface ShutterButtonProps {
   onPress?: () => void;
@@ -10,7 +11,7 @@ export interface ShutterButtonProps {
 const SIZE = 64;
 
 /** Camera capture button (white ring + disc) for dark capture panels. */
-const ShutterButton: React.FC<ShutterButtonProps> = ({ onPress, accessibilityLabel = 'Take photo' }) => (
+const ShutterButton: React.FC<ShutterButtonProps> = ({ onPress, accessibilityLabel = strings.common.a11y.takePhoto }) => (
   <Pressable
     onPress={onPress}
     disabled={!onPress}

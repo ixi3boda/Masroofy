@@ -5,19 +5,17 @@ import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
 import StateSummary from '@components/molecules/StateSummary';
-import SummaryCard from '@components/organisms/SummaryCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
+import SummaryCard from '@components/organisms/SummaryCard';
 import ScreenLayout from '@components/templates/ScreenLayout';
-import { mockAuthService } from '@/services/mockAuthService';
+import { PASSWORD_MIN_LENGTH } from '@/constants/app';
+import { ROUTES } from '@/navigation/routes';
+import { authService } from '@/services/authService';
+import { strings } from '@/strings';
 import { getNewPasswordError, getPasswordMatchError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
-const REQUIREMENTS = [
-  '○ At least 8 characters',
-  '○ Include at least one number',
-  '○ Include at least one capital letter',
-  '○ Both passwords must match',
-];
+const copy = strings.auth.resetPassword;
 
 const ResetPasswordScreen: React.FC = () => {
   const { email = '' } = useLocalSearchParams<{ email?: string }>();
@@ -25,9 +23,9 @@ const ResetPasswordScreen: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const goBack = useGoBack('/(auth)/login');
+  const goBack = useGoBack(ROUTES.auth.login);
 
-  const canSubmit = password.length >= 8 && password === confirmPassword;
+  const canSubmit = password.length >= PASSWORD_MIN_LENGTH && password === confirmPassword;
 
   const handleSubmit = async () => {
     const validationError = getNewPasswordError(password) ?? getPasswordMatchError(password, confirmPassword);
@@ -38,8 +36,8 @@ const ResetPasswordScreen: React.FC = () => {
     setError(null);
     setSubmitting(true);
     try {
-      await mockAuthService.resetPassword(email, password);
-      router.replace('/(auth)/password-updated');
+      await authService.resetPassword(email, password);
+      router.replace(ROUTES.auth.passwordUpdated);
     } finally {
       setSubmitting(false);
     }
@@ -47,24 +45,24 @@ const ResetPasswordScreen: React.FC = () => {
 
   return (
     <ScreenLayout
-      title="Set new password"
+      title={copy.title}
       onBack={goBack}
       footer={
         <>
-          <Button title="Update password" onPress={handleSubmit} loading={submitting} disabled={!canSubmit} />
-          <Button title="Back to log in" variant="outline" onPress={() => router.dismissTo('/(auth)/login')} />
+          <Button title={copy.submit} onPress={handleSubmit} loading={submitting} disabled={!canSubmit} />
+          <Button
+            title={strings.common.backToLogin}
+            variant="outline"
+            onPress={() => router.dismissTo(ROUTES.auth.login)}
+          />
         </>
       }
     >
-      <StateSummary
-        icon="lock-keyhole"
-        heading="Choose a new password"
-        description="Use a password you have not used for this account before."
-      />
+      <StateSummary icon="lock-keyhole" heading={copy.heading} description={copy.description} />
 
       <Input
-        label="New password"
-        placeholder="Enter a new password"
+        label={copy.newPasswordLabel}
+        placeholder={copy.newPasswordPlaceholder}
         value={password}
         onChangeText={(value) => {
           setPassword(value);
@@ -73,8 +71,8 @@ const ResetPasswordScreen: React.FC = () => {
         secureTextEntry
       />
       <Input
-        label="Confirm new password"
-        placeholder="Re-enter your new password"
+        label={copy.confirmLabel}
+        placeholder={copy.confirmPlaceholder}
         value={confirmPassword}
         onChangeText={(value) => {
           setConfirmPassword(value);
@@ -83,12 +81,12 @@ const ResetPasswordScreen: React.FC = () => {
         secureTextEntry
       />
 
-      {error ? <FeedbackBanner tone="error" title="Could not update password" message={error} /> : null}
+      {error ? <FeedbackBanner tone="error" title={copy.errorTitle} message={error} /> : null}
 
-      <SummaryCard heading="Password requirements" rows={REQUIREMENTS} />
+      <SummaryCard heading={copy.requirementsHeading} rows={copy.requirements} />
 
       <AppText variant="body12" color={colors.text.secondary}>
-        Static design preview only. No account, sign-in or email action is performed.
+        {copy.previewNotice}
       </AppText>
     </ScreenLayout>
   );

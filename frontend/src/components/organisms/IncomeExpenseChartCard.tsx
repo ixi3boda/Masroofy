@@ -5,6 +5,7 @@ import AppText from '@components/atoms/Text';
 import Card from '@components/atoms/Card';
 import BarChartColumn from '@components/molecules/BarChartColumn';
 import { formatNumber } from '@/utils/formatters';
+import { strings } from '@/strings';
 
 const MAX_BAR_HEIGHT = 120;
 
@@ -21,13 +22,13 @@ const IncomeExpenseChartCard: React.FC<IncomeExpenseChartCardProps> = ({ income,
 
   return (
     <Card style={styles.card}>
-      <AppText variant="subheading16">Income vs Expenses</AppText>
+      <AppText variant="subheading16">{strings.dashboard.incomeVsExpenses.title}</AppText>
       <View style={styles.bars}>
-        <BarChartColumn label="Income" value={formatNumber(income)} height={barHeight(income)} />
-        <BarChartColumn label="Expenses" value={formatNumber(expense)} height={barHeight(expense)} tone="muted" />
+        <BarChartColumn label={strings.dashboard.incomeVsExpenses.income} value={formatNumber(income)} height={barHeight(income)} />
+        <BarChartColumn label={strings.dashboard.incomeVsExpenses.expenses} value={formatNumber(expense)} height={barHeight(expense)} tone="muted" />
       </View>
       <AppText variant="body12" color={colors.text.secondary}>
-        {periodLabel} • Income vs Expenses
+        {strings.dashboard.incomeVsExpenses.caption(periodLabel)}
       </AppText>
     </Card>
   );

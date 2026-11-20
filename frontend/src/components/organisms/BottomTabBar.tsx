@@ -5,14 +5,15 @@ import { colors, shadows } from '@theme/index';
 import Fab from '@components/atoms/Fab';
 import { IconName } from '@components/atoms/Icon';
 import TabBarItem from '@components/molecules/TabBarItem';
+import { strings } from '@/strings';
 
 export type TabKey = 'home' | 'savings' | 'reminders' | 'settings';
 
 const TABS: { key: TabKey; label: string; icon: IconName }[] = [
-  { key: 'home', label: 'Home', icon: 'home' },
-  { key: 'savings', label: 'Savings', icon: 'piggy-bank' },
-  { key: 'reminders', label: 'Reminders', icon: 'bell' },
-  { key: 'settings', label: 'Settings', icon: 'settings' },
+  { key: 'home', label: strings.common.tabs.home, icon: 'home' },
+  { key: 'savings', label: strings.common.tabs.savings, icon: 'piggy-bank' },
+  { key: 'reminders', label: strings.common.tabs.reminders, icon: 'bell' },
+  { key: 'settings', label: strings.common.tabs.settings, icon: 'settings' },
 ];
 
 const MIDDLE = TABS.length / 2;
@@ -39,7 +40,7 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPress, onAd
   return (
     <View style={[styles.container, { paddingBottom: Math.max(bottom, 8) }]} accessibilityRole="tablist">
       {TABS.slice(0, MIDDLE).map(renderTab)}
-      <Fab accessibilityLabel="Add transaction" onPress={onAddPress} />
+      <Fab accessibilityLabel={strings.common.tabs.add} onPress={onAddPress} />
       {TABS.slice(MIDDLE).map(renderTab)}
     </View>
   );

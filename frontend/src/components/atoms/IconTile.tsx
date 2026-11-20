@@ -4,7 +4,8 @@ import { colors, radii } from '@theme/index';
 import Icon, { IconName } from './Icon';
 
 export type IconTileSize = 'sm' | 'lg';
-export type IconTileTone = 'neutral' | 'onBrand';
+/** neutral = grey (categories) · brand = soft blue (features, goals) · onBrand = on gradient surfaces. */
+export type IconTileTone = 'neutral' | 'brand' | 'onBrand';
 
 // sm = 16px glyph inside an action chip; lg = category icon in list rows
 const PRESET: Record<IconTileSize, { box: number; glyph: number; radius: number }> = {
@@ -14,6 +15,7 @@ const PRESET: Record<IconTileSize, { box: number; glyph: number; radius: number 
 
 const TONE: Record<IconTileTone, { background: string; foreground: string }> = {
   neutral: { background: colors.surfaceMuted, foreground: colors.text.primary },
+  brand: { background: colors.tone.info.background, foreground: colors.primary },
   onBrand: { background: colors.overlay.onBrand, foreground: colors.text.inverse },
 };
 

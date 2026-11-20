@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import SectionHeader from '@components/molecules/SectionHeader';
 import TransactionItem, { TransactionItemProps } from '@components/organisms/TransactionItem';
+import { strings } from '@/strings';
 
 export interface RecentTransactionsProps {
   transactions: (TransactionItemProps & { id: string })[];
@@ -14,7 +15,8 @@ export interface RecentTransactionsProps {
  */
 const RecentTransactions: React.FC<RecentTransactionsProps> = ({ transactions, onViewAll }) => (
   <View style={styles.container}>
-    <SectionHeader title="Recent Transactions" actionLabel="View All" onAction={onViewAll} />
+    <SectionHeader title={strings.dashboard.recentTransactions.title}
+      actionLabel={strings.dashboard.recentTransactions.viewAll} onAction={onViewAll} />
     <View style={styles.list}>
       {transactions.map(({ id, ...item }) => (
         <TransactionItem key={id} {...item} />

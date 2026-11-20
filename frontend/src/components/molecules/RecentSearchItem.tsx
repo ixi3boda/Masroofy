@@ -4,6 +4,7 @@ import { radii } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Card from '@components/atoms/Card';
 import Icon from '@components/atoms/Icon';
+import { strings } from '@/strings';
 
 export interface RecentSearchItemProps {
   query: string;
@@ -15,7 +16,7 @@ const RecentSearchItem: React.FC<RecentSearchItemProps> = ({ query, onPress }) =
     onPress={onPress}
     disabled={!onPress}
     accessibilityRole="button"
-    accessibilityLabel={`Search for ${query}`}
+    accessibilityLabel={strings.common.a11y.searchFor(query)}
     style={({ pressed }) => pressed && styles.pressed}
   >
     <Card style={styles.card}>

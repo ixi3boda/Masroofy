@@ -9,6 +9,7 @@ import { IconName } from '@components/atoms/Icon';
 import { ProgressBarTone } from '@components/atoms/ProgressBar';
 import ListRow from '@components/molecules/ListRow';
 import ProgressSummary from '@components/molecules/ProgressSummary';
+import { strings } from '@/strings';
 
 export interface ProgressItemCardProps {
   icon: IconName;
@@ -60,7 +61,7 @@ const ProgressItemCard: React.FC<ProgressItemCardProps> = ({
           </AppText>
           {action ? (
             <Button
-              title={`${action.label} →`}
+              title={strings.common.linkArrow(action.label)}
               variant="link"
               size="sm"
               onPress={action.onPress}

@@ -5,16 +5,20 @@ import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
 import StateSummary from '@components/molecules/StateSummary';
 import EmailPreviewRow from '@components/molecules/EmailPreviewRow';
-import SummaryCard from '@components/organisms/SummaryCard';
 import OtpCodeField from '@components/molecules/OtpCodeField';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
+import SummaryCard from '@components/organisms/SummaryCard';
 import ScreenLayout from '@components/templates/ScreenLayout';
-import { mockAuthService, MockAuthError, MOCK_VERIFICATION_CODE } from '@/services/mockAuthService';
+import { RESEND_COOLDOWN_SECONDS, VERIFICATION_CODE_LENGTH } from '@/constants/app';
+import { MOCK_VERIFICATION_CODE } from '@/mocks';
+import { ROUTES } from '@/navigation/routes';
+import { authService } from '@/services/authService';
+import { strings } from '@/strings';
+import { getErrorMessage } from '@/utils/errors';
 import { useCountdown } from '@/hooks/useCountdown';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
-const CODE_LENGTH = 6;
-const RESEND_COOLDOWN_SECONDS = 30;
+const copy = strings.auth.checkEmail;
 
 const CheckEmailScreen: React.FC = () => {
   const { email = '' } = useLocalSearchParams<{ email?: string }>();
@@ -23,7 +27,7 @@ const CheckEmailScreen: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [resending, setResending] = useState(false);
   const { remaining, isDone, restart } = useCountdown(RESEND_COOLDOWN_SECONDS);
-  const goBack = useGoBack('/(auth)/forgot-password');
+  const goBack = useGoBack(ROUTES.auth.forgotPassword);
 
   const code = digits.join('');
 
@@ -31,10 +35,10 @@ const CheckEmailScreen: React.FC = () => {
     setError(null);
     setSubmitting(true);
     try {
-      await mockAuthService.verifyResetCode(email, code);
-      router.push({ pathname: '/(auth)/reset-password', params: { email } });
+      await authService.verifyResetCode(email, code);
+      router.push({ pathname: ROUTES.auth.resetPassword, params: { email } });
     } catch (err) {
-      setError(err instanceof MockAuthError ? err.message : 'Something went wrong. Try again.');
+      setError(getErrorMessage(err));
     } finally {
       setSubmitting(false);
     }
@@ -43,7 +47,7 @@ const CheckEmailScreen: React.FC = () => {
   const handleResend = async () => {
     setResending(true);
     try {
-      await mockAuthService.resendResetCode(email);
+      await authService.resendResetCode(email);
       restart();
     } finally {
       setResending(false);
@@ -52,45 +56,38 @@ const CheckEmailScreen: React.FC = () => {
 
   return (
     <ScreenLayout
-      title="Check your email"
+      title={copy.title}
       onBack={goBack}
-      footer={<Button title="Verify Code" onPress={handleVerify} loading={submitting} disabled={code.length < CODE_LENGTH} />}
+      footer={
+        <Button
+          title={copy.submit}
+          onPress={handleVerify}
+          loading={submitting}
+          disabled={code.length < VERIFICATION_CODE_LENGTH}
+        />
+      }
     >
-      <Chip label="Confirmation preview" tone="info" />
+      <Chip label={copy.previewChip} tone="info" />
 
-      <StateSummary
-        icon="mail-check"
-        heading="Check your email"
-        description="We have sent a 6-digit password reset code to your email. Enter the code below to reset your password."
-      />
-      <EmailPreviewRow email={email} caption="This is the address the request preview is using." />
+      <StateSummary icon="mail-check" heading={copy.heading} description={copy.description} />
+      <EmailPreviewRow email={email} caption={copy.emailCaption} />
 
-      <SummaryCard
-        heading="What to do next"
-        rows={[
-          'Look in your inbox and spam folder, then follow the reset instructions.',
-          'If you entered the wrong address, return to the request screen.',
-        ]}
-      />
+      <SummaryCard heading={copy.nextStepsHeading} rows={copy.nextSteps} />
 
-      <AppText variant="body14">Enter 6-digit code</AppText>
-      <OtpCodeField length={CODE_LENGTH} value={digits} onChange={setDigits} />
+      <AppText variant="body14">{copy.codeLabel}</AppText>
+      <OtpCodeField length={VERIFICATION_CODE_LENGTH} value={digits} onChange={setDigits} />
 
-      {error ? <FeedbackBanner tone="error" title="Could not verify" message={error} /> : null}
+      {error ? <FeedbackBanner tone="error" title={copy.errorTitle} message={error} /> : null}
 
       <Button
-        title={isDone ? "Didn't receive the email? Resend code" : `Resend code in ${remaining}s`}
+        title={isDone ? copy.resend : strings.common.resendCodeIn(remaining)}
         variant="outline"
         onPress={handleResend}
         disabled={!isDone}
         loading={resending}
       />
 
-      <FeedbackBanner
-        tone="info"
-        title="No email sent"
-        message={`This design shows the request confirmation only. It has not checked an address or sent a message. Use ${MOCK_VERIFICATION_CODE} in this preview.`}
-      />
+      <FeedbackBanner tone="info" title={copy.previewTitle} message={copy.previewMessage(MOCK_VERIFICATION_CODE)} />
     </ScreenLayout>
   );
 };

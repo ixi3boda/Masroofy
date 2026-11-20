@@ -8,14 +8,20 @@ import BrandMark from '@components/molecules/BrandMark';
 import OptionCard from '@components/molecules/OptionCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
-import { mockAuthService, MockAuthError } from '@/services/mockAuthService';
+import { authService } from '@/services/authService';
+import { ROUTES } from '@/navigation/routes';
+import { strings } from '@/strings';
+import { getErrorMessage } from '@/utils/errors';
 import { getEmailError, getNewPasswordError, getRequiredError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
 type FieldName = 'fullName' | 'email' | 'password';
 
+const copy = strings.auth.signUp;
+const { fields } = strings.common;
+
 const SignUpScreen: React.FC = () => {
-  const goBack = useGoBack('/(auth)/welcome');
+  const goBack = useGoBack(ROUTES.auth.welcome);
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,7 +41,7 @@ const SignUpScreen: React.FC = () => {
 
   const handleSubmit = async () => {
     const errors: Partial<Record<FieldName, string>> = {
-      fullName: getRequiredError(fullName, 'full name') ?? undefined,
+      fullName: getRequiredError(fullName, strings.validation.fieldNames.fullName) ?? undefined,
       email: getEmailError(email) ?? undefined,
       password: getNewPasswordError(password) ?? undefined,
     };
@@ -45,10 +51,10 @@ const SignUpScreen: React.FC = () => {
 
     setSubmitting(true);
     try {
-      const { email: confirmedEmail } = await mockAuthService.signUp({ fullName, email, password });
-      router.push({ pathname: '/(auth)/verify-email', params: { email: confirmedEmail } });
+      const { email: confirmedEmail } = await authService.signUp({ fullName, email, password });
+      router.push({ pathname: ROUTES.auth.verifyEmail, params: { email: confirmedEmail } });
     } catch (error) {
-      setFormError(error instanceof MockAuthError ? error.message : 'Something went wrong. Try again.');
+      setFormError(getErrorMessage(error));
     } finally {
       setSubmitting(false);
     }
@@ -56,32 +62,27 @@ const SignUpScreen: React.FC = () => {
 
   return (
     <ScreenLayout
-      title="Create an account"
+      title={copy.title}
       onBack={goBack}
       footer={
         <>
+          <Button title={copy.submit} onPress={handleSubmit} loading={submitting} disabled={!canSubmit} />
           <Button
-            title="Create account"
-            onPress={handleSubmit}
-            loading={submitting}
-            disabled={!canSubmit}
-          />
-          <Button
-            title="Already have an account? Log in"
+            title={copy.haveAccount}
             variant="outline"
-            onPress={() => router.dismissTo('/(auth)/login')}
+            onPress={() => router.dismissTo(ROUTES.auth.login)}
           />
         </>
       }
     >
       <BrandMark />
-      <AppText variant="subheading16">A fresh start for your finances</AppText>
+      <AppText variant="subheading16">{copy.heading}</AppText>
 
-      {formError ? <FeedbackBanner tone="error" title="Could not sign up" message={formError} /> : null}
+      {formError ? <FeedbackBanner tone="error" title={copy.errorTitle} message={formError} /> : null}
 
       <Input
-        label="Full name"
-        placeholder="Enter your name"
+        label={copy.fullNameLabel}
+        placeholder={copy.fullNamePlaceholder}
         value={fullName}
         onChangeText={(value) => setField('fullName', value)}
         hasError={!!fieldErrors.fullName}
@@ -89,8 +90,8 @@ const SignUpScreen: React.FC = () => {
         autoCapitalize="words"
       />
       <Input
-        label="Email address"
-        placeholder="Enter your email"
+        label={fields.emailLabel}
+        placeholder={fields.emailPlaceholder}
         value={email}
         onChangeText={(value) => setField('email', value)}
         hasError={!!fieldErrors.email}
@@ -99,26 +100,26 @@ const SignUpScreen: React.FC = () => {
         autoCapitalize="none"
       />
       <Input
-        label="Password"
-        placeholder="Create a password"
+        label={fields.passwordLabel}
+        placeholder={copy.passwordPlaceholder}
         value={password}
         onChangeText={(value) => setField('password', value)}
         hasError={!!fieldErrors.password}
         errorMessage={fieldErrors.password}
-        hint={fieldErrors.password ? undefined : 'Use at least 8 characters, including a number and a capital letter.'}
+        hint={fieldErrors.password ? undefined : copy.passwordHint}
         secureTextEntry
       />
 
       <OptionCard
         kind="checkbox"
-        title="I agree to the Terms & Privacy Policy"
-        description="Consent required before creating an account"
+        title={copy.consentTitle}
+        description={copy.consentDescription}
         selected={agreed}
         onPress={() => setAgreed((value) => !value)}
       />
 
       <AppText variant="body12" color={colors.text.secondary}>
-        Static design preview only. No account, sign-in or email action is performed.
+        {copy.previewNotice}
       </AppText>
     </ScreenLayout>
   );

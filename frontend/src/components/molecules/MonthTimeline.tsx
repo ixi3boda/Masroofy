@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
+import { strings } from '@/strings';
 
 export interface MonthTimelineProps {
   /** Short month labels in order, e.g. ["Nov", "Dec", "Jan"]. */
@@ -10,7 +11,7 @@ export interface MonthTimelineProps {
 
 /** Evenly spaced dots marking each planned month (savings planning guide). */
 const MonthTimeline: React.FC<MonthTimelineProps> = ({ months }) => (
-  <View style={styles.row} accessible accessibilityLabel={`Planned months: ${months.join(', ')}`}>
+  <View style={styles.row} accessible accessibilityLabel={strings.common.a11y.plannedMonths(months)}>
     {months.map((month) => (
       <View key={month} style={styles.item}>
         <View style={styles.dot} />

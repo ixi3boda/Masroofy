@@ -5,6 +5,7 @@ import AppText from '@components/atoms/Text';
 import Card from '@components/atoms/Card';
 import ProgressSummary from '@components/molecules/ProgressSummary';
 import { formatCurrency } from '@/utils/formatters';
+import { strings } from '@/strings';
 
 export interface BudgetProgressCardProps {
   spent: number;
@@ -20,18 +21,18 @@ const BudgetProgressCard: React.FC<BudgetProgressCardProps> = ({ spent, limit, p
   return (
     <Card style={styles.card}>
       <View style={styles.header}>
-        <AppText variant="subheading16">Budget Progress</AppText>
+        <AppText variant="subheading16">{strings.dashboard.budget.title}</AppText>
         <AppText variant="subheading16" color={colors.primary}>
-          {Math.round(progress * 100)}% Used
+          {strings.dashboard.budget.used(Math.round(progress * 100))}
         </AppText>
       </View>
       <ProgressSummary
         emphasis="subtle"
-        label="Remaining Allowance"
+        label={strings.dashboard.budget.remaining}
         value={formatCurrency(Math.max(limit - spent, 0))}
         progress={progress}
         tone={progress >= 1 ? 'danger' : 'brand'}
-        caption={`${periodLabel} • Budget ${formatCurrency(limit)}`}
+        caption={strings.dashboard.budget.caption(periodLabel, formatCurrency(limit))}
       />
     </Card>
   );

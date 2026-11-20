@@ -1,4 +1,5 @@
-const CURRENCY = 'EGP';
+import { CURRENCY } from '@/constants/app';
+
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 /** 30000 → "30,000". Regex-based so output never depends on device locale/Intl support. */

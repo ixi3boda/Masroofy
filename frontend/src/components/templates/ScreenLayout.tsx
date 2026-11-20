@@ -5,7 +5,8 @@ import { colors, spacing } from '@theme/index';
 import ScreenHeader, { ScreenHeaderProps } from '@components/organisms/ScreenHeader';
 
 export interface ScreenLayoutProps {
-  title: string;
+  /** Header title. Omit for header-less entry screens (e.g. Welcome). */
+  title?: string;
   onBack?: () => void;
   headerLeft?: ScreenHeaderProps['left'];
   headerRight?: ScreenHeaderProps['right'];
@@ -32,8 +33,13 @@ const ScreenLayout: React.FC<ScreenLayoutProps> = ({
   bottomBar,
   gap = spacing.xl,
 }) => (
-  <SafeAreaView style={styles.safeArea} edges={bottomBar ? ['top'] : ['top', 'bottom']}>
-    <ScreenHeader title={title} onBack={onBack} left={headerLeft} right={headerRight} titleAlign={titleAlign} />
+  <SafeAreaView
+    style={[styles.safeArea, !title && styles.safeAreaPlain]}
+    edges={bottomBar ? ['top'] : ['top', 'bottom']}
+  >
+    {title ? (
+      <ScreenHeader title={title} onBack={onBack} left={headerLeft} right={headerRight} titleAlign={titleAlign} />
+    ) : null}
     <KeyboardAvoidingView style={styles.body} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView
         contentContainerStyle={[styles.content, { gap }]}
@@ -50,6 +56,8 @@ const ScreenLayout: React.FC<ScreenLayoutProps> = ({
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: colors.surface },
+  // Without a white header, the status-bar area blends into the page background.
+  safeAreaPlain: { backgroundColor: colors.background },
   body: { flex: 1, backgroundColor: colors.background },
   content: {
     paddingHorizontal: spacing.lg,

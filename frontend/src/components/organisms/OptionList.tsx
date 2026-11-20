@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { IconName } from '@components/atoms/Icon';
 import OptionCard from '@components/molecules/OptionCard';
+import { strings } from '@/strings';
 
 export interface OptionListItem<T extends string> {
   value: T;
@@ -28,7 +29,7 @@ const OptionList = <T extends string>({ options, value, onChange }: OptionListPr
           key={option.value}
           title={option.title}
           icon={option.icon}
-          description={option.description ?? (selected ? 'Selected' : undefined)}
+          description={option.description ?? (selected ? strings.common.selected : undefined)}
           selected={selected}
           onPress={() => onChange(option.value)}
         />

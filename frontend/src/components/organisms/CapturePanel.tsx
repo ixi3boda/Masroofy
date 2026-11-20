@@ -4,6 +4,7 @@ import { colors, radii } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Icon, { IconName } from '@components/atoms/Icon';
 import ShutterButton from '@components/atoms/ShutterButton';
+import { strings } from '@/strings';
 
 export interface CaptureControls {
   onCapture: () => void;
@@ -49,9 +50,9 @@ const CapturePanel: React.FC<CapturePanelProps> = ({ caption, captionIcon, child
     ) : null}
     {controls ? (
       <View style={styles.controls}>
-        <ControlLabel label="Retake" onPress={controls.onRetake} />
+        <ControlLabel label={strings.common.capture.retake} onPress={controls.onRetake} />
         <ShutterButton onPress={controls.onCapture} />
-        <ControlLabel label={controls.flashLabel ?? 'Flash off'} onPress={controls.onToggleFlash} />
+        <ControlLabel label={controls.flashLabel ?? strings.common.capture.flashOff} onPress={controls.onToggleFlash} />
       </View>
     ) : null}
   </View>

@@ -1,6 +1,7 @@
 import { TransactionCategory } from '@/types/dashboard';
 
-export const CATEGORY_LABELS: Record<TransactionCategory, string> = {
+/** Display names for transaction categories. */
+export const categoryStrings: Record<TransactionCategory, string> = {
   groceries: 'Groceries',
   transport: 'Transport',
   bills: 'Bills',

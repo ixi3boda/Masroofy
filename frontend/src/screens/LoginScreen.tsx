@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
@@ -8,12 +8,20 @@ import Input from '@components/atoms/Input';
 import BrandMark from '@components/molecules/BrandMark';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
-import { mockAuthService, MockAuthError, MOCK_TEST_ACCOUNTS } from '@/services/mockAuthService';
+import { MOCK_TEST_ACCOUNTS } from '@/mocks';
+import { ROUTES } from '@/navigation/routes';
+import { authService } from '@/services/authService';
+import { useSessionStore } from '@/store/sessionStore';
+import { strings } from '@/strings';
+import { getErrorMessage } from '@/utils/errors';
 import { getEmailError, getRequiredError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
-import { useSessionStore } from '@/store/sessionStore';
 
 type FieldName = 'email' | 'password';
+
+const copy = strings.auth.login;
+const { fields } = strings.common;
+const demoAccount = MOCK_TEST_ACCOUNTS[0];
 
 const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -22,7 +30,7 @@ const LoginScreen: React.FC = () => {
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const signIn = useSessionStore((state) => state.signIn);
-  const goBack = useGoBack('/(auth)/welcome');
+  const goBack = useGoBack(ROUTES.auth.welcome);
 
   const setField = (field: FieldName, value: string) => {
     if (field === 'email') setEmail(value);
@@ -33,7 +41,7 @@ const LoginScreen: React.FC = () => {
   const handleSubmit = async () => {
     const errors: Partial<Record<FieldName, string>> = {
       email: getEmailError(email) ?? undefined,
-      password: getRequiredError(password, 'password') ?? undefined,
+      password: getRequiredError(password, strings.validation.fieldNames.password) ?? undefined,
     };
     setFieldErrors(errors);
     setFormError(null);
@@ -41,10 +49,10 @@ const LoginScreen: React.FC = () => {
 
     setSubmitting(true);
     try {
-      signIn(await mockAuthService.logIn(email, password));
-      router.replace('/(app)/home');
+      signIn(await authService.logIn(email, password));
+      router.replace(ROUTES.app.home);
     } catch (error) {
-      setFormError(error instanceof MockAuthError ? error.message : 'Something went wrong. Try again.');
+      setFormError(getErrorMessage(error));
     } finally {
       setSubmitting(false);
     }
@@ -52,35 +60,30 @@ const LoginScreen: React.FC = () => {
 
   return (
     <ScreenLayout
-      title="Log in"
+      title={copy.title}
       onBack={goBack}
       footer={
         <>
+          <Button title={copy.submit} onPress={handleSubmit} loading={submitting} disabled={!email || !password} />
           <Button
-            title="Log in"
-            onPress={handleSubmit}
-            loading={submitting}
-            disabled={!email || !password}
-          />
-          <Button
-            title="Create an account"
+            title={copy.createAccount}
             variant="outline"
-            onPress={() => router.dismissTo('/(auth)/sign-up')}
+            onPress={() => router.dismissTo(ROUTES.auth.signUp)}
           />
         </>
       }
     >
       <BrandMark />
-      <AppText variant="subheading16">Welcome back</AppText>
+      <AppText variant="subheading16">{copy.heading}</AppText>
       <AppText variant="body14" color={colors.text.secondary}>
-        Log in to your Masroofy account.
+        {copy.intro}
       </AppText>
 
-      {formError ? <FeedbackBanner tone="error" title="Could not log in" message={formError} /> : null}
+      {formError ? <FeedbackBanner tone="error" title={copy.errorTitle} message={formError} /> : null}
 
       <Input
-        label="Email address"
-        placeholder="Enter your email"
+        label={fields.emailLabel}
+        placeholder={fields.emailPlaceholder}
         value={email}
         onChangeText={(value) => setField('email', value)}
         hasError={!!fieldErrors.email}
@@ -89,8 +92,8 @@ const LoginScreen: React.FC = () => {
         autoCapitalize="none"
       />
       <Input
-        label="Password"
-        placeholder="Enter your password"
+        label={fields.passwordLabel}
+        placeholder={copy.passwordPlaceholder}
         value={password}
         onChangeText={(value) => setField('password', value)}
         hasError={!!fieldErrors.password}
@@ -98,18 +101,23 @@ const LoginScreen: React.FC = () => {
         secureTextEntry
       />
 
-      <TouchableOpacity onPress={() => router.push('/(auth)/forgot-password')}>
-        <AppText variant="subheading14" color={colors.primary}>
-          Forgot password?
-        </AppText>
-      </TouchableOpacity>
+      <Button
+        title={copy.forgotPassword}
+        variant="link"
+        size="sm"
+        onPress={() => router.push(ROUTES.auth.forgotPassword)}
+        style={styles.forgotPassword}
+      />
 
       <AppText variant="body12" color={colors.text.secondary}>
-        Static design preview only. Use {MOCK_TEST_ACCOUNTS[0].email} / {MOCK_TEST_ACCOUNTS[0].password} in
-        this preview.
+        {copy.previewNotice(demoAccount.email, demoAccount.password)}
       </AppText>
     </ScreenLayout>
   );
 };
+
+const styles = StyleSheet.create({
+  forgotPassword: { paddingHorizontal: 0 },
+});
 
 export default LoginScreen;

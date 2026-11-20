@@ -7,6 +7,7 @@ import Chip from '@components/atoms/Chip';
 import Icon from '@components/atoms/Icon';
 import IconBadge from '@components/atoms/IconBadge';
 import Waveform from '@components/atoms/Waveform';
+import { strings } from '@/strings';
 
 export interface VoiceCaptureCardProps {
   recording: boolean;
@@ -39,7 +40,7 @@ const VoiceCaptureCard: React.FC<VoiceCaptureCardProps> = ({
       onPress={onToggleRecording}
       disabled={!onToggleRecording}
       accessibilityRole="button"
-      accessibilityLabel={recording ? 'Stop recording' : 'Start recording'}
+      accessibilityLabel={recording ? strings.common.a11y.stopRecording : strings.common.a11y.startRecording}
       accessibilityState={{ busy: recording }}
     >
       <IconBadge size="lg">

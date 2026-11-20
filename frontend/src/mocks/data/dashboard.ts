@@ -1,10 +1,6 @@
 import { DashboardSummary } from '@/types/dashboard';
 
-/**
- * Sample data matching the "02 / Home Dashboard" Figma frame, so the dashboard
- * can be built and reviewed before the backend exists. Replace with the real
- * API client once it's ready — the screen only reads this shape.
- */
+/** Sample data matching the "02 / Home Dashboard" Figma frame. QA-only. */
 export const mockDashboardSummary: DashboardSummary = {
   periodLabel: 'Oct 2026',
   totalSalary: 30000,

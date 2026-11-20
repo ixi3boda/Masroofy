@@ -11,25 +11,27 @@ import QuickActionsGrid from '@components/organisms/QuickActionsGrid';
 import RecentTransactions from '@components/organisms/RecentTransactions';
 import StatCardRow from '@components/organisms/StatCardRow';
 import ScreenLayout from '@components/templates/ScreenLayout';
-import { CATEGORY_LABELS } from '@/constants/transactions';
-import { mockDashboardSummary } from '@/services/mockDashboardService';
+import { dashboardService } from '@/services/dashboardService';
+import { strings } from '@/strings';
 import { formatCurrency, formatDayMonth, formatSignedCurrency } from '@/utils/formatters';
 
+const copy = strings.dashboard;
+
 const MORE_ACTIONS: ActionChipProps[] = [
-  { label: 'Savings', icon: 'piggy-bank', variant: 'brand' },
-  { label: 'Reminders', icon: 'bell' },
-  { label: 'Insights', icon: 'chart-column' },
-  { label: 'Budgets', icon: 'wallet' },
-  { label: 'Markets', icon: 'trending-up' },
-  { label: 'Accounts', icon: 'landmark' },
-  { label: 'Salary Setup', icon: 'salary' },
+  { label: copy.moreActions.savings, icon: 'piggy-bank', variant: 'brand' },
+  { label: copy.moreActions.reminders, icon: 'bell' },
+  { label: copy.moreActions.insights, icon: 'chart-column' },
+  { label: copy.moreActions.budgets, icon: 'wallet' },
+  { label: copy.moreActions.markets, icon: 'trending-up' },
+  { label: copy.moreActions.accounts, icon: 'landmark' },
+  { label: copy.moreActions.salarySetup, icon: 'salary' },
 ];
 
 const QUICK_ACTIONS: QuickActionTileProps[] = [
-  { label: 'Add Transaction', icon: 'plus' },
-  { label: 'SMS Detection', icon: 'sms', hasAlert: true },
-  { label: 'Scan Receipt', icon: 'scan' },
-  { label: 'Voice Entry', icon: 'mic' },
+  { label: copy.quickActions.addTransaction, icon: 'plus' },
+  { label: copy.quickActions.smsDetection, icon: 'sms', hasAlert: true },
+  { label: copy.quickActions.scanReceipt, icon: 'scan' },
+  { label: copy.quickActions.voiceEntry, icon: 'mic' },
 ];
 
 const DashboardScreen: React.FC = () => {
@@ -41,43 +43,43 @@ const DashboardScreen: React.FC = () => {
     primaryAccount,
     cashBalance,
     recentTransactions,
-  } = mockDashboardSummary;
+  } = dashboardService.getSummary();
 
   const transactions = recentTransactions.map(({ id, merchant, category, date, amount }) => ({
     id,
     title: merchant,
-    meta: `${CATEGORY_LABELS[category]} • ${formatDayMonth(date)}`,
+    meta: `${strings.categories[category]} • ${formatDayMonth(date)}`,
     amount: formatSignedCurrency(amount),
     icon: category,
   }));
 
   return (
     <ScreenLayout
-      title="Masroofy Home"
+      title={copy.title}
       titleAlign="start"
       gap={spacing.xxl}
-      headerRight={<IconButton name="user" accessibilityLabel="Profile" />}
+      headerRight={<IconButton name="user" accessibilityLabel={strings.common.a11y.profile} />}
       bottomBar={<BottomTabBar activeTab="home" />}
     >
       <StatCardRow
         items={[
-          { label: 'Total Salary', value: formatCurrency(totalSalary), icon: 'wallet' },
-          { label: 'Total Expense', value: formatCurrency(totalExpense), icon: 'wallet', variant: 'brand' },
+          { label: copy.totalSalary, value: formatCurrency(totalSalary), icon: 'wallet' },
+          { label: copy.totalExpense, value: formatCurrency(totalExpense), icon: 'wallet', variant: 'brand' },
         ]}
       />
-      <ActionChipGroup title="More Actions" actions={MORE_ACTIONS} />
-      <QuickActionsGrid title="Quick Actions" actions={QUICK_ACTIONS} />
+      <ActionChipGroup title={copy.moreActions.title} actions={MORE_ACTIONS} />
+      <QuickActionsGrid title={copy.quickActions.title} actions={QUICK_ACTIONS} />
       <StatCardRow
         items={[
           {
-            label: 'Current Balance',
+            label: copy.currentBalance,
             value: formatCurrency(primaryAccount.balance + cashBalance),
             variant: 'brand',
           },
           {
             label: primaryAccount.name,
             value: formatCurrency(primaryAccount.balance),
-            caption: `Cash · ${formatCurrency(cashBalance)}`,
+            caption: copy.cashBalance(formatCurrency(cashBalance)),
           },
         ]}
       />

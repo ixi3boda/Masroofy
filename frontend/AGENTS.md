@@ -32,6 +32,7 @@ Run lint and typecheck before declaring any task done.
 ## Project structure & conventions
 
 - **One `screens` folder.** Every screen component lives flat in `src/screens/` (e.g. `src/screens/LoginScreen.tsx`), regardless of which flow/feature it belongs to. Route files in `src/app/` stay thin wrappers that import from `@screens/*` — all layout, state, and logic for a screen lives in its `src/screens` file.
+- **Component library is (almost) complete.** All Figma sections (01–11) have been reviewed and their reusable components built — see `README.md` §4 for the full inventory and which components each upcoming section uses. Build new screens by composing these; only add a component for a genuine gap.
 - **Reusable components, strictly.** Before writing new UI, check `src/components/{atoms,molecules,organisms,templates}` for something that already does the job. Extend or compose an existing component instead of duplicating markup/styles inline in a screen. Only add a new component when nothing in the tree already covers it.
 - **Atomic structure, strictly.** `src/components` stays organized as atoms → molecules → organisms → templates, each layer composed only from the layer(s) below it:
   - `atoms`: smallest building blocks (Text, Button, Input, Icon, Chip…), no business logic.
@@ -39,6 +40,16 @@ Run lint and typecheck before declaring any task done.
   - `organisms`: larger, often screen-section-sized compositions (AuthHeader…).
   - `templates`: page-level layout shells screens plug content into (AuthScreenLayout…).
   - Screens (`src/screens`) compose templates/organisms/molecules/atoms — they should not reimplement layout primitives those layers already provide.
+- **Where things live (`src/`).** Never hard-code these in screens or components:
+  - `theme/` — design tokens: colors, typography, spacing, radii, shadows, gradients.
+  - `strings/` — all user-facing copy, grouped by feature (`auth`, `dashboard`, `common`, `validation`, `categories`), read via `strings.<feature>.<key>`. Dynamic copy is a function, e.g. `strings.common.resendCodeIn(30)`.
+  - `constants/` — non-copy app constants (currency, code length, cooldowns, password rules).
+  - `navigation/routes.ts` — every route path (`ROUTES.auth.login`); screens never write URL strings.
+  - `types/` — shared domain types.
+  - `utils/` — pure helpers (formatters, validators, `AppError` / `getErrorMessage`).
+  - `hooks/` — reusable hooks. `store/` — Zustand stores.
+  - `mocks/` — all fake data (`mocks/data`) and in-memory service implementations (`mocks/services`). Kept for testing; do not delete.
+  - `services/` — the only data entry points screens import (`authService`, `dashboardService`). Each currently points at its mock; to connect the backend, replace the implementation inside the service file with the same method signatures — screens stay unchanged. Services throw `AppError` for user-safe messages.
 - **State management: Zustand.** Use a Zustand store (`src/store`) for any state shared across screens/components (session/auth state, in-progress multi-step flows, anything that needs to survive navigation). Local `useState`/`useReducer` is fine for state that belongs to a single screen or component and nothing else — don't reach for Zustand for that.
 - **Clean code, strictly.** No dead code, no unused exports/props, no commented-out blocks, no speculative abstractions for things you don't need yet. Keep components small and single-purpose; prefer composition over large multi-responsibility components or screens.
 - **Memoize when it actually helps.** Reach for `useMemo` / `useCallback` / `React.memo` when a component re-renders often with expensive children, or when a stable reference is needed to avoid re-rendering children (e.g. callbacks passed to `FlatList` items) — not reflexively on every component/function.

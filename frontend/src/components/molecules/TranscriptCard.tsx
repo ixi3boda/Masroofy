@@ -5,6 +5,7 @@ import AppText from '@components/atoms/Text';
 import Card from '@components/atoms/Card';
 import Icon from '@components/atoms/Icon';
 import Input from '@components/atoms/Input';
+import { strings } from '@/strings';
 
 export interface TranscriptCardProps {
   transcript: string;
@@ -18,10 +19,10 @@ const TranscriptCard: React.FC<TranscriptCardProps> = ({ transcript, onChangeTra
   <Card style={styles.card}>
     <View style={styles.heading}>
       <Icon name="pencil" size={20} color={colors.primary} />
-      <AppText variant="subheading14">Editable transcript</AppText>
+      <AppText variant="subheading14">{strings.common.transcript.title}</AppText>
     </View>
     {onChangeTranscript ? (
-      <Input label="Transcript words" value={transcript} onChangeText={onChangeTranscript} />
+      <Input label={strings.common.transcript.fieldLabel} value={transcript} onChangeText={onChangeTranscript} />
     ) : (
       <AppText variant="subheading18">{transcript}</AppText>
     )}
