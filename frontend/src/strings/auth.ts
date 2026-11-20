@@ -4,6 +4,13 @@ const previewNotice = 'Static design preview only. No account, sign-in or email 
 
 /** Copy for the "01 / Welcome, Authentication & Onboarding" screens. */
 export const authStrings = {
+  startup: {
+    checking: 'Checking your session',
+    offlineHeading: 'Can’t reach Masroofy',
+    offlineDescription: 'Check your internet connection. You are still signed in on this device.',
+    retry: 'Try again',
+  },
+
   welcome: {
     heading: 'Your money, a little clearer',
     intro: 'Track spending, plan your salary and stay on budget — all in one calm place.',

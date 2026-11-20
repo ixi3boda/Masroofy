@@ -2,6 +2,7 @@ import { authStrings } from './auth';
 import { categoryStrings } from './categories';
 import { commonStrings } from './common';
 import { dashboardStrings } from './dashboard';
+import { errorStrings } from './errors';
 import { validationStrings } from './validation';
 
 /**
@@ -15,4 +16,5 @@ export const strings = {
   categories: categoryStrings,
   auth: authStrings,
   dashboard: dashboardStrings,
+  errors: errorStrings,
 };

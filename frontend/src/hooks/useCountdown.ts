@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-/** Counts down from `seconds` to 0; call `restart()` to run it again (e.g. after a resend). */
+/** Counts down from `seconds` to 0; call `restart()` (or `restart(n)`) to run it again (e.g. after a resend). */
 export function useCountdown(seconds: number) {
   const [remaining, setRemaining] = useState(seconds);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -28,8 +28,9 @@ export function useCountdown(seconds: number) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const restart = () => {
-    setRemaining(seconds);
+  /** Runs the countdown again, from `nextSeconds` when given (e.g. the server's cooldown), else from `seconds`. */
+  const restart = (nextSeconds: number = seconds) => {
+    setRemaining(nextSeconds);
     startInterval();
   };
 

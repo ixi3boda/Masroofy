@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { router, useLocalSearchParams } from 'expo-router';
+import { router } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -8,17 +8,22 @@ import StateSummary from '@components/molecules/StateSummary';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import SummaryCard from '@components/organisms/SummaryCard';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { isMockSource } from '@/config/env';
 import { PASSWORD_MIN_LENGTH } from '@/constants/app';
 import { ROUTES } from '@/navigation/routes';
 import { authService } from '@/services/authService';
+import { usePasswordResetStore } from '@/store/passwordResetStore';
 import { strings } from '@/strings';
+import { getErrorMessage, getFieldErrors } from '@/utils/errors';
 import { getNewPasswordError, getPasswordMatchError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
 const copy = strings.auth.resetPassword;
+// Both backend fields are shown in this screen's single error banner.
+const API_FIELDS: Record<string, 'password'> = { newPassword: 'password', confirmPassword: 'password' };
 
 const ResetPasswordScreen: React.FC = () => {
-  const { email = '' } = useLocalSearchParams<{ email?: string }>();
+  const { resetToken, clear: clearResetFlow } = usePasswordResetStore();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -36,8 +41,11 @@ const ResetPasswordScreen: React.FC = () => {
     setError(null);
     setSubmitting(true);
     try {
-      await authService.resetPassword(email, password);
+      await authService.resetPassword({ resetToken: resetToken ?? '', newPassword: password, confirmPassword });
+      clearResetFlow();
       router.replace(ROUTES.auth.passwordUpdated);
+    } catch (err) {
+      setError(getFieldErrors(err, API_FIELDS).password ?? getErrorMessage(err));
     } finally {
       setSubmitting(false);
     }
@@ -85,9 +93,11 @@ const ResetPasswordScreen: React.FC = () => {
 
       <SummaryCard heading={copy.requirementsHeading} rows={copy.requirements} />
 
-      <AppText variant="body12" color={colors.text.secondary}>
-        {copy.previewNotice}
-      </AppText>
+      {isMockSource('auth') ? (
+        <AppText variant="body12" color={colors.text.secondary}>
+          {copy.previewNotice}
+        </AppText>
+      ) : null}
     </ScreenLayout>
   );
 };

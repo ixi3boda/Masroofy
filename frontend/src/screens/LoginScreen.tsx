@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -8,12 +8,13 @@ import Input from '@components/atoms/Input';
 import BrandMark from '@components/molecules/BrandMark';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { isMockSource } from '@/config/env';
 import { MOCK_TEST_ACCOUNTS } from '@/mocks';
 import { ROUTES } from '@/navigation/routes';
 import { authService } from '@/services/authService';
 import { useSessionStore } from '@/store/sessionStore';
 import { strings } from '@/strings';
-import { getErrorMessage } from '@/utils/errors';
+import { getErrorMessage, getFieldErrors, isApiError } from '@/utils/errors';
 import { getEmailError, getRequiredError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
@@ -22,9 +23,12 @@ type FieldName = 'email' | 'password';
 const copy = strings.auth.login;
 const { fields } = strings.common;
 const demoAccount = MOCK_TEST_ACCOUNTS[0];
+const API_FIELDS: Record<string, FieldName> = { email: 'email', password: 'password' };
 
+/** Param: `email`, to pre-fill the field (e.g. after verifying the email). */
 const LoginScreen: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const { email: initialEmail = '' } = useLocalSearchParams<{ email?: string }>();
+  const [email, setEmail] = useState(initialEmail);
   const [password, setPassword] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -52,6 +56,12 @@ const LoginScreen: React.FC = () => {
       signIn(await authService.logIn(email, password));
       router.replace(ROUTES.app.home);
     } catch (error) {
+      // Right password, unverified email: verify first (login sends no code; that screen asks for one).
+      if (isApiError(error, 'EMAIL_NOT_VERIFIED')) {
+        router.push({ pathname: ROUTES.auth.verifyEmail, params: { email: email.trim().toLowerCase(), resend: '1' } });
+        return;
+      }
+      setFieldErrors(getFieldErrors(error, API_FIELDS));
       setFormError(getErrorMessage(error));
     } finally {
       setSubmitting(false);
@@ -109,9 +119,11 @@ const LoginScreen: React.FC = () => {
         style={styles.forgotPassword}
       />
 
-      <AppText variant="body12" color={colors.text.secondary}>
-        {copy.previewNotice(demoAccount.email, demoAccount.password)}
-      </AppText>
+      {isMockSource('auth') ? (
+        <AppText variant="body12" color={colors.text.secondary}>
+          {copy.previewNotice(demoAccount.email, demoAccount.password)}
+        </AppText>
+      ) : null}
     </ScreenLayout>
   );
 };

@@ -8,10 +8,11 @@ import BrandMark from '@components/molecules/BrandMark';
 import OptionCard from '@components/molecules/OptionCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { isMockSource } from '@/config/env';
 import { authService } from '@/services/authService';
 import { ROUTES } from '@/navigation/routes';
 import { strings } from '@/strings';
-import { getErrorMessage } from '@/utils/errors';
+import { getErrorMessage, getFieldErrors } from '@/utils/errors';
 import { getEmailError, getNewPasswordError, getRequiredError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
 
@@ -19,6 +20,7 @@ type FieldName = 'fullName' | 'email' | 'password';
 
 const copy = strings.auth.signUp;
 const { fields } = strings.common;
+const API_FIELDS: Record<string, FieldName> = { fullName: 'fullName', email: 'email', password: 'password' };
 
 const SignUpScreen: React.FC = () => {
   const goBack = useGoBack(ROUTES.auth.welcome);
@@ -51,9 +53,18 @@ const SignUpScreen: React.FC = () => {
 
     setSubmitting(true);
     try {
-      const { email: confirmedEmail } = await authService.signUp({ fullName, email, password });
-      router.push({ pathname: ROUTES.auth.verifyEmail, params: { email: confirmedEmail } });
+      const { email: confirmedEmail, verification } = await authService.signUp({
+        fullName,
+        email,
+        password,
+        acceptedTerms: agreed,
+      });
+      router.push({
+        pathname: ROUTES.auth.verifyEmail,
+        params: { email: confirmedEmail, resendIn: String(verification.resendAvailableInSeconds) },
+      });
     } catch (error) {
+      setFieldErrors(getFieldErrors(error, API_FIELDS));
       setFormError(getErrorMessage(error));
     } finally {
       setSubmitting(false);
@@ -118,9 +129,11 @@ const SignUpScreen: React.FC = () => {
         onPress={() => setAgreed((value) => !value)}
       />
 
-      <AppText variant="body12" color={colors.text.secondary}>
-        {copy.previewNotice}
-      </AppText>
+      {isMockSource('auth') ? (
+        <AppText variant="body12" color={colors.text.secondary}>
+          {copy.previewNotice}
+        </AppText>
+      ) : null}
     </ScreenLayout>
   );
 };
