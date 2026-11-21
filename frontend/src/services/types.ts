@@ -7,6 +7,7 @@ import {
   SignUpResult,
   UserProfile,
 } from '@/types/auth';
+import { BankMessage, BankMessageReview, TrackingAccount } from '@/types/sms';
 
 /**
  * The auth contract every implementation follows (mock and API), so screens
@@ -36,4 +37,26 @@ export interface AuthService {
   resetPassword(input: ResetPasswordInput): Promise<void>;
   /** API 10. */
   getCurrentUser(): Promise<UserProfile>;
+}
+
+/**
+ * Bank SMS import and review (Figma "04 / SMS Capture"). Reads are synchronous
+ * like `dashboardService`; actions are async. Only a mock exists today.
+ */
+export interface SmsService {
+  /** Every imported message, latest import first, whatever its status. */
+  getMessages(): BankMessage[];
+  getMessage(id: string): BankMessage | undefined;
+  /** Accounts a message can be recorded against. */
+  getTrackingAccounts(): TrackingAccount[];
+  /** Text received from the system share sheet ("Share a selected message"). */
+  getSharedText(): string;
+  /** `null` when the text is empty or has no amount and date. The same text again returns the existing message. */
+  importMessage(text: string): Promise<BankMessage | null>;
+  /** Reads amount, merchant and date, then says which review the message needs. */
+  extractDetails(id: string): Promise<BankMessageReview>;
+  /** Links the message to its matching transaction; no new expense is added. */
+  confirmMatch(id: string): Promise<BankMessage>;
+  /** Hides the message from both lists without recording anything. */
+  ignoreMessage(id: string): Promise<void>;
 }

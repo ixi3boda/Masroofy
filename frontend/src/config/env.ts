@@ -6,12 +6,13 @@
  */
 
 export type DataSource = 'mock' | 'api';
-export type ServiceName = 'auth' | 'dashboard';
+export type ServiceName = 'auth' | 'dashboard' | 'sms';
 
 /** Services that have a backend API today. `api` for any other one falls back to `mock`. */
 const HAS_API: Record<ServiceName, boolean> = {
   auth: true,
   dashboard: false,
+  sms: false,
 };
 
 const warn = (message: string) => {
@@ -31,6 +32,7 @@ const API_MODE = parseSource('EXPO_PUBLIC_API_MODE', process.env.EXPO_PUBLIC_API
 const requested: Record<ServiceName, DataSource> = {
   auth: parseSource('EXPO_PUBLIC_AUTH_SOURCE', process.env.EXPO_PUBLIC_AUTH_SOURCE) ?? API_MODE,
   dashboard: parseSource('EXPO_PUBLIC_DASHBOARD_SOURCE', process.env.EXPO_PUBLIC_DASHBOARD_SOURCE) ?? API_MODE,
+  sms: parseSource('EXPO_PUBLIC_SMS_SOURCE', process.env.EXPO_PUBLIC_SMS_SOURCE) ?? API_MODE,
 };
 
 const resolveSource = (service: ServiceName): DataSource => {
@@ -44,6 +46,7 @@ const resolveSource = (service: ServiceName): DataSource => {
 const SOURCES: Record<ServiceName, DataSource> = {
   auth: resolveSource('auth'),
   dashboard: resolveSource('dashboard'),
+  sms: resolveSource('sms'),
 };
 
 /** Where a service gets its data: its in-memory mock or the real backend. */

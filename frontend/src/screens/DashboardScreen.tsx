@@ -1,4 +1,5 @@
 import React from 'react';
+import { router } from 'expo-router';
 import { spacing } from '@theme/index';
 import IconButton from '@components/atoms/IconButton';
 import { ActionChipProps } from '@components/molecules/ActionChip';
@@ -11,6 +12,7 @@ import QuickActionsGrid from '@components/organisms/QuickActionsGrid';
 import RecentTransactions from '@components/organisms/RecentTransactions';
 import StatCardRow from '@components/organisms/StatCardRow';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { ROUTES } from '@/navigation/routes';
 import { dashboardService } from '@/services/dashboardService';
 import { strings } from '@/strings';
 import { formatCurrency, formatDayMonth, formatSignedCurrency } from '@/utils/formatters';
@@ -29,7 +31,12 @@ const MORE_ACTIONS: ActionChipProps[] = [
 
 const QUICK_ACTIONS: QuickActionTileProps[] = [
   { label: copy.quickActions.addTransaction, icon: 'plus' },
-  { label: copy.quickActions.smsDetection, icon: 'sms', hasAlert: true },
+  {
+    label: copy.quickActions.smsDetection,
+    icon: 'sms',
+    hasAlert: true,
+    onPress: () => router.push(ROUTES.sms.messages),
+  },
   { label: copy.quickActions.scanReceipt, icon: 'scan' },
   { label: copy.quickActions.voiceEntry, icon: 'mic' },
 ];

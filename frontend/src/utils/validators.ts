@@ -29,3 +29,9 @@ export function getNewPasswordError(password: string): string | null {
 export function getPasswordMatchError(password: string, confirmPassword: string): string | null {
   return password === confirmPassword ? null : messages.passwordsDoNotMatch;
 }
+
+/** "1,250.50" → 1250.5. `null` unless the text is a number greater than 0. */
+export function parseAmount(text: string): number | null {
+  const value = Number(text.replace(/,/g, '').trim());
+  return text.trim() && value > 0 ? value : null;
+}

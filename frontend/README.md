@@ -8,10 +8,12 @@ Personal finance app for Egypt (amounts in EGP). Built with **Expo SDK 58**, **E
 
 | Area | Status |
 |---|---|
-| **Reusable components** | ✅ **Almost all ready.** Every section of the Figma file (01 → 11) was reviewed and the components it needs are built, deduplicated and following atomic structure — 75 components in total. New screens should mostly be composition of existing pieces. |
+| **Reusable components** | ✅ **Almost all ready.** Every section of the Figma file (01 → 11) was reviewed and the components it needs are built, deduplicated and following atomic structure — 77 components in total. New screens should mostly be composition of existing pieces. |
 | 01 · Welcome, Authentication & Onboarding | ✅ Screens built (8), running on mocks |
 | 02 · Home Dashboard | ✅ Screen built, running on mocks |
-| 03 · Transactions → 11 · Shared States | 🧩 Components ready, **screens not built yet** |
+| 03 · Transactions | 🧩 Components ready, **screens not built yet** |
+| 04 · SMS Capture | ✅ Screens built (9 screens for the 10 frames), running on mocks — see `src/screens/Sms*` |
+| 05 · Receipt Scanning → 11 · Shared States | 🧩 Components ready, **screens not built yet** |
 | Backend / API | ⏳ Not connected. The app runs fully on in-memory mocks (see §5) |
 
 ---
@@ -40,6 +42,18 @@ Always add packages with `npx expo install <package>` (keeps versions compatible
 
 Verification / password-reset code everywhere: **`123456`**. These live in `src/mocks/data/authAccounts.ts`.
 
+### SMS capture (mock mode)
+
+Log in, then tap **SMS Detection** on Home. Three sample bank messages (`src/mocks/data/smsMessages.ts`) cover every review path:
+
+| Message | Opens | Why |
+|---|---|---|
+| CIB · EGP 850 at Carrefour | 04-04 → 04-05 | Same amount, merchant, card and day as the Carrefour expense on Home → confirm links it, no duplicate |
+| NBE · EGP 500 cash withdrawal | 04-07 → 04-08 | Withdrawals must be classified (cash / transfer / needs clarification) |
+| Banque Misr · EGP 240 at Electricity | 04-06 → 04-08 | No matching record, card not mapped to an account → user verifies everything |
+
+"Import a bank SMS" parses any pasted text with an amount (`EGP 120.00`) and a date (`28/10/2026 09:05`), e.g. `Your card ending 4821 was used for EGP 120.00 at UBER on 28/10/2026 09:05.` (matches the Uber expense). Text without them opens 04-10. "Share a selected message" fills in a sample message. Statuses reset when the app reloads.
+
 ---
 
 ## 3. Folder structure (`src/`)
@@ -54,12 +68,12 @@ src/
 │   ├── organisms/
 │   └── templates/
 ├── theme/          Design tokens: colors, typography, spacing, radii, shadows, gradients
-├── strings/        ALL user-facing text, grouped by feature (auth, dashboard, common, validation, categories)
+├── strings/        ALL user-facing text, grouped by feature (auth, dashboard, sms, common, validation, categories)
 ├── constants/      Non-text app constants (currency, code length, resend cooldown, password rules)
 ├── navigation/     routes.ts — every route path (ROUTES.auth.login, ROUTES.app.home…)
-├── services/       The ONLY data entry points screens use (authService, dashboardService)
+├── services/       The ONLY data entry points screens use (authService, dashboardService, smsService)
 ├── mocks/          Fake data (mocks/data) + in-memory service implementations (mocks/services)
-├── store/          Zustand stores (sessionStore = signed-in user)
+├── store/          Zustand stores (sessionStore = signed-in user, smsReviewStore = SMS review in progress)
 ├── hooks/          Reusable hooks (useGoBack, useHardwareBack, useCountdown)
 ├── types/          Shared domain types (auth, dashboard)
 └── utils/          Pure helpers (formatters, validators, AppError / getErrorMessage)
@@ -85,24 +99,26 @@ Layering rule: **atoms** import only atoms · **molecules** import only atoms ·
 
 Before building any UI, look here first — extend an existing component instead of creating a near-duplicate.
 
-### Atoms (24)
-`Avatar` · `Button` (primary / outline / danger / link / dangerLink, sizes md / sm) · `Card` (default / brand gradient) · `ChartBar` · `Checkbox` · `Chip` (info / success / error / warning, optional icon) · `Divider` · `Fab` · `Icon` (lucide, named set) · `IconBadge` (brand / error) · `IconButton` · `IconTile` · `Input` (label, hint, error, icons, multiline) · `OtpDigitBox` · `ProgressBar` (brand / danger) · `ProgressRing` · `Radio` · `SegmentedControl` · `SelectField` (tap-to-pick field) · `ShutterButton` · `Skeleton` · `Switch` · `Text` (`AppText`) · `Waveform`
+### Atoms (25)
+`Avatar` · `Button` (primary / outline / danger / link / dangerLink, sizes md / sm) · `Card` (default / brand gradient) · `ChartBar` · `Checkbox` · `Chip` (info / success / error / warning, optional icon) · `Divider` · `Fab` · `Icon` (lucide, named set) · `IconBadge` (brand / error) · `IconButton` · `IconTile` · `Input` (label, hint, error, icons, multiline) · `OtpDigitBox` · `ProgressBar` (brand / danger) · `ProgressRing` · `Radio` · `SegmentedControl` (sliding highlight) · `SelectField` (tap-to-pick field) · `ShutterButton` · `Skeleton` · `Switch` · `TabPanel` (animated body of the selected tab) · `Text` (`AppText`) · `Waveform`
 
 ### Molecules (29)
 `ActionChip` · `AmountSummaryCard` (one big figure + header/children) · `BarChartColumn` · `BrandMark` · `DateRangeCard` · `DividedCard` (rows separated by dividers) · `DonutChart` · `EmailPreviewRow` · `FeedbackBanner` (info / success / error / warning) · `FieldRow` (side-by-side fields) · `InlineLoader` · `LegendItem` · `ListRow` (the universal row: settings, details, messages, quotes…) · `MonthTimeline` · `NotificationCard` · `OptionCard` (radio / checkbox) · `OtpCodeField` · `ProfileSummary` · `ProgressSummary` · `QuickActionTile` · `ReceiptPreview` · `RecentSearchItem` · `SectionHeader` · `SkeletonRow` · `StatCard` · `StateSummary` (hero / compact, brand / error) · `TabBarItem` · `TranscriptCard` · `TrendChart`
 
-### Organisms (20)
-`ActionChipGroup` · `AmountEntryCard` · `BottomTabBar` · `BudgetProgressCard` · `CapturePanel` (receipt camera) · `ConfirmDialog` · `GroupedBarChartCard` · `IncomeExpenseChartCard` · `OptionList` · `ProgressItemCard` (budgets / goals) · `QuickActionsGrid` · `RecentTransactions` · `ScreenHeader` · `SpendingBreakdownCard` · `StatCardRow` · `SummaryCard` · `TransactionGroupCard` · `TransactionItem` · `TransactionRecordCard` · `VoiceCaptureCard`
+### Organisms (21)
+`ActionChipGroup` · `AmountEntryCard` · `BankMessageCard` (imported SMS in the messages list) · `BottomTabBar` · `BudgetProgressCard` · `CapturePanel` (receipt camera) · `ConfirmDialog` · `GroupedBarChartCard` · `IncomeExpenseChartCard` · `OptionList` · `ProgressItemCard` (budgets / goals) · `QuickActionsGrid` · `RecentTransactions` · `ScreenHeader` · `SpendingBreakdownCard` · `StatCardRow` · `SummaryCard` · `TransactionGroupCard` · `TransactionItem` · `TransactionRecordCard` · `VoiceCaptureCard`
 
 ### Templates (1)
-`ScreenLayout` — header (back / left / right slots, centered or start title) → keyboard-aware scroll body → optional sticky footer buttons and/or bottom tab bar.
+`ScreenLayout` — header (back / left / right slots, centered or start title) → optional pinned `toolbar` (e.g. tabs; `scrollKey` scrolls back to top when the tab changes) → keyboard-aware scroll body → optional sticky footer buttons and/or bottom tab bar.
+
+**Tabbed screens** (e.g. Bank Messages): put the `SegmentedControl` in `toolbar`, pass the tab as `scrollKey`, and wrap the tab's content in `<TabPanel index={…}>` so it slides in from the chosen side. Keep the footer and tab bar the same on every tab.
 
 ### Which components each upcoming section uses
 
 | Figma section | Main building blocks |
 |---|---|
 | 03 Transactions | `SegmentedControl`, `Input` (search), `TransactionGroupCard`, `AmountEntryCard`, `SelectField`, `OptionList`, `DateRangeCard`, `TransactionRecordCard`, `ReceiptPreview`, `ConfirmDialog`, `RecentSearchItem` |
-| 04 SMS Capture | `Input` (multiline), `OptionCard` (checkbox), `DividedCard` + `ListRow` (messages, steps), `FeedbackBanner` (warning), `OptionList`, `TransactionRecordCard` |
+| 04 SMS Capture ✅ | `BankMessageCard`, `Input` (multiline), `OptionCard` (checkbox), `DividedCard` + `ListRow` (messages, steps), `FeedbackBanner` (warning), `OptionList`, `SelectField`, `StateSummary`, `TransactionRecordCard` |
 | 05 Receipt Scanning | `CapturePanel`, `ReceiptPreview`, `OptionCard`, `DividedCard`, `StateSummary` (error tone) |
 | 06 Voice Transactions | `VoiceCaptureCard`, `TranscriptCard`, `SegmentedControl`, `TransactionRecordCard` |
 | 07 Budgets & Planning | `ProgressItemCard`, `AmountSummaryCard`, `ProgressSummary`, `ListRow` + `Switch`, `ProgressRing`, `MonthTimeline`, `OptionList` |
@@ -180,5 +196,6 @@ Screens only ever import from `src/services/*`. The service file decides where t
 
 - Routes live in `src/app/` and are listed in `src/navigation/routes.ts` — add new screens to both.
 - Use `useGoBack(ROUTES.x.y)` for header back buttons: it goes back when there is history and otherwise falls back to the given route (deep links, web refresh).
-- Use `useHardwareBack(handler)` when the Android back button must do something custom (e.g. "Password updated" always returns to Login).
+- Use `useHardwareBack(handler)` when the Android back button must do something custom (e.g. "Password updated" always returns to Login) It only listens while its screen is focused, so screens pushed on top keep the normal back.
+- In multi-step flows, `router.replace` a step that should not be returned to (SMS: Import → Processing → Review), so the plain back arrow and Android back already land on the right screen.
 - After sign-in, the auth screens are removed from history by the guarded route groups, so back can never return to Login from inside the app.

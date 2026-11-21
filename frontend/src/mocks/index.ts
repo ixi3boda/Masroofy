@@ -6,4 +6,6 @@
 export { MOCK_TEST_ACCOUNTS, MOCK_VERIFICATION_CODE } from './data/authAccounts';
 export type { MockTestAccount } from './data/authAccounts';
 export { mockDashboardSummary } from './data/dashboard';
+export { mockBankMessages, mockSharedMessageText, mockTrackingAccounts } from './data/smsMessages';
 export { mockAuthService } from './services/mockAuthService';
+export { mockSmsService } from './services/mockSmsService';

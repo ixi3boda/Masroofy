@@ -42,6 +42,8 @@ export { default as Skeleton } from './Skeleton';
 export type { SkeletonProps } from './Skeleton';
 export { default as Switch } from './Switch';
 export type { SwitchProps } from './Switch';
+export { default as TabPanel } from './TabPanel';
+export type { TabPanelProps } from './TabPanel';
 export { default as AppText } from './Text';
 export type { AppTextProps } from './Text';
 export { default as Waveform } from './Waveform';

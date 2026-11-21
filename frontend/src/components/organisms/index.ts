@@ -2,6 +2,8 @@ export { default as ActionChipGroup } from './ActionChipGroup';
 export type { ActionChipGroupProps } from './ActionChipGroup';
 export { default as AmountEntryCard } from './AmountEntryCard';
 export type { AmountEntryCardProps } from './AmountEntryCard';
+export { default as BankMessageCard } from './BankMessageCard';
+export type { BankMessageCardProps } from './BankMessageCard';
 export { default as BottomTabBar } from './BottomTabBar';
 export type { TabKey, BottomTabBarProps } from './BottomTabBar';
 export { default as BudgetProgressCard } from './BudgetProgressCard';

@@ -16,4 +16,15 @@ export const ROUTES = {
   app: {
     home: '/(app)/home',
   },
+  sms: {
+    messages: '/(app)/sms/messages',
+    import: '/(app)/sms/import',
+    importFailed: '/(app)/sms/import-failed',
+    processing: '/(app)/sms/processing',
+    reviewMatch: '/(app)/sms/review-match',
+    reviewUnmatched: '/(app)/sms/review-unmatched',
+    classifyWithdrawal: '/(app)/sms/classify-withdrawal',
+    matchConfirmed: '/(app)/sms/match-confirmed',
+    reviewedPreview: '/(app)/sms/reviewed-preview',
+  },
 } as const;
