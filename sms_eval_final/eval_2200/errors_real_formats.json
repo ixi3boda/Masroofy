@@ -1,0 +1,1190 @@
+{
+ "is_transaction": [
+  {
+   "id": 1002,
+   "sender": "Orange Cash",
+   "template_id": "oc_recharge",
+   "gold": true,
+   "pred": false,
+   "sms": "تم شحن بنجاح لرقم 01290996030 بقيمة 15.00، رصيدك الحالي 1969.69 جنيه، رقم المعاملة 462819482199.\n\nعرض مايتفوتش!\nوفّر 540 جنيه على اشتراك Yango Play واتفرج على اجمد الافلام والمسلسلات في مصر\nخصم 65% على اشتراك 6 شهور بـ300 جنيه بدل 840 جنيه\nادفع دلوقتي باورنچ كاش\nhttps://myo.orange.eg/YANGO\n\n+لأي استفسار كلم 7770 \nأو تواصل معانا على الواتساب: https://myo.orange.eg/O-whatsapp"
+  },
+  {
+   "id": 1004,
+   "sender": "HSBC",
+   "template_id": "hsbc_none",
+   "gold": false,
+   "pred": true,
+   "sms": "HSBC Credit Card ending *** 3194 Statement Date 26/09/2026. Total Amt Due EGP 31,200.16, Due Date 21/10/2026. Min. Amt Due EGP 3,071.92. Please ignore if paid."
+  },
+  {
+   "id": 1010,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw_request",
+   "gold": false,
+   "pred": true,
+   "sms": "تم طلب سحب مبلغ 12550.0 جنيه من حساب فودافون كاش. للتأكيد اطلب #1*9* وادخل الرقم السري. رقم العملية 62177741215472803."
+  },
+  {
+   "id": 1012,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": true,
+   "pred": false,
+   "sms": "From HSBC: 10NOV26 Charges from 074-363***-387 EGP 75.00- Your available balance is EGP 83.04"
+  },
+  {
+   "id": 1022,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": true,
+   "pred": false,
+   "sms": "From HSBC: 29SEP26 Charges from 074-478***-245 EGP 25.00- Your available balance is EGP 21,787.67"
+  },
+  {
+   "id": 1024,
+   "sender": "InstaPay",
+   "template_id": "instapay_none",
+   "gold": false,
+   "pred": true,
+   "sms": "Dina Farag requested EGP 173.00 from you on InstaPay. Open the app to accept or decline."
+  },
+  {
+   "id": 1025,
+   "sender": "Orange Cash",
+   "template_id": "oc_recharge",
+   "gold": true,
+   "pred": false,
+   "sms": "تم شحن بنجاح لرقم 01234072247 بقيمة 200.00، رصيدك الحالي 214.57 جنيه، رقم المعاملة 585304352056.\n\nادفع فواتيرك باورنچ كاش واكسب 10% كاش باك لحد 50 جنيه\nhttps://myo.orange.eg/cash\n\n+لأي استفسار كلم 7770 \nأو تواصل معانا على الواتساب: https://myo.orange.eg/O-whatsapp"
+  },
+  {
+   "id": 1032,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_dormancy",
+   "gold": false,
+   "pred": true,
+   "sms": "عملينا العزيز برجاء العلم أن حسابكم رقم 5651 سيتم تركيده بتاريخ 14/03/2026 ، ولتفادي تركيده يرجى إجراء أي من حركات سحب أو إيداع أو تحويل على الحساب قبل ذلك التاريخ من خلال أقرب فرع أو ماكينة صراف آلي أو قناة الكترونية متاحة."
+  },
+  {
+   "id": 1033,
+   "sender": "Orange Cash",
+   "template_id": "oc_recharge",
+   "gold": true,
+   "pred": false,
+   "sms": "تم شحن بنجاح لرقم 01261304451 بقيمة 10.00، رصيدك الحالي 13.44 جنيه، رقم المعاملة 156404104234.\n\nحوّل لأي محفظة أو حساب بنكي عن طريق انستاباي من اورنچ كاش\nhttps://myo.orange.eg/cash\n\n+لأي استفسار كلم 7770 \nأو تواصل معانا على الواتساب: https://myo.orange.eg/O-whatsapp"
+  },
+  {
+   "id": 1038,
+   "sender": "InstaPay",
+   "template_id": "instapay_none",
+   "gold": false,
+   "pred": true,
+   "sms": "Mariam Mansour requested EGP 1010.00 from you on InstaPay. Open the app to accept or decline."
+  },
+  {
+   "id": 1048,
+   "sender": "CIB",
+   "template_id": "cib_none",
+   "gold": false,
+   "pred": true,
+   "sms": "عميلنا العزيز، تم إضافة بطاقة  CIBالتي تنتهى برقم 2611 بنجاح الىApple Wallet ، يمكنك الآن الاستمتاع ب Apple Pay باستخدام بطاقة CIB. تطبق الشروط و الأحكام"
+  },
+  {
+   "id": 1051,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": true,
+   "pred": false,
+   "sms": "From HSBC: 19JAN26 Charges from 074-073***-750 EGP 50.00- Your available balance is EGP 54,119.95"
+  },
+  {
+   "id": 1058,
+   "sender": "Orange Cash",
+   "template_id": "oc_recharge",
+   "gold": true,
+   "pred": false,
+   "sms": "تم شحن بنجاح لرقم 01282651233 بقيمة 20.00، رصيدك الحالي 92.48 جنيه، رقم المعاملة 051697846493.\n\nحوّل لأي محفظة أو حساب بنكي عن طريق انستاباي من اورنچ كاش\nhttps://myo.orange.eg/cash\n\n+لأي استفسار كلم 7770 \nأو تواصل معانا على الواتساب: https://myo.orange.eg/O-whatsapp"
+  },
+  {
+   "id": 1060,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw_request",
+   "gold": false,
+   "pred": true,
+   "sms": "تم طلب سحب مبلغ 11100.0 جنيه من حساب فودافون كاش. للتأكيد اطلب #1*9* وادخل الرقم السري. رقم العملية 62151788002158108."
+  },
+  {
+   "id": 1063,
+   "sender": "VF-Cash",
+   "template_id": "vf_insufficient",
+   "gold": false,
+   "pred": true,
+   "sms": "لا يوجد رصيد كاف في حسابك. يمكنك تحويل 4380 جنية فقط بعد خصم 1 ج رسوم تحويل; رقم العملية 019805788914"
+  }
+ ],
+ "type": [
+  {
+   "id": 1003,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "credit",
+   "pred": "atm_withdrawal",
+   "sms": "From HSBC: 10JUL26 ATM Reversal of Cash Withdrawal from 074-819***-093 EGP 418.80+ Your available balance is EGP 478.21"
+  },
+  {
+   "id": 1006,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_returned",
+   "gold": "credit",
+   "pred": "transfer_in",
+   "sms": "تم رد تحويل لحظي لحسابكم رقم 9170 بمبلغ 1000.00 جم رقم مرجعي 342366712768 يوم 07-01 الساعة 05:44 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1034,
+   "sender": "CIB",
+   "template_id": "cib_ipn_in",
+   "gold": "transfer_in",
+   "pred": "transfer_out",
+   "sms": "يرجى العلم انه تم تنفيذ تحويل لحظي بمبلغ 125.14 جم إلى حسابك المنتهي بـ ********6883 من AHMED ELGAMAL برقم مرجعي e49f145f بتاريخ 08-08-2026 00:59 للمزيد، برجاء الاتصال بـ 19666"
+  },
+  {
+   "id": 1036,
+   "sender": "CIB",
+   "template_id": "cib_ipn_in",
+   "gold": "transfer_in",
+   "pred": "transfer_out",
+   "sms": "يرجى العلم انه تم تنفيذ تحويل لحظي بمبلغ 143.65 جم إلى حسابك المنتهي بـ ********8331 من TAREK SHAHIN MOHAMED برقم مرجعي a7b860dc بتاريخ 07-08-2026 04:45 للمزيد، برجاء الاتصال بـ 19666"
+  },
+  {
+   "id": 1067,
+   "sender": "CIB",
+   "template_id": "cib_ipn_in",
+   "gold": "transfer_in",
+   "pred": "transfer_out",
+   "sms": "يرجى العلم انه تم تنفيذ تحويل لحظي بمبلغ 17.00 جم إلى حسابك المنتهي بـ ********4008 من HEBA RADWAN HAMDY برقم مرجعي f750110c بتاريخ 19-05-2026 13:43 للمزيد، برجاء الاتصال بـ 19666"
+  },
+  {
+   "id": 1069,
+   "sender": "CIB",
+   "template_id": "cib_refund_applepay",
+   "gold": "credit",
+   "pred": "debit",
+   "sms": "تم اضافة المعاملة الخاصة بـ Breadfast على بطاقة# **1407 باستخدام Apple Pay بقيمة 500.71 EGP بتاريخ 18/09/26 الرصيدالمتاح EGP 61.09"
+  },
+  {
+   "id": 1070,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_atm",
+   "gold": "atm_withdrawal",
+   "pred": "debit",
+   "sms": "تم خصم 5600.00EGP من بطاقة الخصم المباشر رقم 3143 عند NBE ATM015 يوم 08/20 الساعه 05:59 المتاح 3174.05 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1089,
+   "sender": "Orange Cash",
+   "template_id": "oc_recharge",
+   "gold": "bill_payment",
+   "pred": "transfer_out",
+   "sms": "تم شحن بنجاح لرقم 01217181463 بقيمة 25.00، رصيدك الحالي 52.40 جنيه، رقم المعاملة 778077273728."
+  },
+  {
+   "id": 1093,
+   "sender": "CIB",
+   "template_id": "cib_ipn_in",
+   "gold": "transfer_in",
+   "pred": "transfer_out",
+   "sms": "يرجى العلم انه تم تنفيذ تحويل لحظي بمبلغ 294.24 جم إلى حسابك المنتهي بـ ********5765 من WAEL HAMDY METWALY برقم مرجعي 6f3a6a94 بتاريخ 29-05-2026 09:59 للمزيد، برجاء الاتصال بـ 19666"
+  },
+  {
+   "id": 1102,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_instant_pay",
+   "gold": "debit",
+   "pred": "transfer_out",
+   "sms": "تم خصم مبلغ 431.62 جم لحظيا باستخدام (شبكة المدفوعات اللحظية) من حسابكم رقم 4963 عند B.TECH NASR CITY يوم 03-19 الساعة20:31 مرجع التاجر 6693740544 للمزيد اتصل بـ 19623."
+  },
+  {
+   "id": 1111,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_instant_pay",
+   "gold": "debit",
+   "pred": "transfer_out",
+   "sms": "تم خصم مبلغ 950.00 جم لحظيا باستخدام (شبكة المدفوعات اللحظية) من حسابكم رقم 7246 عند ELSAHEL MOBIL يوم 10-11 الساعة04:56 مرجع التاجر 3204945247 للمزيد اتصل بـ 19623."
+  },
+  {
+   "id": 1112,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw",
+   "gold": "atm_withdrawal",
+   "pred": "debit",
+   "sms": "تم سحب 11750.0 ج بنجاح. رصيد حسابك في فودافون  كاش الحالي 7665.73 جنيه. تاريخ العملية ‎20-09-26 01:56 رقم العملية 019874143564. دلوقتي ولأول مرة تقدر تشحن أي كارت كهرباء بفودافون كاش من مكانك ,دوس على http://vf.eg/vfcash  واختار خدمة شحن كارت الكهرباء."
+  },
+  {
+   "id": 1121,
+   "sender": "CIB",
+   "template_id": "cib_refund_applepay",
+   "gold": "credit",
+   "pred": "debit",
+   "sms": "تم اضافة المعاملة الخاصة بـ Instashop على بطاقة# **1821 باستخدام Apple Pay بقيمة 2428.97 EGP بتاريخ 06/01/26 الرصيدالمتاح EGP 11.81"
+  },
+  {
+   "id": 1122,
+   "sender": "CIB",
+   "template_id": "cib_ipn_in",
+   "gold": "transfer_in",
+   "pred": "transfer_out",
+   "sms": "يرجى العلم انه تم تنفيذ تحويل لحظي بمبلغ 570.00 جم إلى حسابك المنتهي بـ ********7000 من SAMEH FARAG ELSAYED برقم مرجعي 3830d719 بتاريخ 04-08-2026 13:33 للمزيد، برجاء الاتصال بـ 19666"
+  },
+  {
+   "id": 1133,
+   "sender": "Banque Misr",
+   "template_id": "bm_cc_payment",
+   "gold": "other",
+   "pred": "credit",
+   "sms": "عميلنا العزيز، تم إيداع EGP 2171.40 بالبطاقة الائتمانية المنتهية بـ ****6190، فى BM-Online يوم  03/01/2026 ، ورصيدكم الحالي 45183.57 EGP، للاطلاع على معاملاتكم اضغط bnkmsr.com/online"
+  }
+ ],
+ "amount": [
+  {
+   "id": 1003,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": 418.8,
+   "pred": 74.0,
+   "sms": "From HSBC: 10JUL26 ATM Reversal of Cash Withdrawal from 074-819***-093 EGP 418.80+ Your available balance is EGP 478.21"
+  },
+  {
+   "id": 1005,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 195.15,
+   "pred": 195.0,
+   "sms": "تم خصم 195.15EGP من بطاقة الخصم المباشر رقم 1049 عند TOTALENERGIES 6OCT يوم 05/19 الساعه 16:10 المتاح 2.10 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1014,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": 15608.48,
+   "pred": 222029729975.0,
+   "sms": "Feb 13, 2026 5:25:00 AM: Received EGP15,608.48 from 00222029729975 to Mobile Account Number 2882. Ref: 019001826330 Available Balance: 22869.75"
+  },
+  {
+   "id": 1016,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": 57000.0,
+   "pred": 57.0,
+   "sms": "تم تحويل مبلغ 57,000EGP     من حساب رقم xxx2791       فى 18-MAR-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1026,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": 722.58,
+   "pred": 16.0,
+   "sms": "Feb 16, 2026 9:01:00 AM: Received EGP722.58 from 00212690604431 to Mobile Account Number 9829. Ref: 019657249208 Available Balance: 1661.96"
+  },
+  {
+   "id": 1089,
+   "sender": "Orange Cash",
+   "template_id": "oc_recharge",
+   "gold": 25.0,
+   "pred": 1217181463.0,
+   "sms": "تم شحن بنجاح لرقم 01217181463 بقيمة 25.00، رصيدك الحالي 52.40 جنيه، رقم المعاملة 778077273728."
+  },
+  {
+   "id": 1154,
+   "sender": "Orange Cash",
+   "template_id": "oc_recharge",
+   "gold": 200.0,
+   "pred": 1208651702.0,
+   "sms": "تم شحن بنجاح لرقم 01208651702 بقيمة 200.00، رصيدك الحالي 30.15 جنيه، رقم المعاملة 264079593718."
+  },
+  {
+   "id": 1184,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": 331.88,
+   "pred": 74.0,
+   "sms": "From HSBC: 07OCT26 CARREFOUR MAADI Purchase from 074-185***-715 EGP 331.88- Your available balance is EGP 173,240.92"
+  },
+  {
+   "id": 1203,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": 3900.0,
+   "pred": 221507424113.0,
+   "sms": "Mar 25, 2026 12:16:00 PM: Received EGP3,900 from 00221507424113 to Mobile Account Number 1274. Ref: 019881573298 Available Balance: 17791.49"
+  },
+  {
+   "id": 1220,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 19.68,
+   "pred": 19.0,
+   "sms": "تم خصم 19.68EGP من بطاقة الخصم المباشر رقم 3516 عند Uber يوم 05/28 الساعه 04:33 المتاح 315.41 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1222,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": 4498.3,
+   "pred": 22.0,
+   "sms": "Sep 22, 2026 2:27:00 AM: Received EGP4,498.30 from 00215307274807 to Mobile Account Number 9890. Ref: 019087173455 Available Balance: 17517.53"
+  },
+  {
+   "id": 1259,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": 3541.08,
+   "pred": 18.0,
+   "sms": "Jun 18, 2026 11:39:00 AM: Received EGP3,541.08 from 00287239802664 to Mobile Account Number 0341. Ref: 019711923773 Available Balance: 5827.24"
+  },
+  {
+   "id": 1277,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": 1252.01,
+   "pred": 74.0,
+   "sms": "From HSBC: 28JAN26 FAWRY*BEANOS Purchase from 074-052***-384 EGP 1,252.01- Your available balance is EGP 17.90"
+  },
+  {
+   "id": 1318,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": 77700.0,
+   "pred": 77.0,
+   "sms": "تم تحويل مبلغ 77,700EGP     من حساب رقم xxx6214       فى 29-AUG-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1339,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": 209.44,
+   "pred": 74.0,
+   "sms": "From HSBC: 13JUL26 CARREFOUR MAADI Purchase from 074-884***-190 EGP 209.44- Your available balance is EGP 3,293.81"
+  }
+ ],
+ "currency": [
+  {
+   "id": 1003,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "From HSBC: 10JUL26 ATM Reversal of Cash Withdrawal from 074-819***-093 EGP 418.80+ Your available balance is EGP 478.21"
+  },
+  {
+   "id": 1005,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 195.15EGP من بطاقة الخصم المباشر رقم 1049 عند TOTALENERGIES 6OCT يوم 05/19 الساعه 16:10 المتاح 2.10 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1014,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "Feb 13, 2026 5:25:00 AM: Received EGP15,608.48 from 00222029729975 to Mobile Account Number 2882. Ref: 019001826330 Available Balance: 22869.75"
+  },
+  {
+   "id": 1016,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم تحويل مبلغ 57,000EGP     من حساب رقم xxx2791       فى 18-MAR-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1026,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "Feb 16, 2026 9:01:00 AM: Received EGP722.58 from 00212690604431 to Mobile Account Number 9829. Ref: 019657249208 Available Balance: 1661.96"
+  },
+  {
+   "id": 1070,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_atm",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 5600.00EGP من بطاقة الخصم المباشر رقم 3143 عند NBE ATM015 يوم 08/20 الساعه 05:59 المتاح 3174.05 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1112,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم سحب 11750.0 ج بنجاح. رصيد حسابك في فودافون  كاش الحالي 7665.73 جنيه. تاريخ العملية ‎20-09-26 01:56 رقم العملية 019874143564. دلوقتي ولأول مرة تقدر تشحن أي كارت كهرباء بفودافون كاش من مكانك ,دوس على http://vf.eg/vfcash  واختار خدمة شحن كارت الكهرباء."
+  },
+  {
+   "id": 1183,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم سحب 600.0 ج بنجاح. رصيد حسابك في فودافون  كاش الحالي 1.61 جنيه. تاريخ العملية ‎03-02-26 03:45 رقم العملية 019728602382. دلوقتي ولأول مرة تقدر تشحن أي كارت كهرباء بفودافون كاش من مكانك ,دوس على http://vf.eg/vfcash  واختار خدمة شحن كارت الكهرباء."
+  },
+  {
+   "id": 1184,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "From HSBC: 07OCT26 CARREFOUR MAADI Purchase from 074-185***-715 EGP 331.88- Your available balance is EGP 173,240.92"
+  },
+  {
+   "id": 1202,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم سحب 7700.0 ج بنجاح. رصيد حسابك في فودافون  كاش الحالي 3017.00 جنيه. تاريخ العملية ‎21-08-26 03:15 رقم العملية 019296700089. دلوقتي ولأول مرة تقدر تشحن أي كارت كهرباء بفودافون كاش من مكانك ,دوس على http://vf.eg/vfcash  واختار خدمة شحن كارت الكهرباء."
+  },
+  {
+   "id": 1203,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "Mar 25, 2026 12:16:00 PM: Received EGP3,900 from 00221507424113 to Mobile Account Number 1274. Ref: 019881573298 Available Balance: 17791.49"
+  },
+  {
+   "id": 1220,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 19.68EGP من بطاقة الخصم المباشر رقم 3516 عند Uber يوم 05/28 الساعه 04:33 المتاح 315.41 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1222,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "Sep 22, 2026 2:27:00 AM: Received EGP4,498.30 from 00215307274807 to Mobile Account Number 9890. Ref: 019087173455 Available Balance: 17517.53"
+  },
+  {
+   "id": 1247,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم سحب 11150.0 ج بنجاح. رصيد حسابك في فودافون  كاش الحالي 180.86 جنيه. تاريخ العملية ‎29-03-26 17:25 رقم العملية 019311747721."
+  },
+  {
+   "id": 1259,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "Jun 18, 2026 11:39:00 AM: Received EGP3,541.08 from 00287239802664 to Mobile Account Number 0341. Ref: 019711923773 Available Balance: 5827.24"
+  }
+ ],
+ "datetime": [
+  {
+   "id": 1003,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "2026-07-10",
+   "pred": null,
+   "sms": "From HSBC: 10JUL26 ATM Reversal of Cash Withdrawal from 074-819***-093 EGP 418.80+ Your available balance is EGP 478.21"
+  },
+  {
+   "id": 1014,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "2026-02-13T05:25:00",
+   "pred": null,
+   "sms": "Feb 13, 2026 5:25:00 AM: Received EGP15,608.48 from 00222029729975 to Mobile Account Number 2882. Ref: 019001826330 Available Balance: 22869.75"
+  },
+  {
+   "id": 1016,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": "2026-03-18",
+   "pred": null,
+   "sms": "تم تحويل مبلغ 57,000EGP     من حساب رقم xxx2791       فى 18-MAR-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1017,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv",
+   "gold": "2026-10-14T01:56:00",
+   "pred": "2014-10-26T01:56:00",
+   "sms": "تم استلام مبلغ 1800.00 جنيه من رقم 01017598983 المسجل بإسم محمود إبراهيم صالح على رقم محفظتك  01047887838.\nرصيدك الحالي: 14966.36 جنيه\nتاريخ العملية: 01:56 26-10-14\nرقم العملية: 019483726167\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1026,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "2026-02-16T09:01:00",
+   "pred": null,
+   "sms": "Feb 16, 2026 9:01:00 AM: Received EGP722.58 from 00212690604431 to Mobile Account Number 9829. Ref: 019657249208 Available Balance: 1661.96"
+  },
+  {
+   "id": 1040,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv",
+   "gold": "2026-01-01T00:21:00",
+   "pred": "2001-01-26T00:21:00",
+   "sms": "تم استلام مبلغ 550 جنيه من رقم 01106400376 المسجل بإسم Youssef A Mansour Saleh على رقم محفظتك  01014365370.\nرصيدك الحالي: 1497.13 جنيه\nتاريخ العملية: 00:21 26-01-01\nرقم العملية: 019565630481\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1044,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": "2026-02-10T09:33:00",
+   "pred": "2010-02-26T09:33:00",
+   "sms": "تم تحويل 1290 جنيه لرقم 01056183654 مصاريف الخدمة 1 جنيه رصيد حسابك فى فودافون كاش الحالي 95.68.\nتاريخ العملية: 09:33 26-02-10\nرقم العملية: 019610735873\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1114,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": "2026-04-22T09:26:00",
+   "pred": "2022-04-26T09:26:00",
+   "sms": "تم تحويل 4400 جنيه لرقم 01122832391 مصاريف الخدمة 1 جنيه رصيد حسابك فى فودافون كاش الحالي 88.85.\nتاريخ العملية: 09:26 26-04-22\nرقم العملية: 019197423293\n"
+  },
+  {
+   "id": 1169,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": "2026-03-28T20:01:00",
+   "pred": "2028-03-26T20:01:00",
+   "sms": "تم تحويل 5850 جنيه لرقم 01024449851 مصاريف الخدمة 1 جنيه رصيد حسابك فى فودافون كاش الحالي 351.77.\nتاريخ العملية: 20:01 26-03-28\nرقم العملية: 019391924957\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1184,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "2026-10-07",
+   "pred": null,
+   "sms": "From HSBC: 07OCT26 CARREFOUR MAADI Purchase from 074-185***-715 EGP 331.88- Your available balance is EGP 173,240.92"
+  },
+  {
+   "id": 1203,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "2026-03-25T12:16:00",
+   "pred": null,
+   "sms": "Mar 25, 2026 12:16:00 PM: Received EGP3,900 from 00221507424113 to Mobile Account Number 1274. Ref: 019881573298 Available Balance: 17791.49"
+  },
+  {
+   "id": 1204,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv",
+   "gold": "2026-03-07T08:11:00",
+   "pred": "2007-03-26T08:11:00",
+   "sms": "تم استلام مبلغ 70.12 جنيه من رقم 01079331224 المسجل بإسم Hisham I Abdelaziz على رقم محفظتك  01006698149.\nرصيدك الحالي: 371.25 جنيه\nتاريخ العملية: 08:11 26-03-07\nرقم العملية: 019119333980\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1216,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": "2026-07-04T23:34:00",
+   "pred": "2004-07-26T23:34:00",
+   "sms": "تم تحويل 551 جنيه لرقم 01252970852 مصاريف الخدمة 5 جنيه رصيد حسابك فى فودافون كاش الحالي 729.18.\nتاريخ العملية: 23:34 26-07-04\nرقم العملية: 019380248240\n"
+  },
+  {
+   "id": 1222,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "2026-09-22T02:27:00",
+   "pred": null,
+   "sms": "Sep 22, 2026 2:27:00 AM: Received EGP4,498.30 from 00215307274807 to Mobile Account Number 9890. Ref: 019087173455 Available Balance: 17517.53"
+  },
+  {
+   "id": 1242,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv",
+   "gold": "2026-02-07T12:20:00",
+   "pred": "2007-02-26T12:20:00",
+   "sms": "تم استلام مبلغ 195.00 جنيه من رقم 01521446627 المسجل بإسم رامي صالح على رقم محفظتك  01017553063.\nرصيدك الحالي: 6767.38 جنيه\nتاريخ العملية: 12:20 26-02-07\nرقم العملية: 019135549031\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  }
+ ],
+ "account_last4": [
+  {
+   "id": 1003,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "093",
+   "pred": null,
+   "sms": "From HSBC: 10JUL26 ATM Reversal of Cash Withdrawal from 074-819***-093 EGP 418.80+ Your available balance is EGP 478.21"
+  },
+  {
+   "id": 1006,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_returned",
+   "gold": "9170",
+   "pred": null,
+   "sms": "تم رد تحويل لحظي لحسابكم رقم 9170 بمبلغ 1000.00 جم رقم مرجعي 342366712768 يوم 07-01 الساعة 05:44 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1007,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "6563",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 6563 بمبلغ 29.00 جم من خالد منصور النجار رقم مرجعي 079244026859 يوم 10-09 الساعة 09:30 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1014,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "2882",
+   "pred": "2026",
+   "sms": "Feb 13, 2026 5:25:00 AM: Received EGP15,608.48 from 00222029729975 to Mobile Account Number 2882. Ref: 019001826330 Available Balance: 22869.75"
+  },
+  {
+   "id": 1015,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "4862",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 4862 بمبلغ 99.00 جم من هشام شاهين صالح رقم مرجعي 682828807290 يوم 10-28 الساعة 11:07 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1026,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "9829",
+   "pred": "2026",
+   "sms": "Feb 16, 2026 9:01:00 AM: Received EGP722.58 from 00212690604431 to Mobile Account Number 9829. Ref: 019657249208 Available Balance: 1661.96"
+  },
+  {
+   "id": 1046,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "4590",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 4590 بمبلغ 3461.27 جم من أسماء سليم عبدالعزيز رقم مرجعي 910317764672 يوم 06-23 الساعة 12:23 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1057,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "7342",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 7342 بمبلغ 590.02 جم من SAMEH SALEH رقم مرجعي 509619239693 يوم 02-25 الساعة 13:05 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1072,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "3659",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 3659 بمبلغ 63.43 جم من سامح صالح عبدالعزيز شاهين رقم مرجعي 639436991922 يوم 03-23 الساعة 11:09 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1075,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "8931",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 7490606815708931 بمبلغ 8250 جم إلى ALI ELGAMAL ABDELAZIZ رقم مرجعي 834005 يوم 05/11/2026 الساعه 17:11 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1081,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "3847",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 3847 بمبلغ 10186.00 جم من عبدالله عبدالعزيز منصور رقم مرجعي 699639321765 يوم 07-24 الساعة 14:54 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1082,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "2467",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 2467 بمبلغ 2403.07 جم من ياسمين عبدالفتاح عرفه عبدالعزيز رقم مرجعي 671048323851 يوم 05-05 الساعة 13:39 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1084,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "6732",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 6732 بمبلغ 57.89 جم من سارة رضوان رقم مرجعي 832567482753 يوم 09-27 الساعة 07:28 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1085,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_in",
+   "gold": "2704",
+   "pred": null,
+   "sms": "تم إضافة تحويل لحظي لحسابكم رقم 2704 بمبلغ 190.00 جم من دينا رضوان النجار رقم مرجعي 691524601952 يوم 08-07 الساعة 23:10 للمزيد اتصل بـ 19623"
+  },
+  {
+   "id": 1101,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_ipn_out",
+   "gold": "5597",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 5597 بمبلغ 3000.00 جم إلى نورهان ع******** رقم مرجعي 676749544099 يوم 11-08 الساعة 02:02 للمزيد اتصل بـ 19623"
+  }
+ ],
+ "balance_after": [
+  {
+   "id": 1005,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 2.1,
+   "pred": null,
+   "sms": "تم خصم 195.15EGP من بطاقة الخصم المباشر رقم 1049 عند TOTALENERGIES 6OCT يوم 05/19 الساعه 16:10 المتاح 2.10 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1013,
+   "sender": "WE Pay",
+   "template_id": "wepay_send",
+   "gold": 33.32,
+   "pred": null,
+   "sms": "WE Pay: تم تحويل مبلغ 7385.22 جنيه إلى رقم 01173537990. رصيدك الحالي 33.32 جنيه. رقم العملية 7511637265"
+  },
+  {
+   "id": 1019,
+   "sender": "Banque Misr",
+   "template_id": "bm_cc_spaced",
+   "gold": null,
+   "pred": 156279.96,
+   "sms": "عميلنا العزيز، شكرًا لاستخدامكم بطاقة بنك مصر الائتمانية *8770، تم خصم مبلغ EGP 89 في AmanPF*Shadia Pharmacy  بتاريخ 10/01/2026، الرصيدالمتاحEGP 156279.96، للاطلاع  اضغط على bnkmsr.com/online"
+  },
+  {
+   "id": 1044,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 95.68,
+   "pred": null,
+   "sms": "تم تحويل 1290 جنيه لرقم 01056183654 مصاريف الخدمة 1 جنيه رصيد حسابك فى فودافون كاش الحالي 95.68.\nتاريخ العملية: 09:33 26-02-10\nرقم العملية: 019610735873\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1045,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_credit_card",
+   "gold": null,
+   "pred": 1639.21,
+   "sms": "تم خصم 3750 جم من بطاقة الائتمان رقم 6071 عند UBER *TRIP يوم 07-27 الساعة 01:23 المتاح 1639.21 جم للمزيد اتصل ب 19623."
+  },
+  {
+   "id": 1053,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_credit_card",
+   "gold": null,
+   "pred": 1694.27,
+   "sms": "تم خصم 14 جم من بطاقة الائتمان رقم 5652 عند SPOTIFY يوم 04-15 الساعة 00:23 المتاح 1694.27 جم للمزيد اتصل ب 19623."
+  },
+  {
+   "id": 1056,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 209.69,
+   "pred": null,
+   "sms": "تم خصم EGP 411.93  من بطاقة الخصم المباشر # **0082 باستخدام Apple Pay عند  Instashop في  25/03/26 04:26الرصيد المتاح  EGP209.69."
+  },
+  {
+   "id": 1069,
+   "sender": "CIB",
+   "template_id": "cib_refund_applepay",
+   "gold": 61.09,
+   "pred": null,
+   "sms": "تم اضافة المعاملة الخاصة بـ Breadfast على بطاقة# **1407 باستخدام Apple Pay بقيمة 500.71 EGP بتاريخ 18/09/26 الرصيدالمتاح EGP 61.09"
+  },
+  {
+   "id": 1070,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_atm",
+   "gold": 3174.05,
+   "pred": null,
+   "sms": "تم خصم 5600.00EGP من بطاقة الخصم المباشر رقم 3143 عند NBE ATM015 يوم 08/20 الساعه 05:59 المتاح 3174.05 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1076,
+   "sender": "CIB",
+   "template_id": "cib_atm",
+   "gold": 1848.25,
+   "pred": null,
+   "sms": "تم سحب مبلغ  EGP 6300.00  من بطاقة الخصم المباشر المنتهية بـ **5849 من    ARKAN PLAZA ATM في 11/09/26 20:13 ، الرصيد المتاح EGP 1848.25"
+  },
+  {
+   "id": 1112,
+   "sender": "VF-Cash",
+   "template_id": "vf_withdraw",
+   "gold": 7665.73,
+   "pred": null,
+   "sms": "تم سحب 11750.0 ج بنجاح. رصيد حسابك في فودافون  كاش الحالي 7665.73 جنيه. تاريخ العملية ‎20-09-26 01:56 رقم العملية 019874143564. دلوقتي ولأول مرة تقدر تشحن أي كارت كهرباء بفودافون كاش من مكانك ,دوس على http://vf.eg/vfcash  واختار خدمة شحن كارت الكهرباء."
+  },
+  {
+   "id": 1114,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 88.85,
+   "pred": null,
+   "sms": "تم تحويل 4400 جنيه لرقم 01122832391 مصاريف الخدمة 1 جنيه رصيد حسابك فى فودافون كاش الحالي 88.85.\nتاريخ العملية: 09:26 26-04-22\nرقم العملية: 019197423293\n"
+  },
+  {
+   "id": 1121,
+   "sender": "CIB",
+   "template_id": "cib_refund_applepay",
+   "gold": 11.81,
+   "pred": null,
+   "sms": "تم اضافة المعاملة الخاصة بـ Instashop على بطاقة# **1821 باستخدام Apple Pay بقيمة 2428.97 EGP بتاريخ 06/01/26 الرصيدالمتاح EGP 11.81"
+  },
+  {
+   "id": 1128,
+   "sender": "Banque Misr",
+   "template_id": "bm_cc_spaced",
+   "gold": null,
+   "pred": 1104.63,
+   "sms": "عميلنا العزيز، شكرًا لاستخدامكم بطاقة بنك مصر الائتمانية *6889، تم خصم مبلغ EGP 89 في FAWRY*Electricity          Gi بتاريخ 30/05/2026، الرصيدالمتاحEGP 1104.63، للاطلاع  اضغط على bnkmsr.com/online"
+  },
+  {
+   "id": 1133,
+   "sender": "Banque Misr",
+   "template_id": "bm_cc_payment",
+   "gold": null,
+   "pred": 45183.57,
+   "sms": "عميلنا العزيز، تم إيداع EGP 2171.40 بالبطاقة الائتمانية المنتهية بـ ****6190، فى BM-Online يوم  03/01/2026 ، ورصيدكم الحالي 45183.57 EGP، للاطلاع على معاملاتكم اضغط bnkmsr.com/online"
+  }
+ ],
+ "merchant": [
+  {
+   "id": 1013,
+   "sender": "WE Pay",
+   "template_id": "wepay_send",
+   "gold": "01173537990",
+   "pred": "رقم 01173537990",
+   "sms": "WE Pay: تم تحويل مبلغ 7385.22 جنيه إلى رقم 01173537990. رصيدك الحالي 33.32 جنيه. رقم العملية 7511637265"
+  },
+  {
+   "id": 1014,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "00222029729975",
+   "pred": null,
+   "sms": "Feb 13, 2026 5:25:00 AM: Received EGP15,608.48 from 00222029729975 to Mobile Account Number 2882. Ref: 019001826330 Available Balance: 22869.75"
+  },
+  {
+   "id": 1017,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv",
+   "gold": "محمود إبراهيم صالح",
+   "pred": "تاريخ المعاملات على",
+   "sms": "تم استلام مبلغ 1800.00 جنيه من رقم 01017598983 المسجل بإسم محمود إبراهيم صالح على رقم محفظتك  01047887838.\nرصيدك الحالي: 14966.36 جنيه\nتاريخ العملية: 01:56 26-10-14\nرقم العملية: 019483726167\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1019,
+   "sender": "Banque Misr",
+   "template_id": "bm_cc_spaced",
+   "gold": "AmanPF*Shadia Pharmacy",
+   "pred": null,
+   "sms": "عميلنا العزيز، شكرًا لاستخدامكم بطاقة بنك مصر الائتمانية *8770، تم خصم مبلغ EGP 89 في AmanPF*Shadia Pharmacy  بتاريخ 10/01/2026، الرصيدالمتاحEGP 156279.96، للاطلاع  اضغط على bnkmsr.com/online"
+  },
+  {
+   "id": 1020,
+   "sender": "Orange Cash",
+   "template_id": "oc_recv",
+   "gold": "Wael Farag Elbadry Hassan",
+   "pred": null,
+   "sms": "تم استلام 18 جنيه من رقم 01551402614 المسجل باسم Wael Farag Elbadry Hassan، رصيدك الحالي 10346.04 جنيه، رقم المعاملة 014193141705."
+  },
+  {
+   "id": 1026,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv_intl",
+   "gold": "00212690604431",
+   "pred": null,
+   "sms": "Feb 16, 2026 9:01:00 AM: Received EGP722.58 from 00212690604431 to Mobile Account Number 9829. Ref: 019657249208 Available Balance: 1661.96"
+  },
+  {
+   "id": 1028,
+   "sender": "CIB",
+   "template_id": "cib_atm",
+   "gold": null,
+   "pred": "CFC MALL",
+   "sms": "تم سحب مبلغ  EGP 100.00  من بطاقة الخصم المباشر المنتهية بـ **1817 من      CFC MALL ATM في 15/09/26 18:16 ، الرصيد المتاح EGP 140.34"
+  },
+  {
+   "id": 1029,
+   "sender": "Orange Cash",
+   "template_id": "oc_send",
+   "gold": "01561740931",
+   "pred": null,
+   "sms": "تم تحويل 51 جنيه بنجاح لرقم 01561740931، مصاريف الخدمة 1 جنيه، رصيدك الحالي 1520.63 جنيه، رقم المعاملة 544992070741، بتاريخ 04/11/2026 05:01."
+  },
+  {
+   "id": 1040,
+   "sender": "VF-Cash",
+   "template_id": "vf_recv",
+   "gold": "Youssef A Mansour Saleh",
+   "pred": "تاريخ المعاملات على",
+   "sms": "تم استلام مبلغ 550 جنيه من رقم 01106400376 المسجل بإسم Youssef A Mansour Saleh على رقم محفظتك  01014365370.\nرصيدك الحالي: 1497.13 جنيه\nتاريخ العملية: 00:21 26-01-01\nرقم العملية: 019565630481\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1042,
+   "sender": "CIB",
+   "template_id": "cib_atm",
+   "gold": null,
+   "pred": "SUN CITY",
+   "sms": "تم سحب مبلغ  EGP 2400.00  من بطاقة الخصم المباشر المنتهية بـ **2603 من  SUN CITY ATM في 29/01/26 20:18 ، الرصيد المتاح EGP 16312.28"
+  },
+  {
+   "id": 1044,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": "01056183654",
+   "pred": "تاريخ المعاملات على",
+   "sms": "تم تحويل 1290 جنيه لرقم 01056183654 مصاريف الخدمة 1 جنيه رصيد حسابك فى فودافون كاش الحالي 95.68.\nتاريخ العملية: 09:33 26-02-10\nرقم العملية: 019610735873\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 1045,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_credit_card",
+   "gold": "UBER *TRIP",
+   "pred": "UBER",
+   "sms": "تم خصم 3750 جم من بطاقة الائتمان رقم 6071 عند UBER *TRIP يوم 07-27 الساعة 01:23 المتاح 1639.21 جم للمزيد اتصل ب 19623."
+  },
+  {
+   "id": 1047,
+   "sender": "e& cash",
+   "template_id": "eand_recv",
+   "gold": "01193557591",
+   "pred": null,
+   "sms": "تم استلام 35.38 جنيه من رقم 01193557591. رصيدك الحالي في e& cash 3818.08 جنيه. رقم العملية 8362361078"
+  },
+  {
+   "id": 1052,
+   "sender": "CIB",
+   "template_id": "cib_refund_order",
+   "gold": "AMAZON EG ONLINE",
+   "pred": null,
+   "sms": "تم اضافة المعاملة الخاصة بـ AMAZON EG ONLINE على بطاقتكم المنتهية بـ 9953 بقيمة EGP 53.37 بتاريخ 04-01-2026 "
+  },
+  {
+   "id": 1056,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": "Instashop",
+   "pred": null,
+   "sms": "تم خصم EGP 411.93  من بطاقة الخصم المباشر # **0082 باستخدام Apple Pay عند  Instashop في  25/03/26 04:26الرصيد المتاح  EGP209.69."
+  }
+ ],
+ "channel": [
+  {
+   "id": 1016,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": "instapay",
+   "pred": "wallet",
+   "sms": "تم تحويل مبلغ 57,000EGP     من حساب رقم xxx2791       فى 18-MAR-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1070,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_atm",
+   "gold": "atm",
+   "pred": "card",
+   "sms": "تم خصم 5600.00EGP من بطاقة الخصم المباشر رقم 3143 عند NBE ATM015 يوم 08/20 الساعه 05:59 المتاح 3174.05 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1088,
+   "sender": "valU",
+   "template_id": "valu_purchase",
+   "gold": "other",
+   "pred": "wallet",
+   "sms": "valU: تم شراء بمبلغ 770.80 جنيه من IKEA على 18 شهر، القسط الشهري 51.39 جنيه."
+  },
+  {
+   "id": 1096,
+   "sender": "CIB",
+   "template_id": "cib_deposit",
+   "gold": "other",
+   "pred": "card",
+   "sms": "تم إيداع مبلغ 3279.90 EGP  في CIB ZAYED BR في بطاقتك المنتهية بـ **1069 بتاريخ 27/07/26 15:14 ،الرصيد المتاح 40065.41 EGP"
+  },
+  {
+   "id": 1100,
+   "sender": "CIB",
+   "template_id": "cib_deposit",
+   "gold": "other",
+   "pred": "card",
+   "sms": "تم إيداع مبلغ 8784.93 EGP  في CIB SMOUHA BR في بطاقتك المنتهية بـ **0091 بتاريخ 17/01/26 00:23 ،الرصيد المتاح 72687.97 EGP"
+  },
+  {
+   "id": 1134,
+   "sender": "CIB",
+   "template_id": "cib_deposit",
+   "gold": "other",
+   "pred": "card",
+   "sms": "تم إيداع مبلغ 4000.00 EGP  في CIB ZAYED BR في بطاقتك المنتهية بـ **9122 بتاريخ 12/04/26 14:01 ،الرصيد المتاح 19148.06 EGP"
+  },
+  {
+   "id": 1168,
+   "sender": "Banque Misr",
+   "template_id": "bm_debit_atm",
+   "gold": "atm",
+   "pred": "card",
+   "sms": "شكرًا لاستخدامك بطاقة بنك مصر ****5055 ، تم الخصم مبلغEGP 16500.00  الة رقم 78533522 BM HELIOPOLIS يوم  09/10 ، الرصيد المتاحEGP 33331.59لمزيد من المعلومات اضغط هنا bnkmsr.com/online"
+  },
+  {
+   "id": 1184,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "card",
+   "pred": "wallet",
+   "sms": "From HSBC: 07OCT26 CARREFOUR MAADI Purchase from 074-185***-715 EGP 331.88- Your available balance is EGP 173,240.92"
+  },
+  {
+   "id": 1206,
+   "sender": "Banque Misr",
+   "template_id": "bm_debit_atm",
+   "gold": "atm",
+   "pred": "card",
+   "sms": "شكرًا لاستخدامك بطاقة بنك مصر ****3351 ، تم الخصم مبلغEGP 22000.00  الة رقم 07078519 BM F.D SMA يوم  13/03 ، الرصيد المتاحEGP 7.69لمزيد من المعلومات اضغط هنا bnkmsr.com/online"
+  },
+  {
+   "id": 1271,
+   "sender": "CIB",
+   "template_id": "cib_deposit",
+   "gold": "other",
+   "pred": "card",
+   "sms": "تم إيداع مبلغ 142.08 EGP  في CIB HELIOPOLIS BR في بطاقتك المنتهية بـ **4975 بتاريخ 02/09/26 12:54 ،الرصيد المتاح 8195.72 EGP"
+  },
+  {
+   "id": 1272,
+   "sender": "Banque Misr",
+   "template_id": "bm_debit_atm",
+   "gold": "atm",
+   "pred": "card",
+   "sms": "شكرًا لاستخدامك بطاقة بنك مصر ****9817 ، تم الخصم مبلغEGP 10000.00  الة رقم 76033358 BM TAHRIR يوم  24/02 ، الرصيد المتاحEGP 8276.29لمزيد من المعلومات اضغط هنا bnkmsr.com/online"
+  },
+  {
+   "id": 1277,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "card",
+   "pred": "wallet",
+   "sms": "From HSBC: 28JAN26 FAWRY*BEANOS Purchase from 074-052***-384 EGP 1,252.01- Your available balance is EGP 17.90"
+  },
+  {
+   "id": 1315,
+   "sender": "Banque Misr",
+   "template_id": "bm_debit_atm",
+   "gold": "atm",
+   "pred": "card",
+   "sms": "شكرًا لاستخدامك بطاقة بنك مصر ****3309 ، تم الخصم مبلغEGP 4000.00  الة رقم 99341333 BM MAADI يوم  18/01 ، الرصيد المتاحEGP 10849.18لمزيد من المعلومات اضغط هنا bnkmsr.com/online"
+  },
+  {
+   "id": 1322,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_atm",
+   "gold": "atm",
+   "pred": "card",
+   "sms": "تم خصم 4200.00EGP من بطاقة الخصم المباشر رقم 7382 عند NBE ATM122 يوم 09/12 الساعه 18:37 المتاح 1607.65 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1327,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_atm",
+   "gold": "atm",
+   "pred": "card",
+   "sms": "تم خصم 7000.00EGP من بطاقة الخصم المباشر رقم 3448 عند NBE ATM324 يوم 08/22 الساعه 06:42 المتاح 151.47 للمزيد إتصل ب 19623"
+  }
+ ],
+ "fee": [
+  {
+   "id": 1083,
+   "sender": "Orange Cash",
+   "template_id": "oc_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 250 جنيه بنجاح لرقم 01267326819، مصاريف الخدمة 0 جنيه، رصيدك الحالي 561.67 جنيه، رقم المعاملة 044660016659، بتاريخ 02/07/2026 21:45."
+  },
+  {
+   "id": 1295,
+   "sender": "Orange Cash",
+   "template_id": "oc_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 47 جنيه بنجاح لرقم 01216897316، مصاريف الخدمة 0 جنيه، رصيدك الحالي 8.94 جنيه، رقم المعاملة 063778342818، بتاريخ 29/08/2026 10:40."
+  },
+  {
+   "id": 1423,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 121 جنيه لرقم 01517114061 مصاريف الخدمة 0 جنيه رصيد حسابك فى فودافون كاش الحالي 2826.80.\nتاريخ العملية: 00:08 26-08-15\nرقم العملية: 019883631590\n"
+  },
+  {
+   "id": 1606,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 11 جنيه لرقم 01290873772 مصاريف الخدمة 0 جنيه رصيد حسابك فى فودافون كاش الحالي 6.58.\nتاريخ العملية: 16:01 26-04-09\nرقم العملية: 019075183612\n"
+  },
+  {
+   "id": 1700,
+   "sender": "Orange Cash",
+   "template_id": "oc_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 2280 جنيه بنجاح لرقم 01105928318، مصاريف الخدمة 0 جنيه، رصيدك الحالي 1484.05 جنيه، رقم المعاملة 800963342197، بتاريخ 15/04/2026 10:53."
+  },
+  {
+   "id": 1884,
+   "sender": "Orange Cash",
+   "template_id": "oc_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 2368.34 جنيه بنجاح لرقم 01513885821، مصاريف الخدمة 0 جنيه، رصيدك الحالي 419.54 جنيه، رقم المعاملة 999030366334، بتاريخ 18/02/2026 01:52."
+  },
+  {
+   "id": 1918,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 760 جنيه لرقم 01058534039 مصاريف الخدمة 0 جنيه رصيد حسابك فى فودافون كاش الحالي 5.00.\nتاريخ العملية: 17:20 26-09-19\nرقم العملية: 019227073319\n"
+  },
+  {
+   "id": 2038,
+   "sender": "Orange Cash",
+   "template_id": "oc_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 11.87 جنيه بنجاح لرقم 01581144091، مصاريف الخدمة 0 جنيه، رصيدك الحالي 1971.93 جنيه، رقم المعاملة 783485104167، بتاريخ 22/04/2026 12:55."
+  },
+  {
+   "id": 2048,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 12880 جنيه لرقم 01276679204 مصاريف الخدمة 0 جنيه رصيد حسابك فى فودافون كاش الحالي 1.54.\nتاريخ العملية: 16:49 26-11-02\nرقم العملية: 019911508307\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  },
+  {
+   "id": 2083,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 177 جنيه لرقم 01217127482 مصاريف الخدمة 0 جنيه رصيد حسابك فى فودافون كاش الحالي 1252.92.\nتاريخ العملية: 21:52 26-01-28\nرقم العملية: 019025429107\n"
+  },
+  {
+   "id": 2101,
+   "sender": "VF-Cash",
+   "template_id": "vf_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 1473.79 جنيه لرقم 01570145479 مصاريف الخدمة 0 جنيه رصيد حسابك فى فودافون كاش الحالي 109.63.\nتاريخ العملية: 22:16 26-07-06\nرقم العملية: 019632190903\nتابع كل مصروفاتك من تاريخ المعاملات على أبلكيشن أنا فودافون http://vf.eg/vfcash\n"
+  }
+ ]
+}

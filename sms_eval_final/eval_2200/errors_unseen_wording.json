@@ -1,0 +1,1222 @@
+{
+ "fee": [
+  {
+   "id": 42,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 0.5,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل 30 جنيه بنجاح إلى منة الفقي (menna.elfeky@instapay) برسوم 0.5 جنيه. الرقم المرجعي IP2606227875840"
+  },
+  {
+   "id": 116,
+   "sender": "Luxor Bank",
+   "template_id": "Luxor Bank|ip_out|en|77",
+   "gold": 12.92,
+   "pred": null,
+   "sms": "Dear Customer, your account xx8247 has been debited with EGP 12,922.10 on 06-08-2026 for an instant transfer (IPN) to REDA ASHOUR. Fees: EGP 12.92. Reference: FT26SWX491VRPY."
+  },
+  {
+   "id": 250,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 4.69,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل ٤٬٦٨٩٫٥٠ بنجاح إلى جمال يسري (gamal.yousry@instapay) برسوم ٤٫٦٩. الرقم المرجعي IP٢٦٠٤٣٠٩٧٥٥٩٦٩"
+  },
+  {
+   "id": 254,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 0.5,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل 79 بنجاح إلى عمر الطحان (omar.eltaha@instapay) برسوم 0.5. الرقم المرجعي IP2609186367348"
+  },
+  {
+   "id": 377,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 14.76,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل 14,759.28 جنيه بنجاح إلى أيمن مرعي (ayman.marei@instapay) برسوم 14.76 جنيه. الرقم المرجعي IP2610071684482"
+  },
+  {
+   "id": 483,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 17.67,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل ١٧٬٦٦٩٫٧٥ جنيه بنجاح إلى خالد الشربيني (khaled.elsher@instapay) برسوم ١٧٫٦٧ جنيه. الرقم المرجعي IP٢٦٠٨٢١٤٤٨٤٧٩٤"
+  },
+  {
+   "id": 507,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 0.5,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل 94.75 جنيه بنجاج إلى نهى زيدان (noha.zidan81@instapay) برسوم 0.5 جنيه.\nالرقم المرجعي IP2603255415416"
+  },
+  {
+   "id": 540,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 5.1,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل ٥٬٠٩٨ جنيه بنجاح إلى جيهان عفيفي (gihan.afify@instapay) برسوم ٥٫١ جنيه"
+  },
+  {
+   "id": 580,
+   "sender": "Luxor Bank",
+   "template_id": "Luxor Bank|bill|en|84",
+   "gold": 3.0,
+   "pred": null,
+   "sms": "Dear Customer, your payment of LE 31 to Zaytouna Power (subscriber no. 5850372113) has been processed successfully on 19-01-2026. Fees: LE 3."
+  },
+  {
+   "id": 779,
+   "sender": "Luxor Bank",
+   "template_id": "Luxor Bank|ip_out|en|77",
+   "gold": 4.94,
+   "pred": null,
+   "sms": "Dear Customer, your account xx0862 has been debited with EGP 4,944.00 on 23 Mar 2026 for an instant transfer (IPN) to MENNA EL MENSHAWY. Fees: EGP 4.94. Reference: FT26GEDNVU443Q."
+  },
+  {
+   "id": 860,
+   "sender": "Luxor Bank",
+   "template_id": "Luxor Bank|ip_out|en|77",
+   "gold": 10.47,
+   "pred": null,
+   "sms": "Dear Customer, your account xx5245 has been debited with EGP 10,472 on 10 Jul 2026 for an instant transfer (IPN) to REHAM ZIDAN. Fees: EGP 10.47. Reference: FT26WKWU"
+  },
+  {
+   "id": 870,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 0.76,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل 764.75 جنيه بنجاح الى يوسف الزيات (youssef.elzaya@instapay) برسوم 0.76 جنيه  الرقم المرجعي IP2601286491999"
+  },
+  {
+   "id": 949,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|ar|100",
+   "gold": 17.11,
+   "pred": null,
+   "sms": "DeltaPay: تم تحويل 17,111.72 جنيه بنجاح إلى محمد مكاوي (mohamed.makkaw98@instapay) برسوم 17.11 جنيه. الرقم المرجعي IP2607019770822"
+  },
+  {
+   "id": 363,
+   "sender": "NileBank",
+   "template_id": "NileBank|atm|ar|4",
+   "gold": 10.0,
+   "pred": null,
+   "sms": "عزيزي العميل، سحب نقدي 2950 جنيه من ATM مول مشربية سوهاج يوم 21/03/2026. رسوم السحب 10 جنيه. الرصيد المتاح 57246.43 جنيه"
+  },
+  {
+   "id": 1083,
+   "sender": "Orange Cash",
+   "template_id": "oc_send",
+   "gold": 0.0,
+   "pred": null,
+   "sms": "تم تحويل 250 جنيه بنجاح لرقم 01267326819، مصاريف الخدمة 0 جنيه، رصيدك الحالي 561.67 جنيه، رقم المعاملة 044660016659، بتاريخ 02/07/2026 21:45."
+  }
+ ],
+ "is_transaction": [
+  {
+   "id": 43,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to Dalia El Kholy تم بنجاح ✅ Amount: 23.50 EGP | 27/09/2026"
+  },
+  {
+   "id": 61,
+   "sender": "SphinxCard",
+   "template_id": "SphinxCard|balance|en|63",
+   "gold": false,
+   "pred": true,
+   "sms": "SphinxCard: The available limit on your card ending 9816 is EGP 2,836.83 as of 19/07/26"
+  },
+  {
+   "id": 67,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to Omneya El Seyoufi تم بنجاح ✅ Amount: 802.75 EGP | 30.05.26"
+  },
+  {
+   "id": 228,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to Soha Hamdan تم بنجاج ✅ Amount: 4,352.00 EGP |   15/05/2026"
+  },
+  {
+   "id": 346,
+   "sender": "Luxor Bank",
+   "template_id": "Luxor Bank|balance|en|90",
+   "gold": false,
+   "pred": true,
+   "sms": "Dear Customer, the available balance in your account xx6761 on 23-04-2026 at 16:50 is EGP 135,020."
+  },
+  {
+   "id": 436,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to Ziad Darwish تم بنجاح ✅ Amount: 12,161.25 EGP | 02.02.26"
+  },
+  {
+   "id": 470,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to Youssef Sorour تم بنجاح ✅ Amount: 208.50 EGP | 15/10/2026"
+  },
+  {
+   "id": 618,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to وليد البنا تم بنجاح ✅ Amount: 710.17 EGP | 08/09/2026"
+  },
+  {
+   "id": 633,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to Amr El Badry تم بنجاح ✅ Amount: 12,316.77 EGP | 22.09.26"
+  },
+  {
+   "id": 667,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to يوسف موافي تم بنجاح ✅ Amount: 53.75 EGP | 03/02/2026"
+  },
+  {
+   "id": 689,
+   "sender": "Sinai Pay",
+   "template_id": "Sinai Pay|declined|mix|205",
+   "gold": false,
+   "pred": true,
+   "sms": "Sinai Pay ✗ Payment failed | فشل دفع فاتورة NourNet Internet | Amount: 53.71 EGP | لم يتم الخصم"
+  },
+  {
+   "id": 705,
+   "sender": "Cairo Wallet",
+   "template_id": "Cairo Wallet|phishing|ar|51",
+   "gold": false,
+   "pred": true,
+   "sms": "محفظتك هتتقفل خلال 24 ساعة 🚫 حدّث بياناتك من هنا cairowallet-support.example/q341 وابعت الكود اللي هيوصلك"
+  },
+  {
+   "id": 742,
+   "sender": "Cairo Wallet",
+   "template_id": "Cairo Wallet|phishing|ar|51",
+   "gold": false,
+   "pred": true,
+   "sms": "محفظتك هتتقفل خلال 24 ساعة 🚫 حدّث بياناتك من هنا cairowallet-verify.example/j604 وابعت الكود اللي هيوصلك"
+  },
+  {
+   "id": 786,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to رنا الرفاعي تم بنجاح ✅ Amount: 23.75 EGP | 02/02/2026"
+  },
+  {
+   "id": 792,
+   "sender": "DeltaPay",
+   "template_id": "DeltaPay|ip_out|mix|101",
+   "gold": true,
+   "pred": false,
+   "sms": "DeltaPay | Transfer to رامي كامل تم بنجاح ✅ Amount: 1,600.45 EGP | 1"
+  }
+ ],
+ "merchant": [
+  {
+   "id": 534,
+   "sender": "NileBank",
+   "template_id": "NileBank|card|ar|1",
+   "gold": "مركز صيانة سلسبيل أسيوط",
+   "pred": "مركز صيانة سلسبيل",
+   "sms": "عزيزي العميل، عملية شراء بمبلغ 41.32 جنيه ببطاقة الخصم المباشر ****4543 لدى مركز صيانة سلسبيل أسيوط يوم 06/02/26. الرصيد المتاح 962.33 جنيه"
+  },
+  {
+   "id": 675,
+   "sender": "Pharos Pay",
+   "template_id": "Pharos Pay|refund|ar|144",
+   "gold": "NOUR CABS",
+   "pred": "NOUR CABS لمحفظتك",
+   "sms": "Pharos Pay | تم استرداد ٣١٥٨٫٠٠ جنيه من NOUR CABS لمحفظتك. رصيد المحفظة: ٢٦١٧٫٨٦ جنيه"
+  },
+  {
+   "id": 780,
+   "sender": "NileBank",
+   "template_id": "NileBank|card|ar|1",
+   "gold": "سوبر ماركت زيتونة الفيوم",
+   "pred": "سوبر ماركت زيتونة",
+   "sms": "عزيزي العميل، عملية شراء بمبلغ ٤٧٢.٠٠ جنيه ببطاقة الخصم المباشر ****٦٠٣١ لدى سوبر ماركت زيتونة الفيوم يوم ١١/٠٥/٢٠٢٦. الرصيد المتاح ٤٨٣.٣٢ جنيه"
+  },
+  {
+   "id": 1086,
+   "sender": "CIB",
+   "template_id": "cib_cc_en",
+   "gold": "APPLE.COM/US",
+   "pred": null,
+   "sms": "Your credit card ending with#9003 was charged for USD 56.21 at APPLE.COM/US on 26/06/26  at 21:36. Card available limit is EGP  4779.69. For more details, please visit https://cib.eg/mb"
+  },
+  {
+   "id": 1179,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "KASHIERFast",
+   "pred": null,
+   "sms": "تم خصم 55.42 EGP من بطاقة الخصم المباشر رقم9274 عندKASHIERFast يوم09/13 الساعة07:23 المتاح20.39EGP للمزيد اتصل ب 19623"
+  },
+  {
+   "id": 1228,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "COSTA COFFEE",
+   "pred": "عندCOSTA",
+   "sms": "تم خصم 3796.85 EGP من بطاقة الخصم المباشر رقم5771 عندCOSTA COFFEE يوم02/24 الساعة05:15 المتاح137.50EGP للمزيد اتصل ب 19623"
+  },
+  {
+   "id": 1313,
+   "sender": "CIB",
+   "template_id": "cib_cc_en",
+   "gold": "Swvl",
+   "pred": null,
+   "sms": "Your credit card ending with#5571 was charged for EGP 1,254.00 at Swvl on 06/06/26  at 07:49. Card available limit is EGP  373.27. For more details, please visit https://cib.eg/mb"
+  },
+  {
+   "id": 1441,
+   "sender": "CIB",
+   "template_id": "cib_reversal",
+   "gold": "inDrive",
+   "pred": null,
+   "sms": "تم اضافة المعاملة من inDrive بقيمة 120.00 EGP إلى بطاقتك المنتهية بـ **1573 . الرصيد المتاح EGP 2.02"
+  },
+  {
+   "id": 1451,
+   "sender": "CIB",
+   "template_id": "cib_cc_en",
+   "gold": "Swvl",
+   "pred": null,
+   "sms": "Your credit card ending with#7355 was charged for EGP 2,649.05 at Swvl on 25/04/26  at 13:08. Card available limit is EGP  524.76. For more details, please visit https://cib.eg/mb"
+  },
+  {
+   "id": 1465,
+   "sender": "CIB",
+   "template_id": "cib_cc_en",
+   "gold": "NETFLIX.COM",
+   "pred": null,
+   "sms": "Your credit card ending with#6006 was charged for USD 8.30 at NETFLIX.COM on 13/02/26  at 13:51. Card available limit is EGP  68719.99. For more details, please visit https://cib.eg/mb"
+  },
+  {
+   "id": 1551,
+   "sender": "CIB",
+   "template_id": "cib_reversal",
+   "gold": "inDrive",
+   "pred": null,
+   "sms": "تم اضافة المعاملة من inDrive بقيمة 262.36 EGP إلى بطاقتك المنتهية بـ **0262 . الرصيد المتاح EGP 37.28"
+  },
+  {
+   "id": 1645,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "Seif Pharmacy",
+   "pred": null,
+   "sms": "تم خصم 627.01 EGP من بطاقة الخصم المباشر رقم3632 عندSeif Pharmacy يوم05/06 الساعة08:25 المتاح4.05EGP للمزيد اتصل ب 19623"
+  },
+  {
+   "id": 1908,
+   "sender": "CIB",
+   "template_id": "cib_cc_en",
+   "gold": "inDrive",
+   "pred": null,
+   "sms": "Your credit card ending with#6073 was charged for EGP 208.44 at inDrive on 10/10/26  at 12:18. Card available limit is EGP  174.45. For more details, please visit https://cib.eg/mb"
+  },
+  {
+   "id": 1946,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "APPLE.COM/US",
+   "pred": null,
+   "sms": "تم خصم 3550 EGP من بطاقة الخصم المباشر رقم4964 عندAPPLE.COM/US يوم05/29 الساعة23:43 المتاح5.08EGP للمزيد اتصل ب 19623"
+  },
+  {
+   "id": 2057,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "RABBIT MART",
+   "pred": "عندRABBIT",
+   "sms": "تم خصم 32 EGP من بطاقة الخصم المباشر رقم4266 عندRABBIT MART يوم03/04 الساعة20:24 المتاح55.94EGP للمزيد اتصل ب 19623"
+  }
+ ],
+ "channel": [
+  {
+   "id": 659,
+   "sender": "Giza Finance",
+   "template_id": "Giza Finance|refund|ar|171",
+   "gold": "card",
+   "pred": "wallet",
+   "sms": "Giza Finance: تم رد مبلغ 5,966.56 جنيه من أدوا"
+  },
+  {
+   "id": 1005,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 195.15EGP من بطاقة الخصم المباشر رقم 1049 عند TOTALENERGIES 6OCT يوم 05/19 الساعه 16:10 المتاح 2.10 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1220,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 19.68EGP من بطاقة الخصم المباشر رقم 3516 عند Uber يوم 05/28 الساعه 04:33 المتاح 315.41 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1669,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 13.00EGP من بطاقة الخصم المباشر رقم 4678 عند HYPERONE يوم 07/20 الساعه 18:57 المتاح 13.98 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1685,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 19.09EGP من بطاقة الخصم المباشر رقم 3187 عند DECATHLON يوم 11/12 الساعه 05:39 المتاح 87.33 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1701,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 21.42EGP من بطاقة الخصم المباشر رقم 8928 عند Breadfast يوم 04/09 الساعه 06:03 المتاح 40602.07 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1783,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 225.39EGP من بطاقة الخصم المباشر رقم 3848 عند DECATHLON يوم 04/27 الساعه 06:14 المتاح 1.06 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1797,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 5495.00EGP من بطاقة الخصم المباشر رقم 9856 عند TALABAT EG يوم 06/13 الساعه 04:46 المتاح 5207.57 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1800,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 406.80EGP من بطاقة الخصم المباشر رقم 3594 عند DECATHLON يوم 08/07 الساعه 14:35 المتاح 2.45 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1842,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 345.74EGP من بطاقة الخصم المباشر رقم 3968 عند Instashop يوم 01/28 الساعه 00:31 المتاح 6.48 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1899,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 99.58EGP من بطاقة الخصم المباشر رقم 7682 عند SPINNEYS ZAYED يوم 11/14 الساعه 20:05 المتاح 2281.56 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1989,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 5.83EGP من بطاقة الخصم المباشر رقم 7480 عند ELSAHEL MOBIL يوم 08/04 الساعه 01:34 المتاح 985.09 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1991,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 4258.16EGP من بطاقة الخصم المباشر رقم 2636 عند Uber يوم 07/24 الساعه 15:56 المتاح 2233.44 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 2009,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 4252.62EGP من بطاقة الخصم المباشر رقم 3144 عند DECATHLON يوم 07/11 الساعه 03:18 المتاح 3.28 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 2193,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "card",
+   "pred": "atm",
+   "sms": "تم خصم 1053.45EGP من بطاقة الخصم المباشر رقم 6261 عند El Ezaby Pharmacy يوم 04/01 الساعه 00:35 المتاح 27519.28 للمزيد إتصل ب 19623"
+  }
+ ],
+ "type": [
+  {
+   "id": 1005,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 195.15EGP من بطاقة الخصم المباشر رقم 1049 عند TOTALENERGIES 6OCT يوم 05/19 الساعه 16:10 المتاح 2.10 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1066,
+   "sender": "HSBC",
+   "template_id": "hsbc_ipn_out",
+   "gold": "transfer_out",
+   "pred": "debit",
+   "sms": "Your HSBC Account ********4185 was debited with IPN outward transfer for EGP 15.00 on 18-10-2026 12:06 to MONA SELIM HASSAN with reference 6bf54074. For further details, please contact HSBC call centre"
+  },
+  {
+   "id": 1220,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 19.68EGP من بطاقة الخصم المباشر رقم 3516 عند Uber يوم 05/28 الساعه 04:33 المتاح 315.41 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1236,
+   "sender": "HSBC",
+   "template_id": "hsbc_ipn_out",
+   "gold": "transfer_out",
+   "pred": "debit",
+   "sms": "Your HSBC Account ********3115 was debited with IPN outward transfer for EGP 20.86 on 18-02-2026 02:59 to KHALED SELIM SHAHIN with reference 4fa60221. For further details, please contact HSBC call centre"
+  },
+  {
+   "id": 1481,
+   "sender": "HSBC",
+   "template_id": "hsbc_ipn_out",
+   "gold": "transfer_out",
+   "pred": "debit",
+   "sms": "Your HSBC Account ********2272 was debited with IPN outward transfer for EGP 244.15 on 29-09-2026 22:46 to TAREK METWALY with reference 14621156. For further details, please contact HSBC call centre"
+  },
+  {
+   "id": 1669,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 13.00EGP من بطاقة الخصم المباشر رقم 4678 عند HYPERONE يوم 07/20 الساعه 18:57 المتاح 13.98 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1685,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 19.09EGP من بطاقة الخصم المباشر رقم 3187 عند DECATHLON يوم 11/12 الساعه 05:39 المتاح 87.33 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1688,
+   "sender": "HSBC",
+   "template_id": "hsbc_ipn_out",
+   "gold": "transfer_out",
+   "pred": "debit",
+   "sms": "Your HSBC Account ********9554 was debited with IPN outward transfer for EGP 16,800.00 on 22-04-2026 07:38 to FATMA ELBADRY SALEH RADWAN with reference c8b7cec8. For further details, please contact HSBC call centre"
+  },
+  {
+   "id": 1701,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 21.42EGP من بطاقة الخصم المباشر رقم 8928 عند Breadfast يوم 04/09 الساعه 06:03 المتاح 40602.07 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1783,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 225.39EGP من بطاقة الخصم المباشر رقم 3848 عند DECATHLON يوم 04/27 الساعه 06:14 المتاح 1.06 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1797,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 5495.00EGP من بطاقة الخصم المباشر رقم 9856 عند TALABAT EG يوم 06/13 الساعه 04:46 المتاح 5207.57 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1800,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 406.80EGP من بطاقة الخصم المباشر رقم 3594 عند DECATHLON يوم 08/07 الساعه 14:35 المتاح 2.45 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1842,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "debit",
+   "pred": "atm_withdrawal",
+   "sms": "تم خصم 345.74EGP من بطاقة الخصم المباشر رقم 3968 عند Instashop يوم 01/28 الساعه 00:31 المتاح 6.48 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1878,
+   "sender": "HSBC",
+   "template_id": "hsbc_ipn_out",
+   "gold": "transfer_out",
+   "pred": "debit",
+   "sms": "Your HSBC Account ********5878 was debited with IPN outward transfer for EGP 906.82 on 24-06-2026 10:34 to EMAN MOHAMED RADWAN with reference e72ffbc9. For further details, please contact HSBC call centre"
+  },
+  {
+   "id": 1883,
+   "sender": "HSBC",
+   "template_id": "hsbc_ipn_out",
+   "gold": "transfer_out",
+   "pred": "debit",
+   "sms": "Your HSBC Account ********4842 was debited with IPN outward transfer for EGP 26.98 on 06-03-2026 06:39 to SHAIMAA FARAG MOHAMED SELIM with reference 3b3ecdbb. For further details, please contact HSBC call centre"
+  }
+ ],
+ "amount": [
+  {
+   "id": 1005,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 195.15,
+   "pred": 195.0,
+   "sms": "تم خصم 195.15EGP من بطاقة الخصم المباشر رقم 1049 عند TOTALENERGIES 6OCT يوم 05/19 الساعه 16:10 المتاح 2.10 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1220,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 19.68,
+   "pred": 19.0,
+   "sms": "تم خصم 19.68EGP من بطاقة الخصم المباشر رقم 3516 عند Uber يوم 05/28 الساعه 04:33 المتاح 315.41 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1680,
+   "sender": "Banque Misr",
+   "template_id": "bm_refund",
+   "gold": 4989.0,
+   "pred": 9081.0,
+   "sms": "عميلنا العزيز، تم رد المعاملة بقيمة 4989EGP للبطاقة *****9081، بتاريخ 11/10/2026 من Amazon ، للاطلاع على معاملاتكم اضغط bnkmsr.com/online"
+  },
+  {
+   "id": 1685,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 19.09,
+   "pred": 19.0,
+   "sms": "تم خصم 19.09EGP من بطاقة الخصم المباشر رقم 3187 عند DECATHLON يوم 11/12 الساعه 05:39 المتاح 87.33 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1701,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 21.42,
+   "pred": 21.0,
+   "sms": "تم خصم 21.42EGP من بطاقة الخصم المباشر رقم 8928 عند Breadfast يوم 04/09 الساعه 06:03 المتاح 40602.07 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1783,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 225.39,
+   "pred": 225.0,
+   "sms": "تم خصم 225.39EGP من بطاقة الخصم المباشر رقم 3848 عند DECATHLON يوم 04/27 الساعه 06:14 المتاح 1.06 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1800,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 406.8,
+   "pred": 406.0,
+   "sms": "تم خصم 406.80EGP من بطاقة الخصم المباشر رقم 3594 عند DECATHLON يوم 08/07 الساعه 14:35 المتاح 2.45 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1842,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 345.74,
+   "pred": 345.0,
+   "sms": "تم خصم 345.74EGP من بطاقة الخصم المباشر رقم 3968 عند Instashop يوم 01/28 الساعه 00:31 المتاح 6.48 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1899,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 99.58,
+   "pred": 99.0,
+   "sms": "تم خصم 99.58EGP من بطاقة الخصم المباشر رقم 7682 عند SPINNEYS ZAYED يوم 11/14 الساعه 20:05 المتاح 2281.56 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1989,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 5.83,
+   "pred": 5.0,
+   "sms": "تم خصم 5.83EGP من بطاقة الخصم المباشر رقم 7480 عند ELSAHEL MOBIL يوم 08/04 الساعه 01:34 المتاح 985.09 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1991,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 4258.16,
+   "pred": 4258.0,
+   "sms": "تم خصم 4258.16EGP من بطاقة الخصم المباشر رقم 2636 عند Uber يوم 07/24 الساعه 15:56 المتاح 2233.44 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 2009,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 4252.62,
+   "pred": 4252.0,
+   "sms": "تم خصم 4252.62EGP من بطاقة الخصم المباشر رقم 3144 عند DECATHLON يوم 07/11 الساعه 03:18 المتاح 3.28 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 2035,
+   "sender": "Banque Misr",
+   "template_id": "bm_refund",
+   "gold": 3337.0,
+   "pred": 9676.0,
+   "sms": "عميلنا العزيز، تم رد المعاملة بقيمة 3337EGP للبطاقة *****9676، بتاريخ 13/10/2026 من Uber ، للاطلاع على معاملاتكم اضغط bnkmsr.com/online"
+  },
+  {
+   "id": 2193,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 1053.45,
+   "pred": 1053.0,
+   "sms": "تم خصم 1053.45EGP من بطاقة الخصم المباشر رقم 6261 عند El Ezaby Pharmacy يوم 04/01 الساعه 00:35 المتاح 27519.28 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 2199,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 791.37,
+   "pred": 791.0,
+   "sms": "تم خصم 791.37EGP من بطاقة الخصم المباشر رقم 5111 عند NETFLIX.COM يوم 10/29 الساعه 22:15 المتاح 34907.80 للمزيد إتصل ب 19623"
+  }
+ ],
+ "currency": [
+  {
+   "id": 1005,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 195.15EGP من بطاقة الخصم المباشر رقم 1049 عند TOTALENERGIES 6OCT يوم 05/19 الساعه 16:10 المتاح 2.10 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1220,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 19.68EGP من بطاقة الخصم المباشر رقم 3516 عند Uber يوم 05/28 الساعه 04:33 المتاح 315.41 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1669,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 13.00EGP من بطاقة الخصم المباشر رقم 4678 عند HYPERONE يوم 07/20 الساعه 18:57 المتاح 13.98 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1680,
+   "sender": "Banque Misr",
+   "template_id": "bm_refund",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "عميلنا العزيز، تم رد المعاملة بقيمة 4989EGP للبطاقة *****9081، بتاريخ 11/10/2026 من Amazon ، للاطلاع على معاملاتكم اضغط bnkmsr.com/online"
+  },
+  {
+   "id": 1685,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 19.09EGP من بطاقة الخصم المباشر رقم 3187 عند DECATHLON يوم 11/12 الساعه 05:39 المتاح 87.33 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1701,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 21.42EGP من بطاقة الخصم المباشر رقم 8928 عند Breadfast يوم 04/09 الساعه 06:03 المتاح 40602.07 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1783,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 225.39EGP من بطاقة الخصم المباشر رقم 3848 عند DECATHLON يوم 04/27 الساعه 06:14 المتاح 1.06 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1797,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 5495.00EGP من بطاقة الخصم المباشر رقم 9856 عند TALABAT EG يوم 06/13 الساعه 04:46 المتاح 5207.57 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1800,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 406.80EGP من بطاقة الخصم المباشر رقم 3594 عند DECATHLON يوم 08/07 الساعه 14:35 المتاح 2.45 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1842,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 345.74EGP من بطاقة الخصم المباشر رقم 3968 عند Instashop يوم 01/28 الساعه 00:31 المتاح 6.48 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1899,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 99.58EGP من بطاقة الخصم المباشر رقم 7682 عند SPINNEYS ZAYED يوم 11/14 الساعه 20:05 المتاح 2281.56 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1989,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 5.83EGP من بطاقة الخصم المباشر رقم 7480 عند ELSAHEL MOBIL يوم 08/04 الساعه 01:34 المتاح 985.09 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 1991,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 4258.16EGP من بطاقة الخصم المباشر رقم 2636 عند Uber يوم 07/24 الساعه 15:56 المتاح 2233.44 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 2009,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "تم خصم 4252.62EGP من بطاقة الخصم المباشر رقم 3144 عند DECATHLON يوم 07/11 الساعه 03:18 المتاح 3.28 للمزيد إتصل ب 19623"
+  },
+  {
+   "id": 2035,
+   "sender": "Banque Misr",
+   "template_id": "bm_refund",
+   "gold": "EGP",
+   "pred": null,
+   "sms": "عميلنا العزيز، تم رد المعاملة بقيمة 3337EGP للبطاقة *****9676، بتاريخ 13/10/2026 من Uber ، للاطلاع على معاملاتكم اضغط bnkmsr.com/online"
+  }
+ ],
+ "balance_after": [
+  {
+   "id": 1056,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 209.69,
+   "pred": null,
+   "sms": "تم خصم EGP 411.93  من بطاقة الخصم المباشر # **0082 باستخدام Apple Pay عند  Instashop في  25/03/26 04:26الرصيد المتاح  EGP209.69."
+  },
+  {
+   "id": 1179,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 20.39,
+   "pred": null,
+   "sms": "تم خصم 55.42 EGP من بطاقة الخصم المباشر رقم9274 عندKASHIERFast يوم09/13 الساعة07:23 المتاح20.39EGP للمزيد اتصل ب 19623"
+  },
+  {
+   "id": 1213,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 1.68,
+   "pred": null,
+   "sms": "تم خصم USD 104.53  من بطاقة الخصم المباشر # **1886 باستخدام Apple Pay عند  KASHIERFast في  09/05/26 12:01الرصيد المتاح  USD1.68."
+  },
+  {
+   "id": 1228,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 137.5,
+   "pred": null,
+   "sms": "تم خصم 3796.85 EGP من بطاقة الخصم المباشر رقم5771 عندCOSTA COFFEE يوم02/24 الساعة05:15 المتاح137.50EGP للمزيد اتصل ب 19623"
+  },
+  {
+   "id": 1235,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 1234.07,
+   "pred": null,
+   "sms": "تم خصم EGP 757.58  من بطاقة الخصم المباشر # **3028 باستخدام Apple Pay عند  WATANIA FUEL في  04/01/26 19:06الرصيد المتاح  EGP1234.07."
+  },
+  {
+   "id": 1352,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 9.21,
+   "pred": null,
+   "sms": "تم خصم EGP 609.79  من بطاقة الخصم المباشر # **1921 باستخدام Apple Pay عند  SEOUDI SUPERMARKET في  18/10/26 10:50الرصيد المتاح  EGP9.21."
+  },
+  {
+   "id": 1474,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 143.54,
+   "pred": null,
+   "sms": "تم خصم EGP 103.06  من بطاقة الخصم المباشر # **7267 باستخدام Apple Pay عند  SPOTIFY في  22/01/26 23:56الرصيد المتاح  EGP143.54."
+  },
+  {
+   "id": 1485,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 119.48,
+   "pred": null,
+   "sms": "تم خصم USD 59.93  من بطاقة الخصم المباشر # **0448 باستخدام Apple Pay عند  CARREFOUR MAADI في  13/11/26 12:24الرصيد المتاح  USD119.48."
+  },
+  {
+   "id": 1570,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 4.89,
+   "pred": null,
+   "sms": "تم خصم EGP 7.33  من بطاقة الخصم المباشر # **8046 باستخدام Apple Pay عند  NETFLIX.COM في  01/10/26 17:14الرصيد المتاح  EGP4.89."
+  },
+  {
+   "id": 1645,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_debit_card",
+   "gold": 4.05,
+   "pred": null,
+   "sms": "تم خصم 627.01 EGP من بطاقة الخصم المباشر رقم3632 عندSeif Pharmacy يوم05/06 الساعة08:25 المتاح4.05EGP للمزيد اتصل ب 19623"
+  },
+  {
+   "id": 1678,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 22569.67,
+   "pred": null,
+   "sms": "تم خصم EGP 3063.12  من بطاقة الخصم المباشر # **5810 باستخدام Apple Pay عند  TOTALENERGIES 6OCT في  19/01/26 11:40الرصيد المتاح  EGP22569.67."
+  },
+  {
+   "id": 1732,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 49.99,
+   "pred": null,
+   "sms": "تم خصم USD 56.72  من بطاقة الخصم المباشر # **8335 باستخدام Apple Pay عند  KASHIERFast في  23/10/26 08:08الرصيد المتاح  USD49.99."
+  },
+  {
+   "id": 1775,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 1861.94,
+   "pred": null,
+   "sms": "تم خصم EGP 529.72  من بطاقة الخصم المباشر # **0463 باستخدام Apple Pay عند  LC WAIKIKI في  29/03/26 10:53الرصيد المتاح  EGP1861.94."
+  },
+  {
+   "id": 1777,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 2.0,
+   "pred": null,
+   "sms": "تم خصم EGP 2229.75  من بطاقة الخصم المباشر # **5369 باستخدام Apple Pay عند  NOON (INSTANT) في  07/06/26 02:00الرصيد المتاح  EGP2.00."
+  },
+  {
+   "id": 1824,
+   "sender": "CIB",
+   "template_id": "cib_applepay",
+   "gold": 18629.08,
+   "pred": null,
+   "sms": "تم خصم EGP 123.63  من بطاقة الخصم المباشر # **8353 باستخدام Apple Pay عند  ZARA CITY STARS في  27/08/26 11:09الرصيد المتاح  EGP18629.08."
+  }
+ ],
+ "account_last4": [
+  {
+   "id": 1075,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "8931",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 7490606815708931 بمبلغ 8250 جم إلى ALI ELGAMAL ABDELAZIZ رقم مرجعي 834005 يوم 05/11/2026 الساعه 17:11 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1109,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "2732",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 9717554615762732 بمبلغ 5100 جم إلى MARIAM ELSHAFEI رقم مرجعي 023195 يوم 02/06/2026 الساعه 20:07 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1135,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "3542",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 1287796009523542 بمبلغ 2750 جم إلى YOUSSEF IBRAHIM رقم مرجعي 915379 يوم 15/01/2026 الساعه 03:25 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1177,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "2280",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 2108838249522280 بمبلغ 2350 جم إلى ISLAM MANSOUR RADWAN رقم مرجعي 735673 يوم 15/01/2026 الساعه 21:19 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1188,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "6162",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 8253227205656162 بمبلغ 9350 جم إلى SARA IBRAHIM METWALY رقم مرجعي 588471 يوم 26/09/2026 الساعه 06:59 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1321,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "6023",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 5852515260536023 بمبلغ 15850 جم إلى KARIM ELBADRY FARAG MANSOUR رقم مرجعي 272500 يوم 09/07/2026 الساعه 03:54 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1395,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_branch_deposit",
+   "gold": "4139",
+   "pred": null,
+   "sms": "تم إيداع   79900  جنيه مصرى بفرع الدقي بحساب 4139 يوم 07/02/2026"
+  },
+  {
+   "id": 1468,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "1575",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 2729411769871575 بمبلغ 6000 جم إلى DINA MOHAMED رقم مرجعي 161545 يوم 30/04/2026 الساعه 08:23 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1560,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "9746",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 9356097886019746 بمبلغ 15900 جم إلى NOHA ELSAYED ELGAMAL MOHAMED رقم مرجعي 653521 يوم 02/09/2026 الساعه 13:31 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1568,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "2214",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 0259036780512214 بمبلغ 6750 جم إلى MOSTAFA SHAHIN ELSHAFEI رقم مرجعي 635053 يوم 16/09/2026 الساعه 06:14 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1659,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "9436",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 0540327635529436 بمبلغ 8450 جم إلى IBRAHIM FARAG رقم مرجعي 580394 يوم 13/05/2026 الساعه 12:03 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1680,
+   "sender": "Banque Misr",
+   "template_id": "bm_refund",
+   "gold": "9081",
+   "pred": null,
+   "sms": "عميلنا العزيز، تم رد المعاملة بقيمة 4989EGP للبطاقة *****9081، بتاريخ 11/10/2026 من Amazon ، للاطلاع على معاملاتكم اضغط bnkmsr.com/online"
+  },
+  {
+   "id": 1691,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_branch_deposit",
+   "gold": "4407",
+   "pred": null,
+   "sms": "تم إيداع   57400  جنيه مصرى بفرع مدينة نصر بحساب 4407 يوم 10/09/2026"
+  },
+  {
+   "id": 1770,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "4555",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 4760204093864555 بمبلغ 19350 جم إلى SARA ELGAMAL IBRAHIM رقم مرجعي 307592 يوم 05/01/2026 الساعه 07:40 للمزيد اتصل ب 19888"
+  },
+  {
+   "id": 1838,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out",
+   "gold": "8776",
+   "pred": null,
+   "sms": "تم تنفيذ تحويل لحظي من حسابكم رقم 0966178508038776 بمبلغ 16250 جم إلى NOHA SELIM HAMDY FARAG رقم مرجعي 028984 يوم 23/09/2026 الساعه 17:35 للمزيد اتصل ب 19888"
+  }
+ ],
+ "datetime": [
+  {
+   "id": 1395,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_branch_deposit",
+   "gold": "2026-07-02",
+   "pred": "2026-02-07",
+   "sms": "تم إيداع   79900  جنيه مصرى بفرع الدقي بحساب 4139 يوم 07/02/2026"
+  },
+  {
+   "id": 1544,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_branch_deposit",
+   "gold": "2026-01-29",
+   "pred": null,
+   "sms": "تم إيداع   73100  جنيه مصرى بفرع سموحة بحساب 5079 يوم 01/29/2026"
+  },
+  {
+   "id": 1593,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_branch_deposit",
+   "gold": "2026-03-13",
+   "pred": null,
+   "sms": "تم إيداع   22750  جنيه مصرى بفرع مصر الجديدة بحساب 6463 يوم 03/13/2026"
+  },
+  {
+   "id": 1691,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_branch_deposit",
+   "gold": "2026-10-09",
+   "pred": "2026-09-10",
+   "sms": "تم إيداع   57400  جنيه مصرى بفرع مدينة نصر بحساب 4407 يوم 10/09/2026"
+  },
+  {
+   "id": 1723,
+   "sender": "BanK-AlAhly",
+   "template_id": "nbe_branch_deposit",
+   "gold": "2026-06-28",
+   "pred": null,
+   "sms": "تم إيداع   64900  جنيه مصرى بفرع المعادي بحساب 7502 يوم 06/28/2026"
+  },
+  {
+   "id": 1016,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": "2026-03-18",
+   "pred": null,
+   "sms": "تم تحويل مبلغ 57,000EGP     من حساب رقم xxx2791       فى 18-MAR-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1318,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": "2026-08-29",
+   "pred": null,
+   "sms": "تم تحويل مبلغ 77,700EGP     من حساب رقم xxx6214       فى 29-AUG-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1621,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": "2026-02-05",
+   "pred": null,
+   "sms": "تم تحويل مبلغ 17,600EGP     من حساب رقم xxx4858       فى 05-FEB-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1935,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_out_acct",
+   "gold": "2026-10-12",
+   "pred": null,
+   "sms": "تم تحويل مبلغ 28,800EGP     من حساب رقم xxx0366       فى 12-OCT-2026  عن طريق التحويل اللحظي"
+  },
+  {
+   "id": 1003,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "2026-07-10",
+   "pred": null,
+   "sms": "From HSBC: 10JUL26 ATM Reversal of Cash Withdrawal from 074-819***-093 EGP 418.80+ Your available balance is EGP 478.21"
+  },
+  {
+   "id": 1184,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "2026-10-07",
+   "pred": null,
+   "sms": "From HSBC: 07OCT26 CARREFOUR MAADI Purchase from 074-185***-715 EGP 331.88- Your available balance is EGP 173,240.92"
+  },
+  {
+   "id": 1277,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "2026-01-28",
+   "pred": null,
+   "sms": "From HSBC: 28JAN26 FAWRY*BEANOS Purchase from 074-052***-384 EGP 1,252.01- Your available balance is EGP 17.90"
+  },
+  {
+   "id": 1339,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "2026-07-13",
+   "pred": null,
+   "sms": "From HSBC: 13JUL26 CARREFOUR MAADI Purchase from 074-884***-190 EGP 209.44- Your available balance is EGP 3,293.81"
+  },
+  {
+   "id": 1354,
+   "sender": "HSBC",
+   "template_id": "hsbc_line",
+   "gold": "2026-08-01",
+   "pred": null,
+   "sms": "From HSBC: 01AUG26 KHEIR ZAMAN Purchase from 074-080***-509 EGP 942.12- Your available balance is EGP 17,904.48"
+  },
+  {
+   "id": 1371,
+   "sender": "Banque Misr",
+   "template_id": "bm_ipn_in_acct",
+   "gold": "2026-04-22",
+   "pred": null,
+   "sms": "تم اضافة مبلغ 11260EGP       الى حساب رقم xxx7044      فى 22-APR-2026  عن طريق التحويل اللحظي"
+  }
+ ]
+}

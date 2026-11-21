@@ -1,0 +1,1201 @@
+﻿id,template_id,sender,provenance
+1001,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+1002,oc_recharge,Orange Cash,verified
+1003,hsbc_line,HSBC,verified
+1004,hsbc_none,HSBC,verified
+1005,nbe_debit_card,BanK-AlAhly,verified
+1006,nbe_ipn_returned,BanK-AlAhly,verified
+1007,nbe_ipn_in,BanK-AlAhly,verified
+1008,cib_none,CIB,verified
+1009,vf_balance,VF-Cash,verified
+1010,vf_withdraw_request,VF-Cash,verified
+1011,instapay_none,InstaPay,approximate
+1012,hsbc_line,HSBC,verified
+1013,wepay_send,WE Pay,approximate
+1014,vf_recv_intl,VF-Cash,verified
+1015,nbe_ipn_in,BanK-AlAhly,verified
+1016,bm_ipn_out_acct,Banque Misr,verified
+1017,vf_recv,VF-Cash,verified
+1018,nbe_ipn_in_card,BanK-AlAhly,verified
+1019,bm_cc_spaced,Banque Misr,verified
+1020,oc_recv,Orange Cash,approximate
+1021,fawry_bill,Fawry,approximate
+1022,hsbc_line,HSBC,verified
+1023,vf_promo,VF-Cash,verified
+1024,instapay_none,InstaPay,approximate
+1025,oc_recharge,Orange Cash,verified
+1026,vf_recv_intl,VF-Cash,verified
+1027,hsbc_ipn_reversed,HSBC,verified
+1028,cib_atm,CIB,verified
+1029,oc_send,Orange Cash,approximate
+1030,hsbc_none,HSBC,verified
+1031,vf_balance,VF-Cash,verified
+1032,nbe_dormancy,BanK-AlAhly,verified
+1033,oc_recharge,Orange Cash,verified
+1034,cib_ipn_in,CIB,verified
+1035,cib_ipn_out,CIB,verified
+1036,cib_ipn_in,CIB,verified
+1037,cib_ipn_out,CIB,verified
+1038,instapay_none,InstaPay,approximate
+1039,instapay_none,InstaPay,approximate
+1040,vf_recv,VF-Cash,verified
+1041,vf_promo,VF-Cash,verified
+1042,cib_atm,CIB,verified
+1043,vf_balance,VF-Cash,verified
+1044,vf_send,VF-Cash,verified
+1045,nbe_credit_card,BanK-AlAhly,verified
+1046,nbe_ipn_in,BanK-AlAhly,verified
+1047,eand_recv,e& cash,approximate
+1048,cib_none,CIB,verified
+1049,vf_promo,VF-Cash,verified
+1050,valu_none,valU,approximate
+1051,hsbc_line,HSBC,verified
+1052,cib_refund_order,CIB,verified
+1053,nbe_credit_card,BanK-AlAhly,verified
+1054,nbe_ipn_in_card,BanK-AlAhly,verified
+1055,cib_ipn_out,CIB,verified
+1056,cib_applepay,CIB,verified
+1057,nbe_ipn_in,BanK-AlAhly,verified
+1058,oc_recharge,Orange Cash,verified
+1059,cib_ipn_out,CIB,verified
+1060,vf_withdraw_request,VF-Cash,verified
+1061,oc_none,Orange Cash,approximate
+1062,hsbc_none,HSBC,verified
+1063,vf_insufficient,VF-Cash,verified
+1064,valu_none,valU,approximate
+1065,cib_none,CIB,verified
+1066,hsbc_ipn_out,HSBC,verified
+1067,cib_ipn_in,CIB,verified
+1068,vf_promo,VF-Cash,verified
+1069,cib_refund_applepay,CIB,verified
+1070,nbe_atm,BanK-AlAhly,verified
+1071,oc_none,Orange Cash,approximate
+1072,nbe_ipn_in,BanK-AlAhly,verified
+1073,vf_send,VF-Cash,verified
+1074,instapay_none,InstaPay,approximate
+1075,bm_ipn_out,Banque Misr,verified
+1076,cib_atm,CIB,verified
+1077,bm_none,Banque Misr,verified
+1078,oc_none,Orange Cash,approximate
+1079,oc_recv,Orange Cash,approximate
+1080,vf_promo,VF-Cash,verified
+1081,nbe_ipn_in,BanK-AlAhly,verified
+1082,nbe_ipn_in,BanK-AlAhly,verified
+1083,oc_send,Orange Cash,approximate
+1084,nbe_ipn_in,BanK-AlAhly,verified
+1085,nbe_ipn_in,BanK-AlAhly,verified
+1086,cib_cc_en,CIB,verified
+1087,vf_promo,VF-Cash,verified
+1088,valu_purchase,valU,approximate
+1089,oc_recharge,Orange Cash,verified
+1090,hsbc_cc,HSBC,verified
+1091,vf_wrong_pin,VF-Cash,verified
+1092,cib_card,CIB,verified
+1093,cib_ipn_in,CIB,verified
+1094,cib_none,CIB,verified
+1095,cib_ipn_out,CIB,verified
+1096,cib_deposit,CIB,verified
+1097,fawry_bill,Fawry,approximate
+1098,vf_promo,VF-Cash,verified
+1099,vf_promo,VF-Cash,verified
+1100,cib_deposit,CIB,verified
+1101,nbe_ipn_out,BanK-AlAhly,verified
+1102,nbe_instant_pay,BanK-AlAhly,verified
+1103,cib_ipn_out,CIB,verified
+1104,hsbc_ipn_in,HSBC,verified
+1105,vf_promo,VF-Cash,verified
+1106,oc_send,Orange Cash,approximate
+1107,wepay_recv,WE Pay,approximate
+1108,nbe_ipn_in_card,BanK-AlAhly,verified
+1109,bm_ipn_out,Banque Misr,verified
+1110,oc_none,Orange Cash,approximate
+1111,nbe_instant_pay,BanK-AlAhly,verified
+1112,vf_withdraw,VF-Cash,verified
+1113,fawry_bill,Fawry,approximate
+1114,vf_send,VF-Cash,verified
+1115,nbe_ipn_out,BanK-AlAhly,verified
+1116,instapay_none,InstaPay,approximate
+1117,vf_promo,VF-Cash,verified
+1118,instapay_none,InstaPay,approximate
+1119,cib_atm,CIB,verified
+1120,hsbc_none,HSBC,verified
+1121,cib_refund_applepay,CIB,verified
+1122,cib_ipn_in,CIB,verified
+1123,vf_withdraw_request,VF-Cash,verified
+1124,vf_balance,VF-Cash,verified
+1125,cib_none,CIB,verified
+1126,hsbc_ipn_in,HSBC,verified
+1127,cib_ipn_out,CIB,verified
+1128,bm_cc_spaced,Banque Misr,verified
+1129,bm_none,Banque Misr,verified
+1130,cib_none,CIB,verified
+1131,vf_wrong_pin,VF-Cash,verified
+1132,bm_none,Banque Misr,verified
+1133,bm_cc_payment,Banque Misr,verified
+1134,cib_deposit,CIB,verified
+1135,bm_ipn_out,Banque Misr,verified
+1136,nbe_ipn_returned,BanK-AlAhly,verified
+1137,nbe_ipn_in,BanK-AlAhly,verified
+1138,oc_recv,Orange Cash,approximate
+1139,nbe_credit_card,BanK-AlAhly,verified
+1140,wepay_recv,WE Pay,approximate
+1141,hsbc_none,HSBC,verified
+1142,vf_wrong_pin,VF-Cash,verified
+1143,vf_wrong_pin,VF-Cash,verified
+1144,cib_ipn_out,CIB,verified
+1145,oc_recv,Orange Cash,approximate
+1146,vf_wrong_pin,VF-Cash,verified
+1147,cib_ipn_out,CIB,verified
+1148,nbe_instant_pay,BanK-AlAhly,verified
+1149,vf_promo,VF-Cash,verified
+1150,nbe_ipn_out,BanK-AlAhly,verified
+1151,vf_promo,VF-Cash,verified
+1152,vf_promo,VF-Cash,verified
+1153,vf_send,VF-Cash,verified
+1154,oc_recharge,Orange Cash,verified
+1155,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+1156,oc_bill,Orange Cash,approximate
+1157,nbe_ipn_in,BanK-AlAhly,verified
+1158,vf_balance,VF-Cash,verified
+1159,cib_card,CIB,verified
+1160,vf_withdraw_request,VF-Cash,verified
+1161,nbe_credit_card,BanK-AlAhly,verified
+1162,vf_withdraw_request,VF-Cash,verified
+1163,vf_promo,VF-Cash,verified
+1164,bm_none,Banque Misr,verified
+1165,vf_promo,VF-Cash,verified
+1166,hsbc_ipn_purchase,HSBC,verified
+1167,nbe_ipn_in,BanK-AlAhly,verified
+1168,bm_debit_atm,Banque Misr,verified
+1169,vf_send,VF-Cash,verified
+1170,instapay_none,InstaPay,approximate
+1171,oc_none,Orange Cash,approximate
+1172,bm_cc_spaced,Banque Misr,verified
+1173,nbe_instant_pay,BanK-AlAhly,verified
+1174,bm_cc_glued,Banque Misr,verified
+1175,hsbc_cc,HSBC,verified
+1176,cib_cc_en,CIB,verified
+1177,bm_ipn_out,Banque Misr,verified
+1178,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+1179,nbe_debit_card,BanK-AlAhly,verified
+1180,nbe_ipn_in,BanK-AlAhly,verified
+1181,vf_balance,VF-Cash,verified
+1182,vf_promo,VF-Cash,verified
+1183,vf_withdraw,VF-Cash,verified
+1184,hsbc_line,HSBC,verified
+1185,cib_none,CIB,verified
+1186,oc_recharge,Orange Cash,verified
+1187,nbe_bank_in,BanK-AlAhly,verified
+1188,bm_ipn_out,Banque Misr,verified
+1189,nbe_ipn_in,BanK-AlAhly,verified
+1190,nbe_ipn_in,BanK-AlAhly,verified
+1191,bm_none,Banque Misr,verified
+1192,hsbc_cc,HSBC,verified
+1193,vf_promo,VF-Cash,verified
+1194,vf_withdraw_request,VF-Cash,verified
+1195,cib_none,CIB,verified
+1196,nbe_ipn_in,BanK-AlAhly,verified
+1197,nbe_ipn_out,BanK-AlAhly,verified
+1198,oc_recharge,Orange Cash,verified
+1199,bm_cc_glued,Banque Misr,verified
+1200,hsbc_none,HSBC,verified
+1201,nbe_ipn_in,BanK-AlAhly,verified
+1202,vf_withdraw,VF-Cash,verified
+1203,vf_recv_intl,VF-Cash,verified
+1204,vf_recv,VF-Cash,verified
+1205,bm_none,Banque Misr,verified
+1206,bm_debit_atm,Banque Misr,verified
+1207,vf_promo,VF-Cash,verified
+1208,instapay_none,InstaPay,approximate
+1209,instapay_none,InstaPay,approximate
+1210,oc_recharge,Orange Cash,verified
+1211,nbe_bank_in,BanK-AlAhly,verified
+1212,nbe_instant_pay,BanK-AlAhly,verified
+1213,cib_applepay,CIB,verified
+1214,cib_ipn_in,CIB,verified
+1215,vf_balance,VF-Cash,verified
+1216,vf_send,VF-Cash,verified
+1217,nbe_ipn_out,BanK-AlAhly,verified
+1218,vf_balance,VF-Cash,verified
+1219,nbe_ipn_in,BanK-AlAhly,verified
+1220,nbe_debit_card,BanK-AlAhly,verified
+1221,oc_send,Orange Cash,approximate
+1222,vf_recv_intl,VF-Cash,verified
+1223,cib_cc_en,CIB,verified
+1224,nbe_credit_card,BanK-AlAhly,verified
+1225,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+1226,bm_none,Banque Misr,verified
+1227,valu_none,valU,approximate
+1228,nbe_debit_card,BanK-AlAhly,verified
+1229,cib_card,CIB,verified
+1230,wepay_recv,WE Pay,approximate
+1231,nbe_instant_pay,BanK-AlAhly,verified
+1232,cib_none,CIB,verified
+1233,wepay_send,WE Pay,approximate
+1234,oc_none,Orange Cash,approximate
+1235,cib_applepay,CIB,verified
+1236,hsbc_ipn_out,HSBC,verified
+1237,vf_withdraw_request,VF-Cash,verified
+1238,oc_send,Orange Cash,approximate
+1239,cib_none,CIB,verified
+1240,bm_cc_glued,Banque Misr,verified
+1241,vf_promo,VF-Cash,verified
+1242,vf_recv,VF-Cash,verified
+1243,oc_none,Orange Cash,approximate
+1244,vf_recv,VF-Cash,verified
+1245,cib_ipn_in,CIB,verified
+1246,cib_card,CIB,verified
+1247,vf_withdraw,VF-Cash,verified
+1248,bm_none,Banque Misr,verified
+1249,hsbc_none,HSBC,verified
+1250,hsbc_none,HSBC,verified
+1251,cib_none,CIB,verified
+1252,nbe_ipn_in,BanK-AlAhly,verified
+1253,hsbc_cashback,HSBC,verified
+1254,vf_recv,VF-Cash,verified
+1255,oc_recv,Orange Cash,approximate
+1256,hsbc_cc,HSBC,verified
+1257,vf_wrong_pin,VF-Cash,verified
+1258,vf_balance,VF-Cash,verified
+1259,vf_recv_intl,VF-Cash,verified
+1260,hsbc_ipn_purchase,HSBC,verified
+1261,cib_refund_order,CIB,verified
+1262,vf_balance,VF-Cash,verified
+1263,nbe_ipn_out,BanK-AlAhly,verified
+1264,nbe_ipn_in_card,BanK-AlAhly,verified
+1265,vf_balance,VF-Cash,verified
+1266,vf_insufficient,VF-Cash,verified
+1267,nbe_ipn_in,BanK-AlAhly,verified
+1268,nbe_ipn_in_card,BanK-AlAhly,verified
+1269,nbe_bank_in,BanK-AlAhly,verified
+1270,cib_none,CIB,verified
+1271,cib_deposit,CIB,verified
+1272,bm_debit_atm,Banque Misr,verified
+1273,eand_send,e& cash,approximate
+1274,oc_bill,Orange Cash,approximate
+1275,instapay_none,InstaPay,approximate
+1276,instapay_none,InstaPay,approximate
+1277,hsbc_line,HSBC,verified
+1278,bm_cc_glued,Banque Misr,verified
+1279,fawry_bill,Fawry,approximate
+1280,cib_ipn_in,CIB,verified
+1281,bm_cc_glued,Banque Misr,verified
+1282,cib_reversal,CIB,verified
+1283,hsbc_none,HSBC,verified
+1284,vf_withdraw_request,VF-Cash,verified
+1285,nbe_ipn_out,BanK-AlAhly,verified
+1286,oc_send,Orange Cash,approximate
+1287,nbe_dormancy,BanK-AlAhly,verified
+1288,vf_wrong_pin,VF-Cash,verified
+1289,bm_none,Banque Misr,verified
+1290,oc_send,Orange Cash,approximate
+1291,cib_atm,CIB,verified
+1292,cib_none,CIB,verified
+1293,wepay_recv,WE Pay,approximate
+1294,cib_ipn_in,CIB,verified
+1295,oc_send,Orange Cash,approximate
+1296,nbe_ipn_in_card,BanK-AlAhly,verified
+1297,nbe_ipn_in_card,BanK-AlAhly,verified
+1298,vf_promo,VF-Cash,verified
+1299,cib_none,CIB,verified
+1300,valu_none,valU,approximate
+1301,cib_ipn_out,CIB,verified
+1302,oc_none,Orange Cash,approximate
+1303,cib_none,CIB,verified
+1304,vf_promo,VF-Cash,verified
+1305,vf_recv,VF-Cash,verified
+1306,nbe_dormancy,BanK-AlAhly,verified
+1307,nbe_ipn_in,BanK-AlAhly,verified
+1308,vf_withdraw_request,VF-Cash,verified
+1309,instapay_none,InstaPay,approximate
+1310,oc_none,Orange Cash,approximate
+1311,oc_send,Orange Cash,approximate
+1312,vf_recv,VF-Cash,verified
+1313,cib_cc_en,CIB,verified
+1314,vf_recv,VF-Cash,verified
+1315,bm_debit_atm,Banque Misr,verified
+1316,cib_none,CIB,verified
+1317,cib_refund_applepay,CIB,verified
+1318,bm_ipn_out_acct,Banque Misr,verified
+1319,bm_ipn_in_card,Banque Misr,verified
+1320,vf_withdraw,VF-Cash,verified
+1321,bm_ipn_out,Banque Misr,verified
+1322,nbe_atm,BanK-AlAhly,verified
+1323,nbe_ipn_in,BanK-AlAhly,verified
+1324,cib_ipn_in,CIB,verified
+1325,vf_promo,VF-Cash,verified
+1326,hsbc_ipn_purchase,HSBC,verified
+1327,nbe_atm,BanK-AlAhly,verified
+1328,nbe_bank_in,BanK-AlAhly,verified
+1329,oc_none,Orange Cash,approximate
+1330,nbe_ipn_in,BanK-AlAhly,verified
+1331,oc_recharge,Orange Cash,verified
+1332,vf_send,VF-Cash,verified
+1333,vf_promo,VF-Cash,verified
+1334,vf_promo,VF-Cash,verified
+1335,vf_withdraw,VF-Cash,verified
+1336,vf_recv,VF-Cash,verified
+1337,cib_ipn_in,CIB,verified
+1338,bm_cc_glued,Banque Misr,verified
+1339,hsbc_line,HSBC,verified
+1340,oc_none,Orange Cash,approximate
+1341,vf_withdraw,VF-Cash,verified
+1342,bm_none,Banque Misr,verified
+1343,oc_recv,Orange Cash,approximate
+1344,cib_reversal,CIB,verified
+1345,valu_none,valU,approximate
+1346,bm_none,Banque Misr,verified
+1347,vf_recv,VF-Cash,verified
+1348,vf_insufficient,VF-Cash,verified
+1349,instapay_none,InstaPay,approximate
+1350,nbe_ipn_in,BanK-AlAhly,verified
+1351,nbe_ipn_in,BanK-AlAhly,verified
+1352,cib_applepay,CIB,verified
+1353,hsbc_none,HSBC,verified
+1354,hsbc_line,HSBC,verified
+1355,oc_recharge,Orange Cash,verified
+1356,vf_recv,VF-Cash,verified
+1357,vf_promo,VF-Cash,verified
+1358,cib_refund_applepay,CIB,verified
+1359,vf_recv,VF-Cash,verified
+1360,bm_none,Banque Misr,verified
+1361,cib_ipn_in,CIB,verified
+1362,vf_promo,VF-Cash,verified
+1363,cib_ipn_out,CIB,verified
+1364,nbe_ipn_in,BanK-AlAhly,verified
+1365,oc_recharge,Orange Cash,verified
+1366,hsbc_none,HSBC,verified
+1367,hsbc_cc,HSBC,verified
+1368,vf_recv,VF-Cash,verified
+1369,nbe_ipn_in,BanK-AlAhly,verified
+1370,nbe_ipn_out,BanK-AlAhly,verified
+1371,bm_ipn_in_acct,Banque Misr,verified
+1372,hsbc_line,HSBC,verified
+1373,vf_wrong_pin,VF-Cash,verified
+1374,cib_ipn_out,CIB,verified
+1375,nbe_ipn_in,BanK-AlAhly,verified
+1376,cib_none,CIB,verified
+1377,bm_cc_glued,Banque Misr,verified
+1378,nbe_instant_pay,BanK-AlAhly,verified
+1379,vf_withdraw,VF-Cash,verified
+1380,bm_none,Banque Misr,verified
+1381,oc_none,Orange Cash,approximate
+1382,vf_balance,VF-Cash,verified
+1383,cib_atm,CIB,verified
+1384,vf_withdraw_request,VF-Cash,verified
+1385,nbe_ipn_in_card,BanK-AlAhly,verified
+1386,bm_cc_spaced,Banque Misr,verified
+1387,cib_none,CIB,verified
+1388,cib_none,CIB,verified
+1389,vf_recv,VF-Cash,verified
+1390,cib_ipn_in,CIB,verified
+1391,vf_balance,VF-Cash,verified
+1392,vf_wrong_pin,VF-Cash,verified
+1393,cib_refund_order,CIB,verified
+1394,vf_recv_intl,VF-Cash,verified
+1395,nbe_branch_deposit,BanK-AlAhly,verified
+1396,bm_cc_glued,Banque Misr,verified
+1397,vf_insufficient,VF-Cash,verified
+1398,cib_refund_order,CIB,verified
+1399,vf_send,VF-Cash,verified
+1400,cib_none,CIB,verified
+1401,bm_cc_glued,Banque Misr,verified
+1402,cib_refund_order,CIB,verified
+1403,hsbc_cc,HSBC,verified
+1404,cib_none,CIB,verified
+1405,bm_none,Banque Misr,verified
+1406,vf_send,VF-Cash,verified
+1407,cib_none,CIB,verified
+1408,cib_card,CIB,verified
+1409,eand_recv,e& cash,approximate
+1410,cib_none,CIB,verified
+1411,nbe_ipn_in,BanK-AlAhly,verified
+1412,valu_none,valU,approximate
+1413,hsbc_ipn_purchase,HSBC,verified
+1414,hsbc_none,HSBC,verified
+1415,vf_withdraw,VF-Cash,verified
+1416,hsbc_none,HSBC,verified
+1417,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+1418,vf_wrong_pin,VF-Cash,verified
+1419,vf_promo,VF-Cash,verified
+1420,hsbc_line,HSBC,verified
+1421,valu_purchase,valU,approximate
+1422,oc_none,Orange Cash,approximate
+1423,vf_send,VF-Cash,verified
+1424,valu_none,valU,approximate
+1425,cib_none,CIB,verified
+1426,bm_debit_atm,Banque Misr,verified
+1427,bm_cc_spaced,Banque Misr,verified
+1428,nbe_ipn_in,BanK-AlAhly,verified
+1429,nbe_atm,BanK-AlAhly,verified
+1430,vf_send,VF-Cash,verified
+1431,hsbc_cashback,HSBC,verified
+1432,cib_ipn_in,CIB,verified
+1433,vf_balance,VF-Cash,verified
+1434,nbe_bank_in,BanK-AlAhly,verified
+1435,hsbc_cc,HSBC,verified
+1436,bm_cc_glued,Banque Misr,verified
+1437,valu_none,valU,approximate
+1438,hsbc_none,HSBC,verified
+1439,nbe_ipn_in,BanK-AlAhly,verified
+1440,hsbc_none,HSBC,verified
+1441,cib_reversal,CIB,verified
+1442,vf_recv,VF-Cash,verified
+1443,bm_cc_glued,Banque Misr,verified
+1444,vf_promo,VF-Cash,verified
+1445,vf_wrong_pin,VF-Cash,verified
+1446,cib_ipn_out,CIB,verified
+1447,oc_recharge,Orange Cash,verified
+1448,hsbc_ipn_in,HSBC,verified
+1449,vf_withdraw,VF-Cash,verified
+1450,cib_none,CIB,verified
+1451,cib_cc_en,CIB,verified
+1452,hsbc_line,HSBC,verified
+1453,nbe_ipn_out,BanK-AlAhly,verified
+1454,vf_send,VF-Cash,verified
+1455,vf_recv,VF-Cash,verified
+1456,bm_cc_glued,Banque Misr,verified
+1457,vf_balance,VF-Cash,verified
+1458,hsbc_none,HSBC,verified
+1459,oc_recharge,Orange Cash,verified
+1460,vf_send,VF-Cash,verified
+1461,cib_cc_en,CIB,verified
+1462,cib_card,CIB,verified
+1463,wepay_recv,WE Pay,approximate
+1464,vf_promo,VF-Cash,verified
+1465,cib_cc_en,CIB,verified
+1466,oc_send,Orange Cash,approximate
+1467,hsbc_line,HSBC,verified
+1468,bm_ipn_out,Banque Misr,verified
+1469,valu_none,valU,approximate
+1470,hsbc_none,HSBC,verified
+1471,hsbc_line,HSBC,verified
+1472,cib_none,CIB,verified
+1473,nbe_ipn_returned,BanK-AlAhly,verified
+1474,cib_applepay,CIB,verified
+1475,nbe_credit_card,BanK-AlAhly,verified
+1476,hsbc_none,HSBC,verified
+1477,instapay_none,InstaPay,approximate
+1478,cib_none,CIB,verified
+1479,nbe_ipn_out,BanK-AlAhly,verified
+1480,cib_ipn_in,CIB,verified
+1481,hsbc_ipn_out,HSBC,verified
+1482,bm_ipn_in_card,Banque Misr,verified
+1483,nbe_ipn_in_card,BanK-AlAhly,verified
+1484,hsbc_line,HSBC,verified
+1485,cib_applepay,CIB,verified
+1486,cib_card,CIB,verified
+1487,bm_none,Banque Misr,verified
+1488,hsbc_none,HSBC,verified
+1489,vf_send,VF-Cash,verified
+1490,vf_recv,VF-Cash,verified
+1491,hsbc_none,HSBC,verified
+1492,cib_reversal,CIB,verified
+1493,hsbc_line,HSBC,verified
+1494,hsbc_none,HSBC,verified
+1495,vf_balance,VF-Cash,verified
+1496,vf_withdraw_request,VF-Cash,verified
+1497,vf_insufficient,VF-Cash,verified
+1498,nbe_credit_card,BanK-AlAhly,verified
+1499,nbe_ipn_in_card,BanK-AlAhly,verified
+1500,oc_recv,Orange Cash,approximate
+1501,nbe_ipn_out,BanK-AlAhly,verified
+1502,cib_card,CIB,verified
+1503,instapay_none,InstaPay,approximate
+1504,vf_withdraw,VF-Cash,verified
+1505,cib_none,CIB,verified
+1506,hsbc_cc,HSBC,verified
+1507,cib_none,CIB,verified
+1508,vf_recv,VF-Cash,verified
+1509,vf_promo,VF-Cash,verified
+1510,vf_recv,VF-Cash,verified
+1511,vf_send,VF-Cash,verified
+1512,cib_none,CIB,verified
+1513,hsbc_none,HSBC,verified
+1514,nbe_ipn_in,BanK-AlAhly,verified
+1515,cib_ipn_out,CIB,verified
+1516,cib_cc_en,CIB,verified
+1517,cib_none,CIB,verified
+1518,vf_withdraw_request,VF-Cash,verified
+1519,nbe_ipn_out,BanK-AlAhly,verified
+1520,vf_recv,VF-Cash,verified
+1521,cib_cc_en,CIB,verified
+1522,nbe_credit_card,BanK-AlAhly,verified
+1523,valu_purchase,valU,approximate
+1524,nbe_ipn_in,BanK-AlAhly,verified
+1525,hsbc_cashback,HSBC,verified
+1526,cib_atm,CIB,verified
+1527,hsbc_none,HSBC,verified
+1528,cib_card,CIB,verified
+1529,nbe_ipn_in,BanK-AlAhly,verified
+1530,hsbc_cc,HSBC,verified
+1531,oc_recharge,Orange Cash,verified
+1532,cib_atm,CIB,verified
+1533,nbe_atm,BanK-AlAhly,verified
+1534,bm_cc_spaced,Banque Misr,verified
+1535,bm_cc_payment,Banque Misr,verified
+1536,cib_none,CIB,verified
+1537,vf_insufficient,VF-Cash,verified
+1538,oc_none,Orange Cash,approximate
+1539,vf_promo,VF-Cash,verified
+1540,nbe_atm,BanK-AlAhly,verified
+1541,nbe_dormancy,BanK-AlAhly,verified
+1542,vf_insufficient,VF-Cash,verified
+1543,nbe_ipn_in_card,BanK-AlAhly,verified
+1544,nbe_branch_deposit,BanK-AlAhly,verified
+1545,cib_refund_order,CIB,verified
+1546,nbe_instant_pay,BanK-AlAhly,verified
+1547,vf_promo,VF-Cash,verified
+1548,vf_recv_intl,VF-Cash,verified
+1549,vf_promo,VF-Cash,verified
+1550,cib_none,CIB,verified
+1551,cib_reversal,CIB,verified
+1552,bm_none,Banque Misr,verified
+1553,nbe_ipn_in,BanK-AlAhly,verified
+1554,nbe_ipn_in,BanK-AlAhly,verified
+1555,fawry_bill,Fawry,approximate
+1556,cib_cc_en,CIB,verified
+1557,bm_cc_spaced,Banque Misr,verified
+1558,bm_none,Banque Misr,verified
+1559,hsbc_none,HSBC,verified
+1560,bm_ipn_out,Banque Misr,verified
+1561,nbe_ipn_in,BanK-AlAhly,verified
+1562,cib_ipn_out,CIB,verified
+1563,cib_ipn_out,CIB,verified
+1564,bm_none,Banque Misr,verified
+1565,nbe_instant_pay,BanK-AlAhly,verified
+1566,instapay_none,InstaPay,approximate
+1567,vf_recv_intl,VF-Cash,verified
+1568,bm_ipn_out,Banque Misr,verified
+1569,vf_recv,VF-Cash,verified
+1570,cib_applepay,CIB,verified
+1571,nbe_ipn_in,BanK-AlAhly,verified
+1572,cib_none,CIB,verified
+1573,eand_send,e& cash,approximate
+1574,cib_none,CIB,verified
+1575,bm_none,Banque Misr,verified
+1576,cib_card,CIB,verified
+1577,nbe_ipn_out,BanK-AlAhly,verified
+1578,hsbc_cc,HSBC,verified
+1579,nbe_instant_pay,BanK-AlAhly,verified
+1580,vf_withdraw_request,VF-Cash,verified
+1581,hsbc_none,HSBC,verified
+1582,oc_none,Orange Cash,approximate
+1583,vf_promo,VF-Cash,verified
+1584,nbe_ipn_in_card,BanK-AlAhly,verified
+1585,nbe_ipn_in,BanK-AlAhly,verified
+1586,cib_ipn_in,CIB,verified
+1587,nbe_credit_card,BanK-AlAhly,verified
+1588,cib_ipn_out,CIB,verified
+1589,cib_cc_en,CIB,verified
+1590,bm_cc_spaced,Banque Misr,verified
+1591,eand_send,e& cash,approximate
+1592,cib_ipn_out,CIB,verified
+1593,nbe_branch_deposit,BanK-AlAhly,verified
+1594,vf_recv,VF-Cash,verified
+1595,vf_promo,VF-Cash,verified
+1596,nbe_instant_pay,BanK-AlAhly,verified
+1597,cib_ipn_out,CIB,verified
+1598,oc_none,Orange Cash,approximate
+1599,nbe_atm,BanK-AlAhly,verified
+1600,nbe_bank_in,BanK-AlAhly,verified
+1601,cib_ipn_out,CIB,verified
+1602,eand_send,e& cash,approximate
+1603,hsbc_line,HSBC,verified
+1604,vf_recv_intl,VF-Cash,verified
+1605,cib_none,CIB,verified
+1606,vf_send,VF-Cash,verified
+1607,vf_promo,VF-Cash,verified
+1608,vf_promo,VF-Cash,verified
+1609,nbe_ipn_in_card,BanK-AlAhly,verified
+1610,valu_none,valU,approximate
+1611,hsbc_none,HSBC,verified
+1612,vf_balance,VF-Cash,verified
+1613,hsbc_none,HSBC,verified
+1614,hsbc_cc,HSBC,verified
+1615,hsbc_ipn_reversed,HSBC,verified
+1616,cib_ipn_in,CIB,verified
+1617,bm_cc_glued,Banque Misr,verified
+1618,nbe_ipn_in,BanK-AlAhly,verified
+1619,vf_promo,VF-Cash,verified
+1620,nbe_ipn_out,BanK-AlAhly,verified
+1621,bm_ipn_out_acct,Banque Misr,verified
+1622,bm_ipn_in_card,Banque Misr,verified
+1623,cib_card,CIB,verified
+1624,cib_cc_en,CIB,verified
+1625,vf_send,VF-Cash,verified
+1626,hsbc_cc,HSBC,verified
+1627,vf_promo,VF-Cash,verified
+1628,nbe_bank_in,BanK-AlAhly,verified
+1629,hsbc_ipn_purchase,HSBC,verified
+1630,vf_promo,VF-Cash,verified
+1631,instapay_none,InstaPay,approximate
+1632,hsbc_none,HSBC,verified
+1633,cib_card,CIB,verified
+1634,bm_cc_spaced,Banque Misr,verified
+1635,vf_balance,VF-Cash,verified
+1636,bm_cc_glued,Banque Misr,verified
+1637,bm_deposit,Banque Misr,verified
+1638,nbe_ipn_out,BanK-AlAhly,verified
+1639,vf_promo,VF-Cash,verified
+1640,nbe_ipn_out,BanK-AlAhly,verified
+1641,bm_none,Banque Misr,verified
+1642,oc_recharge,Orange Cash,verified
+1643,vf_send,VF-Cash,verified
+1644,hsbc_none,HSBC,verified
+1645,nbe_debit_card,BanK-AlAhly,verified
+1646,bm_cc_glued,Banque Misr,verified
+1647,bm_deposit,Banque Misr,verified
+1648,cib_none,CIB,verified
+1649,oc_send,Orange Cash,approximate
+1650,nbe_credit_card,BanK-AlAhly,verified
+1651,vf_insufficient,VF-Cash,verified
+1652,cib_deposit,CIB,verified
+1653,vf_wrong_pin,VF-Cash,verified
+1654,vf_recv,VF-Cash,verified
+1655,vf_insufficient,VF-Cash,verified
+1656,oc_send,Orange Cash,approximate
+1657,cib_ipn_in,CIB,verified
+1658,vf_insufficient,VF-Cash,verified
+1659,bm_ipn_out,Banque Misr,verified
+1660,oc_none,Orange Cash,approximate
+1661,vf_recv,VF-Cash,verified
+1662,hsbc_line,HSBC,verified
+1663,cib_none,CIB,verified
+1664,bm_debit_atm_deposit,Banque Misr,verified
+1665,hsbc_line,HSBC,verified
+1666,nbe_ipn_out,BanK-AlAhly,verified
+1667,hsbc_none,HSBC,verified
+1668,bm_cc_spaced,Banque Misr,verified
+1669,nbe_debit_card,BanK-AlAhly,verified
+1670,oc_none,Orange Cash,approximate
+1671,nbe_ipn_out,BanK-AlAhly,verified
+1672,vf_insufficient,VF-Cash,verified
+1673,vf_withdraw,VF-Cash,verified
+1674,hsbc_ipn_in,HSBC,verified
+1675,nbe_atm,BanK-AlAhly,verified
+1676,nbe_bank_in,BanK-AlAhly,verified
+1677,cib_card,CIB,verified
+1678,cib_applepay,CIB,verified
+1679,cib_atm,CIB,verified
+1680,bm_refund,Banque Misr,verified
+1681,oc_recharge,Orange Cash,verified
+1682,bm_none,Banque Misr,verified
+1683,vf_promo,VF-Cash,verified
+1684,cib_ipn_out,CIB,verified
+1685,nbe_debit_card,BanK-AlAhly,verified
+1686,cib_none,CIB,verified
+1687,vf_recv_intl,VF-Cash,verified
+1688,hsbc_ipn_out,HSBC,verified
+1689,vf_promo,VF-Cash,verified
+1690,oc_none,Orange Cash,approximate
+1691,nbe_branch_deposit,BanK-AlAhly,verified
+1692,vf_insufficient,VF-Cash,verified
+1693,valu_none,valU,approximate
+1694,valu_none,valU,approximate
+1695,hsbc_cc,HSBC,verified
+1696,vf_send,VF-Cash,verified
+1697,oc_recharge,Orange Cash,verified
+1698,bm_none,Banque Misr,verified
+1699,cib_card,CIB,verified
+1700,oc_send,Orange Cash,approximate
+1701,nbe_debit_card,BanK-AlAhly,verified
+1702,vf_balance,VF-Cash,verified
+1703,vf_send,VF-Cash,verified
+1704,hsbc_ipn_in,HSBC,verified
+1705,vf_withdraw_request,VF-Cash,verified
+1706,cib_card,CIB,verified
+1707,vf_withdraw_request,VF-Cash,verified
+1708,vf_insufficient,VF-Cash,verified
+1709,oc_bill,Orange Cash,approximate
+1710,vf_send,VF-Cash,verified
+1711,oc_none,Orange Cash,approximate
+1712,vf_promo,VF-Cash,verified
+1713,oc_bill,Orange Cash,approximate
+1714,wepay_recv,WE Pay,approximate
+1715,vf_promo,VF-Cash,verified
+1716,cib_card,CIB,verified
+1717,hsbc_line,HSBC,verified
+1718,hsbc_cc,HSBC,verified
+1719,nbe_ipn_in,BanK-AlAhly,verified
+1720,nbe_ipn_out,BanK-AlAhly,verified
+1721,vf_send,VF-Cash,verified
+1722,vf_promo,VF-Cash,verified
+1723,nbe_branch_deposit,BanK-AlAhly,verified
+1724,hsbc_none,HSBC,verified
+1725,nbe_atm,BanK-AlAhly,verified
+1726,cib_card,CIB,verified
+1727,vf_withdraw_request,VF-Cash,verified
+1728,nbe_ipn_out,BanK-AlAhly,verified
+1729,oc_recv,Orange Cash,approximate
+1730,vf_promo,VF-Cash,verified
+1731,vf_balance,VF-Cash,verified
+1732,cib_applepay,CIB,verified
+1733,nbe_ipn_in,BanK-AlAhly,verified
+1734,instapay_none,InstaPay,approximate
+1735,hsbc_line,HSBC,verified
+1736,oc_recharge,Orange Cash,verified
+1737,oc_none,Orange Cash,approximate
+1738,cib_ipn_out,CIB,verified
+1739,instapay_none,InstaPay,approximate
+1740,vf_insufficient,VF-Cash,verified
+1741,vf_recv,VF-Cash,verified
+1742,cib_ipn_out,CIB,verified
+1743,vf_insufficient,VF-Cash,verified
+1744,cib_deposit,CIB,verified
+1745,oc_bill,Orange Cash,approximate
+1746,cib_card,CIB,verified
+1747,vf_balance,VF-Cash,verified
+1748,nbe_ipn_out,BanK-AlAhly,verified
+1749,instapay_none,InstaPay,approximate
+1750,bm_cc_glued,Banque Misr,verified
+1751,oc_send,Orange Cash,approximate
+1752,nbe_ipn_in,BanK-AlAhly,verified
+1753,valu_none,valU,approximate
+1754,vf_send,VF-Cash,verified
+1755,oc_send,Orange Cash,approximate
+1756,bm_cc_spaced,Banque Misr,verified
+1757,vf_recv,VF-Cash,verified
+1758,wepay_recv,WE Pay,approximate
+1759,nbe_dormancy,BanK-AlAhly,verified
+1760,bm_cc_glued,Banque Misr,verified
+1761,instapay_none,InstaPay,approximate
+1762,hsbc_ipn_reversed,HSBC,verified
+1763,bm_none,Banque Misr,verified
+1764,vf_balance,VF-Cash,verified
+1765,vf_promo,VF-Cash,verified
+1766,nbe_ipn_in,BanK-AlAhly,verified
+1767,hsbc_none,HSBC,verified
+1768,nbe_ipn_out,BanK-AlAhly,verified
+1769,nbe_ipn_out,BanK-AlAhly,verified
+1770,bm_ipn_out,Banque Misr,verified
+1771,nbe_ipn_out,BanK-AlAhly,verified
+1772,vf_insufficient,VF-Cash,verified
+1773,cib_deposit,CIB,verified
+1774,nbe_credit_card,BanK-AlAhly,verified
+1775,cib_applepay,CIB,verified
+1776,cib_card,CIB,verified
+1777,cib_applepay,CIB,verified
+1778,bm_debit_atm_deposit,Banque Misr,verified
+1779,hsbc_cashback,HSBC,verified
+1780,cib_ipn_out,CIB,verified
+1781,oc_bill,Orange Cash,approximate
+1782,vf_insufficient,VF-Cash,verified
+1783,nbe_debit_card,BanK-AlAhly,verified
+1784,hsbc_line,HSBC,verified
+1785,cib_cc_en,CIB,verified
+1786,vf_insufficient,VF-Cash,verified
+1787,cib_card,CIB,verified
+1788,vf_withdraw_request,VF-Cash,verified
+1789,vf_balance,VF-Cash,verified
+1790,oc_none,Orange Cash,approximate
+1791,bm_none,Banque Misr,verified
+1792,vf_balance,VF-Cash,verified
+1793,oc_recv,Orange Cash,approximate
+1794,cib_ipn_in,CIB,verified
+1795,bm_cc_glued,Banque Misr,verified
+1796,nbe_bank_in,BanK-AlAhly,verified
+1797,nbe_debit_card,BanK-AlAhly,verified
+1798,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+1799,vf_promo,VF-Cash,verified
+1800,nbe_debit_card,BanK-AlAhly,verified
+1801,cib_atm,CIB,verified
+1802,vf_insufficient,VF-Cash,verified
+1803,bm_cc_spaced,Banque Misr,verified
+1804,bm_none,Banque Misr,verified
+1805,cib_refund_order,CIB,verified
+1806,vf_recv,VF-Cash,verified
+1807,nbe_bank_in,BanK-AlAhly,verified
+1808,wepay_send,WE Pay,approximate
+1809,bm_ipn_in_card,Banque Misr,verified
+1810,vf_recv,VF-Cash,verified
+1811,eand_recv,e& cash,approximate
+1812,vf_send,VF-Cash,verified
+1813,oc_none,Orange Cash,approximate
+1814,bm_cc_payment,Banque Misr,verified
+1815,instapay_none,InstaPay,approximate
+1816,hsbc_line,HSBC,verified
+1817,nbe_atm,BanK-AlAhly,verified
+1818,vf_recv,VF-Cash,verified
+1819,hsbc_none,HSBC,verified
+1820,cib_none,CIB,verified
+1821,nbe_ipn_out,BanK-AlAhly,verified
+1822,nbe_atm,BanK-AlAhly,verified
+1823,nbe_ipn_out,BanK-AlAhly,verified
+1824,cib_applepay,CIB,verified
+1825,hsbc_none,HSBC,verified
+1826,vf_send,VF-Cash,verified
+1827,vf_withdraw_request,VF-Cash,verified
+1828,hsbc_line,HSBC,verified
+1829,hsbc_line,HSBC,verified
+1830,nbe_ipn_in,BanK-AlAhly,verified
+1831,vf_send,VF-Cash,verified
+1832,oc_recv,Orange Cash,approximate
+1833,eand_send,e& cash,approximate
+1834,cib_none,CIB,verified
+1835,hsbc_line,HSBC,verified
+1836,cib_ipn_out,CIB,verified
+1837,cib_cc_refund_en,CIB,verified
+1838,bm_ipn_out,Banque Misr,verified
+1839,cib_ipn_out,CIB,verified
+1840,cib_ipn_out,CIB,verified
+1841,bm_cc_glued,Banque Misr,verified
+1842,nbe_debit_card,BanK-AlAhly,verified
+1843,cib_none,CIB,verified
+1844,vf_recv,VF-Cash,verified
+1845,vf_promo,VF-Cash,verified
+1846,vf_promo,VF-Cash,verified
+1847,bm_none,Banque Misr,verified
+1848,cib_card,CIB,verified
+1849,oc_recharge,Orange Cash,verified
+1850,oc_recv,Orange Cash,approximate
+1851,vf_promo,VF-Cash,verified
+1852,eand_recv,e& cash,approximate
+1853,vf_insufficient,VF-Cash,verified
+1854,vf_recv_intl,VF-Cash,verified
+1855,cib_reversal,CIB,verified
+1856,vf_send,VF-Cash,verified
+1857,vf_recv,VF-Cash,verified
+1858,hsbc_none,HSBC,verified
+1859,vf_recv,VF-Cash,verified
+1860,nbe_ipn_in,BanK-AlAhly,verified
+1861,nbe_ipn_in,BanK-AlAhly,verified
+1862,bm_none,Banque Misr,verified
+1863,cib_refund_order,CIB,verified
+1864,bm_deposit,Banque Misr,verified
+1865,oc_recharge,Orange Cash,verified
+1866,instapay_none,InstaPay,approximate
+1867,nbe_ipn_in_card,BanK-AlAhly,verified
+1868,cib_ipn_out,CIB,verified
+1869,nbe_ipn_in,BanK-AlAhly,verified
+1870,nbe_credit_card,BanK-AlAhly,verified
+1871,bm_none,Banque Misr,verified
+1872,bm_cc_glued,Banque Misr,verified
+1873,nbe_ipn_in,BanK-AlAhly,verified
+1874,oc_recv,Orange Cash,approximate
+1875,bm_none,Banque Misr,verified
+1876,nbe_ipn_out,BanK-AlAhly,verified
+1877,cib_applepay,CIB,verified
+1878,hsbc_ipn_out,HSBC,verified
+1879,vf_recv,VF-Cash,verified
+1880,nbe_ipn_in,BanK-AlAhly,verified
+1881,vf_insufficient,VF-Cash,verified
+1882,hsbc_none,HSBC,verified
+1883,hsbc_ipn_out,HSBC,verified
+1884,oc_send,Orange Cash,approximate
+1885,nbe_credit_card,BanK-AlAhly,verified
+1886,oc_bill,Orange Cash,approximate
+1887,hsbc_ipn_reversed,HSBC,verified
+1888,bm_ipn_out,Banque Misr,verified
+1889,hsbc_none,HSBC,verified
+1890,hsbc_cc,HSBC,verified
+1891,bm_cc_glued,Banque Misr,verified
+1892,nbe_atm,BanK-AlAhly,verified
+1893,bm_cc_glued,Banque Misr,verified
+1894,vf_promo,VF-Cash,verified
+1895,nbe_ipn_returned,BanK-AlAhly,verified
+1896,vf_send,VF-Cash,verified
+1897,oc_recharge,Orange Cash,verified
+1898,oc_bill,Orange Cash,approximate
+1899,nbe_debit_card,BanK-AlAhly,verified
+1900,vf_send,VF-Cash,verified
+1901,hsbc_none,HSBC,verified
+1902,hsbc_ipn_in,HSBC,verified
+1903,nbe_bank_in,BanK-AlAhly,verified
+1904,vf_send,VF-Cash,verified
+1905,cib_none,CIB,verified
+1906,eand_recv,e& cash,approximate
+1907,eand_recv,e& cash,approximate
+1908,cib_cc_en,CIB,verified
+1909,vf_balance,VF-Cash,verified
+1910,nbe_credit_card,BanK-AlAhly,verified
+1911,cib_card,CIB,verified
+1912,bm_none,Banque Misr,verified
+1913,oc_send,Orange Cash,approximate
+1914,hsbc_ipn_out,HSBC,verified
+1915,nbe_ipn_returned,BanK-AlAhly,verified
+1916,bm_ipn_out,Banque Misr,verified
+1917,cib_ipn_out,CIB,verified
+1918,vf_send,VF-Cash,verified
+1919,cib_applepay,CIB,verified
+1920,cib_atm,CIB,verified
+1921,bm_ipn_in_card,Banque Misr,verified
+1922,nbe_instant_pay,BanK-AlAhly,verified
+1923,cib_card,CIB,verified
+1924,vf_send,VF-Cash,verified
+1925,bm_cc_spaced,Banque Misr,verified
+1926,nbe_atm,BanK-AlAhly,verified
+1927,valu_none,valU,approximate
+1928,hsbc_none,HSBC,verified
+1929,oc_none,Orange Cash,approximate
+1930,bm_ipn_in_acct,Banque Misr,verified
+1931,cib_none,CIB,verified
+1932,oc_recharge,Orange Cash,verified
+1933,cib_ipn_out,CIB,verified
+1934,vf_withdraw_request,VF-Cash,verified
+1935,bm_ipn_out_acct,Banque Misr,verified
+1936,cib_none,CIB,verified
+1937,bm_cc_glued,Banque Misr,verified
+1938,oc_recv,Orange Cash,approximate
+1939,nbe_ipn_in,BanK-AlAhly,verified
+1940,vf_insufficient,VF-Cash,verified
+1941,nbe_ipn_out,BanK-AlAhly,verified
+1942,oc_none,Orange Cash,approximate
+1943,cib_none,CIB,verified
+1944,nbe_dormancy,BanK-AlAhly,verified
+1945,oc_recharge,Orange Cash,verified
+1946,nbe_debit_card,BanK-AlAhly,verified
+1947,oc_recv,Orange Cash,approximate
+1948,cib_ipn_out,CIB,verified
+1949,bm_ipn_out,Banque Misr,verified
+1950,nbe_ipn_in,BanK-AlAhly,verified
+1951,bm_none,Banque Misr,verified
+1952,oc_recv,Orange Cash,approximate
+1953,vf_insufficient,VF-Cash,verified
+1954,nbe_ipn_in,BanK-AlAhly,verified
+1955,oc_recharge,Orange Cash,verified
+1956,oc_bill,Orange Cash,approximate
+1957,cib_atm,CIB,verified
+1958,nbe_instant_pay,BanK-AlAhly,verified
+1959,nbe_ipn_in_card,BanK-AlAhly,verified
+1960,nbe_ipn_in,BanK-AlAhly,verified
+1961,hsbc_line,HSBC,verified
+1962,vf_promo,VF-Cash,verified
+1963,oc_recv,Orange Cash,approximate
+1964,vf_wrong_pin,VF-Cash,verified
+1965,nbe_ipn_out,BanK-AlAhly,verified
+1966,oc_bill,Orange Cash,approximate
+1967,hsbc_none,HSBC,verified
+1968,vf_wrong_pin,VF-Cash,verified
+1969,bm_none,Banque Misr,verified
+1970,vf_recv,VF-Cash,verified
+1971,wepay_recv,WE Pay,approximate
+1972,eand_send,e& cash,approximate
+1973,vf_withdraw_request,VF-Cash,verified
+1974,vf_promo,VF-Cash,verified
+1975,vf_promo,VF-Cash,verified
+1976,vf_promo,VF-Cash,verified
+1977,fawry_bill,Fawry,approximate
+1978,vf_promo,VF-Cash,verified
+1979,oc_none,Orange Cash,approximate
+1980,hsbc_none,HSBC,verified
+1981,nbe_bank_in,BanK-AlAhly,verified
+1982,eand_send,e& cash,approximate
+1983,bm_none,Banque Misr,verified
+1984,cib_ipn_out,CIB,verified
+1985,vf_promo,VF-Cash,verified
+1986,cib_ipn_out,CIB,verified
+1987,cib_atm,CIB,verified
+1988,bm_cc_payment,Banque Misr,verified
+1989,nbe_debit_card,BanK-AlAhly,verified
+1990,cib_none,CIB,verified
+1991,nbe_debit_card,BanK-AlAhly,verified
+1992,cib_ipn_out,CIB,verified
+1993,oc_none,Orange Cash,approximate
+1994,oc_recharge,Orange Cash,verified
+1995,eand_send,e& cash,approximate
+1996,cib_cc_en,CIB,verified
+1997,bm_cc_payment,Banque Misr,verified
+1998,cib_none,CIB,verified
+1999,vf_promo,VF-Cash,verified
+2000,cib_ipn_in,CIB,verified
+2001,hsbc_none,HSBC,verified
+2002,nbe_ipn_out,BanK-AlAhly,verified
+2003,nbe_ipn_in,BanK-AlAhly,verified
+2004,vf_promo,VF-Cash,verified
+2005,vf_promo,VF-Cash,verified
+2006,bm_debit_atm,Banque Misr,verified
+2007,vf_withdraw,VF-Cash,verified
+2008,cib_none,CIB,verified
+2009,nbe_debit_card,BanK-AlAhly,verified
+2010,vf_balance,VF-Cash,verified
+2011,vf_recv,VF-Cash,verified
+2012,cib_ipn_in,CIB,verified
+2013,nbe_instant_pay,BanK-AlAhly,verified
+2014,vf_wrong_pin,VF-Cash,verified
+2015,bm_deposit,Banque Misr,verified
+2016,vf_wrong_pin,VF-Cash,verified
+2017,instapay_none,InstaPay,approximate
+2018,hsbc_line,HSBC,verified
+2019,vf_withdraw_request,VF-Cash,verified
+2020,cib_none,CIB,verified
+2021,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+2022,hsbc_none,HSBC,verified
+2023,hsbc_ipn_reversed,HSBC,verified
+2024,vf_promo,VF-Cash,verified
+2025,vf_balance,VF-Cash,verified
+2026,vf_withdraw_request,VF-Cash,verified
+2027,cib_none,CIB,verified
+2028,hsbc_ipn_in,HSBC,verified
+2029,hsbc_ipn_reversed,HSBC,verified
+2030,bm_cc_payment,Banque Misr,verified
+2031,nbe_ipn_returned,BanK-AlAhly,verified
+2032,vf_send,VF-Cash,verified
+2033,cib_atm,CIB,verified
+2034,bm_deposit,Banque Misr,verified
+2035,bm_refund,Banque Misr,verified
+2036,valu_none,valU,approximate
+2037,hsbc_none,HSBC,verified
+2038,oc_send,Orange Cash,approximate
+2039,cib_applepay,CIB,verified
+2040,cib_none,CIB,verified
+2041,nbe_dormancy,BanK-AlAhly,verified
+2042,hsbc_none,HSBC,verified
+2043,nbe_dormancy,BanK-AlAhly,verified
+2044,vf_balance,VF-Cash,verified
+2045,nbe_credit_card,BanK-AlAhly,verified
+2046,vf_withdraw,VF-Cash,verified
+2047,valu_purchase,valU,approximate
+2048,vf_send,VF-Cash,verified
+2049,cib_deposit,CIB,verified
+2050,vf_promo,VF-Cash,verified
+2051,hsbc_cc,HSBC,verified
+2052,bm_cc_spaced,Banque Misr,verified
+2053,cib_none,CIB,verified
+2054,bm_none,Banque Misr,verified
+2055,cib_ipn_in,CIB,verified
+2056,cib_none,CIB,verified
+2057,nbe_debit_card,BanK-AlAhly,verified
+2058,nbe_ipn_in,BanK-AlAhly,verified
+2059,cib_ipn_out,CIB,verified
+2060,nbe_atm,BanK-AlAhly,verified
+2061,vf_insufficient,VF-Cash,verified
+2062,vf_promo,VF-Cash,verified
+2063,vf_balance,VF-Cash,verified
+2064,valu_none,valU,approximate
+2065,instapay_none,InstaPay,approximate
+2066,cib_none,CIB,verified
+2067,vf_send,VF-Cash,verified
+2068,nbe_credit_card,BanK-AlAhly,verified
+2069,nbe_bank_in,BanK-AlAhly,verified
+2070,cib_card,CIB,verified
+2071,vf_promo,VF-Cash,verified
+2072,nbe_ipn_in,BanK-AlAhly,verified
+2073,cib_applepay,CIB,verified
+2074,nbe_debit_card,BanK-AlAhly,verified
+2075,hsbc_none,HSBC,verified
+2076,nbe_ipn_out,BanK-AlAhly,verified
+2077,nbe_credit_card,BanK-AlAhly,verified
+2078,oc_send,Orange Cash,approximate
+2079,oc_none,Orange Cash,approximate
+2080,vf_balance,VF-Cash,verified
+2081,bm_none,Banque Misr,verified
+2082,valu_none,valU,approximate
+2083,vf_send,VF-Cash,verified
+2084,nbe_ipn_in_card,BanK-AlAhly,verified
+2085,nbe_instant_pay,BanK-AlAhly,verified
+2086,nbe_ipn_in,BanK-AlAhly,verified
+2087,oc_recharge,Orange Cash,verified
+2088,oc_none,Orange Cash,approximate
+2089,vf_balance,VF-Cash,verified
+2090,valu_none,valU,approximate
+2091,wepay_recv,WE Pay,approximate
+2092,nbe_ipn_out,BanK-AlAhly,verified
+2093,cib_card,CIB,verified
+2094,nbe_ipn_out,BanK-AlAhly,verified
+2095,nbe_credit_card,BanK-AlAhly,verified
+2096,vf_recv_intl,VF-Cash,verified
+2097,bm_cc_spaced,Banque Misr,verified
+2098,eand_recv,e& cash,approximate
+2099,vf_insufficient,VF-Cash,verified
+2100,cib_none,CIB,verified
+2101,vf_send,VF-Cash,verified
+2102,cib_card,CIB,verified
+2103,cib_ipn_in,CIB,verified
+2104,vf_wrong_pin,VF-Cash,verified
+2105,instapay_none,InstaPay,approximate
+2106,hsbc_none,HSBC,verified
+2107,vf_recv_intl,VF-Cash,verified
+2108,nbe_instant_pay,BanK-AlAhly,verified
+2109,nbe_ipn_out,BanK-AlAhly,verified
+2110,nbe_instant_pay,BanK-AlAhly,verified
+2111,vf_withdraw,VF-Cash,verified
+2112,vf_withdraw_request,VF-Cash,verified
+2113,nbe_ipn_in,BanK-AlAhly,verified
+2114,nbe_credit_card,BanK-AlAhly,verified
+2115,hsbc_none,HSBC,verified
+2116,vf_promo,VF-Cash,verified
+2117,vf_insufficient,VF-Cash,verified
+2118,vf_balance,VF-Cash,verified
+2119,hsbc_none,HSBC,verified
+2120,vf_promo,VF-Cash,verified
+2121,cib_ipn_out,CIB,verified
+2122,valu_none,valU,approximate
+2123,bm_cc_spaced,Banque Misr,verified
+2124,cib_none,CIB,verified
+2125,wepay_send,WE Pay,approximate
+2126,vf_promo,VF-Cash,verified
+2127,bm_deposit,Banque Misr,verified
+2128,bm_ipn_in_card,Banque Misr,verified
+2129,bm_debit_atm_deposit,Banque Misr,verified
+2130,hsbc_none,HSBC,verified
+2131,cib_cc_en,CIB,verified
+2132,cib_card,CIB,verified
+2133,bm_cc_spaced,Banque Misr,verified
+2134,hsbc_cashback,HSBC,verified
+2135,oc_bill,Orange Cash,approximate
+2136,vf_send,VF-Cash,verified
+2137,cib_ipn_out,CIB,verified
+2138,nbe_ipn_out,BanK-AlAhly,verified
+2139,vf_recv,VF-Cash,verified
+2140,vf_withdraw_request,VF-Cash,verified
+2141,eand_recv,e& cash,approximate
+2142,nbe_ipn_in,BanK-AlAhly,verified
+2143,nbe_ipn_in_prepaid,BanK-AlAhly,verified
+2144,eand_send,e& cash,approximate
+2145,bm_none,Banque Misr,verified
+2146,cib_none,CIB,verified
+2147,cib_none,CIB,verified
+2148,bm_ipn_in_acct,Banque Misr,verified
+2149,eand_recv,e& cash,approximate
+2150,oc_none,Orange Cash,approximate
+2151,hsbc_ipn_in,HSBC,verified
+2152,cib_atm,CIB,verified
+2153,cib_cc_refund_en,CIB,verified
+2154,vf_balance,VF-Cash,verified
+2155,vf_withdraw,VF-Cash,verified
+2156,vf_promo,VF-Cash,verified
+2157,hsbc_line,HSBC,verified
+2158,bm_ipn_in_acct,Banque Misr,verified
+2159,hsbc_none,HSBC,verified
+2160,nbe_ipn_out,BanK-AlAhly,verified
+2161,vf_send,VF-Cash,verified
+2162,cib_refund_applepay,CIB,verified
+2163,nbe_instant_pay,BanK-AlAhly,verified
+2164,cib_ipn_out,CIB,verified
+2165,vf_balance,VF-Cash,verified
+2166,hsbc_ipn_out,HSBC,verified
+2167,vf_insufficient,VF-Cash,verified
+2168,vf_withdraw,VF-Cash,verified
+2169,oc_none,Orange Cash,approximate
+2170,vf_recv,VF-Cash,verified
+2171,vf_withdraw_request,VF-Cash,verified
+2172,hsbc_cashback,HSBC,verified
+2173,cib_reversal,CIB,verified
+2174,cib_cc_refund_en,CIB,verified
+2175,cib_ipn_in,CIB,verified
+2176,cib_cc_en,CIB,verified
+2177,vf_withdraw_request,VF-Cash,verified
+2178,cib_ipn_in,CIB,verified
+2179,vf_recv,VF-Cash,verified
+2180,hsbc_cc,HSBC,verified
+2181,hsbc_line,HSBC,verified
+2182,eand_send,e& cash,approximate
+2183,vf_balance,VF-Cash,verified
+2184,oc_recharge,Orange Cash,verified
+2185,nbe_ipn_in,BanK-AlAhly,verified
+2186,vf_promo,VF-Cash,verified
+2187,vf_send,VF-Cash,verified
+2188,oc_recv,Orange Cash,approximate
+2189,vf_send,VF-Cash,verified
+2190,oc_recharge,Orange Cash,verified
+2191,fawry_bill,Fawry,approximate
+2192,nbe_ipn_out,BanK-AlAhly,verified
+2193,nbe_debit_card,BanK-AlAhly,verified
+2194,eand_send,e& cash,approximate
+2195,cib_none,CIB,verified
+2196,hsbc_none,HSBC,verified
+2197,vf_promo,VF-Cash,verified
+2198,vf_recv,VF-Cash,verified
+2199,nbe_debit_card,BanK-AlAhly,verified
+2200,cib_none,CIB,verified

@@ -1,0 +1,140 @@
+
+=== random  (n=2200)
+  tx_precision        0.999
+  tx_recall           0.999
+  tx_f1               0.999
+  non_tx_rejected     0.999
+  full_record_exact   0.749
+  type                0.989
+  amount              0.971
+  currency            0.948
+  fee                 0.989
+  balance_after       0.983
+  merchant            0.912
+  channel             0.994
+  datetime            0.908
+  account_last4       0.984
+  by provenance:   approximate: full=0.60 tx_f1=1.00  fictional: full=0.92 tx_f1=1.00  verified: full=0.61 tx_f1=1.00
+  by sender:
+    [BanK-AlAhly ] n= 226 tx_f1=1.00 rejected= 1.000 amount=0.94 type=1.00 merchant=0.88 datetime=0.98 full=0.72
+    [Banque Misr ] n= 128 tx_f1=1.00 rejected= 1.000 amount=0.83 type=1.00 merchant=0.72 datetime=0.91 full=0.38
+    [CIB         ] n= 230 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.99 datetime=1.00 full=0.90
+    [Cairo Wallet] n= 128 tx_f1=0.99 rejected= 1.000 amount=1.00 type=0.96 merchant=0.86 datetime=1.00 full=0.83
+    [DeltaPay    ] n= 123 tx_f1=1.00 rejected= 1.000 amount=1.00 type=0.96 merchant=0.99 datetime=1.00 full=0.95
+    [Fawry       ] n=   7 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=1.00
+    [Giza Finance] n=  92 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.94 datetime=1.00 full=0.91
+    [HSBC        ] n= 131 tx_f1=1.00 rejected= 1.000 amount=1.00 type=0.97 merchant=1.00 datetime=0.63 full=0.63
+    [InstaPay    ] n=  27 tx_f1=0.00 rejected= 1.000 amount=0.00 type=0.00 merchant=0.00 datetime=0.00 full=0.00
+    [Luxor Bank  ] n= 134 tx_f1=1.00 rejected= 1.000 amount=1.00 type=0.98 merchant=0.96 datetime=1.00 full=0.94
+    [NileBank    ] n= 184 tx_f1=1.00 rejected= 1.000 amount=1.00 type=0.99 merchant=0.97 datetime=1.00 full=0.95
+    [Orange Cash ] n= 107 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.53 datetime=1.00 full=0.53
+    [Pharos Pay  ] n= 214 tx_f1=1.00 rejected= 0.986 amount=1.00 type=0.98 merchant=0.94 datetime=1.00 full=0.89
+    [Sinai Pay   ] n=  61 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.94 datetime=1.00 full=0.94
+    [SphinxCard  ] n=  64 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.92 datetime=1.00 full=0.92
+    [VF-Cash     ] n= 288 tx_f1=1.00 rejected= 1.000 amount=0.88 type=1.00 merchant=1.00 datetime=0.18 full=0.02
+    [WE Pay      ] n=  13 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=1.00
+    [e& cash     ] n=  20 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=1.00
+    [valU        ] n=  23 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=1.00
+
+=== unseen_wording  (n=2200)
+  tx_precision        0.865
+  tx_recall           0.882
+  tx_f1               0.874
+  non_tx_rejected     0.735
+  full_record_exact   0.422
+  type                0.818
+  amount              0.966
+  currency            0.948
+  fee                 0.982
+  balance_after       0.924
+  merchant            0.728
+  channel             0.909
+  datetime            0.960
+  account_last4       0.937
+  by provenance:   approximate: full=0.33 tx_f1=0.86  fictional: full=0.64 tx_f1=0.96  verified: full=0.23 tx_f1=0.80
+  by sender:
+    [BanK-AlAhly ] n= 226 tx_f1=0.95 rejected= 0.000 amount=0.94 type=0.74 merchant=0.74 datetime=0.98 full=0.40
+    [Banque Misr ] n= 128 tx_f1=0.92 rejected= 0.528 amount=0.83 type=0.73 merchant=0.53 datetime=0.91 full=0.09
+    [CIB         ] n= 230 tx_f1=0.97 rejected= 0.803 amount=1.00 type=0.60 merchant=0.75 datetime=1.00 full=0.27
+    [Cairo Wallet] n= 128 tx_f1=0.96 rejected= 0.828 amount=1.00 type=0.88 merchant=0.78 datetime=1.00 full=0.63
+    [DeltaPay    ] n= 123 tx_f1=0.91 rejected= 1.000 amount=1.00 type=0.87 merchant=0.96 datetime=1.00 full=0.58
+    [Fawry       ] n=   7 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=0.71 datetime=1.00 full=0.43
+    [Giza Finance] n=  92 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.66 datetime=1.00 full=0.62
+    [HSBC        ] n= 131 tx_f1=0.74 rejected= 0.673 amount=0.96 type=0.66 merchant=0.64 datetime=0.79 full=0.22
+    [InstaPay    ] n=  27 tx_f1=0.00 rejected= 0.630 amount=0.00 type=0.00 merchant=0.00 datetime=0.00 full=0.00
+    [Luxor Bank  ] n= 134 tx_f1=0.98 rejected= 0.839 amount=1.00 type=0.99 merchant=0.83 datetime=1.00 full=0.66
+    [NileBank    ] n= 184 tx_f1=0.97 rejected= 0.789 amount=1.00 type=0.82 merchant=0.81 datetime=1.00 full=0.56
+    [Orange Cash ] n= 107 tx_f1=0.69 rejected= 0.355 amount=1.00 type=0.84 merchant=0.18 datetime=1.00 full=0.07
+    [Pharos Pay  ] n= 214 tx_f1=0.94 rejected= 0.972 amount=1.00 type=0.97 merchant=0.88 datetime=1.00 full=0.74
+    [Sinai Pay   ] n=  61 tx_f1=0.84 rejected= 0.867 amount=1.00 type=1.00 merchant=0.75 datetime=1.00 full=0.38
+    [SphinxCard  ] n=  64 tx_f1=0.99 rejected= 0.962 amount=1.00 type=1.00 merchant=0.84 datetime=1.00 full=0.84
+    [VF-Cash     ] n= 288 tx_f1=0.28 rejected= 0.503 amount=0.61 type=0.79 merchant=0.21 datetime=0.21 full=0.00
+    [WE Pay      ] n=  13 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=1.00
+    [e& cash     ] n=  20 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=0.45 datetime=1.00 full=0.45
+    [valU        ] n=  23 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=0.00
+
+=== unseen_sender  (n=2200)
+  tx_precision        0.910
+  tx_recall           0.946
+  tx_f1               0.928
+  non_tx_rejected     0.819
+  full_record_exact   0.375
+  type                0.852
+  amount              0.962
+  currency            0.938
+  fee                 0.977
+  balance_after       0.875
+  merchant            0.629
+  channel             0.922
+  datetime            0.915
+  account_last4       0.828
+  by provenance:   approximate: full=0.26 tx_f1=0.95  fictional: full=0.59 tx_f1=0.94  verified: full=0.19 tx_f1=0.91
+  by sender:
+    [BanK-AlAhly ] n= 226 tx_f1=0.95 rejected= 0.000 amount=0.94 type=0.81 merchant=0.69 datetime=0.98 full=0.11
+    [Banque Misr ] n= 128 tx_f1=1.00 rejected= 1.000 amount=0.83 type=0.79 merchant=0.53 datetime=0.91 full=0.08
+    [CIB         ] n= 230 tx_f1=0.97 rejected= 0.803 amount=1.00 type=0.73 merchant=0.64 datetime=1.00 full=0.41
+    [Cairo Wallet] n= 128 tx_f1=0.94 rejected= 0.828 amount=1.00 type=0.88 merchant=0.70 datetime=1.00 full=0.51
+    [DeltaPay    ] n= 123 tx_f1=0.91 rejected= 1.000 amount=1.00 type=0.93 merchant=0.83 datetime=1.00 full=0.56
+    [Fawry       ] n=   7 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=0.29 datetime=1.00 full=0.29
+    [Giza Finance] n=  92 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.72 datetime=1.00 full=0.69
+    [HSBC        ] n= 131 tx_f1=0.77 rejected= 0.635 amount=0.84 type=0.92 merchant=0.56 datetime=0.81 full=0.39
+    [InstaPay    ] n=  27 tx_f1=0.00 rejected= 0.630 amount=0.00 type=0.00 merchant=0.00 datetime=0.00 full=0.00
+    [Luxor Bank  ] n= 134 tx_f1=0.98 rejected= 0.871 amount=1.00 type=0.99 merchant=0.79 datetime=1.00 full=0.59
+    [NileBank    ] n= 184 tx_f1=0.96 rejected= 0.658 amount=1.00 type=0.82 merchant=0.84 datetime=1.00 full=0.65
+    [Orange Cash ] n= 107 tx_f1=0.94 rejected= 1.000 amount=1.00 type=0.64 merchant=0.06 datetime=1.00 full=0.00
+    [Pharos Pay  ] n= 214 tx_f1=0.93 rejected= 1.000 amount=1.00 type=0.90 merchant=0.78 datetime=1.00 full=0.57
+    [Sinai Pay   ] n=  61 tx_f1=0.73 rejected= 0.733 amount=1.00 type=1.00 merchant=0.69 datetime=1.00 full=0.00
+    [SphinxCard  ] n=  64 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=0.87 datetime=1.00 full=0.87
+    [VF-Cash     ] n= 288 tx_f1=0.81 rejected= 0.701 amount=0.88 type=0.85 merchant=0.06 datetime=0.18 full=0.00
+    [WE Pay      ] n=  13 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=1.00
+    [e& cash     ] n=  20 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=0.45 datetime=1.00 full=0.45
+    [valU        ] n=  23 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=0.00
+
+=== real_formats  (n=1200)
+  tx_precision        0.834
+  tx_recall           0.900
+  tx_f1               0.866
+  non_tx_rejected     0.657
+  full_record_exact   0.151
+  type                0.817
+  amount              0.918
+  currency            0.877
+  fee                 0.985
+  balance_after       0.765
+  merchant            0.451
+  channel             0.924
+  datetime            0.861
+  account_last4       0.765
+  by provenance:   approximate: full=0.08 tx_f1=0.95  verified: full=0.16 tx_f1=0.85
+  by sender:
+    [BanK-AlAhly ] n= 226 tx_f1=0.95 rejected= 0.000 amount=0.94 type=0.81 merchant=0.64 datetime=0.98 full=0.10
+    [Banque Misr ] n= 128 tx_f1=0.92 rejected= 0.528 amount=0.83 type=0.77 merchant=0.45 datetime=0.91 full=0.07
+    [CIB         ] n= 230 tx_f1=0.97 rejected= 0.803 amount=0.99 type=0.78 merchant=0.59 datetime=1.00 full=0.37
+    [Fawry       ] n=   7 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=1.00
+    [HSBC        ] n= 131 tx_f1=0.67 rejected= 0.404 amount=0.80 type=0.86 merchant=0.59 datetime=0.79 full=0.28
+    [InstaPay    ] n=  27 tx_f1=0.00 rejected= 0.630 amount=0.00 type=0.00 merchant=0.00 datetime=0.00 full=0.00
+    [Orange Cash ] n= 107 tx_f1=0.80 rejected= 1.000 amount=0.92 type=0.84 merchant=0.08 datetime=1.00 full=0.00
+    [VF-Cash     ] n= 288 tx_f1=0.70 rejected= 0.644 amount=0.86 type=0.82 merchant=0.00 datetime=0.20 full=0.00
+    [WE Pay      ] n=  13 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=0.00 datetime=1.00 full=0.00
+    [e& cash     ] n=  20 tx_f1=1.00 rejected=     - amount=1.00 type=1.00 merchant=0.00 datetime=1.00 full=0.00
+    [valU        ] n=  23 tx_f1=1.00 rejected= 1.000 amount=1.00 type=1.00 merchant=1.00 datetime=1.00 full=0.00

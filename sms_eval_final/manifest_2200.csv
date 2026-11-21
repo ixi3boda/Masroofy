@@ -1,0 +1,2201 @@
+﻿id,batch,theme,category,sender,template_id,language,arabic_digits,currency_omitted,typo,cut_off,duplicate_group,provenance
+1,1,Typical everyday messages; one example per sender first,ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+2,1,Typical everyday messages; one example per sender first,ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,0,0,,fictional
+3,1,Typical everyday messages; one example per sender first,card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+4,1,Typical everyday messages; one example per sender first,wallet_out,Pharos Pay,Pharos Pay|wallet_out|mix|123,mix,0,0,0,0,,fictional
+5,1,Typical everyday messages; one example per sender first,atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+6,1,Typical everyday messages; one example per sender first,card,Giza Finance,Giza Finance|card|ar|168,ar,1,1,0,0,,fictional
+7,1,Typical everyday messages; one example per sender first,card,Luxor Bank,Luxor Bank|card|en|73,en,0,0,0,0,,fictional
+8,1,Typical everyday messages; one example per sender first,bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,0,0,0,0,,fictional
+9,1,Typical everyday messages; one example per sender first,otp,Luxor Bank,Luxor Bank|otp|en|85,en,0,0,1,0,,fictional
+10,1,Typical everyday messages; one example per sender first,otp,Giza Finance,Giza Finance|otp|ar|174,ar,1,0,0,0,,fictional
+11,1,Typical everyday messages; one example per sender first,due,Giza Finance,Giza Finance|due|mix|178,mix,0,1,0,0,,fictional
+12,1,Typical everyday messages; one example per sender first,declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+13,1,Typical everyday messages; one example per sender first,promo,SphinxCard,SphinxCard|promo|en|62,en,0,0,0,0,,fictional
+14,1,Typical everyday messages; one example per sender first,card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b1-d0,fictional
+15,1,Typical everyday messages; one example per sender first,ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,1,0,,fictional
+16,1,Typical everyday messages; one example per sender first,card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b1-d0,fictional
+17,1,Typical everyday messages; one example per sender first,balance,Cairo Wallet,Cairo Wallet|balance|ar|47,ar,0,0,0,0,,fictional
+18,1,Typical everyday messages; one example per sender first,bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+19,1,Typical everyday messages; one example per sender first,ip_in,NileBank,NileBank|ip_in|ar|7,ar,1,0,0,0,,fictional
+20,1,Typical everyday messages; one example per sender first,due,Sinai Pay,Sinai Pay|due|ar|204,ar,0,0,0,0,,fictional
+21,1,Typical everyday messages; one example per sender first,security,Pharos Pay,Pharos Pay|security|en|161,en,0,0,0,0,,fictional
+22,1,Typical everyday messages; one example per sender first,bill,Sinai Pay,Sinai Pay|bill|mix|192,mix,0,1,1,0,,fictional
+23,1,Typical everyday messages; one example per sender first,salary,Pharos Pay,Pharos Pay|salary|mix|145,mix,0,0,0,0,,fictional
+24,1,Typical everyday messages; one example per sender first,promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,0,0,,fictional
+25,1,Typical everyday messages; one example per sender first,card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+26,1,Typical everyday messages; one example per sender first,promo,Cairo Wallet,Cairo Wallet|promo|ar|45,ar,0,0,1,0,,fictional
+27,1,Typical everyday messages; one example per sender first,declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+28,1,Typical everyday messages; one example per sender first,wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,0,0,1,0,,fictional
+29,1,Typical everyday messages; one example per sender first,refund,Cairo Wallet,Cairo Wallet|refund|ar|41,ar,0,0,0,0,,fictional
+30,1,Typical everyday messages; one example per sender first,ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,1,,fictional
+31,1,Typical everyday messages; one example per sender first,wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+32,1,Typical everyday messages; one example per sender first,atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,0,,fictional
+33,1,Typical everyday messages; one example per sender first,salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,0,0,,fictional
+34,1,Typical everyday messages; one example per sender first,wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,0,0,0,0,,fictional
+35,1,Typical everyday messages; one example per sender first,wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+36,1,Typical everyday messages; one example per sender first,ip_out,NileBank,NileBank|ip_out|ar|6,ar,1,0,0,0,,fictional
+37,1,Typical everyday messages; one example per sender first,otp,NileBank,NileBank|otp|ar|14,ar,1,0,0,0,,fictional
+38,1,Typical everyday messages; one example per sender first,declined,NileBank,NileBank|declined|ar|22,ar,0,0,0,0,,fictional
+39,1,Typical everyday messages; one example per sender first,ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+40,1,Typical everyday messages; one example per sender first,salary,Pharos Pay,Pharos Pay|salary|en|146,en,0,0,0,0,,fictional
+41,1,Typical everyday messages; one example per sender first,wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|30,ar,0,0,0,0,,fictional
+42,1,Typical everyday messages; one example per sender first,ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,0,,fictional
+43,1,Typical everyday messages; one example per sender first,ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+44,1,Typical everyday messages; one example per sender first,card,NileBank,NileBank|card|ar|2,ar,0,0,0,0,,fictional
+45,1,Typical everyday messages; one example per sender first,otp,Giza Finance,Giza Finance|otp|ar|174,ar,0,0,0,0,,fictional
+46,1,Typical everyday messages; one example per sender first,ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+47,1,Typical everyday messages; one example per sender first,atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,1,,fictional
+48,1,Typical everyday messages; one example per sender first,card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+49,1,Typical everyday messages; one example per sender first,card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+50,1,Typical everyday messages; one example per sender first,balance,Luxor Bank,Luxor Bank|balance|en|89,en,0,0,0,0,,fictional
+51,2,"Groceries, restaurants and cafes",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+52,2,"Groceries, restaurants and cafes",refund,NileBank,NileBank|refund|ar|12,ar,0,0,0,0,,fictional
+53,2,"Groceries, restaurants and cafes",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,,fictional
+54,2,"Groceries, restaurants and cafes",card,NileBank,NileBank|card|ar|2,ar,0,0,0,0,,fictional
+55,2,"Groceries, restaurants and cafes",salary,Cairo Wallet,Cairo Wallet|salary|ar|42,ar,0,0,0,0,,fictional
+56,2,"Groceries, restaurants and cafes",due,Sinai Pay,Sinai Pay|due|ar|204,ar,0,0,1,0,,fictional
+57,2,"Groceries, restaurants and cafes",card,Pharos Pay,Pharos Pay|card|ar|138,ar,1,0,0,0,,fictional
+58,2,"Groceries, restaurants and cafes",atm,NileBank,NileBank|atm|ar|3,ar,1,0,0,0,,fictional
+59,2,"Groceries, restaurants and cafes",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,0,0,,fictional
+60,2,"Groceries, restaurants and cafes",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+61,2,"Groceries, restaurants and cafes",balance,SphinxCard,SphinxCard|balance|en|63,en,0,0,1,0,,fictional
+62,2,"Groceries, restaurants and cafes",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+63,2,"Groceries, restaurants and cafes",declined,DeltaPay,DeltaPay|declined|mix|114,mix,0,0,0,0,,fictional
+64,2,"Groceries, restaurants and cafes",card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,,fictional
+65,2,"Groceries, restaurants and cafes",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+66,2,"Groceries, restaurants and cafes",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|33,ar,0,0,0,0,,fictional
+67,2,"Groceries, restaurants and cafes",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+68,2,"Groceries, restaurants and cafes",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+69,2,"Groceries, restaurants and cafes",salary,Luxor Bank,Luxor Bank|salary|en|80,en,0,0,0,0,,fictional
+70,2,"Groceries, restaurants and cafes",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+71,2,"Groceries, restaurants and cafes",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,1,,fictional
+72,2,"Groceries, restaurants and cafes",card,NileBank,NileBank|card|ar|2,ar,1,0,0,0,,fictional
+73,2,"Groceries, restaurants and cafes",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,1,1,0,0,,fictional
+74,2,"Groceries, restaurants and cafes",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,0,0,0,0,,fictional
+75,2,"Groceries, restaurants and cafes",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+76,2,"Groceries, restaurants and cafes",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|124,en,0,0,0,0,,fictional
+77,2,"Groceries, restaurants and cafes",otp,Luxor Bank,Luxor Bank|otp|en|86,en,0,0,0,0,,fictional
+78,2,"Groceries, restaurants and cafes",otp,Sinai Pay,Sinai Pay|otp|mix|196,mix,0,0,0,0,,fictional
+79,2,"Groceries, restaurants and cafes",promo,DeltaPay,DeltaPay|promo|mix|111,mix,0,1,0,0,,fictional
+80,2,"Groceries, restaurants and cafes",card,Luxor Bank,Luxor Bank|card|en|73,en,0,1,0,0,,fictional
+81,2,"Groceries, restaurants and cafes",bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,0,0,0,0,,fictional
+82,2,"Groceries, restaurants and cafes",card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+83,2,"Groceries, restaurants and cafes",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+84,2,"Groceries, restaurants and cafes",due,Giza Finance,Giza Finance|due|en|179,en,0,0,0,0,,fictional
+85,2,"Groceries, restaurants and cafes",promo,Sinai Pay,Sinai Pay|promo|ar|201,ar,0,0,0,0,,fictional
+86,2,"Groceries, restaurants and cafes",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,1,0,0,,fictional
+87,2,"Groceries, restaurants and cafes",security,Giza Finance,Giza Finance|security|mix|186,mix,0,0,0,0,,fictional
+88,2,"Groceries, restaurants and cafes",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b2-d0,fictional
+89,2,"Groceries, restaurants and cafes",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b2-d0,fictional
+90,2,"Groceries, restaurants and cafes",wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,0,0,0,,fictional
+91,2,"Groceries, restaurants and cafes",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|34,ar,0,0,1,0,,fictional
+92,2,"Groceries, restaurants and cafes",otp,Giza Finance,Giza Finance|otp|ar|174,ar,0,0,0,0,,fictional
+93,2,"Groceries, restaurants and cafes",wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,0,0,0,1,,fictional
+94,2,"Groceries, restaurants and cafes",bill,Cairo Wallet,Cairo Wallet|bill|ar|39,ar,0,0,1,0,,fictional
+95,2,"Groceries, restaurants and cafes",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,1,0,,fictional
+96,2,"Groceries, restaurants and cafes",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,,fictional
+97,2,"Groceries, restaurants and cafes",declined,DeltaPay,DeltaPay|declined|ar|116,ar,0,0,0,0,,fictional
+98,2,"Groceries, restaurants and cafes",card,NileBank,NileBank|card|ar|1,ar,0,0,0,0,,fictional
+99,2,"Groceries, restaurants and cafes",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+100,2,"Groceries, restaurants and cafes",balance,NileBank,NileBank|balance|ar|18,ar,0,0,0,0,,fictional
+101,3,"Transport, fuel and ride apps",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+102,3,"Transport, fuel and ride apps",balance,NileBank,NileBank|balance|ar|19,ar,1,0,0,0,,fictional
+103,3,"Transport, fuel and ride apps",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,1,,fictional
+104,3,"Transport, fuel and ride apps",promo,SphinxCard,SphinxCard|promo|en|62,en,0,0,0,0,,fictional
+105,3,"Transport, fuel and ride apps",declined,DeltaPay,DeltaPay|declined|mix|114,mix,0,0,0,0,,fictional
+106,3,"Transport, fuel and ride apps",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+107,3,"Transport, fuel and ride apps",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,,fictional
+108,3,"Transport, fuel and ride apps",atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+109,3,"Transport, fuel and ride apps",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b3-d0,fictional
+110,3,"Transport, fuel and ride apps",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+111,3,"Transport, fuel and ride apps",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b3-d0,fictional
+112,3,"Transport, fuel and ride apps",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+113,3,"Transport, fuel and ride apps",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+114,3,"Transport, fuel and ride apps",promo,DeltaPay,DeltaPay|promo|mix|111,mix,0,0,0,0,,fictional
+115,3,"Transport, fuel and ride apps",ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+116,3,"Transport, fuel and ride apps",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+117,3,"Transport, fuel and ride apps",due,SphinxCard,SphinxCard|due|en|70,en,0,0,0,0,,fictional
+118,3,"Transport, fuel and ride apps",wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,0,0,0,,fictional
+119,3,"Transport, fuel and ride apps",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,1,0,0,,fictional
+120,3,"Transport, fuel and ride apps",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,1,0,0,,fictional
+121,3,"Transport, fuel and ride apps",balance,Pharos Pay,Pharos Pay|balance|ar|156,ar,1,0,0,0,,fictional
+122,3,"Transport, fuel and ride apps",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+123,3,"Transport, fuel and ride apps",wallet_qr,Pharos Pay,Pharos Pay|wallet_qr|mix|130,mix,0,0,0,0,,fictional
+124,3,"Transport, fuel and ride apps",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|34,ar,0,0,1,0,,fictional
+125,3,"Transport, fuel and ride apps",otp,Pharos Pay,Pharos Pay|otp|ar|150,ar,1,0,0,0,,fictional
+126,3,"Transport, fuel and ride apps",bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,0,0,0,1,,fictional
+127,3,"Transport, fuel and ride apps",declined,DeltaPay,DeltaPay|declined|mix|114,mix,0,0,1,0,,fictional
+128,3,"Transport, fuel and ride apps",card,Giza Finance,Giza Finance|card|en|167,en,0,0,0,0,,fictional
+129,3,"Transport, fuel and ride apps",salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,1,0,,fictional
+130,3,"Transport, fuel and ride apps",due,Giza Finance,Giza Finance|due|mix|178,mix,0,0,0,0,,fictional
+131,3,"Transport, fuel and ride apps",promo,Sinai Pay,Sinai Pay|promo|ar|201,ar,0,0,0,0,,fictional
+132,3,"Transport, fuel and ride apps",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|34,ar,0,0,0,0,,fictional
+133,3,"Transport, fuel and ride apps",security,SphinxCard,SphinxCard|security|en|66,en,0,0,0,0,,fictional
+134,3,"Transport, fuel and ride apps",card,NileBank,NileBank|card|ar|2,ar,0,0,0,0,,fictional
+135,3,"Transport, fuel and ride apps",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+136,3,"Transport, fuel and ride apps",card,NileBank,NileBank|card|ar|1,ar,1,0,0,0,,fictional
+137,3,"Transport, fuel and ride apps",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+138,3,"Transport, fuel and ride apps",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,,fictional
+139,3,"Transport, fuel and ride apps",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+140,3,"Transport, fuel and ride apps",otp,DeltaPay,DeltaPay|otp|mix|108,mix,1,0,0,0,,fictional
+141,3,"Transport, fuel and ride apps",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,0,0,,fictional
+142,3,"Transport, fuel and ride apps",card,Luxor Bank,Luxor Bank|card|en|73,en,0,0,0,0,,fictional
+143,3,"Transport, fuel and ride apps",refund,NileBank,NileBank|refund|ar|13,ar,1,0,0,0,,fictional
+144,3,"Transport, fuel and ride apps",card,Luxor Bank,Luxor Bank|card|en|73,en,0,0,0,0,,fictional
+145,3,"Transport, fuel and ride apps",salary,NileBank,NileBank|salary|ar|10,ar,1,0,1,0,,fictional
+146,3,"Transport, fuel and ride apps",otp,Sinai Pay,Sinai Pay|otp|mix|196,mix,0,0,0,0,,fictional
+147,3,"Transport, fuel and ride apps",bill,Cairo Wallet,Cairo Wallet|bill|ar|39,ar,0,0,1,0,,fictional
+148,3,"Transport, fuel and ride apps",bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,0,0,0,0,,fictional
+149,3,"Transport, fuel and ride apps",otp,Sinai Pay,Sinai Pay|otp|mix|196,mix,0,0,0,0,,fictional
+150,3,"Transport, fuel and ride apps",ip_in,NileBank,NileBank|ip_in|ar|7,ar,1,0,0,0,,fictional
+151,4,Online shopping and subscriptions,ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+152,4,Online shopping and subscriptions,wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,1,,fictional
+153,4,Online shopping and subscriptions,card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+154,4,Online shopping and subscriptions,bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,0,0,0,0,,fictional
+155,4,Online shopping and subscriptions,card,SphinxCard,SphinxCard|card|en|54,en,0,1,0,0,,fictional
+156,4,Online shopping and subscriptions,bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+157,4,Online shopping and subscriptions,ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+158,4,Online shopping and subscriptions,card,NileBank,NileBank|card|ar|1,ar,0,0,1,0,,fictional
+159,4,Online shopping and subscriptions,balance,Giza Finance,Giza Finance|balance|ar|182,ar,0,0,1,0,,fictional
+160,4,Online shopping and subscriptions,declined,Luxor Bank,Luxor Bank|declined|en|92,en,0,0,0,0,,fictional
+161,4,Online shopping and subscriptions,wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+162,4,Online shopping and subscriptions,salary,Luxor Bank,Luxor Bank|salary|en|80,en,0,0,0,0,,fictional
+163,4,Online shopping and subscriptions,otp,Giza Finance,Giza Finance|otp|mix|172,mix,0,0,0,0,,fictional
+164,4,Online shopping and subscriptions,refund,DeltaPay,DeltaPay|refund|mix|105,mix,0,0,0,0,,fictional
+165,4,Online shopping and subscriptions,card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,1,,fictional
+166,4,Online shopping and subscriptions,ip_in,DeltaPay,DeltaPay|ip_in|mix|102,mix,0,0,0,0,,fictional
+167,4,Online shopping and subscriptions,salary,Cairo Wallet,Cairo Wallet|salary|ar|42,ar,0,0,0,0,,fictional
+168,4,Online shopping and subscriptions,wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|32,ar,0,0,0,0,,fictional
+169,4,Online shopping and subscriptions,ip_in,DeltaPay,DeltaPay|ip_in|mix|102,mix,0,0,0,0,,fictional
+170,4,Online shopping and subscriptions,promo,Cairo Wallet,Cairo Wallet|promo|ar|46,ar,0,0,0,0,,fictional
+171,4,Online shopping and subscriptions,declined,Cairo Wallet,Cairo Wallet|declined|ar|49,ar,0,0,0,0,,fictional
+172,4,Online shopping and subscriptions,declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+173,4,Online shopping and subscriptions,refund,Giza Finance,Giza Finance|refund|mix|169,mix,0,0,0,0,,fictional
+174,4,Online shopping and subscriptions,security,Giza Finance,Giza Finance|security|en|187,en,0,0,1,0,,fictional
+175,4,Online shopping and subscriptions,card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,1,0,,fictional
+176,4,Online shopping and subscriptions,atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,0,0,0,,fictional
+177,4,Online shopping and subscriptions,card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,,fictional
+178,4,Online shopping and subscriptions,card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+179,4,Online shopping and subscriptions,otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+180,4,Online shopping and subscriptions,card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+181,4,Online shopping and subscriptions,card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,,fictional
+182,4,Online shopping and subscriptions,balance,Luxor Bank,Luxor Bank|balance|en|90,en,0,0,0,0,,fictional
+183,4,Online shopping and subscriptions,card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+184,4,Online shopping and subscriptions,card,SphinxCard,SphinxCard|card|en|54,en,0,1,0,0,b4-d0,fictional
+185,4,Online shopping and subscriptions,card,NileBank,NileBank|card|ar|2,ar,1,0,1,0,,fictional
+186,4,Online shopping and subscriptions,otp,Giza Finance,Giza Finance|otp|ar|174,ar,0,0,0,0,,fictional
+187,4,Online shopping and subscriptions,card,SphinxCard,SphinxCard|card|en|54,en,0,1,0,0,b4-d0,fictional
+188,4,Online shopping and subscriptions,due,Luxor Bank,Luxor Bank|due|en|96,en,0,0,0,0,,fictional
+189,4,Online shopping and subscriptions,promo,DeltaPay,DeltaPay|promo|ar|113,ar,0,0,0,0,,fictional
+190,4,Online shopping and subscriptions,card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+191,4,Online shopping and subscriptions,due,Sinai Pay,Sinai Pay|due|ar|204,ar,0,0,0,0,,fictional
+192,4,Online shopping and subscriptions,card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+193,4,Online shopping and subscriptions,wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+194,4,Online shopping and subscriptions,atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+195,4,Online shopping and subscriptions,wallet_in,Pharos Pay,Pharos Pay|wallet_in|ar|129,ar,0,0,0,0,,fictional
+196,4,Online shopping and subscriptions,promo,Pharos Pay,Pharos Pay|promo|ar|153,ar,0,0,0,0,,fictional
+197,4,Online shopping and subscriptions,otp,DeltaPay,DeltaPay|otp|ar|110,ar,0,0,0,0,,fictional
+198,4,Online shopping and subscriptions,ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+199,4,Online shopping and subscriptions,ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+200,4,Online shopping and subscriptions,ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+201,5,"Salary, deposits and freelancer income",due,Giza Finance,Giza Finance|due|mix|178,mix,0,0,0,0,,fictional
+202,5,"Salary, deposits and freelancer income",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+203,5,"Salary, deposits and freelancer income",declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+204,5,"Salary, deposits and freelancer income",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,0,0,0,0,,fictional
+205,5,"Salary, deposits and freelancer income",wallet_in,Pharos Pay,Pharos Pay|wallet_in|ar|129,ar,0,0,0,0,,fictional
+206,5,"Salary, deposits and freelancer income",salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,0,0,,fictional
+207,5,"Salary, deposits and freelancer income",promo,Giza Finance,Giza Finance|promo|mix|175,mix,0,0,0,0,,fictional
+208,5,"Salary, deposits and freelancer income",bill,Luxor Bank,Luxor Bank|bill|en|84,en,0,0,0,1,,fictional
+209,5,"Salary, deposits and freelancer income",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+210,5,"Salary, deposits and freelancer income",atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,0,,fictional
+211,5,"Salary, deposits and freelancer income",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+212,5,"Salary, deposits and freelancer income",salary,Luxor Bank,Luxor Bank|salary|en|81,en,0,0,0,0,,fictional
+213,5,"Salary, deposits and freelancer income",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+214,5,"Salary, deposits and freelancer income",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,0,,fictional
+215,5,"Salary, deposits and freelancer income",salary,NileBank,NileBank|salary|ar|11,ar,0,0,0,0,,fictional
+216,5,"Salary, deposits and freelancer income",refund,NileBank,NileBank|refund|ar|12,ar,0,0,0,0,,fictional
+217,5,"Salary, deposits and freelancer income",ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,0,,fictional
+218,5,"Salary, deposits and freelancer income",card,NileBank,NileBank|card|ar|2,ar,1,0,0,0,,fictional
+219,5,"Salary, deposits and freelancer income",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,1,0,,fictional
+220,5,"Salary, deposits and freelancer income",promo,DeltaPay,DeltaPay|promo|mix|111,mix,0,0,0,0,,fictional
+221,5,"Salary, deposits and freelancer income",salary,Pharos Pay,Pharos Pay|salary|en|146,en,0,0,0,0,,fictional
+222,5,"Salary, deposits and freelancer income",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+223,5,"Salary, deposits and freelancer income",otp,Sinai Pay,Sinai Pay|otp|ar|198,ar,0,0,0,0,,fictional
+224,5,"Salary, deposits and freelancer income",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+225,5,"Salary, deposits and freelancer income",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,1,0,0,0,,fictional
+226,5,"Salary, deposits and freelancer income",declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,0,0,,fictional
+227,5,"Salary, deposits and freelancer income",salary,Luxor Bank,Luxor Bank|salary|en|81,en,0,0,0,0,,fictional
+228,5,"Salary, deposits and freelancer income",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,1,0,,fictional
+229,5,"Salary, deposits and freelancer income",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+230,5,"Salary, deposits and freelancer income",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+231,5,"Salary, deposits and freelancer income",otp,DeltaPay,DeltaPay|otp|ar|110,ar,0,0,0,0,,fictional
+232,5,"Salary, deposits and freelancer income",balance,Giza Finance,Giza Finance|balance|en|181,en,0,0,0,0,,fictional
+233,5,"Salary, deposits and freelancer income",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+234,5,"Salary, deposits and freelancer income",balance,Pharos Pay,Pharos Pay|balance|mix|154,mix,0,0,0,0,,fictional
+235,5,"Salary, deposits and freelancer income",ip_in,NileBank,NileBank|ip_in|ar|8,ar,1,0,0,0,,fictional
+236,5,"Salary, deposits and freelancer income",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,0,1,0,,fictional
+237,5,"Salary, deposits and freelancer income",promo,Pharos Pay,Pharos Pay|promo|en|152,en,0,0,1,0,,fictional
+238,5,"Salary, deposits and freelancer income",salary,Luxor Bank,Luxor Bank|salary|en|82,en,0,0,0,0,,fictional
+239,5,"Salary, deposits and freelancer income",otp,NileBank,NileBank|otp|ar|15,ar,1,0,0,0,,fictional
+240,5,"Salary, deposits and freelancer income",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,0,0,,fictional
+241,5,"Salary, deposits and freelancer income",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b5-d0,fictional
+242,5,"Salary, deposits and freelancer income",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,1,0,,fictional
+243,5,"Salary, deposits and freelancer income",due,SphinxCard,SphinxCard|due|en|70,en,0,0,0,0,,fictional
+244,5,"Salary, deposits and freelancer income",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b5-d0,fictional
+245,5,"Salary, deposits and freelancer income",security,Pharos Pay,Pharos Pay|security|en|161,en,0,0,0,0,,fictional
+246,5,"Salary, deposits and freelancer income",card,Giza Finance,Giza Finance|card|en|167,en,0,0,0,0,,fictional
+247,5,"Salary, deposits and freelancer income",salary,NileBank,NileBank|salary|ar|11,ar,1,1,0,1,,fictional
+248,5,"Salary, deposits and freelancer income",salary,NileBank,NileBank|salary|ar|9,ar,0,0,0,0,,fictional
+249,5,"Salary, deposits and freelancer income",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,,fictional
+250,5,"Salary, deposits and freelancer income",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,1,1,0,0,,fictional
+251,6,InstaPay between friends and family,refund,NileBank,NileBank|refund|ar|12,ar,0,0,0,0,,fictional
+252,6,InstaPay between friends and family,ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,1,0,,fictional
+253,6,InstaPay between friends and family,due,Giza Finance,Giza Finance|due|ar|180,ar,0,0,0,0,,fictional
+254,6,InstaPay between friends and family,ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,1,0,0,,fictional
+255,6,InstaPay between friends and family,ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+256,6,InstaPay between friends and family,otp,Giza Finance,Giza Finance|otp|en|173,en,0,0,0,0,,fictional
+257,6,InstaPay between friends and family,wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+258,6,InstaPay between friends and family,ip_in,NileBank,NileBank|ip_in|ar|8,ar,1,0,0,0,,fictional
+259,6,InstaPay between friends and family,security,Pharos Pay,Pharos Pay|security|mix|160,mix,0,0,0,0,,fictional
+260,6,InstaPay between friends and family,promo,Sinai Pay,Sinai Pay|promo|en|200,en,0,0,0,0,,fictional
+261,6,InstaPay between friends and family,atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+262,6,InstaPay between friends and family,balance,NileBank,NileBank|balance|ar|19,ar,0,0,0,0,,fictional
+263,6,InstaPay between friends and family,declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+264,6,InstaPay between friends and family,card,Luxor Bank,Luxor Bank|card|en|73,en,0,0,1,0,,fictional
+265,6,InstaPay between friends and family,ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,1,0,,fictional
+266,6,InstaPay between friends and family,ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+267,6,InstaPay between friends and family,card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,1,,fictional
+268,6,InstaPay between friends and family,bill,Cairo Wallet,Cairo Wallet|bill|ar|39,ar,0,0,0,0,,fictional
+269,6,InstaPay between friends and family,ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+270,6,InstaPay between friends and family,ip_in,NileBank,NileBank|ip_in|ar|7,ar,0,0,0,0,,fictional
+271,6,InstaPay between friends and family,atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+272,6,InstaPay between friends and family,ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,0,,fictional
+273,6,InstaPay between friends and family,declined,DeltaPay,DeltaPay|declined|mix|114,mix,0,0,0,0,,fictional
+274,6,InstaPay between friends and family,wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+275,6,InstaPay between friends and family,card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,b6-d0,fictional
+276,6,InstaPay between friends and family,ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+277,6,InstaPay between friends and family,card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,b6-d0,fictional
+278,6,InstaPay between friends and family,wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+279,6,InstaPay between friends and family,balance,SphinxCard,SphinxCard|balance|en|63,en,0,0,0,0,,fictional
+280,6,InstaPay between friends and family,ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,1,0,,fictional
+281,6,InstaPay between friends and family,ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+282,6,InstaPay between friends and family,otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+283,6,InstaPay between friends and family,ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+284,6,InstaPay between friends and family,ip_in,NileBank,NileBank|ip_in|ar|7,ar,0,0,0,0,,fictional
+285,6,InstaPay between friends and family,ip_in,DeltaPay,DeltaPay|ip_in|mix|102,mix,0,0,0,0,,fictional
+286,6,InstaPay between friends and family,salary,NileBank,NileBank|salary|ar|11,ar,0,0,0,0,,fictional
+287,6,InstaPay between friends and family,ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,1,0,,fictional
+288,6,InstaPay between friends and family,declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,0,0,,fictional
+289,6,InstaPay between friends and family,promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,0,0,,fictional
+290,6,InstaPay between friends and family,card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+291,6,InstaPay between friends and family,otp,Giza Finance,Giza Finance|otp|ar|174,ar,0,0,0,0,,fictional
+292,6,InstaPay between friends and family,otp,Pharos Pay,Pharos Pay|otp|ar|150,ar,0,0,0,0,,fictional
+293,6,InstaPay between friends and family,ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,,fictional
+294,6,InstaPay between friends and family,wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,1,0,0,,fictional
+295,6,InstaPay between friends and family,promo,DeltaPay,DeltaPay|promo|mix|111,mix,0,0,0,0,,fictional
+296,6,InstaPay between friends and family,card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+297,6,InstaPay between friends and family,ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,1,,fictional
+298,6,InstaPay between friends and family,ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,0,0,,fictional
+299,6,InstaPay between friends and family,due,SphinxCard,SphinxCard|due|en|70,en,0,0,0,0,,fictional
+300,6,InstaPay between friends and family,ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,0,,fictional
+301,7,"Utility, mobile and internet bills",bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,0,0,1,0,,fictional
+302,7,"Utility, mobile and internet bills",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,0,0,0,0,,fictional
+303,7,"Utility, mobile and internet bills",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b7-d0,fictional
+304,7,"Utility, mobile and internet bills",card,NileBank,NileBank|card|ar|1,ar,1,0,0,0,,fictional
+305,7,"Utility, mobile and internet bills",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b7-d0,fictional
+306,7,"Utility, mobile and internet bills",bill,Sinai Pay,Sinai Pay|bill|ar|194,ar,0,1,0,0,,fictional
+307,7,"Utility, mobile and internet bills",card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,,fictional
+308,7,"Utility, mobile and internet bills",otp,Giza Finance,Giza Finance|otp|mix|172,mix,0,0,0,0,,fictional
+309,7,"Utility, mobile and internet bills",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+310,7,"Utility, mobile and internet bills",promo,Giza Finance,Giza Finance|promo|ar|177,ar,0,0,0,0,,fictional
+311,7,"Utility, mobile and internet bills",due,Sinai Pay,Sinai Pay|due|ar|204,ar,0,0,0,0,,fictional
+312,7,"Utility, mobile and internet bills",salary,NileBank,NileBank|salary|ar|11,ar,0,0,1,0,,fictional
+313,7,"Utility, mobile and internet bills",refund,DeltaPay,DeltaPay|refund|mix|105,mix,0,1,0,0,,fictional
+314,7,"Utility, mobile and internet bills",due,Luxor Bank,Luxor Bank|due|en|96,en,0,0,0,0,,fictional
+315,7,"Utility, mobile and internet bills",declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+316,7,"Utility, mobile and internet bills",bill,Cairo Wallet,Cairo Wallet|bill|ar|40,ar,0,0,0,0,,fictional
+317,7,"Utility, mobile and internet bills",ip_out,NileBank,NileBank|ip_out|ar|6,ar,1,0,0,0,,fictional
+318,7,"Utility, mobile and internet bills",bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,0,0,0,0,,fictional
+319,7,"Utility, mobile and internet bills",bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,1,,fictional
+320,7,"Utility, mobile and internet bills",security,Cairo Wallet,Cairo Wallet|security|ar|50,ar,0,0,0,0,,fictional
+321,7,"Utility, mobile and internet bills",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,1,0,0,0,,fictional
+322,7,"Utility, mobile and internet bills",bill,Luxor Bank,Luxor Bank|bill|en|84,en,0,0,0,0,,fictional
+323,7,"Utility, mobile and internet bills",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+324,7,"Utility, mobile and internet bills",bill,Cairo Wallet,Cairo Wallet|bill|ar|39,ar,0,0,0,0,,fictional
+325,7,"Utility, mobile and internet bills",due,SphinxCard,SphinxCard|due|en|70,en,0,1,0,0,,fictional
+326,7,"Utility, mobile and internet bills",ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,0,,fictional
+327,7,"Utility, mobile and internet bills",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+328,7,"Utility, mobile and internet bills",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|124,en,0,0,0,0,,fictional
+329,7,"Utility, mobile and internet bills",otp,DeltaPay,DeltaPay|otp|mix|108,mix,0,0,0,0,,fictional
+330,7,"Utility, mobile and internet bills",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,0,0,0,0,,fictional
+331,7,"Utility, mobile and internet bills",declined,DeltaPay,DeltaPay|declined|mix|114,mix,0,0,0,0,,fictional
+332,7,"Utility, mobile and internet bills",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,1,0,,fictional
+333,7,"Utility, mobile and internet bills",atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+334,7,"Utility, mobile and internet bills",otp,Pharos Pay,Pharos Pay|otp|en|149,en,0,0,1,0,,fictional
+335,7,"Utility, mobile and internet bills",salary,Cairo Wallet,Cairo Wallet|salary|ar|42,ar,1,0,0,0,,fictional
+336,7,"Utility, mobile and internet bills",bill,Cairo Wallet,Cairo Wallet|bill|ar|40,ar,0,0,0,0,,fictional
+337,7,"Utility, mobile and internet bills",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,0,0,,fictional
+338,7,"Utility, mobile and internet bills",otp,NileBank,NileBank|otp|ar|15,ar,1,0,0,0,,fictional
+339,7,"Utility, mobile and internet bills",bill,Cairo Wallet,Cairo Wallet|bill|ar|39,ar,1,0,0,0,,fictional
+340,7,"Utility, mobile and internet bills",bill,Luxor Bank,Luxor Bank|bill|en|83,en,0,0,0,0,,fictional
+341,7,"Utility, mobile and internet bills",bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,0,1,1,0,,fictional
+342,7,"Utility, mobile and internet bills",atm,NileBank,NileBank|atm|ar|3,ar,0,1,0,0,,fictional
+343,7,"Utility, mobile and internet bills",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+344,7,"Utility, mobile and internet bills",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+345,7,"Utility, mobile and internet bills",due,Luxor Bank,Luxor Bank|due|en|96,en,0,0,0,0,,fictional
+346,7,"Utility, mobile and internet bills",balance,Luxor Bank,Luxor Bank|balance|en|90,en,0,0,0,0,,fictional
+347,7,"Utility, mobile and internet bills",balance,Cairo Wallet,Cairo Wallet|balance|ar|47,ar,1,0,0,0,,fictional
+348,7,"Utility, mobile and internet bills",ip_in,NileBank,NileBank|ip_in|ar|7,ar,0,0,0,0,,fictional
+349,7,"Utility, mobile and internet bills",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,1,,fictional
+350,7,"Utility, mobile and internet bills",wallet_in,Pharos Pay,Pharos Pay|wallet_in|ar|129,ar,0,0,0,0,,fictional
+351,8,"ATM and cash withdrawals, including fees",promo,Sinai Pay,Sinai Pay|promo|mix|199,mix,0,0,0,0,,fictional
+352,8,"ATM and cash withdrawals, including fees",security,Pharos Pay,Pharos Pay|security|en|161,en,0,0,0,0,,fictional
+353,8,"ATM and cash withdrawals, including fees",declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,1,0,,fictional
+354,8,"ATM and cash withdrawals, including fees",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,0,0,0,,fictional
+355,8,"ATM and cash withdrawals, including fees",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,0,0,,fictional
+356,8,"ATM and cash withdrawals, including fees",bill,Luxor Bank,Luxor Bank|bill|en|83,en,0,0,0,0,,fictional
+357,8,"ATM and cash withdrawals, including fees",ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+358,8,"ATM and cash withdrawals, including fees",ip_in,DeltaPay,DeltaPay|ip_in|mix|102,mix,0,0,1,0,,fictional
+359,8,"ATM and cash withdrawals, including fees",refund,Pharos Pay,Pharos Pay|refund|mix|142,mix,0,0,0,0,,fictional
+360,8,"ATM and cash withdrawals, including fees",salary,Pharos Pay,Pharos Pay|salary|mix|145,mix,0,0,0,0,,fictional
+361,8,"ATM and cash withdrawals, including fees",salary,NileBank,NileBank|salary|ar|11,ar,1,0,0,0,,fictional
+362,8,"ATM and cash withdrawals, including fees",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+363,8,"ATM and cash withdrawals, including fees",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+364,8,"ATM and cash withdrawals, including fees",otp,NileBank,NileBank|otp|ar|15,ar,1,0,0,0,,fictional
+365,8,"ATM and cash withdrawals, including fees",bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+366,8,"ATM and cash withdrawals, including fees",balance,Pharos Pay,Pharos Pay|balance|mix|154,mix,0,0,0,0,,fictional
+367,8,"ATM and cash withdrawals, including fees",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,0,0,1,,fictional
+368,8,"ATM and cash withdrawals, including fees",otp,Giza Finance,Giza Finance|otp|mix|172,mix,0,0,0,0,,fictional
+369,8,"ATM and cash withdrawals, including fees",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+370,8,"ATM and cash withdrawals, including fees",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,b8-d0,fictional
+371,8,"ATM and cash withdrawals, including fees",promo,Sinai Pay,Sinai Pay|promo|ar|201,ar,0,0,0,0,,fictional
+372,8,"ATM and cash withdrawals, including fees",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,b8-d0,fictional
+373,8,"ATM and cash withdrawals, including fees",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,1,0,,fictional
+374,8,"ATM and cash withdrawals, including fees",due,Luxor Bank,Luxor Bank|due|en|97,en,0,0,0,0,,fictional
+375,8,"ATM and cash withdrawals, including fees",atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,0,,fictional
+376,8,"ATM and cash withdrawals, including fees",atm,NileBank,NileBank|atm|ar|3,ar,0,0,0,0,,fictional
+377,8,"ATM and cash withdrawals, including fees",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,0,,fictional
+378,8,"ATM and cash withdrawals, including fees",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+379,8,"ATM and cash withdrawals, including fees",atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,1,0,,fictional
+380,8,"ATM and cash withdrawals, including fees",due,Sinai Pay,Sinai Pay|due|ar|204,ar,0,0,0,0,,fictional
+381,8,"ATM and cash withdrawals, including fees",atm,NileBank,NileBank|atm|ar|3,ar,0,0,1,0,,fictional
+382,8,"ATM and cash withdrawals, including fees",wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,0,0,1,,fictional
+383,8,"ATM and cash withdrawals, including fees",balance,Luxor Bank,Luxor Bank|balance|en|89,en,0,0,0,0,,fictional
+384,8,"ATM and cash withdrawals, including fees",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+385,8,"ATM and cash withdrawals, including fees",atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,0,,fictional
+386,8,"ATM and cash withdrawals, including fees",declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+387,8,"ATM and cash withdrawals, including fees",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+388,8,"ATM and cash withdrawals, including fees",otp,NileBank,NileBank|otp|ar|14,ar,0,0,0,0,,fictional
+389,8,"ATM and cash withdrawals, including fees",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+390,8,"ATM and cash withdrawals, including fees",promo,Pharos Pay,Pharos Pay|promo|en|152,en,0,0,0,0,,fictional
+391,8,"ATM and cash withdrawals, including fees",atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+392,8,"ATM and cash withdrawals, including fees",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,1,0,0,,fictional
+393,8,"ATM and cash withdrawals, including fees",wallet_out,Pharos Pay,Pharos Pay|wallet_out|mix|123,mix,0,0,0,0,,fictional
+394,8,"ATM and cash withdrawals, including fees",atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+395,8,"ATM and cash withdrawals, including fees",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+396,8,"ATM and cash withdrawals, including fees",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,,fictional
+397,8,"ATM and cash withdrawals, including fees",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,0,0,0,,fictional
+398,8,"ATM and cash withdrawals, including fees",otp,Pharos Pay,Pharos Pay|otp|ar|150,ar,1,0,0,0,,fictional
+399,8,"ATM and cash withdrawals, including fees",declined,NileBank,NileBank|declined|ar|22,ar,0,0,0,0,,fictional
+400,8,"ATM and cash withdrawals, including fees",card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+401,9,"Wallet-heavy: top-ups, merchant QR payments",ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+402,9,"Wallet-heavy: top-ups, merchant QR payments",salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,0,0,,fictional
+403,9,"Wallet-heavy: top-ups, merchant QR payments",otp,Giza Finance,Giza Finance|otp|en|173,en,0,0,0,0,,fictional
+404,9,"Wallet-heavy: top-ups, merchant QR payments",declined,DeltaPay,DeltaPay|declined|ar|116,ar,0,0,0,0,,fictional
+405,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_topup,Cairo Wallet,Cairo Wallet|wallet_topup|ar|36,ar,0,0,0,0,,fictional
+406,9,"Wallet-heavy: top-ups, merchant QR payments",atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,0,,fictional
+407,9,"Wallet-heavy: top-ups, merchant QR payments",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,b9-d0,fictional
+408,9,"Wallet-heavy: top-ups, merchant QR payments",balance,Luxor Bank,Luxor Bank|balance|en|89,en,0,0,0,0,,fictional
+409,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|34,ar,0,0,0,0,,fictional
+410,9,"Wallet-heavy: top-ups, merchant QR payments",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,b9-d0,fictional
+411,9,"Wallet-heavy: top-ups, merchant QR payments",otp,DeltaPay,DeltaPay|otp|en|109,en,0,0,0,0,,fictional
+412,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|33,ar,0,0,0,0,,fictional
+413,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+414,9,"Wallet-heavy: top-ups, merchant QR payments",balance,Cairo Wallet,Cairo Wallet|balance|ar|47,ar,0,0,0,0,,fictional
+415,9,"Wallet-heavy: top-ups, merchant QR payments",ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,0,,fictional
+416,9,"Wallet-heavy: top-ups, merchant QR payments",promo,Sinai Pay,Sinai Pay|promo|mix|199,mix,0,0,0,0,,fictional
+417,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|32,ar,0,0,0,0,,fictional
+418,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,1,0,0,0,,fictional
+419,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+420,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_qr,Pharos Pay,Pharos Pay|wallet_qr|mix|130,mix,0,0,0,0,,fictional
+421,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|33,ar,0,0,0,1,,fictional
+422,9,"Wallet-heavy: top-ups, merchant QR payments",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,,fictional
+423,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+424,9,"Wallet-heavy: top-ups, merchant QR payments",otp,Pharos Pay,Pharos Pay|otp|ar|150,ar,0,0,0,0,,fictional
+425,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_topup,Cairo Wallet,Cairo Wallet|wallet_topup|ar|35,ar,0,0,1,0,,fictional
+426,9,"Wallet-heavy: top-ups, merchant QR payments",otp,Luxor Bank,Luxor Bank|otp|en|85,en,0,0,0,0,,fictional
+427,9,"Wallet-heavy: top-ups, merchant QR payments",ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,0,,fictional
+428,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|34,ar,1,0,1,0,,fictional
+429,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_qr,Cairo Wallet,Cairo Wallet|wallet_qr|ar|34,ar,1,0,0,0,,fictional
+430,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,1,1,0,0,,fictional
+431,9,"Wallet-heavy: top-ups, merchant QR payments",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+432,9,"Wallet-heavy: top-ups, merchant QR payments",declined,Pharos Pay,Pharos Pay|declined|ar|159,ar,0,0,0,0,,fictional
+433,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,0,0,0,0,,fictional
+434,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_qr,Pharos Pay,Pharos Pay|wallet_qr|mix|130,mix,0,0,0,0,,fictional
+435,9,"Wallet-heavy: top-ups, merchant QR payments",card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+436,9,"Wallet-heavy: top-ups, merchant QR payments",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+437,9,"Wallet-heavy: top-ups, merchant QR payments",promo,Sinai Pay,Sinai Pay|promo|mix|199,mix,0,0,0,0,,fictional
+438,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_topup,Pharos Pay,Pharos Pay|wallet_topup|en|134,en,0,0,0,0,,fictional
+439,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,0,0,0,0,,fictional
+440,9,"Wallet-heavy: top-ups, merchant QR payments",due,Luxor Bank,Luxor Bank|due|en|96,en,0,0,1,0,,fictional
+441,9,"Wallet-heavy: top-ups, merchant QR payments",refund,Cairo Wallet,Cairo Wallet|refund|ar|41,ar,1,0,0,0,,fictional
+442,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_topup,Pharos Pay,Pharos Pay|wallet_topup|en|134,en,0,0,0,0,,fictional
+443,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_topup,Pharos Pay,Pharos Pay|wallet_topup|ar|135,ar,1,0,0,1,,fictional
+444,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,1,0,0,0,,fictional
+445,9,"Wallet-heavy: top-ups, merchant QR payments",due,Giza Finance,Giza Finance|due|ar|180,ar,1,0,1,0,,fictional
+446,9,"Wallet-heavy: top-ups, merchant QR payments",bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+447,9,"Wallet-heavy: top-ups, merchant QR payments",atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+448,9,"Wallet-heavy: top-ups, merchant QR payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,1,0,,fictional
+449,9,"Wallet-heavy: top-ups, merchant QR payments",security,Pharos Pay,Pharos Pay|security|ar|162,ar,0,0,0,0,,fictional
+450,9,"Wallet-heavy: top-ups, merchant QR payments",promo,Sinai Pay,Sinai Pay|promo|en|200,en,0,0,0,0,,fictional
+451,10,"Messages with fees, taxes and foreign currency",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+452,10,"Messages with fees, taxes and foreign currency",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,1,0,0,0,,fictional
+453,10,"Messages with fees, taxes and foreign currency",bill,Pharos Pay,Pharos Pay|bill|en|140,en,0,0,0,0,,fictional
+454,10,"Messages with fees, taxes and foreign currency",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+455,10,"Messages with fees, taxes and foreign currency",salary,NileBank,NileBank|salary|ar|11,ar,0,0,0,0,,fictional
+456,10,"Messages with fees, taxes and foreign currency",card,SphinxCard,SphinxCard|card|en|53,en,0,1,0,0,b10-d0,fictional
+457,10,"Messages with fees, taxes and foreign currency",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,0,0,,fictional
+458,10,"Messages with fees, taxes and foreign currency",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,1,0,,fictional
+459,10,"Messages with fees, taxes and foreign currency",card,SphinxCard,SphinxCard|card|en|53,en,0,1,0,0,b10-d0,fictional
+460,10,"Messages with fees, taxes and foreign currency",card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,1,,fictional
+461,10,"Messages with fees, taxes and foreign currency",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+462,10,"Messages with fees, taxes and foreign currency",salary,NileBank,NileBank|salary|ar|10,ar,0,0,0,0,,fictional
+463,10,"Messages with fees, taxes and foreign currency",declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,0,0,,fictional
+464,10,"Messages with fees, taxes and foreign currency",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+465,10,"Messages with fees, taxes and foreign currency",balance,Pharos Pay,Pharos Pay|balance|ar|156,ar,0,0,0,0,,fictional
+466,10,"Messages with fees, taxes and foreign currency",card,NileBank,NileBank|card|ar|2,ar,0,0,1,0,,fictional
+467,10,"Messages with fees, taxes and foreign currency",ip_in,NileBank,NileBank|ip_in|ar|7,ar,0,0,0,0,,fictional
+468,10,"Messages with fees, taxes and foreign currency",card,SphinxCard,SphinxCard|card|en|56,en,0,0,0,0,,fictional
+469,10,"Messages with fees, taxes and foreign currency",bill,Sinai Pay,Sinai Pay|bill|mix|192,mix,0,0,0,0,,fictional
+470,10,"Messages with fees, taxes and foreign currency",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+471,10,"Messages with fees, taxes and foreign currency",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,0,0,,fictional
+472,10,"Messages with fees, taxes and foreign currency",balance,NileBank,NileBank|balance|ar|19,ar,1,0,0,0,,fictional
+473,10,"Messages with fees, taxes and foreign currency",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,1,0,,fictional
+474,10,"Messages with fees, taxes and foreign currency",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+475,10,"Messages with fees, taxes and foreign currency",card,SphinxCard,SphinxCard|card|en|56,en,0,0,0,0,,fictional
+476,10,"Messages with fees, taxes and foreign currency",card,SphinxCard,SphinxCard|card|en|56,en,0,0,0,0,,fictional
+477,10,"Messages with fees, taxes and foreign currency",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,1,0,,fictional
+478,10,"Messages with fees, taxes and foreign currency",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,,fictional
+479,10,"Messages with fees, taxes and foreign currency",salary,NileBank,NileBank|salary|ar|11,ar,0,0,0,0,,fictional
+480,10,"Messages with fees, taxes and foreign currency",due,Luxor Bank,Luxor Bank|due|en|96,en,0,0,0,0,,fictional
+481,10,"Messages with fees, taxes and foreign currency",due,Sinai Pay,Sinai Pay|due|en|203,en,0,0,0,0,,fictional
+482,10,"Messages with fees, taxes and foreign currency",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+483,10,"Messages with fees, taxes and foreign currency",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,1,0,0,0,,fictional
+484,10,"Messages with fees, taxes and foreign currency",atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,1,0,0,0,,fictional
+485,10,"Messages with fees, taxes and foreign currency",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+486,10,"Messages with fees, taxes and foreign currency",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+487,10,"Messages with fees, taxes and foreign currency",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+488,10,"Messages with fees, taxes and foreign currency",otp,Cairo Wallet,Cairo Wallet|otp|ar|43,ar,0,0,0,0,,fictional
+489,10,"Messages with fees, taxes and foreign currency",ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,1,0,0,,fictional
+490,10,"Messages with fees, taxes and foreign currency",otp,NileBank,NileBank|otp|ar|14,ar,1,0,1,0,,fictional
+491,10,"Messages with fees, taxes and foreign currency",bill,Cairo Wallet,Cairo Wallet|bill|ar|40,ar,0,0,0,0,,fictional
+492,10,"Messages with fees, taxes and foreign currency",wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,0,0,0,0,,fictional
+493,10,"Messages with fees, taxes and foreign currency",refund,Giza Finance,Giza Finance|refund|ar|171,ar,0,0,0,0,,fictional
+494,10,"Messages with fees, taxes and foreign currency",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|32,ar,0,0,0,1,,fictional
+495,10,"Messages with fees, taxes and foreign currency",promo,DeltaPay,DeltaPay|promo|en|112,en,0,0,0,0,,fictional
+496,10,"Messages with fees, taxes and foreign currency",declined,Cairo Wallet,Cairo Wallet|declined|ar|48,ar,0,1,0,0,,fictional
+497,10,"Messages with fees, taxes and foreign currency",card,NileBank,NileBank|card|ar|1,ar,1,1,0,0,,fictional
+498,10,"Messages with fees, taxes and foreign currency",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+499,10,"Messages with fees, taxes and foreign currency",security,DeltaPay,DeltaPay|security|mix|117,mix,0,0,0,0,,fictional
+500,10,"Messages with fees, taxes and foreign currency",otp,Cairo Wallet,Cairo Wallet|otp|ar|43,ar,0,0,0,0,,fictional
+501,11,"Arabic-only, with Arabic digits",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,1,0,0,0,,fictional
+502,11,"Arabic-only, with Arabic digits",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+503,11,"Arabic-only, with Arabic digits",balance,Pharos Pay,Pharos Pay|balance|ar|156,ar,0,0,0,0,,fictional
+504,11,"Arabic-only, with Arabic digits",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,0,0,0,,fictional
+505,11,"Arabic-only, with Arabic digits",salary,NileBank,NileBank|salary|ar|11,ar,0,0,0,0,,fictional
+506,11,"Arabic-only, with Arabic digits",atm,Cairo Wallet,Cairo Wallet|atm|ar|38,ar,0,0,0,0,,fictional
+507,11,"Arabic-only, with Arabic digits",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,1,0,,fictional
+508,11,"Arabic-only, with Arabic digits",due,Giza Finance,Giza Finance|due|ar|180,ar,1,0,0,0,,fictional
+509,11,"Arabic-only, with Arabic digits",otp,NileBank,NileBank|otp|ar|14,ar,1,0,1,0,,fictional
+510,11,"Arabic-only, with Arabic digits",wallet_in,Pharos Pay,Pharos Pay|wallet_in|ar|129,ar,1,0,0,0,,fictional
+511,11,"Arabic-only, with Arabic digits",otp,NileBank,NileBank|otp|ar|14,ar,1,0,0,0,,fictional
+512,11,"Arabic-only, with Arabic digits",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,1,0,0,0,,fictional
+513,11,"Arabic-only, with Arabic digits",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+514,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|1,ar,1,0,1,0,,fictional
+515,11,"Arabic-only, with Arabic digits",otp,NileBank,NileBank|otp|ar|14,ar,1,0,0,0,,fictional
+516,11,"Arabic-only, with Arabic digits",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+517,11,"Arabic-only, with Arabic digits",salary,Cairo Wallet,Cairo Wallet|salary|ar|42,ar,1,0,0,0,,fictional
+518,11,"Arabic-only, with Arabic digits",due,Giza Finance,Giza Finance|due|ar|180,ar,1,0,1,0,,fictional
+519,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|2,ar,1,0,0,0,,fictional
+520,11,"Arabic-only, with Arabic digits",card,Pharos Pay,Pharos Pay|card|ar|138,ar,1,0,0,1,,fictional
+521,11,"Arabic-only, with Arabic digits",otp,Cairo Wallet,Cairo Wallet|otp|ar|43,ar,1,0,1,0,,fictional
+522,11,"Arabic-only, with Arabic digits",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,0,0,0,0,,fictional
+523,11,"Arabic-only, with Arabic digits",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,1,0,0,0,,fictional
+524,11,"Arabic-only, with Arabic digits",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,1,0,0,0,,fictional
+525,11,"Arabic-only, with Arabic digits",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,1,0,0,0,,fictional
+526,11,"Arabic-only, with Arabic digits",declined,NileBank,NileBank|declined|ar|21,ar,1,0,0,0,,fictional
+527,11,"Arabic-only, with Arabic digits",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,1,0,0,0,,fictional
+528,11,"Arabic-only, with Arabic digits",promo,Pharos Pay,Pharos Pay|promo|ar|153,ar,0,0,0,0,,fictional
+529,11,"Arabic-only, with Arabic digits",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+530,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|2,ar,1,0,0,0,,fictional
+531,11,"Arabic-only, with Arabic digits",declined,Cairo Wallet,Cairo Wallet|declined|ar|48,ar,0,0,0,0,,fictional
+532,11,"Arabic-only, with Arabic digits",ip_in,NileBank,NileBank|ip_in|ar|8,ar,1,0,0,0,,fictional
+533,11,"Arabic-only, with Arabic digits",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,1,0,0,0,,fictional
+534,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|1,ar,0,0,0,0,,fictional
+535,11,"Arabic-only, with Arabic digits",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,0,,fictional
+536,11,"Arabic-only, with Arabic digits",declined,DeltaPay,DeltaPay|declined|ar|116,ar,0,0,0,0,,fictional
+537,11,"Arabic-only, with Arabic digits",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+538,11,"Arabic-only, with Arabic digits",security,Giza Finance,Giza Finance|security|ar|188,ar,1,0,0,0,,fictional
+539,11,"Arabic-only, with Arabic digits",refund,NileBank,NileBank|refund|ar|13,ar,0,0,0,0,,fictional
+540,11,"Arabic-only, with Arabic digits",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,1,0,0,1,,fictional
+541,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|2,ar,1,0,0,0,,fictional
+542,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|1,ar,1,0,0,0,,fictional
+543,11,"Arabic-only, with Arabic digits",bill,Sinai Pay,Sinai Pay|bill|ar|195,ar,1,0,0,0,,fictional
+544,11,"Arabic-only, with Arabic digits",promo,Giza Finance,Giza Finance|promo|ar|177,ar,0,0,0,0,,fictional
+545,11,"Arabic-only, with Arabic digits",balance,NileBank,NileBank|balance|ar|18,ar,0,0,0,0,,fictional
+546,11,"Arabic-only, with Arabic digits",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,1,0,0,0,,fictional
+547,11,"Arabic-only, with Arabic digits",promo,Giza Finance,Giza Finance|promo|ar|177,ar,1,0,0,0,,fictional
+548,11,"Arabic-only, with Arabic digits",salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,0,0,,fictional
+549,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|0,ar,1,0,0,0,b11-d0,fictional
+550,11,"Arabic-only, with Arabic digits",card,NileBank,NileBank|card|ar|0,ar,1,0,0,0,b11-d0,fictional
+551,12,"English-only, long and formal",card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+552,12,"English-only, long and formal",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+553,12,"English-only, long and formal",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,,fictional
+554,12,"English-only, long and formal",salary,Luxor Bank,Luxor Bank|salary|en|80,en,0,0,0,0,,fictional
+555,12,"English-only, long and formal",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|124,en,0,0,0,0,,fictional
+556,12,"English-only, long and formal",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,,fictional
+557,12,"English-only, long and formal",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,,fictional
+558,12,"English-only, long and formal",declined,Sinai Pay,Sinai Pay|declined|en|206,en,0,0,0,0,,fictional
+559,12,"English-only, long and formal",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,1,0,,fictional
+560,12,"English-only, long and formal",due,Luxor Bank,Luxor Bank|due|en|96,en,0,1,0,0,,fictional
+561,12,"English-only, long and formal",declined,Pharos Pay,Pharos Pay|declined|en|158,en,0,0,0,0,,fictional
+562,12,"English-only, long and formal",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|124,en,0,0,0,0,,fictional
+563,12,"English-only, long and formal",refund,SphinxCard,SphinxCard|refund|en|57,en,0,0,0,1,,fictional
+564,12,"English-only, long and formal",wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,0,0,0,,fictional
+565,12,"English-only, long and formal",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,1,0,,fictional
+566,12,"English-only, long and formal",declined,SphinxCard,SphinxCard|declined|en|65,en,0,1,0,0,,fictional
+567,12,"English-only, long and formal",balance,Luxor Bank,Luxor Bank|balance|en|90,en,0,0,0,0,,fictional
+568,12,"English-only, long and formal",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,,fictional
+569,12,"English-only, long and formal",salary,Pharos Pay,Pharos Pay|salary|en|146,en,0,0,0,0,,fictional
+570,12,"English-only, long and formal",promo,DeltaPay,DeltaPay|promo|en|112,en,0,0,0,0,,fictional
+571,12,"English-only, long and formal",due,Luxor Bank,Luxor Bank|due|en|97,en,0,0,0,0,,fictional
+572,12,"English-only, long and formal",otp,DeltaPay,DeltaPay|otp|en|109,en,0,0,0,0,,fictional
+573,12,"English-only, long and formal",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+574,12,"English-only, long and formal",ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+575,12,"English-only, long and formal",ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,0,,fictional
+576,12,"English-only, long and formal",wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,0,0,0,,fictional
+577,12,"English-only, long and formal",balance,SphinxCard,SphinxCard|balance|en|63,en,0,0,1,0,,fictional
+578,12,"English-only, long and formal",bill,Luxor Bank,Luxor Bank|bill|en|84,en,0,0,1,0,,fictional
+579,12,"English-only, long and formal",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,0,0,,fictional
+580,12,"English-only, long and formal",bill,Luxor Bank,Luxor Bank|bill|en|84,en,0,0,0,0,,fictional
+581,12,"English-only, long and formal",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,1,,fictional
+582,12,"English-only, long and formal",promo,Luxor Bank,Luxor Bank|promo|en|87,en,0,0,0,0,,fictional
+583,12,"English-only, long and formal",bill,Luxor Bank,Luxor Bank|bill|en|84,en,0,0,0,0,,fictional
+584,12,"English-only, long and formal",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+585,12,"English-only, long and formal",otp,SphinxCard,SphinxCard|otp|en|59,en,0,0,0,0,,fictional
+586,12,"English-only, long and formal",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,1,0,,fictional
+587,12,"English-only, long and formal",otp,Pharos Pay,Pharos Pay|otp|en|149,en,0,0,0,0,,fictional
+588,12,"English-only, long and formal",atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,0,,fictional
+589,12,"English-only, long and formal",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+590,12,"English-only, long and formal",ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+591,12,"English-only, long and formal",card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+592,12,"English-only, long and formal",otp,DeltaPay,DeltaPay|otp|en|109,en,0,0,0,0,,fictional
+593,12,"English-only, long and formal",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+594,12,"English-only, long and formal",salary,Luxor Bank,Luxor Bank|salary|en|81,en,0,0,0,0,,fictional
+595,12,"English-only, long and formal",card,Giza Finance,Giza Finance|card|en|167,en,0,0,0,0,,fictional
+596,12,"English-only, long and formal",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,,fictional
+597,12,"English-only, long and formal",security,SphinxCard,SphinxCard|security|en|67,en,0,0,0,0,,fictional
+598,12,"English-only, long and formal",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b12-d0,fictional
+599,12,"English-only, long and formal",promo,DeltaPay,DeltaPay|promo|en|112,en,0,0,0,0,,fictional
+600,12,"English-only, long and formal",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b12-d0,fictional
+601,13,"Mixed Arabic and English, informal",salary,Luxor Bank,Luxor Bank|salary|en|82,en,0,0,0,0,,fictional
+602,13,"Mixed Arabic and English, informal",declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,0,0,,fictional
+603,13,"Mixed Arabic and English, informal",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|124,en,0,0,0,0,,fictional
+604,13,"Mixed Arabic and English, informal",promo,Cairo Wallet,Cairo Wallet|promo|ar|46,ar,1,0,0,0,,fictional
+605,13,"Mixed Arabic and English, informal",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+606,13,"Mixed Arabic and English, informal",atm,NileBank,NileBank|atm|ar|4,ar,0,1,0,0,,fictional
+607,13,"Mixed Arabic and English, informal",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,0,0,,fictional
+608,13,"Mixed Arabic and English, informal",ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,0,,fictional
+609,13,"Mixed Arabic and English, informal",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+610,13,"Mixed Arabic and English, informal",ip_in,DeltaPay,DeltaPay|ip_in|mix|102,mix,0,1,1,0,,fictional
+611,13,"Mixed Arabic and English, informal",card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+612,13,"Mixed Arabic and English, informal",bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+613,13,"Mixed Arabic and English, informal",atm,Luxor Bank,Luxor Bank|atm|en|75,en,0,0,0,0,,fictional
+614,13,"Mixed Arabic and English, informal",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+615,13,"Mixed Arabic and English, informal",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+616,13,"Mixed Arabic and English, informal",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,1,0,,fictional
+617,13,"Mixed Arabic and English, informal",salary,Cairo Wallet,Cairo Wallet|salary|ar|42,ar,0,1,0,0,,fictional
+618,13,"Mixed Arabic and English, informal",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+619,13,"Mixed Arabic and English, informal",balance,Pharos Pay,Pharos Pay|balance|mix|154,mix,0,0,0,0,,fictional
+620,13,"Mixed Arabic and English, informal",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+621,13,"Mixed Arabic and English, informal",ip_in,DeltaPay,DeltaPay|ip_in|mix|102,mix,0,1,0,0,,fictional
+622,13,"Mixed Arabic and English, informal",card,Giza Finance,Giza Finance|card|ar|168,ar,0,1,0,1,,fictional
+623,13,"Mixed Arabic and English, informal",balance,Giza Finance,Giza Finance|balance|en|181,en,0,0,0,0,,fictional
+624,13,"Mixed Arabic and English, informal",security,DeltaPay,DeltaPay|security|mix|117,mix,0,0,0,0,,fictional
+625,13,"Mixed Arabic and English, informal",card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+626,13,"Mixed Arabic and English, informal",card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+627,13,"Mixed Arabic and English, informal",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+628,13,"Mixed Arabic and English, informal",wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,0,0,0,0,,fictional
+629,13,"Mixed Arabic and English, informal",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+630,13,"Mixed Arabic and English, informal",due,Giza Finance,Giza Finance|due|mix|178,mix,1,0,0,0,,fictional
+631,13,"Mixed Arabic and English, informal",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|32,ar,1,0,0,0,,fictional
+632,13,"Mixed Arabic and English, informal",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+633,13,"Mixed Arabic and English, informal",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+634,13,"Mixed Arabic and English, informal",bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+635,13,"Mixed Arabic and English, informal",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,1,,fictional
+636,13,"Mixed Arabic and English, informal",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+637,13,"Mixed Arabic and English, informal",wallet_out,Pharos Pay,Pharos Pay|wallet_out|mix|123,mix,0,0,1,0,,fictional
+638,13,"Mixed Arabic and English, informal",otp,Giza Finance,Giza Finance|otp|mix|172,mix,0,0,1,0,,fictional
+639,13,"Mixed Arabic and English, informal",due,Sinai Pay,Sinai Pay|due|mix|202,mix,0,0,0,0,,fictional
+640,13,"Mixed Arabic and English, informal",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+641,13,"Mixed Arabic and English, informal",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,1,0,,fictional
+642,13,"Mixed Arabic and English, informal",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+643,13,"Mixed Arabic and English, informal",otp,Giza Finance,Giza Finance|otp|en|173,en,0,0,0,0,,fictional
+644,13,"Mixed Arabic and English, informal",wallet_out,Pharos Pay,Pharos Pay|wallet_out|mix|123,mix,0,0,0,0,,fictional
+645,13,"Mixed Arabic and English, informal",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+646,13,"Mixed Arabic and English, informal",salary,Pharos Pay,Pharos Pay|salary|en|146,en,0,0,0,0,,fictional
+647,13,"Mixed Arabic and English, informal",bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+648,13,"Mixed Arabic and English, informal",refund,DeltaPay,DeltaPay|refund|mix|105,mix,1,0,0,0,,fictional
+649,13,"Mixed Arabic and English, informal",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b13-d0,fictional
+650,13,"Mixed Arabic and English, informal",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b13-d0,fictional
+651,14,"Declined, failed and reversed payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+652,14,"Declined, failed and reversed payments",declined,DeltaPay,DeltaPay|declined|ar|116,ar,0,0,0,0,,fictional
+653,14,"Declined, failed and reversed payments",refund,SphinxCard,SphinxCard|refund|en|58,en,0,0,0,0,,fictional
+654,14,"Declined, failed and reversed payments",card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,,fictional
+655,14,"Declined, failed and reversed payments",ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,1,,fictional
+656,14,"Declined, failed and reversed payments",otp,Cairo Wallet,Cairo Wallet|otp|ar|44,ar,0,0,0,0,,fictional
+657,14,"Declined, failed and reversed payments",declined,Sinai Pay,Sinai Pay|declined|en|206,en,0,0,1,0,,fictional
+658,14,"Declined, failed and reversed payments",salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,0,0,,fictional
+659,14,"Declined, failed and reversed payments",refund,Giza Finance,Giza Finance|refund|ar|171,ar,0,0,0,1,,fictional
+660,14,"Declined, failed and reversed payments",declined,Cairo Wallet,Cairo Wallet|declined|ar|49,ar,1,0,0,0,,fictional
+661,14,"Declined, failed and reversed payments",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b14-d0,fictional
+662,14,"Declined, failed and reversed payments",balance,Cairo Wallet,Cairo Wallet|balance|ar|47,ar,0,0,0,0,,fictional
+663,14,"Declined, failed and reversed payments",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|30,ar,0,0,0,0,,fictional
+664,14,"Declined, failed and reversed payments",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b14-d0,fictional
+665,14,"Declined, failed and reversed payments",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+666,14,"Declined, failed and reversed payments",card,NileBank,NileBank|card|ar|2,ar,1,0,0,0,,fictional
+667,14,"Declined, failed and reversed payments",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+668,14,"Declined, failed and reversed payments",declined,NileBank,NileBank|declined|ar|20,ar,1,0,0,0,,fictional
+669,14,"Declined, failed and reversed payments",declined,Luxor Bank,Luxor Bank|declined|en|92,en,0,0,0,0,,fictional
+670,14,"Declined, failed and reversed payments",security,SphinxCard,SphinxCard|security|en|67,en,0,0,0,0,,fictional
+671,14,"Declined, failed and reversed payments",declined,Pharos Pay,Pharos Pay|declined|en|158,en,0,0,0,0,,fictional
+672,14,"Declined, failed and reversed payments",refund,SphinxCard,SphinxCard|refund|en|57,en,0,0,0,0,,fictional
+673,14,"Declined, failed and reversed payments",declined,Pharos Pay,Pharos Pay|declined|ar|159,ar,0,0,0,0,,fictional
+674,14,"Declined, failed and reversed payments",refund,SphinxCard,SphinxCard|refund|en|58,en,0,0,0,0,,fictional
+675,14,"Declined, failed and reversed payments",refund,Pharos Pay,Pharos Pay|refund|ar|144,ar,1,0,0,0,,fictional
+676,14,"Declined, failed and reversed payments",wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,0,0,1,0,,fictional
+677,14,"Declined, failed and reversed payments",declined,Giza Finance,Giza Finance|declined|ar|185,ar,0,0,0,0,,fictional
+678,14,"Declined, failed and reversed payments",declined,Cairo Wallet,Cairo Wallet|declined|ar|49,ar,0,0,0,0,,fictional
+679,14,"Declined, failed and reversed payments",declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+680,14,"Declined, failed and reversed payments",declined,Giza Finance,Giza Finance|declined|en|184,en,0,0,1,0,,fictional
+681,14,"Declined, failed and reversed payments",declined,Luxor Bank,Luxor Bank|declined|en|92,en,0,0,0,0,,fictional
+682,14,"Declined, failed and reversed payments",otp,DeltaPay,DeltaPay|otp|en|109,en,0,0,0,0,,fictional
+683,14,"Declined, failed and reversed payments",refund,NileBank,NileBank|refund|ar|12,ar,0,0,0,0,,fictional
+684,14,"Declined, failed and reversed payments",declined,Giza Finance,Giza Finance|declined|mix|183,mix,1,0,0,0,,fictional
+685,14,"Declined, failed and reversed payments",declined,Cairo Wallet,Cairo Wallet|declined|ar|49,ar,0,0,0,0,,fictional
+686,14,"Declined, failed and reversed payments",due,Luxor Bank,Luxor Bank|due|en|97,en,0,0,0,0,,fictional
+687,14,"Declined, failed and reversed payments",atm,NileBank,NileBank|atm|ar|3,ar,0,0,0,0,,fictional
+688,14,"Declined, failed and reversed payments",declined,Luxor Bank,Luxor Bank|declined|en|91,en,0,0,0,0,,fictional
+689,14,"Declined, failed and reversed payments",declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,0,0,,fictional
+690,14,"Declined, failed and reversed payments",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+691,14,"Declined, failed and reversed payments",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+692,14,"Declined, failed and reversed payments",promo,Sinai Pay,Sinai Pay|promo|en|200,en,0,0,0,0,,fictional
+693,14,"Declined, failed and reversed payments",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+694,14,"Declined, failed and reversed payments",refund,DeltaPay,DeltaPay|refund|ar|107,ar,0,0,0,0,,fictional
+695,14,"Declined, failed and reversed payments",security,DeltaPay,DeltaPay|security|mix|117,mix,0,0,0,0,,fictional
+696,14,"Declined, failed and reversed payments",refund,Giza Finance,Giza Finance|refund|mix|169,mix,0,0,0,0,,fictional
+697,14,"Declined, failed and reversed payments",bill,Sinai Pay,Sinai Pay|bill|ar|194,ar,1,0,1,0,,fictional
+698,14,"Declined, failed and reversed payments",refund,Pharos Pay,Pharos Pay|refund|en|143,en,0,0,1,0,,fictional
+699,14,"Declined, failed and reversed payments",declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+700,14,"Declined, failed and reversed payments",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+701,15,"OTPs, security alerts and phishing-like messages that are not transactions",phishing,SphinxCard,SphinxCard|phishing|en|69,en,0,1,0,0,,fictional
+702,15,"OTPs, security alerts and phishing-like messages that are not transactions",wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,0,0,0,,fictional
+703,15,"OTPs, security alerts and phishing-like messages that are not transactions",promo,DeltaPay,DeltaPay|promo|mix|111,mix,0,0,0,0,,fictional
+704,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,Giza Finance,Giza Finance|otp|mix|172,mix,0,0,1,0,,fictional
+705,15,"OTPs, security alerts and phishing-like messages that are not transactions",phishing,Cairo Wallet,Cairo Wallet|phishing|ar|51,ar,1,0,0,0,,fictional
+706,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,NileBank,NileBank|security|ar|23,ar,0,0,0,0,,fictional
+707,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,SphinxCard,SphinxCard|otp|en|59,en,0,0,0,0,,fictional
+708,15,"OTPs, security alerts and phishing-like messages that are not transactions",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+709,15,"OTPs, security alerts and phishing-like messages that are not transactions",declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,1,0,,fictional
+710,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,Giza Finance,Giza Finance|security|en|187,en,0,0,0,0,,fictional
+711,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,DeltaPay,DeltaPay|otp|en|109,en,0,0,0,0,,fictional
+712,15,"OTPs, security alerts and phishing-like messages that are not transactions",card,Luxor Bank,Luxor Bank|card|en|73,en,0,0,0,0,,fictional
+713,15,"OTPs, security alerts and phishing-like messages that are not transactions",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+714,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,NileBank,NileBank|otp|ar|14,ar,1,0,0,0,,fictional
+715,15,"OTPs, security alerts and phishing-like messages that are not transactions",promo,SphinxCard,SphinxCard|promo|en|61,en,0,1,0,0,,fictional
+716,15,"OTPs, security alerts and phishing-like messages that are not transactions",bill,Luxor Bank,Luxor Bank|bill|en|84,en,0,0,0,0,,fictional
+717,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,Giza Finance,Giza Finance|otp|mix|172,mix,0,0,0,0,,fictional
+718,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,Sinai Pay,Sinai Pay|otp|mix|196,mix,0,0,0,0,,fictional
+719,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,Pharos Pay,Pharos Pay|security|ar|162,ar,0,0,0,0,,fictional
+720,15,"OTPs, security alerts and phishing-like messages that are not transactions",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,0,0,0,,fictional
+721,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,NileBank,NileBank|otp|ar|14,ar,1,0,0,0,,fictional
+722,15,"OTPs, security alerts and phishing-like messages that are not transactions",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,1,0,,fictional
+723,15,"OTPs, security alerts and phishing-like messages that are not transactions",refund,Pharos Pay,Pharos Pay|refund|mix|142,mix,0,0,0,0,,fictional
+724,15,"OTPs, security alerts and phishing-like messages that are not transactions",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,1,,fictional
+725,15,"OTPs, security alerts and phishing-like messages that are not transactions",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,1,,fictional
+726,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,Giza Finance,Giza Finance|security|ar|188,ar,0,0,0,0,,fictional
+727,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,NileBank,NileBank|security|ar|24,ar,0,0,1,0,,fictional
+728,15,"OTPs, security alerts and phishing-like messages that are not transactions",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,1,0,,fictional
+729,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,Cairo Wallet,Cairo Wallet|otp|ar|43,ar,0,0,0,0,,fictional
+730,15,"OTPs, security alerts and phishing-like messages that are not transactions",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+731,15,"OTPs, security alerts and phishing-like messages that are not transactions",card,Luxor Bank,Luxor Bank|card|en|73,en,0,0,0,0,,fictional
+732,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,Giza Finance,Giza Finance|security|ar|188,ar,0,0,0,0,,fictional
+733,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,Cairo Wallet,Cairo Wallet|otp|ar|43,ar,0,0,0,0,,fictional
+734,15,"OTPs, security alerts and phishing-like messages that are not transactions",ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,0,,fictional
+735,15,"OTPs, security alerts and phishing-like messages that are not transactions",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+736,15,"OTPs, security alerts and phishing-like messages that are not transactions",salary,NileBank,NileBank|salary|ar|10,ar,1,0,0,0,,fictional
+737,15,"OTPs, security alerts and phishing-like messages that are not transactions",phishing,NileBank,NileBank|phishing|ar|25,ar,0,0,0,0,,fictional
+738,15,"OTPs, security alerts and phishing-like messages that are not transactions",phishing,Giza Finance,Giza Finance|phishing|ar|191,ar,0,0,0,0,,fictional
+739,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,Pharos Pay,Pharos Pay|security|ar|162,ar,0,0,0,0,,fictional
+740,15,"OTPs, security alerts and phishing-like messages that are not transactions",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,b15-d0,fictional
+741,15,"OTPs, security alerts and phishing-like messages that are not transactions",card,Pharos Pay,Pharos Pay|card|en|137,en,0,0,0,0,b15-d0,fictional
+742,15,"OTPs, security alerts and phishing-like messages that are not transactions",phishing,Cairo Wallet,Cairo Wallet|phishing|ar|51,ar,0,0,0,0,,fictional
+743,15,"OTPs, security alerts and phishing-like messages that are not transactions",security,NileBank,NileBank|security|ar|24,ar,0,0,0,0,,fictional
+744,15,"OTPs, security alerts and phishing-like messages that are not transactions",bill,Cairo Wallet,Cairo Wallet|bill|ar|39,ar,0,0,0,0,,fictional
+745,15,"OTPs, security alerts and phishing-like messages that are not transactions",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,1,0,0,0,,fictional
+746,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,DeltaPay,DeltaPay|otp|mix|108,mix,0,0,0,0,,fictional
+747,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,Luxor Bank,Luxor Bank|otp|en|85,en,0,0,0,0,,fictional
+748,15,"OTPs, security alerts and phishing-like messages that are not transactions",phishing,Giza Finance,Giza Finance|phishing|mix|189,mix,0,0,0,0,,fictional
+749,15,"OTPs, security alerts and phishing-like messages that are not transactions",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+750,15,"OTPs, security alerts and phishing-like messages that are not transactions",otp,Sinai Pay,Sinai Pay|otp|en|197,en,0,0,0,0,,fictional
+751,16,"Promotions, loan offers and reminders",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+752,16,"Promotions, loan offers and reminders",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,1,0,0,1,,fictional
+753,16,"Promotions, loan offers and reminders",promo,Sinai Pay,Sinai Pay|promo|mix|199,mix,0,0,0,0,,fictional
+754,16,"Promotions, loan offers and reminders",promo,Luxor Bank,Luxor Bank|promo|en|88,en,0,1,0,0,,fictional
+755,16,"Promotions, loan offers and reminders",salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,0,0,,fictional
+756,16,"Promotions, loan offers and reminders",due,NileBank,NileBank|due|ar|27,ar,1,0,0,0,,fictional
+757,16,"Promotions, loan offers and reminders",balance,Pharos Pay,Pharos Pay|balance|en|155,en,0,1,0,0,,fictional
+758,16,"Promotions, loan offers and reminders",promo,Giza Finance,Giza Finance|promo|mix|175,mix,0,0,0,0,,fictional
+759,16,"Promotions, loan offers and reminders",due,Sinai Pay,Sinai Pay|due|ar|204,ar,0,0,0,0,,fictional
+760,16,"Promotions, loan offers and reminders",bill,Cairo Wallet,Cairo Wallet|bill|ar|40,ar,0,0,0,0,,fictional
+761,16,"Promotions, loan offers and reminders",promo,SphinxCard,SphinxCard|promo|en|61,en,0,0,0,0,,fictional
+762,16,"Promotions, loan offers and reminders",promo,DeltaPay,DeltaPay|promo|mix|111,mix,0,0,0,0,,fictional
+763,16,"Promotions, loan offers and reminders",promo,Cairo Wallet,Cairo Wallet|promo|ar|45,ar,0,0,0,0,,fictional
+764,16,"Promotions, loan offers and reminders",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+765,16,"Promotions, loan offers and reminders",due,Sinai Pay,Sinai Pay|due|en|203,en,0,0,0,0,,fictional
+766,16,"Promotions, loan offers and reminders",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,0,0,0,,fictional
+767,16,"Promotions, loan offers and reminders",due,Giza Finance,Giza Finance|due|en|179,en,0,0,0,0,,fictional
+768,16,"Promotions, loan offers and reminders",due,Sinai Pay,Sinai Pay|due|mix|202,mix,0,0,0,0,,fictional
+769,16,"Promotions, loan offers and reminders",promo,Cairo Wallet,Cairo Wallet|promo|ar|45,ar,0,0,0,0,,fictional
+770,16,"Promotions, loan offers and reminders",due,Giza Finance,Giza Finance|due|ar|180,ar,0,0,0,0,,fictional
+771,16,"Promotions, loan offers and reminders",due,SphinxCard,SphinxCard|due|en|70,en,0,0,0,0,,fictional
+772,16,"Promotions, loan offers and reminders",promo,DeltaPay,DeltaPay|promo|ar|113,ar,1,0,0,0,,fictional
+773,16,"Promotions, loan offers and reminders",promo,Giza Finance,Giza Finance|promo|ar|177,ar,0,0,0,0,,fictional
+774,16,"Promotions, loan offers and reminders",otp,NileBank,NileBank|otp|ar|14,ar,0,0,0,0,,fictional
+775,16,"Promotions, loan offers and reminders",card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,b16-d0,fictional
+776,16,"Promotions, loan offers and reminders",card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,b16-d0,fictional
+777,16,"Promotions, loan offers and reminders",bill,Cairo Wallet,Cairo Wallet|bill|ar|40,ar,0,0,1,0,,fictional
+778,16,"Promotions, loan offers and reminders",otp,Sinai Pay,Sinai Pay|otp|ar|198,ar,0,0,0,0,,fictional
+779,16,"Promotions, loan offers and reminders",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,0,,fictional
+780,16,"Promotions, loan offers and reminders",card,NileBank,NileBank|card|ar|1,ar,1,0,0,0,,fictional
+781,16,"Promotions, loan offers and reminders",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,,fictional
+782,16,"Promotions, loan offers and reminders",due,Giza Finance,Giza Finance|due|ar|180,ar,0,0,0,0,,fictional
+783,16,"Promotions, loan offers and reminders",promo,DeltaPay,DeltaPay|promo|ar|113,ar,0,0,0,0,,fictional
+784,16,"Promotions, loan offers and reminders",due,SphinxCard,SphinxCard|due|en|70,en,0,0,0,0,,fictional
+785,16,"Promotions, loan offers and reminders",ip_in,NileBank,NileBank|ip_in|ar|8,ar,0,1,1,0,,fictional
+786,16,"Promotions, loan offers and reminders",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+787,16,"Promotions, loan offers and reminders",promo,SphinxCard,SphinxCard|promo|en|62,en,0,0,0,0,,fictional
+788,16,"Promotions, loan offers and reminders",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|30,ar,0,0,0,0,,fictional
+789,16,"Promotions, loan offers and reminders",promo,Giza Finance,Giza Finance|promo|ar|177,ar,0,0,0,0,,fictional
+790,16,"Promotions, loan offers and reminders",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,1,0,0,,fictional
+791,16,"Promotions, loan offers and reminders",security,Pharos Pay,Pharos Pay|security|mix|160,mix,0,0,0,0,,fictional
+792,16,"Promotions, loan offers and reminders",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,1,,fictional
+793,16,"Promotions, loan offers and reminders",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+794,16,"Promotions, loan offers and reminders",due,Giza Finance,Giza Finance|due|en|179,en,0,0,1,0,,fictional
+795,16,"Promotions, loan offers and reminders",balance,Pharos Pay,Pharos Pay|balance|en|155,en,0,0,0,0,,fictional
+796,16,"Promotions, loan offers and reminders",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,1,0,,fictional
+797,16,"Promotions, loan offers and reminders",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|32,ar,0,0,0,0,,fictional
+798,16,"Promotions, loan offers and reminders",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,1,0,,fictional
+799,16,"Promotions, loan offers and reminders",declined,DeltaPay,DeltaPay|declined|mix|114,mix,0,0,0,0,,fictional
+800,16,"Promotions, loan offers and reminders",refund,Cairo Wallet,Cairo Wallet|refund|ar|41,ar,0,0,0,0,,fictional
+801,17,Messages with long balances and many numbers,ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+802,17,Messages with long balances and many numbers,declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+803,17,Messages with long balances and many numbers,wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|30,ar,0,1,0,0,,fictional
+804,17,Messages with long balances and many numbers,ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,0,,fictional
+805,17,Messages with long balances and many numbers,wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+806,17,Messages with long balances and many numbers,promo,DeltaPay,DeltaPay|promo|mix|111,mix,0,0,0,0,,fictional
+807,17,Messages with long balances and many numbers,ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+808,17,Messages with long balances and many numbers,declined,Pharos Pay,Pharos Pay|declined|ar|159,ar,0,0,0,0,,fictional
+809,17,Messages with long balances and many numbers,balance,NileBank,NileBank|balance|ar|18,ar,0,0,1,0,,fictional
+810,17,Messages with long balances and many numbers,balance,NileBank,NileBank|balance|ar|18,ar,0,0,0,0,,fictional
+811,17,Messages with long balances and many numbers,card,Luxor Bank,Luxor Bank|card|en|73,en,0,0,0,0,,fictional
+812,17,Messages with long balances and many numbers,card,NileBank,NileBank|card|ar|2,ar,0,0,0,0,,fictional
+813,17,Messages with long balances and many numbers,card,NileBank,NileBank|card|ar|0,ar,0,1,0,0,,fictional
+814,17,Messages with long balances and many numbers,wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,0,0,0,0,,fictional
+815,17,Messages with long balances and many numbers,due,Giza Finance,Giza Finance|due|en|179,en,0,0,0,0,,fictional
+816,17,Messages with long balances and many numbers,salary,Luxor Bank,Luxor Bank|salary|en|81,en,0,0,1,0,,fictional
+817,17,Messages with long balances and many numbers,ip_in,NileBank,NileBank|ip_in|ar|7,ar,0,0,0,0,,fictional
+818,17,Messages with long balances and many numbers,promo,Sinai Pay,Sinai Pay|promo|mix|199,mix,0,0,0,0,,fictional
+819,17,Messages with long balances and many numbers,due,Sinai Pay,Sinai Pay|due|en|203,en,0,0,0,0,,fictional
+820,17,Messages with long balances and many numbers,card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,,fictional
+821,17,Messages with long balances and many numbers,wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+822,17,Messages with long balances and many numbers,ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,,fictional
+823,17,Messages with long balances and many numbers,wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+824,17,Messages with long balances and many numbers,bill,Pharos Pay,Pharos Pay|bill|mix|139,mix,0,0,0,0,,fictional
+825,17,Messages with long balances and many numbers,wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,0,0,0,0,,fictional
+826,17,Messages with long balances and many numbers,card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,1,,fictional
+827,17,Messages with long balances and many numbers,ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,1,,fictional
+828,17,Messages with long balances and many numbers,atm,NileBank,NileBank|atm|ar|4,ar,1,0,0,0,,fictional
+829,17,Messages with long balances and many numbers,salary,Pharos Pay,Pharos Pay|salary|ar|147,ar,0,0,1,0,,fictional
+830,17,Messages with long balances and many numbers,atm,NileBank,NileBank|atm|ar|3,ar,0,0,0,0,,fictional
+831,17,Messages with long balances and many numbers,promo,Pharos Pay,Pharos Pay|promo|ar|153,ar,0,0,0,0,,fictional
+832,17,Messages with long balances and many numbers,bill,Luxor Bank,Luxor Bank|bill|en|83,en,0,0,0,0,,fictional
+833,17,Messages with long balances and many numbers,card,NileBank,NileBank|card|ar|2,ar,0,0,0,0,,fictional
+834,17,Messages with long balances and many numbers,refund,Pharos Pay,Pharos Pay|refund|mix|142,mix,0,0,0,0,,fictional
+835,17,Messages with long balances and many numbers,otp,SphinxCard,SphinxCard|otp|en|59,en,0,0,1,0,,fictional
+836,17,Messages with long balances and many numbers,otp,Cairo Wallet,Cairo Wallet|otp|ar|44,ar,1,0,0,0,,fictional
+837,17,Messages with long balances and many numbers,declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+838,17,Messages with long balances and many numbers,atm,NileBank,NileBank|atm|ar|3,ar,1,0,0,0,,fictional
+839,17,Messages with long balances and many numbers,otp,Luxor Bank,Luxor Bank|otp|en|86,en,0,0,1,0,,fictional
+840,17,Messages with long balances and many numbers,salary,Luxor Bank,Luxor Bank|salary|en|82,en,0,0,0,0,,fictional
+841,17,Messages with long balances and many numbers,ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+842,17,Messages with long balances and many numbers,card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,b17-d0,fictional
+843,17,Messages with long balances and many numbers,ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+844,17,Messages with long balances and many numbers,bill,Sinai Pay,Sinai Pay|bill|ar|194,ar,0,0,0,0,,fictional
+845,17,Messages with long balances and many numbers,card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,b17-d0,fictional
+846,17,Messages with long balances and many numbers,otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+847,17,Messages with long balances and many numbers,ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,0,,fictional
+848,17,Messages with long balances and many numbers,security,DeltaPay,DeltaPay|security|ar|119,ar,0,0,0,0,,fictional
+849,17,Messages with long balances and many numbers,ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,0,,fictional
+850,17,Messages with long balances and many numbers,card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,,fictional
+851,18,"Typos, cut-off and badly formatted messages",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|124,en,0,0,0,0,,fictional
+852,18,"Typos, cut-off and badly formatted messages",security,Luxor Bank,Luxor Bank|security|en|94,en,0,0,1,0,,fictional
+853,18,"Typos, cut-off and badly formatted messages",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,1,0,,fictional
+854,18,"Typos, cut-off and badly formatted messages",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,1,,fictional
+855,18,"Typos, cut-off and badly formatted messages",wallet_in,Pharos Pay,Pharos Pay|wallet_in|mix|127,mix,0,0,1,0,,fictional
+856,18,"Typos, cut-off and badly formatted messages",promo,NileBank,NileBank|promo|ar|17,ar,0,0,1,0,,fictional
+857,18,"Typos, cut-off and badly formatted messages",card,NileBank,NileBank|card|ar|1,ar,0,0,0,1,,fictional
+858,18,"Typos, cut-off and badly formatted messages",promo,Giza Finance,Giza Finance|promo|en|176,en,0,0,1,0,,fictional
+859,18,"Typos, cut-off and badly formatted messages",due,Sinai Pay,Sinai Pay|due|ar|204,ar,0,0,0,0,,fictional
+860,18,"Typos, cut-off and badly formatted messages",ip_out,Luxor Bank,Luxor Bank|ip_out|en|77,en,0,0,0,1,,fictional
+861,18,"Typos, cut-off and badly formatted messages",salary,Luxor Bank,Luxor Bank|salary|en|82,en,0,0,1,0,,fictional
+862,18,"Typos, cut-off and badly formatted messages",ip_in,DeltaPay,DeltaPay|ip_in|ar|104,ar,0,0,0,0,,fictional
+863,18,"Typos, cut-off and badly formatted messages",ip_in,Luxor Bank,Luxor Bank|ip_in|en|79,en,0,0,0,0,,fictional
+864,18,"Typos, cut-off and badly formatted messages",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,1,0,,fictional
+865,18,"Typos, cut-off and badly formatted messages",ip_out,NileBank,NileBank|ip_out|ar|5,ar,0,1,1,0,,fictional
+866,18,"Typos, cut-off and badly formatted messages",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,0,0,0,1,,fictional
+867,18,"Typos, cut-off and badly formatted messages",bill,Cairo Wallet,Cairo Wallet|bill|ar|39,ar,0,0,1,0,,fictional
+868,18,"Typos, cut-off and badly formatted messages",declined,Luxor Bank,Luxor Bank|declined|en|92,en,0,0,0,0,,fictional
+869,18,"Typos, cut-off and badly formatted messages",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,1,1,0,,fictional
+870,18,"Typos, cut-off and badly formatted messages",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,1,0,,fictional
+871,18,"Typos, cut-off and badly formatted messages",salary,NileBank,NileBank|salary|ar|11,ar,0,0,0,1,,fictional
+872,18,"Typos, cut-off and badly formatted messages",refund,DeltaPay,DeltaPay|refund|mix|105,mix,0,0,0,0,,fictional
+873,18,"Typos, cut-off and badly formatted messages",salary,Pharos Pay,Pharos Pay|salary|en|146,en,0,0,0,1,,fictional
+874,18,"Typos, cut-off and badly formatted messages",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,0,0,0,0,,fictional
+875,18,"Typos, cut-off and badly formatted messages",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,,fictional
+876,18,"Typos, cut-off and badly formatted messages",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,0,0,,fictional
+877,18,"Typos, cut-off and badly formatted messages",bill,Cairo Wallet,Cairo Wallet|bill|ar|40,ar,0,0,1,0,,fictional
+878,18,"Typos, cut-off and badly formatted messages",card,Giza Finance,Giza Finance|card|en|167,en,0,0,1,0,,fictional
+879,18,"Typos, cut-off and badly formatted messages",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,1,0,0,,fictional
+880,18,"Typos, cut-off and badly formatted messages",balance,Cairo Wallet,Cairo Wallet|balance|ar|47,ar,0,0,0,0,,fictional
+881,18,"Typos, cut-off and badly formatted messages",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,1,0,1,,fictional
+882,18,"Typos, cut-off and badly formatted messages",due,SphinxCard,SphinxCard|due|en|70,en,0,0,1,0,,fictional
+883,18,"Typos, cut-off and badly formatted messages",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,1,0,,fictional
+884,18,"Typos, cut-off and badly formatted messages",declined,NileBank,NileBank|declined|ar|21,ar,0,1,0,0,,fictional
+885,18,"Typos, cut-off and badly formatted messages",otp,Sinai Pay,Sinai Pay|otp|mix|196,mix,0,0,0,0,,fictional
+886,18,"Typos, cut-off and badly formatted messages",card,NileBank,NileBank|card|ar|0,ar,1,0,0,0,b18-d0,fictional
+887,18,"Typos, cut-off and badly formatted messages",card,NileBank,NileBank|card|ar|0,ar,1,0,0,0,b18-d0,fictional
+888,18,"Typos, cut-off and badly formatted messages",declined,Sinai Pay,Sinai Pay|declined|mix|205,mix,0,0,0,0,,fictional
+889,18,"Typos, cut-off and badly formatted messages",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,0,,fictional
+890,18,"Typos, cut-off and badly formatted messages",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,1,,fictional
+891,18,"Typos, cut-off and badly formatted messages",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,1,1,0,,fictional
+892,18,"Typos, cut-off and badly formatted messages",promo,NileBank,NileBank|promo|ar|17,ar,1,0,1,0,,fictional
+893,18,"Typos, cut-off and badly formatted messages",atm,NileBank,NileBank|atm|ar|4,ar,0,0,1,0,,fictional
+894,18,"Typos, cut-off and badly formatted messages",ip_in,NileBank,NileBank|ip_in|ar|8,ar,1,0,1,0,,fictional
+895,18,"Typos, cut-off and badly formatted messages",otp,NileBank,NileBank|otp|ar|14,ar,0,0,0,0,,fictional
+896,18,"Typos, cut-off and badly formatted messages",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,1,0,,fictional
+897,18,"Typos, cut-off and badly formatted messages",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+898,18,"Typos, cut-off and badly formatted messages",balance,Pharos Pay,Pharos Pay|balance|mix|154,mix,0,0,0,0,,fictional
+899,18,"Typos, cut-off and badly formatted messages",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,1,,fictional
+900,18,"Typos, cut-off and badly formatted messages",card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,1,,fictional
+901,19,"Large amounts, small amounts and round numbers",atm,NileBank,NileBank|atm|ar|4,ar,1,0,0,0,,fictional
+902,19,"Large amounts, small amounts and round numbers",ip_in,NileBank,NileBank|ip_in|ar|8,ar,1,0,0,0,,fictional
+903,19,"Large amounts, small amounts and round numbers",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|30,ar,0,0,0,1,,fictional
+904,19,"Large amounts, small amounts and round numbers",card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+905,19,"Large amounts, small amounts and round numbers",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,,fictional
+906,19,"Large amounts, small amounts and round numbers",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,0,0,,fictional
+907,19,"Large amounts, small amounts and round numbers",refund,NileBank,NileBank|refund|ar|13,ar,1,0,0,0,,fictional
+908,19,"Large amounts, small amounts and round numbers",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|28,ar,0,0,0,0,,fictional
+909,19,"Large amounts, small amounts and round numbers",salary,NileBank,NileBank|salary|ar|11,ar,0,0,1,0,,fictional
+910,19,"Large amounts, small amounts and round numbers",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+911,19,"Large amounts, small amounts and round numbers",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+912,19,"Large amounts, small amounts and round numbers",otp,Giza Finance,Giza Finance|otp|mix|172,mix,1,0,0,0,,fictional
+913,19,"Large amounts, small amounts and round numbers",otp,Pharos Pay,Pharos Pay|otp|mix|148,mix,0,0,0,0,,fictional
+914,19,"Large amounts, small amounts and round numbers",promo,Pharos Pay,Pharos Pay|promo|mix|151,mix,0,0,0,0,,fictional
+915,19,"Large amounts, small amounts and round numbers",bill,Pharos Pay,Pharos Pay|bill|ar|141,ar,0,0,0,0,,fictional
+916,19,"Large amounts, small amounts and round numbers",card,Pharos Pay,Pharos Pay|card|mix|136,mix,0,0,0,0,,fictional
+917,19,"Large amounts, small amounts and round numbers",salary,NileBank,NileBank|salary|ar|10,ar,0,0,0,0,,fictional
+918,19,"Large amounts, small amounts and round numbers",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,0,0,,fictional
+919,19,"Large amounts, small amounts and round numbers",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,0,0,,fictional
+920,19,"Large amounts, small amounts and round numbers",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,1,0,,fictional
+921,19,"Large amounts, small amounts and round numbers",balance,NileBank,NileBank|balance|ar|19,ar,1,0,0,0,,fictional
+922,19,"Large amounts, small amounts and round numbers",due,NileBank,NileBank|due|ar|27,ar,0,0,0,0,,fictional
+923,19,"Large amounts, small amounts and round numbers",atm,NileBank,NileBank|atm|ar|4,ar,0,0,0,0,,fictional
+924,19,"Large amounts, small amounts and round numbers",promo,SphinxCard,SphinxCard|promo|en|62,en,0,0,1,0,,fictional
+925,19,"Large amounts, small amounts and round numbers",card,Luxor Bank,Luxor Bank|card|en|72,en,0,0,0,0,,fictional
+926,19,"Large amounts, small amounts and round numbers",ip_out,DeltaPay,DeltaPay|ip_out|mix|101,mix,0,0,0,0,,fictional
+927,19,"Large amounts, small amounts and round numbers",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+928,19,"Large amounts, small amounts and round numbers",otp,Sinai Pay,Sinai Pay|otp|ar|198,ar,0,0,0,0,,fictional
+929,19,"Large amounts, small amounts and round numbers",promo,DeltaPay,DeltaPay|promo|mix|111,mix,1,0,0,0,,fictional
+930,19,"Large amounts, small amounts and round numbers",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|31,ar,1,0,0,0,,fictional
+931,19,"Large amounts, small amounts and round numbers",security,SphinxCard,SphinxCard|security|en|66,en,0,0,0,0,,fictional
+932,19,"Large amounts, small amounts and round numbers",ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,1,,fictional
+933,19,"Large amounts, small amounts and round numbers",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b19-d0,fictional
+934,19,"Large amounts, small amounts and round numbers",declined,Cairo Wallet,Cairo Wallet|declined|ar|48,ar,0,1,0,0,,fictional
+935,19,"Large amounts, small amounts and round numbers",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,b19-d0,fictional
+936,19,"Large amounts, small amounts and round numbers",card,Giza Finance,Giza Finance|card|ar|168,ar,0,0,0,0,,fictional
+937,19,"Large amounts, small amounts and round numbers",otp,Sinai Pay,Sinai Pay|otp|ar|198,ar,1,0,0,0,,fictional
+938,19,"Large amounts, small amounts and round numbers",salary,NileBank,NileBank|salary|ar|10,ar,1,0,0,0,,fictional
+939,19,"Large amounts, small amounts and round numbers",due,NileBank,NileBank|due|ar|27,ar,1,0,0,0,,fictional
+940,19,"Large amounts, small amounts and round numbers",wallet_out,Pharos Pay,Pharos Pay|wallet_out|en|125,en,0,0,0,0,,fictional
+941,19,"Large amounts, small amounts and round numbers",balance,Pharos Pay,Pharos Pay|balance|mix|154,mix,0,0,0,0,,fictional
+942,19,"Large amounts, small amounts and round numbers",ip_out,Luxor Bank,Luxor Bank|ip_out|en|76,en,0,0,1,0,,fictional
+943,19,"Large amounts, small amounts and round numbers",bill,Pharos Pay,Pharos Pay|bill|en|140,en,0,0,0,0,,fictional
+944,19,"Large amounts, small amounts and round numbers",card,SphinxCard,SphinxCard|card|en|54,en,0,0,0,0,,fictional
+945,19,"Large amounts, small amounts and round numbers",bill,Sinai Pay,Sinai Pay|bill|mix|192,mix,0,0,1,0,,fictional
+946,19,"Large amounts, small amounts and round numbers",ip_in,NileBank,NileBank|ip_in|ar|7,ar,0,0,0,0,,fictional
+947,19,"Large amounts, small amounts and round numbers",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,0,,fictional
+948,19,"Large amounts, small amounts and round numbers",declined,Cairo Wallet,Cairo Wallet|declined|ar|49,ar,0,1,0,0,,fictional
+949,19,"Large amounts, small amounts and round numbers",ip_out,DeltaPay,DeltaPay|ip_out|ar|100,ar,0,0,0,0,,fictional
+950,19,"Large amounts, small amounts and round numbers",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|32,ar,0,0,0,0,,fictional
+951,20,"A mix of everything, with extra near-duplicate pairs",ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,0,b20-d1,fictional
+952,20,"A mix of everything, with extra near-duplicate pairs",ip_out,DeltaPay,DeltaPay|ip_out|mix|98,mix,0,0,0,0,b20-d1,fictional
+953,20,"A mix of everything, with extra near-duplicate pairs",ip_in,Luxor Bank,Luxor Bank|ip_in|en|78,en,0,0,0,0,,fictional
+954,20,"A mix of everything, with extra near-duplicate pairs",salary,NileBank,NileBank|salary|ar|9,ar,1,0,0,0,,fictional
+955,20,"A mix of everything, with extra near-duplicate pairs",refund,NileBank,NileBank|refund|ar|13,ar,1,0,0,0,,fictional
+956,20,"A mix of everything, with extra near-duplicate pairs",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,0,0,,fictional
+957,20,"A mix of everything, with extra near-duplicate pairs",due,SphinxCard,SphinxCard|due|en|70,en,0,0,0,0,,fictional
+958,20,"A mix of everything, with extra near-duplicate pairs",atm,Luxor Bank,Luxor Bank|atm|en|74,en,0,0,0,0,,fictional
+959,20,"A mix of everything, with extra near-duplicate pairs",declined,Giza Finance,Giza Finance|declined|mix|183,mix,0,0,0,0,,fictional
+960,20,"A mix of everything, with extra near-duplicate pairs",bill,Sinai Pay,Sinai Pay|bill|mix|192,mix,1,0,0,0,b20-d0,fictional
+961,20,"A mix of everything, with extra near-duplicate pairs",bill,Sinai Pay,Sinai Pay|bill|mix|192,mix,1,0,0,0,b20-d0,fictional
+962,20,"A mix of everything, with extra near-duplicate pairs",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|30,ar,0,0,0,0,,fictional
+963,20,"A mix of everything, with extra near-duplicate pairs",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,b20-d4,fictional
+964,20,"A mix of everything, with extra near-duplicate pairs",ip_out,NileBank,NileBank|ip_out|ar|6,ar,0,0,0,0,b20-d4,fictional
+965,20,"A mix of everything, with extra near-duplicate pairs",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+966,20,"A mix of everything, with extra near-duplicate pairs",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,1,,fictional
+967,20,"A mix of everything, with extra near-duplicate pairs",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,b20-d2,fictional
+968,20,"A mix of everything, with extra near-duplicate pairs",otp,Sinai Pay,Sinai Pay|otp|mix|196,mix,0,0,1,0,,fictional
+969,20,"A mix of everything, with extra near-duplicate pairs",atm,Cairo Wallet,Cairo Wallet|atm|ar|37,ar,0,0,0,0,,fictional
+970,20,"A mix of everything, with extra near-duplicate pairs",ip_out,DeltaPay,DeltaPay|ip_out|en|99,en,0,0,0,0,b20-d2,fictional
+971,20,"A mix of everything, with extra near-duplicate pairs",salary,NileBank,NileBank|salary|ar|10,ar,0,0,0,0,,fictional
+972,20,"A mix of everything, with extra near-duplicate pairs",atm,NileBank,NileBank|atm|ar|3,ar,0,0,0,0,,fictional
+973,20,"A mix of everything, with extra near-duplicate pairs",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|29,ar,0,0,0,1,,fictional
+974,20,"A mix of everything, with extra near-duplicate pairs",balance,NileBank,NileBank|balance|ar|18,ar,0,0,0,0,,fictional
+975,20,"A mix of everything, with extra near-duplicate pairs",card,Giza Finance,Giza Finance|card|mix|166,mix,0,0,0,0,,fictional
+976,20,"A mix of everything, with extra near-duplicate pairs",ip_in,DeltaPay,DeltaPay|ip_in|en|103,en,0,0,1,0,,fictional
+977,20,"A mix of everything, with extra near-duplicate pairs",balance,NileBank,NileBank|balance|ar|18,ar,1,0,0,0,,fictional
+978,20,"A mix of everything, with extra near-duplicate pairs",card,Giza Finance,Giza Finance|card|en|167,en,0,1,0,0,,fictional
+979,20,"A mix of everything, with extra near-duplicate pairs",card,NileBank,NileBank|card|ar|2,ar,0,0,1,0,,fictional
+980,20,"A mix of everything, with extra near-duplicate pairs",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b20-d3,fictional
+981,20,"A mix of everything, with extra near-duplicate pairs",promo,Sinai Pay,Sinai Pay|promo|mix|199,mix,1,0,0,0,,fictional
+982,20,"A mix of everything, with extra near-duplicate pairs",card,NileBank,NileBank|card|ar|0,ar,0,0,0,0,b20-d3,fictional
+983,20,"A mix of everything, with extra near-duplicate pairs",security,Luxor Bank,Luxor Bank|security|en|93,en,0,0,0,0,,fictional
+984,20,"A mix of everything, with extra near-duplicate pairs",otp,Luxor Bank,Luxor Bank|otp|en|86,en,0,0,0,0,,fictional
+985,20,"A mix of everything, with extra near-duplicate pairs",declined,Pharos Pay,Pharos Pay|declined|mix|157,mix,0,0,0,0,,fictional
+986,20,"A mix of everything, with extra near-duplicate pairs",salary,Luxor Bank,Luxor Bank|salary|en|80,en,0,0,0,0,,fictional
+987,20,"A mix of everything, with extra near-duplicate pairs",wallet_out,Cairo Wallet,Cairo Wallet|wallet_out|ar|30,ar,0,0,0,0,,fictional
+988,20,"A mix of everything, with extra near-duplicate pairs",wallet_out,Pharos Pay,Pharos Pay|wallet_out|ar|126,ar,0,0,0,0,,fictional
+989,20,"A mix of everything, with extra near-duplicate pairs",otp,Pharos Pay,Pharos Pay|otp|ar|150,ar,0,0,0,0,,fictional
+990,20,"A mix of everything, with extra near-duplicate pairs",card,SphinxCard,SphinxCard|card|en|53,en,0,0,0,0,,fictional
+991,20,"A mix of everything, with extra near-duplicate pairs",due,Giza Finance,Giza Finance|due|ar|180,ar,0,0,0,0,,fictional
+992,20,"A mix of everything, with extra near-duplicate pairs",card,Pharos Pay,Pharos Pay|card|ar|138,ar,0,0,0,0,,fictional
+993,20,"A mix of everything, with extra near-duplicate pairs",otp,DeltaPay,DeltaPay|otp|mix|108,mix,0,0,0,0,,fictional
+994,20,"A mix of everything, with extra near-duplicate pairs",wallet_in,Pharos Pay,Pharos Pay|wallet_in|en|128,en,0,0,0,0,,fictional
+995,20,"A mix of everything, with extra near-duplicate pairs",wallet_in,Cairo Wallet,Cairo Wallet|wallet_in|ar|32,ar,0,0,0,0,,fictional
+996,20,"A mix of everything, with extra near-duplicate pairs",declined,Cairo Wallet,Cairo Wallet|declined|ar|48,ar,0,0,0,0,,fictional
+997,20,"A mix of everything, with extra near-duplicate pairs",promo,Luxor Bank,Luxor Bank|promo|en|87,en,0,0,0,0,,fictional
+998,20,"A mix of everything, with extra near-duplicate pairs",bill,Pharos Pay,Pharos Pay|bill|en|140,en,0,0,1,0,,fictional
+999,20,"A mix of everything, with extra near-duplicate pairs",promo,NileBank,NileBank|promo|ar|17,ar,0,0,1,0,,fictional
+1000,20,"A mix of everything, with extra near-duplicate pairs",ip_in,NileBank,NileBank|ip_in|ar|7,ar,0,0,0,0,,fictional
+1001,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+1002,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1003,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1004,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1005,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1006,,,nbe_ipn_returned,BanK-AlAhly,nbe_ipn_returned,,,,,,,verified
+1007,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1008,,,cib_none,CIB,cib_none,,,,,,,verified
+1009,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1010,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1011,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1012,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1013,,,wepay_send,WE Pay,wepay_send,,,,,,,approximate
+1014,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1015,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1016,,,bm_ipn_out_acct,Banque Misr,bm_ipn_out_acct,,,,,,,verified
+1017,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1018,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1019,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1020,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1021,,,fawry_bill,Fawry,fawry_bill,,,,,,,approximate
+1022,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1023,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1024,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1025,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1026,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1027,,,hsbc_ipn_reversed,HSBC,hsbc_ipn_reversed,,,,,,,verified
+1028,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1029,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1030,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1031,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1032,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+1033,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1034,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1035,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1036,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1037,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1038,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1039,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1040,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1041,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1042,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1043,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1044,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1045,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1046,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1047,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+1048,,,cib_none,CIB,cib_none,,,,,,,verified
+1049,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1050,,,valu_none,valU,valu_none,,,,,,,approximate
+1051,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1052,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1053,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1054,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1055,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1056,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1057,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1058,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1059,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1060,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1061,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1062,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1063,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1064,,,valu_none,valU,valu_none,,,,,,,approximate
+1065,,,cib_none,CIB,cib_none,,,,,,,verified
+1066,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+1067,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1068,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1069,,,cib_refund_applepay,CIB,cib_refund_applepay,,,,,,,verified
+1070,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1071,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1072,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1073,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1074,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1075,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1076,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1077,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1078,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1079,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1080,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1081,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1082,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1083,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1084,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1085,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1086,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1087,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1088,,,valu_purchase,valU,valu_purchase,,,,,,,approximate
+1089,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1090,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1091,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1092,,,cib_card,CIB,cib_card,,,,,,,verified
+1093,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1094,,,cib_none,CIB,cib_none,,,,,,,verified
+1095,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1096,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+1097,,,fawry_bill,Fawry,fawry_bill,,,,,,,approximate
+1098,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1099,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1100,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+1101,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1102,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1103,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1104,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+1105,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1106,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1107,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1108,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1109,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1110,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1111,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1112,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1113,,,fawry_bill,Fawry,fawry_bill,,,,,,,approximate
+1114,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1115,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1116,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1117,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1118,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1119,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1120,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1121,,,cib_refund_applepay,CIB,cib_refund_applepay,,,,,,,verified
+1122,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1123,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1124,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1125,,,cib_none,CIB,cib_none,,,,,,,verified
+1126,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+1127,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1128,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1129,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1130,,,cib_none,CIB,cib_none,,,,,,,verified
+1131,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1132,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1133,,,bm_cc_payment,Banque Misr,bm_cc_payment,,,,,,,verified
+1134,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+1135,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1136,,,nbe_ipn_returned,BanK-AlAhly,nbe_ipn_returned,,,,,,,verified
+1137,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1138,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1139,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1140,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1141,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1142,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1143,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1144,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1145,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1146,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1147,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1148,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1149,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1150,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1151,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1152,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1153,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1154,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1155,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+1156,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1157,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1158,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1159,,,cib_card,CIB,cib_card,,,,,,,verified
+1160,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1161,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1162,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1163,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1164,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1165,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1166,,,hsbc_ipn_purchase,HSBC,hsbc_ipn_purchase,,,,,,,verified
+1167,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1168,,,bm_debit_atm,Banque Misr,bm_debit_atm,,,,,,,verified
+1169,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1170,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1171,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1172,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1173,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1174,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1175,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1176,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1177,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1178,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+1179,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1180,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1181,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1182,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1183,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1184,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1185,,,cib_none,CIB,cib_none,,,,,,,verified
+1186,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1187,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1188,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1189,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1190,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1191,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1192,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1193,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1194,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1195,,,cib_none,CIB,cib_none,,,,,,,verified
+1196,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1197,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1198,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1199,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1200,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1201,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1202,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1203,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1204,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1205,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1206,,,bm_debit_atm,Banque Misr,bm_debit_atm,,,,,,,verified
+1207,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1208,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1209,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1210,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1211,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1212,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1213,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1214,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1215,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1216,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1217,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1218,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1219,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1220,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1221,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1222,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1223,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1224,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1225,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+1226,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1227,,,valu_none,valU,valu_none,,,,,,,approximate
+1228,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1229,,,cib_card,CIB,cib_card,,,,,,,verified
+1230,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1231,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1232,,,cib_none,CIB,cib_none,,,,,,,verified
+1233,,,wepay_send,WE Pay,wepay_send,,,,,,,approximate
+1234,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1235,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1236,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+1237,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1238,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1239,,,cib_none,CIB,cib_none,,,,,,,verified
+1240,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1241,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1242,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1243,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1244,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1245,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1246,,,cib_card,CIB,cib_card,,,,,,,verified
+1247,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1248,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1249,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1250,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1251,,,cib_none,CIB,cib_none,,,,,,,verified
+1252,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1253,,,hsbc_cashback,HSBC,hsbc_cashback,,,,,,,verified
+1254,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1255,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1256,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1257,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1258,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1259,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1260,,,hsbc_ipn_purchase,HSBC,hsbc_ipn_purchase,,,,,,,verified
+1261,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1262,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1263,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1264,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1265,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1266,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1267,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1268,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1269,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1270,,,cib_none,CIB,cib_none,,,,,,,verified
+1271,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+1272,,,bm_debit_atm,Banque Misr,bm_debit_atm,,,,,,,verified
+1273,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1274,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1275,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1276,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1277,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1278,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1279,,,fawry_bill,Fawry,fawry_bill,,,,,,,approximate
+1280,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1281,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1282,,,cib_reversal,CIB,cib_reversal,,,,,,,verified
+1283,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1284,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1285,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1286,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1287,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+1288,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1289,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1290,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1291,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1292,,,cib_none,CIB,cib_none,,,,,,,verified
+1293,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1294,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1295,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1296,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1297,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1298,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1299,,,cib_none,CIB,cib_none,,,,,,,verified
+1300,,,valu_none,valU,valu_none,,,,,,,approximate
+1301,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1302,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1303,,,cib_none,CIB,cib_none,,,,,,,verified
+1304,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1305,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1306,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+1307,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1308,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1309,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1310,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1311,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1312,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1313,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1314,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1315,,,bm_debit_atm,Banque Misr,bm_debit_atm,,,,,,,verified
+1316,,,cib_none,CIB,cib_none,,,,,,,verified
+1317,,,cib_refund_applepay,CIB,cib_refund_applepay,,,,,,,verified
+1318,,,bm_ipn_out_acct,Banque Misr,bm_ipn_out_acct,,,,,,,verified
+1319,,,bm_ipn_in_card,Banque Misr,bm_ipn_in_card,,,,,,,verified
+1320,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1321,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1322,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1323,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1324,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1325,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1326,,,hsbc_ipn_purchase,HSBC,hsbc_ipn_purchase,,,,,,,verified
+1327,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1328,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1329,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1330,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1331,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1332,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1333,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1334,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1335,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1336,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1337,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1338,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1339,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1340,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1341,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1342,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1343,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1344,,,cib_reversal,CIB,cib_reversal,,,,,,,verified
+1345,,,valu_none,valU,valu_none,,,,,,,approximate
+1346,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1347,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1348,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1349,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1350,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1351,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1352,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1353,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1354,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1355,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1356,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1357,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1358,,,cib_refund_applepay,CIB,cib_refund_applepay,,,,,,,verified
+1359,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1360,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1361,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1362,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1363,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1364,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1365,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1366,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1367,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1368,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1369,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1370,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1371,,,bm_ipn_in_acct,Banque Misr,bm_ipn_in_acct,,,,,,,verified
+1372,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1373,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1374,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1375,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1376,,,cib_none,CIB,cib_none,,,,,,,verified
+1377,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1378,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1379,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1380,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1381,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1382,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1383,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1384,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1385,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1386,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1387,,,cib_none,CIB,cib_none,,,,,,,verified
+1388,,,cib_none,CIB,cib_none,,,,,,,verified
+1389,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1390,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1391,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1392,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1393,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1394,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1395,,,nbe_branch_deposit,BanK-AlAhly,nbe_branch_deposit,,,,,,,verified
+1396,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1397,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1398,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1399,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1400,,,cib_none,CIB,cib_none,,,,,,,verified
+1401,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1402,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1403,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1404,,,cib_none,CIB,cib_none,,,,,,,verified
+1405,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1406,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1407,,,cib_none,CIB,cib_none,,,,,,,verified
+1408,,,cib_card,CIB,cib_card,,,,,,,verified
+1409,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+1410,,,cib_none,CIB,cib_none,,,,,,,verified
+1411,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1412,,,valu_none,valU,valu_none,,,,,,,approximate
+1413,,,hsbc_ipn_purchase,HSBC,hsbc_ipn_purchase,,,,,,,verified
+1414,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1415,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1416,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1417,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+1418,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1419,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1420,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1421,,,valu_purchase,valU,valu_purchase,,,,,,,approximate
+1422,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1423,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1424,,,valu_none,valU,valu_none,,,,,,,approximate
+1425,,,cib_none,CIB,cib_none,,,,,,,verified
+1426,,,bm_debit_atm,Banque Misr,bm_debit_atm,,,,,,,verified
+1427,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1428,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1429,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1430,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1431,,,hsbc_cashback,HSBC,hsbc_cashback,,,,,,,verified
+1432,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1433,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1434,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1435,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1436,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1437,,,valu_none,valU,valu_none,,,,,,,approximate
+1438,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1439,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1440,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1441,,,cib_reversal,CIB,cib_reversal,,,,,,,verified
+1442,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1443,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1444,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1445,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1446,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1447,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1448,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+1449,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1450,,,cib_none,CIB,cib_none,,,,,,,verified
+1451,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1452,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1453,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1454,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1455,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1456,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1457,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1458,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1459,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1460,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1461,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1462,,,cib_card,CIB,cib_card,,,,,,,verified
+1463,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1464,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1465,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1466,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1467,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1468,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1469,,,valu_none,valU,valu_none,,,,,,,approximate
+1470,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1471,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1472,,,cib_none,CIB,cib_none,,,,,,,verified
+1473,,,nbe_ipn_returned,BanK-AlAhly,nbe_ipn_returned,,,,,,,verified
+1474,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1475,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1476,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1477,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1478,,,cib_none,CIB,cib_none,,,,,,,verified
+1479,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1480,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1481,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+1482,,,bm_ipn_in_card,Banque Misr,bm_ipn_in_card,,,,,,,verified
+1483,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1484,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1485,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1486,,,cib_card,CIB,cib_card,,,,,,,verified
+1487,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1488,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1489,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1490,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1491,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1492,,,cib_reversal,CIB,cib_reversal,,,,,,,verified
+1493,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1494,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1495,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1496,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1497,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1498,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1499,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1500,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1501,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1502,,,cib_card,CIB,cib_card,,,,,,,verified
+1503,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1504,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1505,,,cib_none,CIB,cib_none,,,,,,,verified
+1506,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1507,,,cib_none,CIB,cib_none,,,,,,,verified
+1508,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1509,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1510,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1511,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1512,,,cib_none,CIB,cib_none,,,,,,,verified
+1513,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1514,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1515,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1516,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1517,,,cib_none,CIB,cib_none,,,,,,,verified
+1518,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1519,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1520,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1521,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1522,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1523,,,valu_purchase,valU,valu_purchase,,,,,,,approximate
+1524,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1525,,,hsbc_cashback,HSBC,hsbc_cashback,,,,,,,verified
+1526,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1527,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1528,,,cib_card,CIB,cib_card,,,,,,,verified
+1529,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1530,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1531,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1532,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1533,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1534,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1535,,,bm_cc_payment,Banque Misr,bm_cc_payment,,,,,,,verified
+1536,,,cib_none,CIB,cib_none,,,,,,,verified
+1537,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1538,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1539,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1540,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1541,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+1542,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1543,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1544,,,nbe_branch_deposit,BanK-AlAhly,nbe_branch_deposit,,,,,,,verified
+1545,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1546,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1547,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1548,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1549,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1550,,,cib_none,CIB,cib_none,,,,,,,verified
+1551,,,cib_reversal,CIB,cib_reversal,,,,,,,verified
+1552,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1553,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1554,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1555,,,fawry_bill,Fawry,fawry_bill,,,,,,,approximate
+1556,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1557,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1558,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1559,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1560,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1561,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1562,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1563,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1564,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1565,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1566,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1567,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1568,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1569,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1570,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1571,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1572,,,cib_none,CIB,cib_none,,,,,,,verified
+1573,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1574,,,cib_none,CIB,cib_none,,,,,,,verified
+1575,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1576,,,cib_card,CIB,cib_card,,,,,,,verified
+1577,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1578,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1579,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1580,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1581,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1582,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1583,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1584,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1585,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1586,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1587,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1588,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1589,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1590,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1591,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1592,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1593,,,nbe_branch_deposit,BanK-AlAhly,nbe_branch_deposit,,,,,,,verified
+1594,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1595,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1596,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1597,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1598,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1599,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1600,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1601,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1602,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1603,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1604,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1605,,,cib_none,CIB,cib_none,,,,,,,verified
+1606,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1607,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1608,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1609,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1610,,,valu_none,valU,valu_none,,,,,,,approximate
+1611,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1612,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1613,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1614,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1615,,,hsbc_ipn_reversed,HSBC,hsbc_ipn_reversed,,,,,,,verified
+1616,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1617,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1618,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1619,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1620,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1621,,,bm_ipn_out_acct,Banque Misr,bm_ipn_out_acct,,,,,,,verified
+1622,,,bm_ipn_in_card,Banque Misr,bm_ipn_in_card,,,,,,,verified
+1623,,,cib_card,CIB,cib_card,,,,,,,verified
+1624,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1625,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1626,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1627,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1628,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1629,,,hsbc_ipn_purchase,HSBC,hsbc_ipn_purchase,,,,,,,verified
+1630,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1631,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1632,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1633,,,cib_card,CIB,cib_card,,,,,,,verified
+1634,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1635,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1636,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1637,,,bm_deposit,Banque Misr,bm_deposit,,,,,,,verified
+1638,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1639,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1640,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1641,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1642,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1643,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1644,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1645,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1646,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1647,,,bm_deposit,Banque Misr,bm_deposit,,,,,,,verified
+1648,,,cib_none,CIB,cib_none,,,,,,,verified
+1649,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1650,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1651,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1652,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+1653,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1654,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1655,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1656,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1657,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1658,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1659,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1660,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1661,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1662,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1663,,,cib_none,CIB,cib_none,,,,,,,verified
+1664,,,bm_debit_atm_deposit,Banque Misr,bm_debit_atm_deposit,,,,,,,verified
+1665,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1666,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1667,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1668,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1669,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1670,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1671,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1672,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1673,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+1674,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+1675,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1676,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1677,,,cib_card,CIB,cib_card,,,,,,,verified
+1678,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1679,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1680,,,bm_refund,Banque Misr,bm_refund,,,,,,,verified
+1681,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1682,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1683,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1684,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1685,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1686,,,cib_none,CIB,cib_none,,,,,,,verified
+1687,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1688,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+1689,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1690,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1691,,,nbe_branch_deposit,BanK-AlAhly,nbe_branch_deposit,,,,,,,verified
+1692,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1693,,,valu_none,valU,valu_none,,,,,,,approximate
+1694,,,valu_none,valU,valu_none,,,,,,,approximate
+1695,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1696,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1697,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1698,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1699,,,cib_card,CIB,cib_card,,,,,,,verified
+1700,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1701,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1702,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1703,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1704,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+1705,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1706,,,cib_card,CIB,cib_card,,,,,,,verified
+1707,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1708,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1709,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1710,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1711,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1712,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1713,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1714,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1715,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1716,,,cib_card,CIB,cib_card,,,,,,,verified
+1717,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1718,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1719,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1720,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1721,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1722,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1723,,,nbe_branch_deposit,BanK-AlAhly,nbe_branch_deposit,,,,,,,verified
+1724,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1725,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1726,,,cib_card,CIB,cib_card,,,,,,,verified
+1727,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1728,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1729,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1730,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1731,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1732,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1733,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1734,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1735,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1736,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1737,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1738,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1739,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1740,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1741,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1742,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1743,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1744,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+1745,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1746,,,cib_card,CIB,cib_card,,,,,,,verified
+1747,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1748,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1749,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1750,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1751,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1752,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1753,,,valu_none,valU,valu_none,,,,,,,approximate
+1754,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1755,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1756,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1757,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1758,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1759,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+1760,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1761,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1762,,,hsbc_ipn_reversed,HSBC,hsbc_ipn_reversed,,,,,,,verified
+1763,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1764,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1765,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1766,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1767,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1768,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1769,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1770,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1771,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1772,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1773,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+1774,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1775,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1776,,,cib_card,CIB,cib_card,,,,,,,verified
+1777,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1778,,,bm_debit_atm_deposit,Banque Misr,bm_debit_atm_deposit,,,,,,,verified
+1779,,,hsbc_cashback,HSBC,hsbc_cashback,,,,,,,verified
+1780,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1781,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1782,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1783,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1784,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1785,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1786,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1787,,,cib_card,CIB,cib_card,,,,,,,verified
+1788,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1789,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1790,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1791,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1792,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1793,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1794,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+1795,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1796,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1797,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1798,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+1799,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1800,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1801,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1802,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1803,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1804,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1805,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1806,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1807,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1808,,,wepay_send,WE Pay,wepay_send,,,,,,,approximate
+1809,,,bm_ipn_in_card,Banque Misr,bm_ipn_in_card,,,,,,,verified
+1810,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1811,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+1812,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1813,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1814,,,bm_cc_payment,Banque Misr,bm_cc_payment,,,,,,,verified
+1815,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1816,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1817,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1818,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1819,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1820,,,cib_none,CIB,cib_none,,,,,,,verified
+1821,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1822,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1823,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1824,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1825,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1826,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1827,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1828,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1829,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1830,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1831,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1832,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1833,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1834,,,cib_none,CIB,cib_none,,,,,,,verified
+1835,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1836,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1837,,,cib_cc_refund_en,CIB,cib_cc_refund_en,,,,,,,verified
+1838,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1839,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1840,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1841,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1842,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1843,,,cib_none,CIB,cib_none,,,,,,,verified
+1844,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1845,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1846,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1847,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1848,,,cib_card,CIB,cib_card,,,,,,,verified
+1849,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1850,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1851,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1852,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+1853,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1854,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+1855,,,cib_reversal,CIB,cib_reversal,,,,,,,verified
+1856,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1857,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1858,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1859,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1860,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1861,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1862,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1863,,,cib_refund_order,CIB,cib_refund_order,,,,,,,verified
+1864,,,bm_deposit,Banque Misr,bm_deposit,,,,,,,verified
+1865,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1866,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+1867,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1868,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1869,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1870,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1871,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1872,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1873,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1874,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1875,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1876,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1877,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1878,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+1879,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1880,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1881,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1882,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1883,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+1884,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1885,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1886,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1887,,,hsbc_ipn_reversed,HSBC,hsbc_ipn_reversed,,,,,,,verified
+1888,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1889,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1890,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+1891,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1892,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1893,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1894,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1895,,,nbe_ipn_returned,BanK-AlAhly,nbe_ipn_returned,,,,,,,verified
+1896,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1897,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1898,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1899,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1900,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1901,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1902,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+1903,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1904,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1905,,,cib_none,CIB,cib_none,,,,,,,verified
+1906,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+1907,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+1908,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1909,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+1910,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+1911,,,cib_card,CIB,cib_card,,,,,,,verified
+1912,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1913,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+1914,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+1915,,,nbe_ipn_returned,BanK-AlAhly,nbe_ipn_returned,,,,,,,verified
+1916,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1917,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1918,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1919,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+1920,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1921,,,bm_ipn_in_card,Banque Misr,bm_ipn_in_card,,,,,,,verified
+1922,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1923,,,cib_card,CIB,cib_card,,,,,,,verified
+1924,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+1925,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+1926,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+1927,,,valu_none,valU,valu_none,,,,,,,approximate
+1928,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1929,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1930,,,bm_ipn_in_acct,Banque Misr,bm_ipn_in_acct,,,,,,,verified
+1931,,,cib_none,CIB,cib_none,,,,,,,verified
+1932,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1933,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1934,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1935,,,bm_ipn_out_acct,Banque Misr,bm_ipn_out_acct,,,,,,,verified
+1936,,,cib_none,CIB,cib_none,,,,,,,verified
+1937,,,bm_cc_glued,Banque Misr,bm_cc_glued,,,,,,,verified
+1938,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1939,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1940,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1941,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1942,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1943,,,cib_none,CIB,cib_none,,,,,,,verified
+1944,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+1945,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1946,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1947,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1948,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1949,,,bm_ipn_out,Banque Misr,bm_ipn_out,,,,,,,verified
+1950,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1951,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1952,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1953,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+1954,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1955,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1956,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1957,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1958,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+1959,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+1960,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+1961,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+1962,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1963,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+1964,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1965,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+1966,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+1967,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1968,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+1969,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1970,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+1971,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+1972,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1973,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+1974,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1975,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1976,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1977,,,fawry_bill,Fawry,fawry_bill,,,,,,,approximate
+1978,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1979,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1980,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+1981,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+1982,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1983,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+1984,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1985,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+1986,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1987,,,cib_atm,CIB,cib_atm,,,,,,,verified
+1988,,,bm_cc_payment,Banque Misr,bm_cc_payment,,,,,,,verified
+1989,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1990,,,cib_none,CIB,cib_none,,,,,,,verified
+1991,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+1992,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+1993,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+1994,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+1995,,,eand_send,e& cash,eand_send,,,,,,,approximate
+1996,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+1997,,,bm_cc_payment,Banque Misr,bm_cc_payment,,,,,,,verified
+1998,,,cib_none,CIB,cib_none,,,,,,,verified
+1999,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2000,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+2001,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2002,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2003,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+2004,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2005,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2006,,,bm_debit_atm,Banque Misr,bm_debit_atm,,,,,,,verified
+2007,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+2008,,,cib_none,CIB,cib_none,,,,,,,verified
+2009,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+2010,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2011,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+2012,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+2013,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+2014,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+2015,,,bm_deposit,Banque Misr,bm_deposit,,,,,,,verified
+2016,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+2017,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+2018,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+2019,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+2020,,,cib_none,CIB,cib_none,,,,,,,verified
+2021,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+2022,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2023,,,hsbc_ipn_reversed,HSBC,hsbc_ipn_reversed,,,,,,,verified
+2024,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2025,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2026,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+2027,,,cib_none,CIB,cib_none,,,,,,,verified
+2028,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+2029,,,hsbc_ipn_reversed,HSBC,hsbc_ipn_reversed,,,,,,,verified
+2030,,,bm_cc_payment,Banque Misr,bm_cc_payment,,,,,,,verified
+2031,,,nbe_ipn_returned,BanK-AlAhly,nbe_ipn_returned,,,,,,,verified
+2032,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2033,,,cib_atm,CIB,cib_atm,,,,,,,verified
+2034,,,bm_deposit,Banque Misr,bm_deposit,,,,,,,verified
+2035,,,bm_refund,Banque Misr,bm_refund,,,,,,,verified
+2036,,,valu_none,valU,valu_none,,,,,,,approximate
+2037,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2038,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+2039,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+2040,,,cib_none,CIB,cib_none,,,,,,,verified
+2041,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+2042,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2043,,,nbe_dormancy,BanK-AlAhly,nbe_dormancy,,,,,,,verified
+2044,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2045,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+2046,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+2047,,,valu_purchase,valU,valu_purchase,,,,,,,approximate
+2048,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2049,,,cib_deposit,CIB,cib_deposit,,,,,,,verified
+2050,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2051,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+2052,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+2053,,,cib_none,CIB,cib_none,,,,,,,verified
+2054,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+2055,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+2056,,,cib_none,CIB,cib_none,,,,,,,verified
+2057,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+2058,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+2059,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+2060,,,nbe_atm,BanK-AlAhly,nbe_atm,,,,,,,verified
+2061,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+2062,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2063,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2064,,,valu_none,valU,valu_none,,,,,,,approximate
+2065,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+2066,,,cib_none,CIB,cib_none,,,,,,,verified
+2067,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2068,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+2069,,,nbe_bank_in,BanK-AlAhly,nbe_bank_in,,,,,,,verified
+2070,,,cib_card,CIB,cib_card,,,,,,,verified
+2071,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2072,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+2073,,,cib_applepay,CIB,cib_applepay,,,,,,,verified
+2074,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+2075,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2076,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2077,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+2078,,,oc_send,Orange Cash,oc_send,,,,,,,approximate
+2079,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+2080,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2081,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+2082,,,valu_none,valU,valu_none,,,,,,,approximate
+2083,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2084,,,nbe_ipn_in_card,BanK-AlAhly,nbe_ipn_in_card,,,,,,,verified
+2085,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+2086,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+2087,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+2088,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+2089,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2090,,,valu_none,valU,valu_none,,,,,,,approximate
+2091,,,wepay_recv,WE Pay,wepay_recv,,,,,,,approximate
+2092,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2093,,,cib_card,CIB,cib_card,,,,,,,verified
+2094,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2095,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+2096,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+2097,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+2098,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+2099,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+2100,,,cib_none,CIB,cib_none,,,,,,,verified
+2101,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2102,,,cib_card,CIB,cib_card,,,,,,,verified
+2103,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+2104,,,vf_wrong_pin,VF-Cash,vf_wrong_pin,,,,,,,verified
+2105,,,instapay_none,InstaPay,instapay_none,,,,,,,approximate
+2106,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2107,,,vf_recv_intl,VF-Cash,vf_recv_intl,,,,,,,verified
+2108,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+2109,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2110,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+2111,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+2112,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+2113,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+2114,,,nbe_credit_card,BanK-AlAhly,nbe_credit_card,,,,,,,verified
+2115,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2116,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2117,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+2118,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2119,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2120,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2121,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+2122,,,valu_none,valU,valu_none,,,,,,,approximate
+2123,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+2124,,,cib_none,CIB,cib_none,,,,,,,verified
+2125,,,wepay_send,WE Pay,wepay_send,,,,,,,approximate
+2126,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2127,,,bm_deposit,Banque Misr,bm_deposit,,,,,,,verified
+2128,,,bm_ipn_in_card,Banque Misr,bm_ipn_in_card,,,,,,,verified
+2129,,,bm_debit_atm_deposit,Banque Misr,bm_debit_atm_deposit,,,,,,,verified
+2130,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2131,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+2132,,,cib_card,CIB,cib_card,,,,,,,verified
+2133,,,bm_cc_spaced,Banque Misr,bm_cc_spaced,,,,,,,verified
+2134,,,hsbc_cashback,HSBC,hsbc_cashback,,,,,,,verified
+2135,,,oc_bill,Orange Cash,oc_bill,,,,,,,approximate
+2136,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2137,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+2138,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2139,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+2140,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+2141,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+2142,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+2143,,,nbe_ipn_in_prepaid,BanK-AlAhly,nbe_ipn_in_prepaid,,,,,,,verified
+2144,,,eand_send,e& cash,eand_send,,,,,,,approximate
+2145,,,bm_none,Banque Misr,bm_none,,,,,,,verified
+2146,,,cib_none,CIB,cib_none,,,,,,,verified
+2147,,,cib_none,CIB,cib_none,,,,,,,verified
+2148,,,bm_ipn_in_acct,Banque Misr,bm_ipn_in_acct,,,,,,,verified
+2149,,,eand_recv,e& cash,eand_recv,,,,,,,approximate
+2150,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+2151,,,hsbc_ipn_in,HSBC,hsbc_ipn_in,,,,,,,verified
+2152,,,cib_atm,CIB,cib_atm,,,,,,,verified
+2153,,,cib_cc_refund_en,CIB,cib_cc_refund_en,,,,,,,verified
+2154,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2155,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+2156,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2157,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+2158,,,bm_ipn_in_acct,Banque Misr,bm_ipn_in_acct,,,,,,,verified
+2159,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2160,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2161,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2162,,,cib_refund_applepay,CIB,cib_refund_applepay,,,,,,,verified
+2163,,,nbe_instant_pay,BanK-AlAhly,nbe_instant_pay,,,,,,,verified
+2164,,,cib_ipn_out,CIB,cib_ipn_out,,,,,,,verified
+2165,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2166,,,hsbc_ipn_out,HSBC,hsbc_ipn_out,,,,,,,verified
+2167,,,vf_insufficient,VF-Cash,vf_insufficient,,,,,,,verified
+2168,,,vf_withdraw,VF-Cash,vf_withdraw,,,,,,,verified
+2169,,,oc_none,Orange Cash,oc_none,,,,,,,approximate
+2170,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+2171,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+2172,,,hsbc_cashback,HSBC,hsbc_cashback,,,,,,,verified
+2173,,,cib_reversal,CIB,cib_reversal,,,,,,,verified
+2174,,,cib_cc_refund_en,CIB,cib_cc_refund_en,,,,,,,verified
+2175,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+2176,,,cib_cc_en,CIB,cib_cc_en,,,,,,,verified
+2177,,,vf_withdraw_request,VF-Cash,vf_withdraw_request,,,,,,,verified
+2178,,,cib_ipn_in,CIB,cib_ipn_in,,,,,,,verified
+2179,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+2180,,,hsbc_cc,HSBC,hsbc_cc,,,,,,,verified
+2181,,,hsbc_line,HSBC,hsbc_line,,,,,,,verified
+2182,,,eand_send,e& cash,eand_send,,,,,,,approximate
+2183,,,vf_balance,VF-Cash,vf_balance,,,,,,,verified
+2184,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+2185,,,nbe_ipn_in,BanK-AlAhly,nbe_ipn_in,,,,,,,verified
+2186,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2187,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2188,,,oc_recv,Orange Cash,oc_recv,,,,,,,approximate
+2189,,,vf_send,VF-Cash,vf_send,,,,,,,verified
+2190,,,oc_recharge,Orange Cash,oc_recharge,,,,,,,verified
+2191,,,fawry_bill,Fawry,fawry_bill,,,,,,,approximate
+2192,,,nbe_ipn_out,BanK-AlAhly,nbe_ipn_out,,,,,,,verified
+2193,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+2194,,,eand_send,e& cash,eand_send,,,,,,,approximate
+2195,,,cib_none,CIB,cib_none,,,,,,,verified
+2196,,,hsbc_none,HSBC,hsbc_none,,,,,,,verified
+2197,,,vf_promo,VF-Cash,vf_promo,,,,,,,verified
+2198,,,vf_recv,VF-Cash,vf_recv,,,,,,,verified
+2199,,,nbe_debit_card,BanK-AlAhly,nbe_debit_card,,,,,,,verified
+2200,,,cib_none,CIB,cib_none,,,,,,,verified
