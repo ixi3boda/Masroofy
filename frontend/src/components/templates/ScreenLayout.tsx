@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
+import React, { ReactNode, useLayoutEffect, useRef } from 'react';
+import { KeyboardAvoidingView, Platform, ScrollView, ScrollViewInstance, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing } from '@theme/index';
 import ScreenHeader, { ScreenHeaderProps } from '@components/organisms/ScreenHeader';
@@ -11,6 +11,10 @@ export interface ScreenLayoutProps {
   headerLeft?: ScreenHeaderProps['left'];
   headerRight?: ScreenHeaderProps['right'];
   titleAlign?: ScreenHeaderProps['titleAlign'];
+  /** Pinned under the header and never scrolled away, e.g. the tabs of a tabbed screen. */
+  toolbar?: ReactNode;
+  /** The body scrolls back to the top whenever this changes, e.g. the selected tab. */
+  scrollKey?: string;
   /** Screen content, stacked in a vertical scrollable column. */
   children: ReactNode;
   /** Sticky action buttons pinned above the bottom edge (stack screens). */
@@ -21,49 +25,70 @@ export interface ScreenLayoutProps {
   gap?: number;
 }
 
-/** The one page shell: header → keyboard-aware scroll body → optional footer and/or tab bar. */
+/** The one page shell: header → optional pinned toolbar → keyboard-aware scroll body → optional footer and/or tab bar. */
 const ScreenLayout: React.FC<ScreenLayoutProps> = ({
   title,
   onBack,
   headerLeft,
   headerRight,
   titleAlign,
+  toolbar,
+  scrollKey,
   children,
   footer,
   bottomBar,
   gap = spacing.xl,
-}) => (
-  <SafeAreaView
-    style={[styles.safeArea, !title && styles.safeAreaPlain]}
-    edges={bottomBar ? ['top'] : ['top', 'bottom']}
-  >
-    {title ? (
-      <ScreenHeader title={title} onBack={onBack} left={headerLeft} right={headerRight} titleAlign={titleAlign} />
-    ) : null}
-    <KeyboardAvoidingView style={styles.body} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <ScrollView
-        contentContainerStyle={[styles.content, { gap }]}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-      >
-        {children}
-      </ScrollView>
-      {footer ? <View style={styles.footer}>{footer}</View> : null}
-    </KeyboardAvoidingView>
-    {bottomBar}
-  </SafeAreaView>
-);
+}) => {
+  const scrollRef = useRef<ScrollViewInstance>(null);
+
+  // Before paint, so the new tab never shows a frame at the old scroll offset.
+  useLayoutEffect(() => {
+    scrollRef.current?.scrollTo({ y: 0, animated: false });
+  }, [scrollKey]);
+
+  return (
+    <SafeAreaView
+      style={[styles.safeArea, !title && styles.safeAreaPlain]}
+      edges={bottomBar ? ['top'] : ['top', 'bottom']}
+    >
+      {title ? (
+        <ScreenHeader title={title} onBack={onBack} left={headerLeft} right={headerRight} titleAlign={titleAlign} />
+      ) : null}
+      {toolbar ? <View style={styles.toolbar}>{toolbar}</View> : null}
+      <KeyboardAvoidingView style={styles.body} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        <ScrollView
+          ref={scrollRef}
+          contentContainerStyle={[styles.content, toolbar ? styles.contentUnderToolbar : null, { gap }]}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          {children}
+        </ScrollView>
+        {footer ? <View style={styles.footer}>{footer}</View> : null}
+      </KeyboardAvoidingView>
+      {bottomBar}
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: colors.surface },
   // Without a white header, the status-bar area blends into the page background.
   safeAreaPlain: { backgroundColor: colors.background },
+  toolbar: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.sm,
+    backgroundColor: colors.background,
+  },
   body: { flex: 1, backgroundColor: colors.background },
   content: {
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.xxl,
     paddingBottom: spacing.xxxl,
   },
+  // The toolbar already spaces the content from the header.
+  contentUnderToolbar: { paddingTop: spacing.md },
   footer: {
     gap: spacing.sm,
     paddingHorizontal: spacing.lg,

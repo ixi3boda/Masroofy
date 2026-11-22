@@ -5,7 +5,7 @@ import AppText from '@components/atoms/Text';
 
 export interface SectionHeaderProps {
   title: string;
-  /** Trailing link label, e.g. "View All". Rendered only with `onAction`. */
+  /** Trailing link label, e.g. "View All". Unclickable without `onAction`. */
   actionLabel?: string;
   onAction?: () => void;
   /** Passive count/summary on the right, e.g. "2 unread" or "6 budgets". */
@@ -17,8 +17,8 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title, actionLabel, onAct
     <AppText variant="subheading16" accessibilityRole="header">
       {title}
     </AppText>
-    {actionLabel && onAction ? (
-      <Pressable onPress={onAction} hitSlop={12} accessibilityRole="link">
+    {actionLabel ? (
+      <Pressable onPress={onAction} disabled={!onAction} hitSlop={12} accessibilityRole="link">
         {({ pressed }) => (
           <AppText variant="body14" color={colors.primary} style={pressed && styles.pressed}>
             {actionLabel}

@@ -16,4 +16,26 @@ export const ROUTES = {
   app: {
     home: '/(app)/home',
   },
+  transactions: {
+    list: '/(app)/transactions/list',
+    filters: '/(app)/transactions/filters',
+    filtered: '/(app)/transactions/filtered',
+    search: '/(app)/transactions/search',
+    details: '/(app)/transactions/details',
+    add: '/(app)/transactions/add',
+    category: '/(app)/transactions/category',
+    saved: '/(app)/transactions/saved',
+    edit: '/(app)/transactions/edit',
+  },
+  sms: {
+    messages: '/(app)/sms/messages',
+    import: '/(app)/sms/import',
+    importFailed: '/(app)/sms/import-failed',
+    processing: '/(app)/sms/processing',
+    reviewMatch: '/(app)/sms/review-match',
+    reviewUnmatched: '/(app)/sms/review-unmatched',
+    classifyWithdrawal: '/(app)/sms/classify-withdrawal',
+    matchConfirmed: '/(app)/sms/match-confirmed',
+    reviewedPreview: '/(app)/sms/reviewed-preview',
+  },
 } as const;

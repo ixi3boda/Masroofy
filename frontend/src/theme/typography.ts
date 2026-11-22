@@ -7,6 +7,7 @@ import { TextStyle } from 'react-native';
  * (@expo-google-fonts/inter).
  */
 export const typography = {
+  display34: { fontFamily: 'Inter_600SemiBold', fontWeight: '600', fontSize: 34, lineHeight: 41 },
   h1: { fontFamily: 'Inter_600SemiBold', fontWeight: '600', fontSize: 28, lineHeight: 34 },
   h2: { fontFamily: 'Inter_600SemiBold', fontWeight: '600', fontSize: 26, lineHeight: 31 },
 

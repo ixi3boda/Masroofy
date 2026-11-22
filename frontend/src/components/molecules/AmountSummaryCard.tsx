@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
-import { colors } from '@theme/index';
+import { colors, TypographyVariant } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Card from '@components/atoms/Card';
 import Chip, { ChipProps } from '@components/atoms/Chip';
@@ -12,6 +12,7 @@ export interface AmountSummaryCardProps {
   overline?: string;
   /** Pre-formatted headline figure, e.g. "EGP 5,600/g" or "12,450". */
   amount: string;
+  amountVariant?: TypographyVariant;
   status?: Pick<ChipProps, 'label' | 'tone' | 'icon'>;
   caption?: string;
   /** Extra rows under the figure: progress, detail rows, actions… */
@@ -27,6 +28,7 @@ const AmountSummaryCard: React.FC<AmountSummaryCardProps> = ({
   header,
   overline,
   amount,
+  amountVariant = 'h1',
   status,
   caption,
   children,
@@ -39,7 +41,7 @@ const AmountSummaryCard: React.FC<AmountSummaryCardProps> = ({
         {overline}
       </AppText>
     ) : null}
-    <AppText variant="h1" accessibilityRole="header">
+    <AppText variant={amountVariant} accessibilityRole="header">
       {amount}
     </AppText>
     {status ? <Chip {...status} /> : null}

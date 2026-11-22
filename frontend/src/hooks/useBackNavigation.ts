@@ -1,6 +1,6 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { BackHandler } from 'react-native';
-import { Href, router } from 'expo-router';
+import { Href, router, useFocusEffect } from 'expo-router';
 
 /**
  * Back action that never dead-ends: pops the stack when there is history,
@@ -17,14 +17,17 @@ export const useGoBack = (fallback: Href) =>
 
 /**
  * Routes the Android hardware back button to `onBack` so it matches the
- * on-screen back arrow. No-op on iOS and web.
+ * on-screen back arrow. Active only while the screen is focused, so a screen
+ * pushed on top keeps the normal back behaviour. No-op on iOS and web.
  */
 export const useHardwareBack = (onBack: () => void) => {
-  useEffect(() => {
-    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
-      onBack();
-      return true;
-    });
-    return () => subscription.remove();
-  }, [onBack]);
+  useFocusEffect(
+    useCallback(() => {
+      const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+        onBack();
+        return true;
+      });
+      return () => subscription.remove();
+    }, [onBack]),
+  );
 };

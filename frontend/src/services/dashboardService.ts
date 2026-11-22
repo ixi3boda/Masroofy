@@ -1,10 +1,8 @@
-import { mockDashboardSummary } from '@/mocks/data/dashboard';
-import { DashboardSummary } from '@/types/dashboard';
+import { mockDashboardService } from '@/mocks/services/mockDashboardService';
+import { DashboardService } from './types';
 
 /**
- * Home dashboard data source. Returns the mock summary for now; replace the
- * body when the backend is ready — the dashboard screen only calls this.
+ * Home dashboard data source. The mock follows the mock transactions; swap in
+ * an `api` implementation here when the backend is ready — screens only call this.
  */
-export const dashboardService = {
-  getSummary: (): DashboardSummary => mockDashboardSummary,
-};
+export const dashboardService: DashboardService = mockDashboardService;

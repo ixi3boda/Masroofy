@@ -3,6 +3,8 @@ import { categoryStrings } from './categories';
 import { commonStrings } from './common';
 import { dashboardStrings } from './dashboard';
 import { errorStrings } from './errors';
+import { smsStrings } from './sms';
+import { transactionStrings } from './transactions';
 import { validationStrings } from './validation';
 
 /**
@@ -16,5 +18,7 @@ export const strings = {
   categories: categoryStrings,
   auth: authStrings,
   dashboard: dashboardStrings,
+  sms: smsStrings,
+  transactions: transactionStrings,
   errors: errorStrings,
 };

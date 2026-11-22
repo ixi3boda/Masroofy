@@ -1,6 +1,6 @@
 import React, { memo, ReactNode } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { colors } from '@theme/index';
+import { colors, TypographyVariant } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Chip, { ChipProps } from '@components/atoms/Chip';
 import Icon from '@components/atoms/Icon';
@@ -9,6 +9,8 @@ export type ListRowMetaTone = 'neutral' | 'success' | 'error';
 
 export interface ListRowProps {
   title: string;
+  /** Larger for a row that heads a card, e.g. the merchant on Transaction Details. */
+  titleVariant?: TypographyVariant;
   subtitle?: string;
   /** Icon tile, avatar, plain icon… */
   leading?: ReactNode;
@@ -36,6 +38,7 @@ const META_COLOR: Record<ListRowMetaTone, string> = {
  */
 const ListRow: React.FC<ListRowProps> = ({
   title,
+  titleVariant = 'subheading14',
   subtitle,
   leading,
   trailing,
@@ -52,7 +55,7 @@ const ListRow: React.FC<ListRowProps> = ({
     <>
       {leading}
       <View style={styles.copy}>
-        <AppText variant="subheading14" numberOfLines={2}>
+        <AppText variant={titleVariant} numberOfLines={2}>
           {title}
         </AppText>
         {subtitle ? (

@@ -1,14 +1,4 @@
-export type TransactionCategory = 'groceries' | 'transport' | 'bills';
-
-export interface Transaction {
-  id: string;
-  merchant: string;
-  category: TransactionCategory;
-  /** ISO calendar date, `YYYY-MM-DD`. */
-  date: string;
-  /** Signed amount in EGP — negative for expenses, positive for income. */
-  amount: number;
-}
+import { Transaction } from './transaction';
 
 export interface TrackedAccount {
   name: string;

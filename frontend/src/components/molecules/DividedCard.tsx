@@ -15,6 +15,8 @@ export interface DividedCardProps {
   children: ReactNode;
   /** Closing note under the last row, without a divider. */
   footnote?: string;
+  /** Very last, under the footnote, e.g. the card's button. */
+  action?: ReactNode;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -22,7 +24,7 @@ export interface DividedCardProps {
  * Card of stacked rows separated by dividers — settings groups, detail
  * summaries, reminder lists, comparison breakdowns, processing steps.
  */
-const DividedCard: React.FC<DividedCardProps> = ({ title, subtitle, header, children, footnote, style }) => {
+const DividedCard: React.FC<DividedCardProps> = ({ title, subtitle, header, children, footnote, action, style }) => {
   const rows = Children.toArray(children);
 
   return (
@@ -50,6 +52,7 @@ const DividedCard: React.FC<DividedCardProps> = ({ title, subtitle, header, chil
           {footnote}
         </AppText>
       ) : null}
+      {action}
     </Card>
   );
 };

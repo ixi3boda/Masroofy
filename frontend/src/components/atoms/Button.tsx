@@ -63,11 +63,13 @@ const Button: React.FC<ButtonProps> = ({
     </AppText>
   );
 
+  // Without a handler it keeps its look but can't be pressed; only `disabled` and `loading` dim it.
+  const isInert = isDisabled || !onPress;
   const touchableProps = {
     onPress,
-    disabled: isDisabled,
+    disabled: isInert,
     accessibilityRole: 'button' as const,
-    accessibilityState: { disabled: isDisabled, busy: loading },
+    accessibilityState: { disabled: isInert, busy: loading },
   };
 
   if (variant === 'primary') {

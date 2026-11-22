@@ -25,6 +25,8 @@ const SIDE_MIN_WIDTH = 40;
  */
 const ScreenHeader: React.FC<ScreenHeaderProps> = ({ title, onBack, left, right, titleAlign = 'center', style }) => {
   const centered = titleAlign === 'center';
+  // An action on both sides (Cancel / Save Changes) leaves room only for a smaller title.
+  const compact = centered && !!left && !!right;
   const leading =
     left ?? (onBack ? <IconButton name="chevron-left" accessibilityLabel={strings.common.a11y.goBack} onPress={onBack} size={32} /> : null);
 
@@ -32,9 +34,9 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({ title, onBack, left, right,
     <View style={[styles.container, style]}>
       {centered || leading ? <View style={centered && styles.side}>{leading}</View> : null}
       <AppText
-        variant="subheading18"
+        variant={compact ? 'subheading16' : 'subheading18'}
         align={centered ? 'center' : 'left'}
-        numberOfLines={1}
+        numberOfLines={compact ? 2 : 1}
         accessibilityRole="header"
         style={styles.title}
       >

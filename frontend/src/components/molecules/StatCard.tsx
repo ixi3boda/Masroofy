@@ -43,11 +43,11 @@ const StatCard: React.FC<StatCardProps> = ({
         <AppText variant="body12" color={icon ? primaryColor : secondaryColor}>
           {label}
         </AppText>
-        <AppText variant="subheading18" color={primaryColor} style={icon && styles.headlineValue} numberOfLines={1}>
+        <AppText variant="subheading18" color={primaryColor} style={icon && styles.headlineValue} numberOfLines={2}>
           {value}
         </AppText>
         {caption ? (
-          <AppText variant="body12" color={secondaryColor} numberOfLines={1}>
+          <AppText variant="body12" color={secondaryColor} numberOfLines={2}>
             {caption}
           </AppText>
         ) : null}

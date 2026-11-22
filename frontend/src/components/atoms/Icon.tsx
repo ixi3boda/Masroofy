@@ -12,6 +12,7 @@ import {
   CircleAlert,
   CircleCheck,
   CircleUserRound,
+  CopyCheck,
   Ellipsis,
   HeartPulse,
   House,
@@ -27,6 +28,7 @@ import {
   Plus,
   Receipt,
   ScanLine,
+  ScanText,
   Search,
   SearchX,
   Settings,
@@ -104,6 +106,8 @@ const ICONS = {
   camera: Camera,
   transfer: ArrowLeftRight,
   globe: Globe,
+  'copy-check': CopyCheck,
+  'scan-text': ScanText,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof ICONS;
