@@ -23,18 +23,26 @@ export interface SegmentedControlProps<T extends string> {
   options: SegmentOption<T>[];
   value: T;
   onChange: (value: T) => void;
+  /** Set for a switch inside scrolling content: it then waits for the tap, so a scroll can't change it. */
+  scrollable?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
 const SLIDE_DURATION_MS = 200;
 
-// react-native-web waits 50 ms before reporting a press-in (native reports it at once). The tabs are
-// pinned outside any scroll view, so there is no scroll gesture to wait for: report it immediately.
+// react-native-web waits 50 ms before reporting a press-in (native reports it at once). Pinned tabs sit
+// outside any scroll view, so there is no scroll gesture to wait for: report it immediately.
 // `delayPressIn` is web-only and missing from React Native's types, hence the spread.
 const IMMEDIATE_PRESS_IN = Platform.OS === 'web' ? { delayPressIn: 0 } : {};
 
 /** Equal-width single-choice switch, e.g. All / Expenses / Income. The highlight slides to the chosen segment. */
-const SegmentedControl = <T extends string>({ options, value, onChange, style }: SegmentedControlProps<T>) => {
+const SegmentedControl = <T extends string>({
+  options,
+  value,
+  onChange,
+  scrollable = false,
+  style,
+}: SegmentedControlProps<T>) => {
   const count = options.length;
   const selectedIndex = Math.max(0, options.findIndex((option) => option.value === value));
   const [position] = useState(() => new Animated.Value(selectedIndex));
@@ -79,12 +87,13 @@ const SegmentedControl = <T extends string>({ options, value, onChange, style }:
           return (
             <Pressable
               key={option.value}
-              // Switch on touch-down so the change feels instant; onPress covers screen-reader activation.
-              onPressIn={select}
+              // Pinned tabs switch on touch-down so the change feels instant; onPress covers screen-reader activation.
+              onPressIn={scrollable ? undefined : select}
               onPress={select}
-              {...IMMEDIATE_PRESS_IN}
+              {...(scrollable ? null : IMMEDIATE_PRESS_IN)}
               accessibilityRole="tab"
-              accessibilityState={{ selected }}
+              // The aria prop, because react-native-web ignores `accessibilityState`.
+              aria-selected={selected}
               style={styles.segment}
             >
               <AppText

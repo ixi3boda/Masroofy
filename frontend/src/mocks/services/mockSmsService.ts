@@ -1,5 +1,5 @@
-import { mockDashboardSummary } from '@/mocks/data/dashboard';
 import { mockBankMessages, mockSharedMessageText, mockTrackingAccounts } from '@/mocks/data/smsMessages';
+import { mockTransactionService } from '@/mocks/services/mockTransactionService';
 import { SmsService } from '@/services/types';
 import { strings } from '@/strings';
 import { BankMessage, BankMessageMatch, BankMessageReview } from '@/types/sms';
@@ -7,9 +7,9 @@ import { AppError } from '@/utils/errors';
 
 /**
  * In-memory stand-in for bank SMS import and review. It parses pasted text,
- * finds an existing transaction with the same amount, merchant, card and day
- * (the Home dashboard's mock transactions), and keeps each message's status
- * until the app reloads. Screens use `@/services/smsService`, never this file.
+ * finds an existing mock transaction with the same amount, merchant, card and
+ * day (checked again on every read until the message is reviewed), and keeps
+ * each message's status until the app reloads. Screens use `@/services/smsService`, never this file.
  */
 
 const RESPONSE_DELAY_MS = 600;
@@ -33,16 +33,21 @@ const findMatch = ({ kind, merchant, amount, cardLast4, receivedAt }: ParsedMess
   if (!account) return undefined;
 
   const day = receivedAt.slice(0, 10);
-  const transaction = mockDashboardSummary.recentTransactions.find(
-    (candidate) =>
-      candidate.amount === -amount && candidate.date === day && candidate.merchant.toLowerCase() === merchant.toLowerCase(),
-  );
+  // Mock Uber is a cash record that the sample SMS text (card •4821) is documented to match, so account is not compared.
+  const transaction = mockTransactionService
+    .getTransactions()
+    .find(
+      (candidate) =>
+        candidate.amount === -amount && candidate.date === day && candidate.title.toLowerCase() === merchant.toLowerCase(),
+    );
   return transaction
-    ? { transactionId: transaction.id, merchant: transaction.merchant, category: transaction.category, account }
+    ? { transactionId: transaction.id, merchant: transaction.title, category: transaction.category, account }
     : undefined;
 };
 
-const withMatch = (message: ParsedMessage): BankMessage => ({ ...message, match: findMatch(message) });
+/** A reviewed message keeps the record it was linked to; the others follow the current transactions. */
+const withMatch = (message: BankMessage): BankMessage =>
+  message.status === 'reviewed' ? message : { ...message, match: findMatch(message) };
 
 /** Reads amount, date, card and merchant from SMS text; `null` when the amount or date is missing. */
 const parse = (body: string): ParsedMessage | null => {
@@ -73,7 +78,7 @@ const reviewFor = (message: BankMessage): BankMessageReview => {
   return message.match ? 'match' : 'unmatched';
 };
 
-let messages: BankMessage[] = mockBankMessages.map(withMatch);
+let messages: BankMessage[] = mockBankMessages;
 
 const findMessage = (id: string): BankMessage => {
   const message = messages.find((candidate) => candidate.id === id);
@@ -88,9 +93,12 @@ const updateMessage = (id: string, changes: Partial<BankMessage>): BankMessage =
 };
 
 export const mockSmsService: SmsService = {
-  getMessages: () => messages,
+  getMessages: () => messages.map(withMatch),
 
-  getMessage: (id) => messages.find((message) => message.id === id),
+  getMessage(id) {
+    const message = messages.find((candidate) => candidate.id === id);
+    return message && withMatch(message);
+  },
 
   getTrackingAccounts: () => mockTrackingAccounts,
 
@@ -102,25 +110,24 @@ export const mockSmsService: SmsService = {
 
     const existing = messages.find((message) => message.body === body);
     if (existing) {
-      return existing.status === 'ignored' ? updateMessage(existing.id, { status: 'new' }) : existing;
+      return withMatch(existing.status === 'ignored' ? updateMessage(existing.id, { status: 'new' }) : existing);
     }
 
     const parsed = parse(body);
     if (!parsed) return null;
 
-    const message = withMatch(parsed);
-    messages = [message, ...messages];
-    return message;
+    messages = [parsed, ...messages];
+    return withMatch(parsed);
   },
 
   async extractDetails(id) {
     await wait(EXTRACTION_DELAY_MS);
-    return reviewFor(findMessage(id));
+    return reviewFor(withMatch(findMessage(id)));
   },
 
   async confirmMatch(id) {
     await wait(RESPONSE_DELAY_MS);
-    return updateMessage(id, { status: 'reviewed' });
+    return updateMessage(id, { match: findMatch(findMessage(id)), status: 'reviewed' });
   },
 
   async ignoreMessage(id) {

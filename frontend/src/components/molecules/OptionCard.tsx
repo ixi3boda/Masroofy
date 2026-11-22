@@ -30,7 +30,8 @@ const OptionCard: React.FC<OptionCardProps> = ({ title, description, icon, selec
     <Pressable
       onPress={onPress}
       accessibilityRole={kind}
-      accessibilityState={isRadio ? { selected } : { checked: selected }}
+      // The aria prop, because react-native-web ignores `accessibilityState`.
+      aria-checked={selected}
       accessibilityLabel={description ? `${title}, ${description}` : title}
       style={({ pressed }) => [
         styles.card,

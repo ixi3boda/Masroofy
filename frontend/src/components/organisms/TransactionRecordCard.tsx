@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
-import ListRow from '@components/molecules/ListRow';
+import Button from '@components/atoms/Button';
 import DividedCard from '@components/molecules/DividedCard';
+import DetailList from './DetailList';
 import TransactionItem, { TransactionItemProps } from './TransactionItem';
 
 export interface TransactionRecordCardProps {
@@ -10,18 +11,22 @@ export interface TransactionRecordCardProps {
   /** Above the transaction without a divider, e.g. a match warning banner or status chip. */
   header?: ReactNode;
   footnote?: string;
+  /** Outline button closing the card, e.g. "View transaction". */
+  action?: { label: string; onPress: () => void };
 }
 
 /**
  * Saved/confirmed record summary: one transaction plus its key details —
  * used after saving, SMS matching, voice confirmation and receipt attachment.
  */
-const TransactionRecordCard: React.FC<TransactionRecordCardProps> = ({ transaction, details, header, footnote }) => (
-  <DividedCard header={header} footnote={footnote}>
+const TransactionRecordCard: React.FC<TransactionRecordCardProps> = ({ transaction, details, header, footnote, action }) => (
+  <DividedCard
+    header={header}
+    footnote={footnote}
+    action={action ? <Button title={action.label} variant="outline" onPress={action.onPress} /> : undefined}
+  >
     <TransactionItem {...transaction} variant="plain" />
-    {details.map((detail) => (
-      <ListRow key={detail.label} title={detail.label} trailing={detail.value} />
-    ))}
+    <DetailList details={details} />
   </DividedCard>
 );
 

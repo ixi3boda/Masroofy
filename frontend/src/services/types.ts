@@ -7,7 +7,9 @@ import {
   SignUpResult,
   UserProfile,
 } from '@/types/auth';
+import { DashboardSummary } from '@/types/dashboard';
 import { BankMessage, BankMessageReview, TrackingAccount } from '@/types/sms';
+import { Transaction, TransactionInput } from '@/types/transaction';
 
 /**
  * The auth contract every implementation follows (mock and API), so screens
@@ -37,6 +39,32 @@ export interface AuthService {
   resetPassword(input: ResetPasswordInput): Promise<void>;
   /** API 10. */
   getCurrentUser(): Promise<UserProfile>;
+}
+
+/** Home dashboard (Figma "02 / Home Dashboard"). */
+export interface DashboardService {
+  getSummary(): DashboardSummary;
+}
+
+/**
+ * Transactions (Figma "03 / Transactions"). Reads are synchronous like
+ * `dashboardService`; writes are async. Only a mock exists today.
+ */
+export interface TransactionService {
+  /** Newest date first. The same array until something changes. */
+  getTransactions(): Transaction[];
+  getTransaction(id: string): Transaction | undefined;
+  /** Accounts a transaction can be recorded against; the first is the default. */
+  getAccounts(): TrackingAccount[];
+  /** The date new entries start on, `YYYY-MM-DD`. */
+  getToday(): string;
+  /** Latest first. */
+  getRecentSearches(): string[];
+  addRecentSearch(query: string): void;
+  createTransaction(input: TransactionInput): Promise<Transaction>;
+  updateTransaction(id: string, input: TransactionInput): Promise<Transaction>;
+  /** Also takes the amount back out of its account and month. */
+  deleteTransaction(id: string): Promise<void>;
 }
 
 /**

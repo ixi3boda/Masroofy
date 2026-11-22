@@ -13,21 +13,24 @@ import SectionHeader from '@components/molecules/SectionHeader';
 import OptionList, { OptionListItem } from '@components/organisms/OptionList';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
+import { CATEGORIES, CATEGORY_ICONS } from '@/constants/categories';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { ROUTES } from '@/navigation/routes';
 import { smsService } from '@/services/smsService';
 import { useSmsReviewStore } from '@/store/smsReviewStore';
 import { strings } from '@/strings';
-import { TransactionCategory } from '@/types/dashboard';
+import { TransactionCategory } from '@/types/transaction';
 import { formatCurrency, formatDateTime } from '@/utils/formatters';
 import { parseAmount } from '@/utils/validators';
 
 const review = strings.sms.review;
 const copy = review.unmatched;
 
-const CATEGORY_OPTIONS: OptionListItem<TransactionCategory>[] = (
-  Object.keys(strings.categories) as TransactionCategory[]
-).map((category) => ({ value: category, title: strings.categories[category], icon: category }));
+const CATEGORY_OPTIONS: OptionListItem<TransactionCategory>[] = CATEGORIES.expense.map((category) => ({
+  value: category,
+  title: strings.categories[category],
+  icon: CATEGORY_ICONS[category],
+}));
 
 type Picker = 'category' | 'account';
 

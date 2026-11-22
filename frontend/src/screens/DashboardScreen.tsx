@@ -12,6 +12,9 @@ import QuickActionsGrid from '@components/organisms/QuickActionsGrid';
 import RecentTransactions from '@components/organisms/RecentTransactions';
 import StatCardRow from '@components/organisms/StatCardRow';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { CATEGORY_ICONS } from '@/constants/categories';
+import { whenOpen } from '@/constants/features';
+import { useServiceData } from '@/hooks/useServiceData';
 import { ROUTES } from '@/navigation/routes';
 import { dashboardService } from '@/services/dashboardService';
 import { strings } from '@/strings';
@@ -29,13 +32,17 @@ const MORE_ACTIONS: ActionChipProps[] = [
   { label: copy.moreActions.salarySetup, icon: 'salary' },
 ];
 
+const openAdd = whenOpen('transactions', () => router.push(ROUTES.transactions.add));
+const openTransactions = whenOpen('transactions', () => router.push(ROUTES.transactions.list));
+const openSms = whenOpen('sms', () => router.push(ROUTES.sms.messages));
+
 const QUICK_ACTIONS: QuickActionTileProps[] = [
-  { label: copy.quickActions.addTransaction, icon: 'plus' },
+  { label: copy.quickActions.addTransaction, icon: 'plus', onPress: openAdd },
   {
     label: copy.quickActions.smsDetection,
     icon: 'sms',
     hasAlert: true,
-    onPress: () => router.push(ROUTES.sms.messages),
+    onPress: openSms,
   },
   { label: copy.quickActions.scanReceipt, icon: 'scan' },
   { label: copy.quickActions.voiceEntry, icon: 'mic' },
@@ -50,14 +57,15 @@ const DashboardScreen: React.FC = () => {
     primaryAccount,
     cashBalance,
     recentTransactions,
-  } = dashboardService.getSummary();
+  } = useServiceData(dashboardService.getSummary);
 
-  const transactions = recentTransactions.map(({ id, merchant, category, date, amount }) => ({
+  const transactions = recentTransactions.map(({ id, title, category, date, amount }) => ({
     id,
-    title: merchant,
+    title,
     meta: `${strings.categories[category]} • ${formatDayMonth(date)}`,
     amount: formatSignedCurrency(amount),
-    icon: category,
+    icon: CATEGORY_ICONS[category],
+    onPress: whenOpen('transactions', () => router.push({ pathname: ROUTES.transactions.details, params: { id } })),
   }));
 
   return (
@@ -66,7 +74,7 @@ const DashboardScreen: React.FC = () => {
       titleAlign="start"
       gap={spacing.xxl}
       headerRight={<IconButton name="user" accessibilityLabel={strings.common.a11y.profile} />}
-      bottomBar={<BottomTabBar activeTab="home" />}
+      bottomBar={<BottomTabBar activeTab="home" onAddPress={openAdd} />}
     >
       <StatCardRow
         items={[
@@ -92,7 +100,7 @@ const DashboardScreen: React.FC = () => {
       />
       <BudgetProgressCard spent={totalExpense} limit={budgetLimit} periodLabel={periodLabel} />
       <IncomeExpenseChartCard income={totalSalary} expense={totalExpense} periodLabel={periodLabel} />
-      <RecentTransactions transactions={transactions} />
+      <RecentTransactions transactions={transactions} onViewAll={openTransactions} />
     </ScreenLayout>
   );
 };

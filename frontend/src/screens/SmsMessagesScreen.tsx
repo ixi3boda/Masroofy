@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import React from 'react';
+import { router } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -15,21 +15,26 @@ import StateSummary from '@components/molecules/StateSummary';
 import BankMessageCard from '@components/organisms/BankMessageCard';
 import BottomTabBar from '@components/organisms/BottomTabBar';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { whenOpen } from '@/constants/features';
 import { useGoBack } from '@/hooks/useBackNavigation';
+import { useServiceData } from '@/hooks/useServiceData';
+import { useTabParam } from '@/hooks/useTabParam';
 import { ROUTES } from '@/navigation/routes';
 import { dashboardService } from '@/services/dashboardService';
 import { smsService } from '@/services/smsService';
+import { transactionService } from '@/services/transactionService';
 import { strings } from '@/strings';
 import { BankMessage } from '@/types/sms';
 import { formatCurrency, formatDateTime, formatMonthName } from '@/utils/formatters';
 
 const TAB_ORDER = ['new', 'reviewed'] as const;
-type MessagesTab = (typeof TAB_ORDER)[number];
 
 const copy = strings.sms.messages;
 
 const openImport = () => router.push(ROUTES.sms.import);
 const openReview = (id: string) => router.push({ pathname: ROUTES.sms.processing, params: { id } });
+const openAdd = whenOpen('transactions', () => router.push(ROUTES.transactions.add));
+const openTransaction = (id: string) => router.push({ pathname: ROUTES.transactions.details, params: { id } });
 const goHome = () => router.dismissTo(ROUTES.app.home);
 
 /** "NBE", "NBE and Banque Misr", "CIB, NBE and Banque Misr" */
@@ -133,7 +138,13 @@ const ReviewedTab: React.FC<TabProps> = ({ newMessages, reviewedMessages }) => {
             <AppText variant="body12" color={colors.text.secondary}>
               {copy.reviewedMeta(strings.categories[match.category], match.account.shortLabel)}
             </AppText>
-            <Button title={copy.viewTransaction} variant="outline" />
+            {transactionService.getTransaction(match.transactionId) ? (
+              <Button
+                title={copy.viewTransaction}
+                variant="outline"
+                onPress={whenOpen('transactions', () => openTransaction(match.transactionId))}
+              />
+            ) : null}
           </Card>
         ) : null,
       )}
@@ -175,27 +186,9 @@ const ReviewedTab: React.FC<TabProps> = ({ newMessages, reviewedMessages }) => {
  */
 const SmsMessagesScreen: React.FC = () => {
   const goBack = useGoBack(ROUTES.app.home);
-  const params = useLocalSearchParams<{ tab?: string }>();
-  const requestedTab: MessagesTab = params.tab === 'reviewed' ? 'reviewed' : 'new';
-
-  // Local state so a tap switches in the same frame; the URL only mirrors it.
-  const [tab, setTab] = useState<MessagesTab>(requestedTab);
-  // Follow `?tab=` when another screen opens this list on a given tab (e.g. "View details" → Reviewed).
-  const [followedTab, setFollowedTab] = useState(requestedTab);
-  if (requestedTab !== followedTab) {
-    setFollowedTab(requestedTab);
-    setTab(requestedTab);
-  }
-
-  const changeTab = (value: MessagesTab) => {
-    setTab(value);
-    router.setParams({ tab: value });
-  };
-
-  const [messages, setMessages] = useState(smsService.getMessages);
-
+  const [tab, changeTab] = useTabParam(TAB_ORDER);
   // Statuses change on the review screens; re-read whenever the list is shown again.
-  useFocusEffect(useCallback(() => setMessages(smsService.getMessages()), []));
+  const messages = useServiceData(smsService.getMessages);
 
   const newMessages = messages.filter((message) => message.status === 'new');
   const reviewedMessages = messages.filter((message) => message.status === 'reviewed');
@@ -222,6 +215,7 @@ const SmsMessagesScreen: React.FC = () => {
       bottomBar={
         <BottomTabBar
           activeTab="home"
+          onAddPress={openAdd}
           onTabPress={(key) => {
             if (key === 'home') goHome();
           }}

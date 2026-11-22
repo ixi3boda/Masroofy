@@ -1,4 +1,4 @@
-import { TransactionCategory } from './dashboard';
+import { TransactionCategory } from './transaction';
 
 /** purchase = card payment at a merchant · withdrawal = cash withdrawal or transfer (not spending by default). */
 export type BankMessageKind = 'purchase' | 'withdrawal';

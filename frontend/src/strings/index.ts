@@ -4,6 +4,7 @@ import { commonStrings } from './common';
 import { dashboardStrings } from './dashboard';
 import { errorStrings } from './errors';
 import { smsStrings } from './sms';
+import { transactionStrings } from './transactions';
 import { validationStrings } from './validation';
 
 /**
@@ -18,5 +19,6 @@ export const strings = {
   auth: authStrings,
   dashboard: dashboardStrings,
   sms: smsStrings,
+  transactions: transactionStrings,
   errors: errorStrings,
 };

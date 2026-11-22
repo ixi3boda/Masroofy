@@ -6,6 +6,7 @@ import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import StateSummary from '@components/molecules/StateSummary';
 import TransactionRecordCard from '@components/organisms/TransactionRecordCard';
 import ScreenLayout from '@components/templates/ScreenLayout';
+import { CATEGORY_ICONS } from '@/constants/categories';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { ROUTES } from '@/navigation/routes';
 import { dashboardService } from '@/services/dashboardService';
@@ -53,7 +54,7 @@ const SmsMatchConfirmedScreen: React.FC = () => {
           title: match.merchant,
           meta: copy.recordMeta(category, formatDate(message.receivedAt)),
           amount,
-          icon: match.category,
+          icon: CATEGORY_ICONS[match.category],
         }}
         details={[
           { label: copy.account, value: match.account.shortLabel },

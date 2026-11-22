@@ -12,8 +12,9 @@ export interface AmountEntryCardProps {
   label: string;
   value: string;
   onChangeText: (text: string) => void;
-  /** Shown as an inline error banner under the field. */
   errorMessage?: string;
+  /** banner = tinted message under the field (expense) · inline = the field's own helper line (income). */
+  errorDisplay?: 'banner' | 'inline';
 }
 
 /** Highlighted amount field at the top of add/edit transaction forms. */
@@ -23,6 +24,7 @@ const AmountEntryCard: React.FC<AmountEntryCardProps> = ({
   value,
   onChangeText,
   errorMessage,
+  errorDisplay = 'banner',
 }) => (
   <Card style={styles.card}>
     {overline ? (
@@ -36,8 +38,11 @@ const AmountEntryCard: React.FC<AmountEntryCardProps> = ({
       onChangeText={onChangeText}
       keyboardType="decimal-pad"
       hasError={!!errorMessage}
+      errorMessage={errorDisplay === 'inline' ? errorMessage : undefined}
     />
-    {errorMessage ? <FeedbackBanner tone="error" icon="circle-alert" title={errorMessage} /> : null}
+    {errorMessage && errorDisplay === 'banner' ? (
+      <FeedbackBanner tone="error" icon="circle-alert" title={errorMessage} />
+    ) : null}
   </Card>
 );
 
