@@ -1,0 +1,113 @@
+{
+  "_comment": "Category list. 'priority' breaks ties when two categories match the same number of keywords (more specific categories have higher priority). Keywords are matched after normalization (alef forms unified, ta marbuta folded, Latin lowercased), so spelling variants of hamza/alef do not need separate entries.",
+  "categories": [
+    {
+      "id": "food_dining", "en": "Food & Dining", "ar": "أكل ومطاعم", "priority": 5,
+      "keywords": ["اكل", "أكل", "مطعم", "مطاعم", "غدا", "غداء", "عشا", "عشاء", "فطار", "فطور", "قهوة", "كافيه", "كوفي", "شاي", "بيتزا", "برجر", "سندوتش", "سندوتشات", "شاورما", "كشري", "فول", "طعمية", "حلويات", "جاتوه", "تورتة", "كيك", "ايس كريم", "عصير", "وجبة", "تيك اواي",
+                   "coffee", "cafe", "café", "restaurant", "lunch", "dinner", "breakfast", "food", "pizza", "burger", "sandwich", "meal", "snack", "latte", "cappuccino", "juice", "dessert", "cake", "takeaway", "shawarma",
+                   "akl", "2akl", "ahwa", "a7wa", "ghada", "3asha", "fetar", "mat3am", "koshary"]
+    },
+    {
+      "id": "groceries", "en": "Groceries", "ar": "بقالة وسوبرماركت", "priority": 6,
+      "keywords": ["بقالة", "سوبر ماركت", "سوبرماركت", "ماركت", "خضار", "خضروات", "فاكهة", "عيش", "لبن", "جبنة", "بيض", "رز", "سكر", "زيت", "لحمة", "فراخ", "طماطم", "مكرونة", "تموين", "طلبات البيت", "بقال", "البقال", "كشك",
+                   "groceries", "grocery", "supermarket", "vegetables", "fruits", "fruit", "milk", "bread", "eggs", "cheese", "meat", "chicken", "rice", "sugar",
+                   "khodar", "be2ala", "bi2ala", "3esh", "laban", "soper market", "supermarket"]
+    },
+    {
+      "id": "transport", "en": "Transport", "ar": "مواصلات", "priority": 7,
+      "keywords": ["تاكسي", "مواصلات", "ميكروباص", "مكروباص", "توكتوك", "توك توك", "اجرة", "اتوبيس", "باص", "مشوار", "توصيلة", "سواق", "ترام", "قطر", "تذكرة مترو", "مترو", "باركينج", "ركنة",
+                   "taxi", "cab", "ride", "rides", "metro", "bus", "microbus", "tuk tuk", "tuktuk", "train", "tram", "parking", "commute", "transport", "transportation",
+                   "mwaslat", "mowaslat", "moshwar", "mashwar", "otobis", "tok tok", "microbas"]
+    },
+    {
+      "id": "fuel", "en": "Fuel", "ar": "بنزين", "priority": 9,
+      "keywords": ["بنزين", "بنزينة", "سولار", "ديزل", "محطة بنزين", "تفويل", "فولت", "وقود", "غاز طبيعي", "بنزين العربية", "تانك",
+                   "fuel", "gas", "gasoline", "petrol", "diesel", "gas station", "fill up", "filled up", "tank",
+                   "benzine", "benzin", "banzeen", "banzin", "solar"]
+    },
+    {
+      "id": "shopping", "en": "Shopping", "ar": "مشتريات", "priority": 4,
+      "keywords": ["هدوم", "لبس", "ملابس", "قميص", "بنطلون", "جزمة", "جزم", "شوز", "شنطة", "فستان", "جاكيت", "تيشرت", "كوتشي", "حذاء", "اكسسوارات", "مشتريات", "بيجامة",
+                   "clothes", "clothing", "shirt", "shoes", "jeans", "dress", "jacket", "bag", "sneakers", "shopping", "t-shirt", "tshirt", "hoodie",
+                   "hdoom", "hodoom", "lebs", "gazma", "shanta"]
+    },
+    {
+      "id": "electronics", "en": "Electronics", "ar": "إلكترونيات", "priority": 7,
+      "keywords": ["شاحن", "سماعة", "سماعات", "موبايل", "تليفون", "لابتوب", "كمبيوتر", "شاشة", "تابلت", "كابل", "باور بانك", "ماوس", "كيبورد", "الكترونيات", "ايربودز",
+                   "charger", "headphones", "earphones", "airpods", "phone", "laptop", "computer", "screen", "monitor", "tablet", "cable", "power bank", "mouse", "keyboard", "electronics",
+                   "sha7en", "labtop", "mobile phone"]
+    },
+    {
+      "id": "bills_utilities", "en": "Bills & Utilities", "ar": "فواتير", "priority": 3,
+      "keywords": ["فاتورة", "فواتير", "كهربا", "كهرباء", "فاتورة الكهربا", "فاتورة الكهرباء", "فاتورة النور", "فاتورة المية", "فاتورة الميه", "فاتورة الغاز", "غاز", "عداد", "كارت الكهربا", "شحن الكهربا", "مية الشرب",
+                   "electricity", "electricity bill", "water bill", "gas bill", "bill", "bills", "utilities", "utility",
+                   "kahraba", "fatora", "fatoura", "fatoret el kahraba"]
+    },
+    {
+      "id": "mobile_internet", "en": "Mobile & Internet", "ar": "موبايل وإنترنت", "priority": 8,
+      "keywords": ["رصيد", "كارت شحن", "شحن رصيد", "باقة", "باقة نت", "نت", "انترنت", "راوتر", "فاتورة النت", "فاتورة الانترنت", "فاتورة التليفون", "فاتورة الموبايل", "رصيد موبايل", "ميجا", "جيجا", "شحن الخط",
+                   "internet", "mobile credit", "recharge", "recharged", "top up", "top-up", "data plan", "mobile bill", "phone bill", "internet bill", "wifi", "wi-fi", "router",
+                   "rased", "rasid", "ba2a", "net", "kart sha7n"]
+    },
+    {
+      "id": "health", "en": "Health & Pharmacy", "ar": "صحة وصيدلية", "priority": 9,
+      "keywords": ["دكتور", "دكتورة", "كشف", "دوا", "دواء", "ادوية", "صيدلية", "تحاليل", "تحليل", "اشعة", "مستشفى", "عيادة", "علاج", "دكتور سنان", "سنان", "روشتة",
+                   "doctor", "pharmacy", "medicine", "medicines", "meds", "clinic", "hospital", "lab test", "blood test", "x-ray", "dentist", "checkup", "prescription",
+                   "doktor", "dawa", "saydalia", "kashf", "dr"]
+    },
+    {
+      "id": "education", "en": "Education", "ar": "تعليم", "priority": 7,
+      "keywords": ["كورس", "كورسات", "دروس", "درس", "مدرسة", "جامعة", "مصاريف الجامعة", "مصاريف المدرسة", "كتاب", "كتب", "كشكول", "ادوات مكتبية", "سنتر", "مذكرات", "مذكرة", "دورة",
+                   "course", "courses", "tuition", "school", "university", "college", "book", "books", "lesson", "lessons", "tutor", "private lesson", "notebook", "stationery",
+                   "dars", "kors", "kotob", "gam3a"]
+    },
+    {
+      "id": "entertainment", "en": "Entertainment", "ar": "ترفيه", "priority": 5,
+      "keywords": ["سينما", "فيلم", "ماتش", "تذكرة ماتش", "بلايستيشن", "العاب", "خروجة", "حفلة", "مسرح", "بولينج", "ملاهي", "كافيه العاب", "رحلة نيلية", "كونسرت", "ترفيه",
+                   "cinema", "movie", "movies", "concert", "game", "games", "playstation", "ps5", "bowling", "party", "theater", "theatre", "match ticket", "outing", "entertainment",
+                   "seenema", "film", "match", "5aroga", "khroga"]
+    },
+    {
+      "id": "subscriptions", "en": "Subscriptions", "ar": "اشتراكات", "priority": 8,
+      "keywords": ["اشتراك", "اشتراكات", "الاشتراك", "اشتراك شهري", "اشتراك سنوي", "تجديد الاشتراك", "تجديد", "اشتراك نتفليكس",
+                   "subscription", "subscriptions", "membership", "premium", "renewal", "renew", "monthly plan", "annual plan", "yearly subscription",
+                   "eshterak", "eshtrak", "e4terak", "vip"]
+    },
+    {
+      "id": "housing", "en": "Rent & Housing", "ar": "إيجار وسكن", "priority": 5,
+      "keywords": ["ايجار", "الايجار", "سكن", "شقة", "صيانة", "سباك", "كهربائي", "نقاشة", "عفش", "اثاث", "بواب", "مصاريف العمارة", "صيانة العمارة", "تصليح",
+                   "rent", "housing", "apartment", "flat", "landlord", "maintenance", "plumber", "electrician", "furniture", "repair", "doorman",
+                   "eygar", "igar", "iygar", "sha2a"]
+    },
+    {
+      "id": "personal_care", "en": "Personal Care", "ar": "عناية شخصية", "priority": 7,
+      "keywords": ["حلاق", "حلاقة", "كوافير", "قص شعر", "صالون", "سبا", "مساج", "ميكب", "مكياج", "ميك اب", "برفان", "بارفان", "عطر", "كريم", "شامبو", "جيم", "نادي",
+                   "haircut", "barber", "salon", "spa", "massage", "makeup", "perfume", "shampoo", "cosmetics", "skincare", "gym", "hair",
+                   "7ala2", "halla2", "kwafeer", "parfan"]
+    },
+    {
+      "id": "gifts_donations", "en": "Gifts & Donations", "ar": "هدايا وتبرعات", "priority": 6,
+      "keywords": ["هدية", "هدايا", "تبرع", "تبرعات", "صدقة", "زكاة", "عيدية", "نقطة", "هدية عيد ميلاد", "جمعية خيرية",
+                   "gift", "gifts", "present", "donation", "donate", "donated", "charity", "zakat", "sadaqa", "birthday gift",
+                   "hedeya", "hdeya", "tabaro3", "3eedeya", "3edeya"]
+    },
+    {
+      "id": "travel", "en": "Travel", "ar": "سفر", "priority": 6,
+      "keywords": ["سفر", "سفرية", "طيارة", "تذكرة طيارة", "تذكرة سفر", "فندق", "اوتيل", "حجز", "رحلة", "مصيف", "الساحل", "شرم", "دهب", "الغردقة", "باسبور",
+                   "flight", "flights", "hotel", "trip", "travel", "airline", "airport", "plane ticket", "vacation", "resort", "passport",
+                   "safar", "rehla", "fondo2", "tayara"]
+    },
+    {
+      "id": "income", "en": "Income", "ar": "دخل", "priority": 10,
+      "keywords": ["مرتب", "المرتب", "مرتبي", "راتب", "قبضت", "اتحولي", "حولولي", "مكافأة", "بونص", "عمولة", "دخل", "ارباح",
+                   "salary", "paycheck", "income", "received", "bonus", "freelance", "commission", "got paid", "earned", "wage",
+                   "mortab", "2abadt", "et7awelly", "rateb"]
+    },
+    {
+      "id": "other", "en": "Other", "ar": "أخرى", "priority": 0,
+      "keywords": ["حاجة", "حاجات", "متفرقات", "مصاريف", "مصروف", "اخرى", "حاجات متفرقة", "اشيا",
+                   "misc", "miscellaneous", "other", "stuff", "things", "various", "general",
+                   "7aga", "7agat", "masarif", "random"]
+    }
+  ]
+}

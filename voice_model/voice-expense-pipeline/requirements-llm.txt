@@ -1,0 +1,4 @@
+# Optional LLM extraction. Only needed when LLM_PROVIDER is anthropic or openai_compatible.
+# The openai package is also used for local Ollama (OpenAI-compatible endpoint).
+anthropic>=0.30
+openai>=1.30

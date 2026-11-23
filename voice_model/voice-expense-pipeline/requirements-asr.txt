@@ -1,0 +1,5 @@
+# Speech-to-text (real Whisper). Install after requirements.txt.
+# faster-whisper runs on CPU (int8) or GPU (float16) and does NOT need torch.
+faster-whisper>=1.0
+soundfile>=0.12
+numpy>=1.24
