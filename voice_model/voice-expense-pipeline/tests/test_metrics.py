@@ -105,3 +105,22 @@ def test_classification_report_and_confusion() -> None:
     assert rep["per_class"]["health"]["precision"] == 50.0
     assert rep["confusion"]["fuel"]["health"] == 1
     assert rep["macro"]["f1"] == round((66.7 + 66.7 + 100.0) / 3, 1)
+
+
+def test_confirmed_report_uses_corrections_as_ground_truth(tmp_path) -> None:
+    from eval.confirmed_report import load_records, main
+    from voice_expense.pipeline import process_text
+    from voice_expense.schemas import ConfirmRequest
+    from voice_expense.storage import save_confirmed
+
+    db = str(tmp_path / "c.db")
+    ref = "2026-11-20T14:00:00+02:00"
+    save_confirmed(ConfirmRequest(draft=process_text("دفعت 150 جنيه في Uber", now=ref)), db_path=db)
+    save_confirmed(ConfirmRequest(draft=process_text("paid 80 pounds for coffee", now=ref),
+                                  corrections={"amount": 85, "merchant": "Cilantro"}), db_path=db)
+    recs = load_records(db)
+    assert len(recs) == 2 and recs[1]["edited"] == ["amount", "merchant"]
+    assert recs[0]["correct"]["amount"] and not recs[1]["correct"]["amount"]
+    assert main(["--db", db, "--out", str(tmp_path / "out")]) == 0
+    report = next((tmp_path / "out").glob("confirmed-*/report.md")).read_text(encoding="utf-8")
+    assert "Correction rate" in report and "| amount | 50.0" in report

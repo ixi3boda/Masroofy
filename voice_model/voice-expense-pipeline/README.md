@@ -36,6 +36,7 @@ The last command prints amount 250, EGP, category groceries, date 2026-11-19.
 | 6 | `python eval/evaluate.py --mode text --extractor rules` | `results/<time>/report.md` |
 | 7 | `pip install -r requirements-asr.txt` then `python -m voice_expense.cli audio <file>` | real Whisper transcription + draft |
 | 8 | `pip install -r requirements-audio-gen.txt && python eval/generate_audio.py --limit 20` then `python eval/evaluate.py --mode audio --manifest eval/audio/synthetic/manifest.csv` | end-to-end audio evaluation (WER/CER, latency) |
+| 8b | `python eval/confirmed_report.py` | accuracy / F1 / correction rate on transactions users confirmed (draft vs final) |
 | 9 | `uvicorn voice_expense.api:app --reload` → http://127.0.0.1:8000/docs | REST API with Swagger |
 | 10 | `pip install -r requirements-demo.txt && python -m voice_expense.gradio_app` | microphone web demo (`--share` for a public link) |
 

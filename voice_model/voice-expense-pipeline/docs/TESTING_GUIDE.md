@@ -79,6 +79,17 @@ python eval/evaluate.py --mode audio --manifest eval/audio/real/manifest.csv
 ```
 No microphone? Record on your phone, name files by id (`ar_01.m4a`), copy them to `eval/audio/real/yourname/`, then `python eval/record_audio.py --speaker yourname --scan`.
 
+## Step 7b — accuracy on what users confirmed (real usage)
+Every Confirm (Gradio demo, CLI `interactive`, or `POST /v1/expenses/confirm`) stores the original draft AND the
+final values. This script treats the confirmed values as the correct answer:
+```bash
+python eval/confirmed_report.py                    # reads expenses.db
+python eval/confirmed_report.py --since 2026-11-24 # only recent ones
+```
+✅ `results/confirmed-<time>/report.md` with accuracy, precision/recall/F1, correction rate (voice vs typed, per
+language), ⚠️-highlight quality and latency, plus `transactions.csv` (draft vs confirmed for every field).
+Rule for testers: **always fix every wrong field before pressing Confirm** — a field you leave unchanged counts as correct.
+
 ## Step 8 — API
 ```bash
 uvicorn voice_expense.api:app --reload
