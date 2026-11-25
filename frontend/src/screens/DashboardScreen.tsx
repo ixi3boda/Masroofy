@@ -1,5 +1,4 @@
 import React from 'react';
-import { router } from 'expo-router';
 import { spacing } from '@theme/index';
 import IconButton from '@components/atoms/IconButton';
 import { ActionChipProps } from '@components/molecules/ActionChip';
@@ -16,7 +15,9 @@ import { CATEGORY_ICONS } from '@/constants/categories';
 import { whenOpen } from '@/constants/features';
 import { useServiceData } from '@/hooks/useServiceData';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { dashboardService } from '@/services/dashboardService';
+import { smsService } from '@/services/smsService';
 import { strings } from '@/strings';
 import { formatCurrency, formatDayMonth, formatSignedCurrency } from '@/utils/formatters';
 
@@ -32,18 +33,14 @@ const MORE_ACTIONS: ActionChipProps[] = [
   { label: copy.moreActions.salarySetup, icon: 'salary' },
 ];
 
-const openAdd = whenOpen('transactions', () => router.push(ROUTES.transactions.add));
+const openAdd = whenOpen('addTransaction', () => router.push(ROUTES.transactions.add));
 const openTransactions = whenOpen('transactions', () => router.push(ROUTES.transactions.list));
 const openSms = whenOpen('sms', () => router.push(ROUTES.sms.messages));
 
-const QUICK_ACTIONS: QuickActionTileProps[] = [
+/** The SMS tile shows a dot while bank messages are waiting for review. */
+const quickActions = (hasNewSms: boolean): QuickActionTileProps[] => [
   { label: copy.quickActions.addTransaction, icon: 'plus', onPress: openAdd },
-  {
-    label: copy.quickActions.smsDetection,
-    icon: 'sms',
-    hasAlert: true,
-    onPress: openSms,
-  },
+  { label: copy.quickActions.smsDetection, icon: 'sms', hasAlert: hasNewSms, onPress: openSms },
   { label: copy.quickActions.scanReceipt, icon: 'scan' },
   { label: copy.quickActions.voiceEntry, icon: 'mic' },
 ];
@@ -58,6 +55,8 @@ const DashboardScreen: React.FC = () => {
     cashBalance,
     recentTransactions,
   } = useServiceData(dashboardService.getSummary);
+  const smsMessages = useServiceData(smsService.getMessages);
+  const hasNewSms = smsMessages.some((message) => message.status === 'new');
 
   const transactions = recentTransactions.map(({ id, title, category, date, amount }) => ({
     id,
@@ -83,7 +82,7 @@ const DashboardScreen: React.FC = () => {
         ]}
       />
       <ActionChipGroup title={copy.moreActions.title} actions={MORE_ACTIONS} />
-      <QuickActionsGrid title={copy.quickActions.title} actions={QUICK_ACTIONS} />
+      <QuickActionsGrid title={copy.quickActions.title} actions={quickActions(hasNewSms)} />
       <StatCardRow
         items={[
           {

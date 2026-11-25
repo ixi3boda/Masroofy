@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { Redirect, useLocalSearchParams } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -13,6 +13,7 @@ import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { smsService } from '@/services/smsService';
 import { useSmsReviewStore } from '@/store/smsReviewStore';
 import { strings } from '@/strings';
@@ -57,6 +58,8 @@ const SmsClassifyWithdrawalScreen: React.FC = () => {
 
   const chooseSource = (value: string) => {
     setSourceId(value);
+    // Money cannot move into the account it left.
+    if (value === destinationId) setDestinationId(null);
     setOpenPicker(null);
   };
 
@@ -140,7 +143,11 @@ const SmsClassifyWithdrawalScreen: React.FC = () => {
         hasError={submitted && !destination}
       />
       {openPicker === 'destination' ? (
-        <OptionList options={accountOptions} value={destinationId} onChange={chooseDestination} />
+        <OptionList
+          options={accountOptions.filter((option) => option.value !== sourceId)}
+          value={destinationId}
+          onChange={chooseDestination}
+        />
       ) : null}
       {submitted && (!source || !destination) ? <FeedbackBanner tone="error" title={review.errors.account} /> : null}
 

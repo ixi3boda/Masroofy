@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { router } from 'expo-router';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
 import DividedCard from '@components/molecules/DividedCard';
@@ -12,6 +11,7 @@ import { isMockSource } from '@/config/env';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { useServiceData } from '@/hooks/useServiceData';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { transactionService } from '@/services/transactionService';
 import { useTransactionFilterStore } from '@/store/transactionFilterStore';
 import { strings } from '@/strings';

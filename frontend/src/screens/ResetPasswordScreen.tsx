@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { router } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -11,6 +10,7 @@ import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
 import { PASSWORD_MIN_LENGTH } from '@/constants/app';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { authService } from '@/services/authService';
 import { usePasswordResetStore } from '@/store/passwordResetStore';
 import { strings } from '@/strings';

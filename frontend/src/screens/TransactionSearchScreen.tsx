@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { router } from 'expo-router';
 import { colors, spacing } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -16,6 +15,7 @@ import { isMockSource } from '@/config/env';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { useServiceData } from '@/hooks/useServiceData';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { transactionService } from '@/services/transactionService';
 import { strings } from '@/strings';
 import { groupByDay, searchTransactions } from '@/utils/transactions';
@@ -60,6 +60,7 @@ const TransactionSearchScreen: React.FC = () => {
         onChangeText={setQuery}
         returnKeyType="search"
         onSubmitEditing={rememberSearch}
+        autoFocus
       />
       <Button title={copy.clear} variant="outline" onPress={() => setQuery('')} />
 

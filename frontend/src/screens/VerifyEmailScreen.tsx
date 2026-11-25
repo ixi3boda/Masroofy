@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -12,6 +12,7 @@ import { isMockSource } from '@/config/env';
 import { RESEND_COOLDOWN_SECONDS, VERIFICATION_CODE_LENGTH } from '@/constants/app';
 import { MOCK_VERIFICATION_CODE } from '@/mocks';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { authService } from '@/services/authService';
 import { strings } from '@/strings';
 import { getErrorMessage, isApiError } from '@/utils/errors';

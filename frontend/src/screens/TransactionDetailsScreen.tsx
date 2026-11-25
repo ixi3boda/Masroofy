@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { colors, spacing } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -21,6 +21,7 @@ import { useGoBack } from '@/hooks/useBackNavigation';
 import { useDeleteTransaction } from '@/hooks/useDeleteTransaction';
 import { useServiceData } from '@/hooks/useServiceData';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { transactionService } from '@/services/transactionService';
 import { strings } from '@/strings';
 import { Transaction, TransactionReceipt } from '@/types/transaction';

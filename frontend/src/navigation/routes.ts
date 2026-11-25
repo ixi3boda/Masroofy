@@ -1,3 +1,5 @@
+import { BankMessageReview } from '@/types/sms';
+
 /**
  * Every route path in one place, so screens never hard-code URLs.
  * Keep in sync with the files under `src/app/`.
@@ -39,3 +41,10 @@ export const ROUTES = {
     reviewedPreview: '/(app)/sms/reviewed-preview',
   },
 } as const;
+
+/** The review screen each kind of bank message opens. */
+export const SMS_REVIEW_ROUTES = {
+  match: ROUTES.sms.reviewMatch,
+  unmatched: ROUTES.sms.reviewUnmatched,
+  withdrawal: ROUTES.sms.classifyWithdrawal,
+} as const satisfies Record<BankMessageReview, string>;

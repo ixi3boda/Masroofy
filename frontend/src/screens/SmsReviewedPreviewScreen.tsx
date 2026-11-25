@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, router } from 'expo-router';
+import { Redirect } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -12,6 +12,7 @@ import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { smsService } from '@/services/smsService';
 import { useSmsReviewStore } from '@/store/smsReviewStore';
 import { strings } from '@/strings';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { router } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -10,6 +9,7 @@ import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { authService } from '@/services/authService';
 import { strings } from '@/strings';
 import { getErrorMessage, isApiError } from '@/utils/errors';

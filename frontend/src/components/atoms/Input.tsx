@@ -32,6 +32,8 @@ export interface InputProps {
   returnKeyType?: ReturnKeyTypeOptions;
   /** The keyboard's action key or Enter (web) was pressed. */
   onSubmitEditing?: () => void;
+  /** Focus as soon as the screen opens, e.g. a dedicated search screen. */
+  autoFocus?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -52,6 +54,7 @@ const Input: React.FC<InputProps> = ({
   multiline = false,
   returnKeyType,
   onSubmitEditing,
+  autoFocus = false,
   style,
 }) => {
   const [focused, setFocused] = useState(false);
@@ -75,6 +78,8 @@ const Input: React.FC<InputProps> = ({
         <TextInput
           style={[fieldStyles.value, multiline ? styles.multilineInput : styles.input]}
           multiline={multiline}
+          // The visible label sits outside the TextInput, so screen readers need it passed explicitly.
+          accessibilityLabel={label ?? placeholder}
           textAlignVertical={multiline ? 'top' : 'center'}
           value={value}
           onChangeText={onChangeText}
@@ -86,6 +91,7 @@ const Input: React.FC<InputProps> = ({
           autoCapitalize={autoCapitalize}
           returnKeyType={returnKeyType}
           onSubmitEditing={onSubmitEditing}
+          autoFocus={autoFocus}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         />

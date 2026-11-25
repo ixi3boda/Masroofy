@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { router } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -17,6 +16,7 @@ import { useGoBack } from '@/hooks/useBackNavigation';
 import { useServiceData } from '@/hooks/useServiceData';
 import { useTabParam } from '@/hooks/useTabParam';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { transactionService } from '@/services/transactionService';
 import { strings } from '@/strings';
 import { TransactionTypeFilter } from '@/types/transaction';

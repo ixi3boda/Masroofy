@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -11,6 +11,7 @@ import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
 import { MOCK_TEST_ACCOUNTS } from '@/mocks';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { authService } from '@/services/authService';
 import { useSessionStore } from '@/store/sessionStore';
 import { strings } from '@/strings';

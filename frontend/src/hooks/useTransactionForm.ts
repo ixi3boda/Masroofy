@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { router } from 'expo-router';
 import { useIsMounted } from '@/hooks/useIsMounted';
 import { useTransactionDraft } from '@/hooks/useTransactionDraft';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { transactionService } from '@/services/transactionService';
 import { useTransactionDraftStore } from '@/store/transactionDraftStore';
 import { Transaction, TransactionDraftErrors, TransactionType } from '@/types/transaction';

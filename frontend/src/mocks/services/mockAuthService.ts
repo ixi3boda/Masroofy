@@ -23,7 +23,7 @@ interface ActiveCode {
   expiresAt: number;
 }
 
-const RESPONSE_DELAY_MS = 600;
+const RESPONSE_DELAY_MS = 300;
 const CODE_LIFETIME_SECONDS = 600;
 const RESET_TOKEN_LIFETIME_SECONDS = 900;
 const MAX_CODE_ATTEMPTS = 5;

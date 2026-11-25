@@ -42,6 +42,8 @@ export interface BankMessage {
   cardLast4?: string;
   suggestedCategory?: TransactionCategory;
   match?: BankMessageMatch;
+  /** When the user linked it (ISO time); set once `status` is `reviewed`. */
+  reviewedAt?: string;
 }
 
 /** The SMS screens' review routes; which one a message opens is decided by its kind and match. */

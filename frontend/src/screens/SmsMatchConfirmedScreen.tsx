@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { Redirect, useLocalSearchParams } from 'expo-router';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
@@ -9,6 +9,7 @@ import ScreenLayout from '@components/templates/ScreenLayout';
 import { CATEGORY_ICONS } from '@/constants/categories';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { dashboardService } from '@/services/dashboardService';
 import { smsService } from '@/services/smsService';
 import { strings } from '@/strings';

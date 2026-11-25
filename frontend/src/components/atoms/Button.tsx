@@ -69,6 +69,7 @@ const Button: React.FC<ButtonProps> = ({
     onPress,
     disabled: isInert,
     accessibilityRole: 'button' as const,
+    accessibilityLabel: title,
     accessibilityState: { disabled: isInert, busy: loading },
   };
 
