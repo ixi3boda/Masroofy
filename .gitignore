@@ -2,3 +2,6 @@ finance.db
 __pycache__/
 .env
 *.xlsx
+
+# local retrain of the v1 model, not the shipped one
+sms_eval_final/*.local.joblib
