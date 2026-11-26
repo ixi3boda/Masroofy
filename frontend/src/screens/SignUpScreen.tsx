@@ -5,6 +5,7 @@ import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
 import BrandMark from '@components/molecules/BrandMark';
 import OptionCard from '@components/molecules/OptionCard';
+import RequirementList from '@components/molecules/RequirementList';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
@@ -12,9 +13,10 @@ import { authService } from '@/services/authService';
 import { ROUTES } from '@/navigation/routes';
 import { router } from '@/navigation/router';
 import { strings } from '@/strings';
-import { getErrorMessage, getFieldErrors } from '@/utils/errors';
-import { getEmailError, getNewPasswordError, getRequiredError } from '@/utils/validators';
+import { getErrorMessage, getFieldErrorCodes, getFieldErrors } from '@/utils/errors';
+import { getEmailError, getRequiredError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
+import { usePasswordRequirements } from '@/hooks/usePasswordRequirements';
 
 type FieldName = 'fullName' | 'email' | 'password';
 
@@ -31,6 +33,10 @@ const SignUpScreen: React.FC = () => {
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const passwordRules = usePasswordRequirements(password, {
+    personal: { fullName, email },
+    personalInfoComplete: fullName.trim().length > 0 && email.trim().length > 0,
+  });
 
   const canSubmit = fullName.trim().length > 0 && email.trim().length > 0 && password.length > 0 && agreed;
 
@@ -45,8 +51,9 @@ const SignUpScreen: React.FC = () => {
     const errors: Partial<Record<FieldName, string>> = {
       fullName: getRequiredError(fullName, strings.validation.fieldNames.fullName) ?? undefined,
       email: getEmailError(email) ?? undefined,
-      password: getNewPasswordError(password) ?? undefined,
+      password: passwordRules.isValid ? undefined : strings.validation.passwordRequirementsNotMet,
     };
+    passwordRules.revealFailures();
     setFieldErrors(errors);
     setFormError(null);
     if (Object.values(errors).some(Boolean) || !agreed) return;
@@ -64,8 +71,16 @@ const SignUpScreen: React.FC = () => {
         params: { email: confirmedEmail, resendIn: String(verification.resendAvailableInSeconds) },
       });
     } catch (error) {
-      setFieldErrors(getFieldErrors(error, API_FIELDS));
-      setFormError(getErrorMessage(error));
+      const rejectedRules = getFieldErrorCodes(error, 'password');
+      passwordRules.setServerFailures(rejectedRules);
+      const serverErrors = getFieldErrors(error, API_FIELDS);
+      if (rejectedRules.some(passwordRules.isChecklistRule)) {
+        serverErrors.password = strings.validation.passwordRequirementsNotMet;
+      }
+      setFieldErrors(serverErrors);
+      // A banner repeating a field's own message adds nothing.
+      const message = getErrorMessage(error);
+      setFormError(Object.values(serverErrors).includes(message) ? null : message);
     } finally {
       setSubmitting(false);
     }
@@ -117,9 +132,9 @@ const SignUpScreen: React.FC = () => {
         onChangeText={(value) => setField('password', value)}
         hasError={!!fieldErrors.password}
         errorMessage={fieldErrors.password}
-        hint={fieldErrors.password ? undefined : copy.passwordHint}
         secureTextEntry
       />
+      <RequirementList items={passwordRules.requirements} />
 
       <OptionCard
         kind="checkbox"

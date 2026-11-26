@@ -42,6 +42,8 @@ export { default as ReceiptPreview } from './ReceiptPreview';
 export type { ReceiptLineItem, ReceiptPreviewProps } from './ReceiptPreview';
 export { default as RecentSearchItem } from './RecentSearchItem';
 export type { RecentSearchItemProps } from './RecentSearchItem';
+export { default as RequirementList } from './RequirementList';
+export type { Requirement, RequirementListProps, RequirementStatus } from './RequirementList';
 export { default as SectionHeader } from './SectionHeader';
 export type { SectionHeaderProps } from './SectionHeader';
 export { default as SkeletonRow } from './SkeletonRow';

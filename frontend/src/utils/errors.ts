@@ -58,6 +58,10 @@ const describeFieldError = ({ code, message }: FieldError): string => {
   return fields[code as keyof typeof fields] ?? message ?? strings.common.genericError;
 };
 
+/** The `fieldErrors[].code`s the backend sent for one field, e.g. the password rules a WEAK_PASSWORD broke. */
+export const getFieldErrorCodes = (error: unknown, field: string): string[] =>
+  error instanceof ApiError ? error.fieldErrors.filter((item) => item.field === field).map((item) => item.code) : [];
+
 /**
  * The backend's `fieldErrors` as one message per field, keyed by the form's own
  * field names. `fieldMap` maps a backend field to a form field when they differ.

@@ -44,7 +44,7 @@ const CheckEmailScreen: React.FC = () => {
     setSubmitting(true);
     try {
       const { resetToken } = await authService.verifyResetCode(email, code);
-      setResetToken(resetToken);
+      setResetToken(resetToken, email);
       router.push(ROUTES.auth.resetPassword);
     } catch (err) {
       if (isApiError(err, 'INVALID_CODE')) setDigits([]);

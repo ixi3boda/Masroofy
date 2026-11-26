@@ -6,6 +6,8 @@ export const commonStrings = {
   resendCode: 'Resend code',
   resendCodeIn: (seconds: number) => `Resend code in ${seconds}s`,
   selected: 'Selected',
+  /** Spoken after each requirement in a checklist. */
+  requirementStatus: { met: 'met', failed: 'not met', pending: 'not checked yet' },
   linkArrow: (label: string) => `${label} →`,
 
   fields: {

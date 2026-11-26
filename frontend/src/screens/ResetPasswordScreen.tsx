@@ -5,47 +5,79 @@ import Button from '@components/atoms/Button';
 import Input from '@components/atoms/Input';
 import StateSummary from '@components/molecules/StateSummary';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
-import SummaryCard from '@components/organisms/SummaryCard';
+import RequirementList, { Requirement } from '@components/molecules/RequirementList';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
-import { PASSWORD_MIN_LENGTH } from '@/constants/app';
 import { ROUTES } from '@/navigation/routes';
 import { router } from '@/navigation/router';
 import { authService } from '@/services/authService';
 import { usePasswordResetStore } from '@/store/passwordResetStore';
 import { strings } from '@/strings';
-import { getErrorMessage, getFieldErrors } from '@/utils/errors';
-import { getNewPasswordError, getPasswordMatchError } from '@/utils/validators';
+import { getErrorMessage, getFieldErrorCodes, getFieldErrors } from '@/utils/errors';
+import { getPasswordMatchError } from '@/utils/validators';
 import { useGoBack } from '@/hooks/useBackNavigation';
+import { usePasswordRequirements } from '@/hooks/usePasswordRequirements';
 
 const copy = strings.auth.resetPassword;
-// Both backend fields are shown in this screen's single error banner.
-const API_FIELDS: Record<string, 'password'> = { newPassword: 'password', confirmPassword: 'password' };
+type FieldName = 'password' | 'confirmPassword';
+const API_FIELDS: Record<string, FieldName> = { newPassword: 'password', confirmPassword: 'confirmPassword' };
 
 const ResetPasswordScreen: React.FC = () => {
-  const { resetToken, clear: clearResetFlow } = usePasswordResetStore();
+  const { resetToken, email, clear: clearResetFlow } = usePasswordResetStore();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
+  const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [showMismatch, setShowMismatch] = useState(false);
   const goBack = useGoBack(ROUTES.auth.login);
+  // The account's name is not known on this screen, so only the server can confirm NO_PERSONAL_INFO.
+  const passwordRules = usePasswordRequirements(password, {
+    personal: { email: email ?? undefined },
+    personalInfoComplete: false,
+  });
 
-  const canSubmit = password.length >= PASSWORD_MIN_LENGTH && password === confirmPassword;
+  const passwordsMatch = confirmPassword.length > 0 && password === confirmPassword;
+  const matchRequirement: Requirement = {
+    key: 'PASSWORDS_MATCH',
+    label: copy.passwordsMatch,
+    status: passwordsMatch ? 'met' : showMismatch ? 'failed' : 'pending',
+  };
+  const canSubmit = password.length > 0 && confirmPassword.length > 0;
+
+  const setField = (field: FieldName, value: string) => {
+    if (field === 'password') setPassword(value);
+    if (field === 'confirmPassword') setConfirmPassword(value);
+    setFieldErrors((prev) => ({ ...prev, [field]: undefined }));
+  };
 
   const handleSubmit = async () => {
-    const validationError = getNewPasswordError(password) ?? getPasswordMatchError(password, confirmPassword);
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
-    setError(null);
+    const errors: Partial<Record<FieldName, string>> = {
+      password: passwordRules.isValid ? undefined : strings.validation.passwordRequirementsNotMet,
+      confirmPassword: getPasswordMatchError(password, confirmPassword) ?? undefined,
+    };
+    passwordRules.revealFailures();
+    setShowMismatch(true);
+    setFieldErrors(errors);
+    setFormError(null);
+    if (Object.values(errors).some(Boolean)) return;
+
     setSubmitting(true);
     try {
       await authService.resetPassword({ resetToken: resetToken ?? '', newPassword: password, confirmPassword });
       clearResetFlow();
       router.replace(ROUTES.auth.passwordUpdated);
     } catch (err) {
-      setError(getFieldErrors(err, API_FIELDS).password ?? getErrorMessage(err));
+      const rejectedRules = getFieldErrorCodes(err, 'newPassword');
+      passwordRules.setServerFailures(rejectedRules);
+      const serverErrors = getFieldErrors(err, API_FIELDS);
+      if (rejectedRules.some(passwordRules.isChecklistRule)) {
+        serverErrors.password = strings.validation.passwordRequirementsNotMet;
+      }
+      setFieldErrors(serverErrors);
+      // A banner repeating a field's own message adds nothing (e.g. PASSWORD_REUSED, PASSWORDS_DO_NOT_MATCH).
+      const message = getErrorMessage(err);
+      setFormError(Object.values(serverErrors).includes(message) ? null : message);
     } finally {
       setSubmitting(false);
     }
@@ -68,30 +100,28 @@ const ResetPasswordScreen: React.FC = () => {
     >
       <StateSummary icon="lock-keyhole" heading={copy.heading} description={copy.description} />
 
+      {formError ? <FeedbackBanner tone="error" title={copy.errorTitle} message={formError} /> : null}
+
       <Input
         label={copy.newPasswordLabel}
         placeholder={copy.newPasswordPlaceholder}
         value={password}
-        onChangeText={(value) => {
-          setPassword(value);
-          setError(null);
-        }}
+        onChangeText={(value) => setField('password', value)}
+        hasError={!!fieldErrors.password}
+        errorMessage={fieldErrors.password}
         secureTextEntry
       />
+      <RequirementList items={passwordRules.requirements} />
       <Input
         label={copy.confirmLabel}
         placeholder={copy.confirmPlaceholder}
         value={confirmPassword}
-        onChangeText={(value) => {
-          setConfirmPassword(value);
-          setError(null);
-        }}
+        onChangeText={(value) => setField('confirmPassword', value)}
+        hasError={!!fieldErrors.confirmPassword}
+        errorMessage={fieldErrors.confirmPassword}
         secureTextEntry
       />
-
-      {error ? <FeedbackBanner tone="error" title={copy.errorTitle} message={error} /> : null}
-
-      <SummaryCard heading={copy.requirementsHeading} rows={copy.requirements} />
+      <RequirementList items={[matchRequirement]} />
 
       {isMockSource('auth') ? (
         <AppText variant="body12" color={colors.text.secondary}>
