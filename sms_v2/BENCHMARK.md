@@ -20,7 +20,7 @@ python bench.py extract        # standalone extraction
 python bench.py e2e            # end-to-end, every finished classifier
 python bench.py compare        # tables, charts, REPORT.md
 python bench.py status         # done / failed / incomplete / not run
-python -m pytest tests -q      # 36 tests, ~2-3 min (transformer tests fetch a tiny model)
+python -m pytest tests -q      # 42 tests, ~5 min (transformer tests fetch a tiny model)
 ```
 
 On Colab run `colab.ipynb` top to bottom; re-run it after a disconnect and it carries on.
@@ -49,7 +49,7 @@ pipe.process(sms)   # {"stage1": {...}, "is_transaction": bool, "record": {...} 
 | `benchmark/preprocess.py` | the one preprocessing function all models use |
 | `benchmark/run_classify.py` / `run_extract.py` / `run_e2e.py` | the three runners |
 | `benchmark/store.py`, `status.py` | atomic writes, DONE markers, experiment log, status |
-| `classification/` | `base_classifier.py` (interface), `sklearn_models.py` (LR, SVM, NB), `transformer_classifier.py` (MARBERT, AraBERT, XLM-R), `v1_reference.py`, `registry.py` |
+| `classification/` | `base_classifier.py` (interface), `sklearn_models.py` (LR, SVM, NB), `transformer_classifier.py` (MARBERT, AraBERT, XLM-R), `checkpoint_backup.py` (Drive copy of training state), `v1_reference.py`, `registry.py` |
 | `extraction/` | `base.py` (output schema, nulls, direction, reference), `v1_extractor.py` (adapter over v1) |
 | `evaluation/` | `classification_metrics.py`, `extraction_metrics.py`, `end_to_end_metrics.py`, `compare_models.py` |
 | `sms_pipeline.py` | the live two-stage pipeline |
@@ -133,6 +133,31 @@ Transformer defaults: max_len 160, batch 32, ≤ 6 epochs, lr 3e-5, warmup 10 %,
 (`checkpoints/last` with optimizer/scheduler/scaler/RNG state, and `checkpoints/best`). Resuming
 checks a config fingerprint and refuses a mismatch. After a run completes, `final/` holds the
 best epoch and the epoch checkpoints are deleted (`--keep-checkpoints` keeps them).
+
+**Disconnect protection** (`classification/checkpoint_backup.py`, switched on by `colab.ipynb`):
+
+| setting (env var) | Colab value | |
+|---|---|---|
+| `CHECKPOINT_ROOT` (`SMS_V2_CHECKPOINTS`) | `/content/checkpoints` | per-epoch checkpoints on the VM's local disk. Unset = beside the model under `OUTPUT_ROOT`. |
+| `CHECKPOINT_BACKUP` (`SMS_V2_CHECKPOINT_BACKUP`) | `DRIVE_ROOT/resume` | second copy of the resumable state after each epoch. Unset = off. |
+| `CHECKPOINT_BACKUP_SLOTS` (`SMS_V2_BACKUP_SLOTS`) | 2 | slots alternate, so a disconnect mid-backup still leaves the previous epoch |
+| `CHECKPOINT_BACKUP_EVERY` (`SMS_V2_BACKUP_EVERY`) | 1 | epochs between backups; the last epoch is always backed up |
+
+* Each slot holds `last/` (weights, tokenizer, `training_state.pt`) and `best/` when the best epoch
+  is not the last. Its `manifest.json` is set to `writing` before any file is touched and to `ok`
+  with every file's size and SHA-256 after.
+* Drive uploads in the background and in no guaranteed order. So on resume every restored file is
+  re-hashed; a slot that does not match is rejected and the next one is tried. The newest state
+  that verifies wins, whether local or backup. `train_info.resumed_from` records which one it was.
+* Slots are reused by every run and overwritten in place, never deleted: files deleted on Drive go
+  to the Trash and keep counting against the quota. A finished run marks its slots `free`.
+* Space: 2 slots need about 2 × 4 × model size (MARBERT ≈ 5.5 GB, XLM-R ≈ 9 GB); 1 slot halves it.
+  Not verified: whether Drive bills old versions of overwritten files. The notebook prints Drive's
+  free space next to the slot table, so watch that.
+* A failed backup (Drive full, say) is logged in `train_info.backup_errors` and training carries
+  on. Losing the VM mid-run then restarts that run.
+* An interrupted epoch is lost; the run restarts from the start of that epoch, about 1–3 minutes
+  of work.
 
 Why these checkpoints: MARBERT is what v2 already used. It is dialectal and tweet-trained, and
 `UBC-NLP/MARBERTv2` shares its tokenizer if you want to swap. For AraBERT, v0.2 needs no Farasa
