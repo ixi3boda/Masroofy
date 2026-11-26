@@ -95,6 +95,12 @@ public class UserRepository {
                 toDb(verifiedAt), toDb(verifiedAt), id);
     }
 
+    /** Points the profile at a (re)created Firebase account. Returns the number of rows changed. */
+    public int relinkFirebaseUid(UUID id, String firebaseUid, Instant at) {
+        return jdbcTemplate.update("UPDATE users SET firebase_uid = ?, updated_at = ? WHERE id = ?",
+                firebaseUid, toDb(at), id);
+    }
+
     /** Raises session_version to {@code version}; it never goes down. Returns the number of rows changed. */
     public int raiseSessionVersion(UUID id, int version) {
         return jdbcTemplate.update(

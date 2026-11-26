@@ -34,6 +34,8 @@ import java.util.Optional;
 import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -55,6 +57,8 @@ public class AuthService {
     private final PasswordPolicy passwordPolicy;
     private final TransactionTemplate transactionTemplate;
     private final Clock clock;
+    /** Notified after each successful sign-up; a no-op until Spring injects the real publisher. */
+    private ApplicationEventPublisher events = event -> { };
     private final RefreshTokenSeal refreshTokenSeal;
     /** Pause between Firebase cleanup retries (attempt n waits n times this). Tests set it to zero. */
     Duration rollbackBackoff = Duration.ofMillis(300);
@@ -70,6 +74,11 @@ public class AuthService {
         this.transactionTemplate = transactionTemplate;
         this.clock = clock;
         this.refreshTokenSeal = refreshTokenSeal;
+    }
+
+    @Autowired(required = false)
+    void setEventPublisher(ApplicationEventPublisher events) {
+        this.events = events;
     }
 
     // ---- 01-02 Create an account ------------------------------------------------------------------------
@@ -113,6 +122,7 @@ public class AuthService {
         User user = created[0];
 
         boolean sent = trySend(() -> emailService.sendVerificationCode(email, fullName, code.code(), codeTtl()));
+        events.publishEvent(new UserRegisteredEvent(user.id(), email));
         return new RegisterResponse(UserResponse.from(user), dispatch(email, code.expiresAt()), sent);
     }
 
