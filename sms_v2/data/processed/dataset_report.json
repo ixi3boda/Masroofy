@@ -1,0 +1,243 @@
+{
+ "n_records": 2200,
+ "data_hash": "fe332d852824f2a1",
+ "binary": {
+  "transaction": 1449,
+  "non_transaction": 751
+ },
+ "multiclass": {
+  "transaction": 1449,
+  "otp": 163,
+  "other": 189,
+  "failed_transaction": 149,
+  "promotional": 170,
+  "balance_inquiry": 80
+ },
+ "multiclass_by_reason": {
+  "gold is_transaction=True": 1449,
+  "CATEGORY_MAP[otp]": 84,
+  "CATEGORY_MAP[due]": 47,
+  "CATEGORY_MAP[declined]": 71,
+  "CATEGORY_MAP[promo]": 67,
+  "CATEGORY_MAP[balance]": 37,
+  "CATEGORY_MAP[security]": 28,
+  "CATEGORY_MAP[phishing]": 6,
+  "no rule matched in mixed category hsbc_none": 24,
+  "RULES[otp] in mixed category cib_none": 26,
+  "CATEGORY_MAP[vf_balance]": 35,
+  "CATEGORY_MAP[vf_withdraw_request]": 26,
+  "CATEGORY_MAP[instapay_none]": 27,
+  "CATEGORY_MAP[vf_promo]": 72,
+  "RULES[otp] in mixed category hsbc_none": 9,
+  "CATEGORY_MAP[nbe_dormancy]": 8,
+  "no rule matched in mixed category cib_none": 12,
+  "CATEGORY_MAP[valu_none]": 19,
+  "RULES[balance_inquiry] in mixed category oc_none": 8,
+  "RULES[failed_transaction] in mixed category hsbc_none": 12,
+  "CATEGORY_MAP[vf_insufficient]": 27,
+  "no rule matched in mixed category bm_none": 19,
+  "CATEGORY_MAP[vf_wrong_pin]": 17,
+  "RULES[failed_transaction] in mixed category cib_none": 11,
+  "RULES[failed_transaction] in mixed category bm_none": 7,
+  "RULES[otp] in mixed category bm_none": 10,
+  "RULES[promotional] in mixed category oc_none": 12,
+  "RULES[otp] in mixed category oc_none": 7,
+  "RULES[promotional] in mixed category cib_none": 12,
+  "RULES[promotional] in mixed category hsbc_none": 7,
+  "RULES[failed_transaction] in mixed category oc_none": 4
+ },
+ "splits": {
+  "template": {
+   "grouping": {
+    "n_groups": 249,
+    "groups_before_near_dup": 249,
+    "near_dup_pairs": 5031,
+    "largest_group": 72,
+    "chosen_seed": 50,
+    "seeds_tried": 30,
+    "imbalance": 0.8017
+   },
+   "summary": {
+    "train": {
+     "n": 1541,
+     "binary": {
+      "transaction": 985,
+      "non_transaction": 556
+     },
+     "multiclass": {
+      "transaction": 985,
+      "otp": 127,
+      "other": 166,
+      "promotional": 134,
+      "failed_transaction": 76,
+      "balance_inquiry": 53
+     },
+     "senders": 18,
+     "templates": 168
+    },
+    "val": {
+     "n": 323,
+     "binary": {
+      "transaction": 219,
+      "non_transaction": 104
+     },
+     "multiclass": {
+      "transaction": 219,
+      "otp": 21,
+      "promotional": 28,
+      "other": 15,
+      "failed_transaction": 32,
+      "balance_inquiry": 8
+     },
+     "senders": 13,
+     "templates": 39
+    },
+    "test": {
+     "n": 336,
+     "binary": {
+      "non_transaction": 91,
+      "transaction": 245
+     },
+     "multiclass": {
+      "failed_transaction": 41,
+      "balance_inquiry": 19,
+      "transaction": 245,
+      "promotional": 8,
+      "otp": 15,
+      "other": 8
+     },
+     "senders": 15,
+     "templates": 42
+    }
+   }
+  },
+  "random": {
+   "grouping": {
+    "n_groups": 1288,
+    "groups_before_near_dup": 1740,
+    "near_dup_pairs": 5031,
+    "largest_group": 38,
+    "chosen_seed": 47,
+    "seeds_tried": 30,
+    "imbalance": 0.4712
+   },
+   "summary": {
+    "train": {
+     "n": 1564,
+     "binary": {
+      "transaction": 1021,
+      "non_transaction": 543
+     },
+     "multiclass": {
+      "transaction": 1021,
+      "otp": 105,
+      "failed_transaction": 115,
+      "balance_inquiry": 60,
+      "other": 131,
+      "promotional": 132
+     },
+     "senders": 19,
+     "templates": 221
+    },
+    "val": {
+     "n": 363,
+     "binary": {
+      "transaction": 252,
+      "non_transaction": 111
+     },
+     "multiclass": {
+      "transaction": 252,
+      "promotional": 21,
+      "failed_transaction": 13,
+      "balance_inquiry": 13,
+      "otp": 30,
+      "other": 34
+     },
+     "senders": 17,
+     "templates": 110
+    },
+    "test": {
+     "n": 273,
+     "binary": {
+      "non_transaction": 97,
+      "transaction": 176
+     },
+     "multiclass": {
+      "other": 24,
+      "transaction": 176,
+      "otp": 28,
+      "promotional": 17,
+      "balance_inquiry": 7,
+      "failed_transaction": 21
+     },
+     "senders": 14,
+     "templates": 113
+    }
+   }
+  },
+  "sender": {
+   "grouping": {
+    "n_groups": 249,
+    "groups_before_near_dup": 249,
+    "near_dup_pairs": 5031,
+    "largest_group": 72,
+    "chosen_seed": 69,
+    "seeds_tried": 30,
+    "imbalance": 0.4942
+   },
+   "summary": {
+    "train": {
+     "n": 1060,
+     "binary": {
+      "transaction": 713,
+      "non_transaction": 347
+     },
+     "multiclass": {
+      "transaction": 713,
+      "otp": 88,
+      "promotional": 64,
+      "balance_inquiry": 27,
+      "other": 105,
+      "failed_transaction": 63
+     },
+     "senders": 15,
+     "templates": 165
+    },
+    "val": {
+     "n": 307,
+     "binary": {
+      "non_transaction": 76,
+      "transaction": 231
+     },
+     "multiclass": {
+      "otp": 27,
+      "other": 15,
+      "failed_transaction": 14,
+      "transaction": 231,
+      "balance_inquiry": 8,
+      "promotional": 12
+     },
+     "senders": 11,
+     "templates": 29
+    },
+    "test": {
+     "n": 833,
+     "binary": {
+      "transaction": 505,
+      "non_transaction": 328
+     },
+     "multiclass": {
+      "transaction": 505,
+      "otp": 48,
+      "failed_transaction": 72,
+      "balance_inquiry": 45,
+      "other": 69,
+      "promotional": 94
+     },
+     "senders": 4,
+     "templates": 55
+    }
+   }
+  }
+ }
+}

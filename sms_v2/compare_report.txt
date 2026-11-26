@@ -1,0 +1,167 @@
+v1 (sms_eval_final, TF-IDF + 4x logistic regression)  vs  v2 (sms_v2, MARBERT gate + MARBERT multi-task extractor)
+same train/test rows per split, both graded by evaluate.py:score()
+
+
+### split random: 1760 train / 440 test
+v1 trained + scored in 46.4s
+
+========================================================================
+=== random   (n=440)
+========================================================================
+metric                v1 sklearn  v2 MARBERT     delta
+------------------------------------------------------------------------
+tx_precision               1.000           -          
+tx_recall                  1.000           -          
+tx_f1                      1.000           -          
+non_tx_rejected            1.000           -          
+full_record_exact          0.775           -          
+------------------------------------------------------------------------
+per-field accuracy  
+  type                     0.986           -          
+  amount                   0.979           -          
+  currency                 0.958           -          
+  fee                      0.993           -          
+  balance_after            0.993           -          
+  merchant                 0.901           -          
+  channel                  0.993           -          
+  datetime                 0.933           -          
+  account_last4            0.986           -          
+
+  by sender (random): full_record_exact / tx_f1
+  sender             n   v1 full  v2 full       d    v1 f1  v2 f1       d
+  BanK-AlAhly       44     0.767        -            1.000      -        
+  Banque Misr       22     0.467        -            1.000      -        
+  CIB               37     0.960        -            1.000      -        
+  Cairo Wallet      26     0.778        -            1.000      -        
+  DeltaPay          14     0.900        -            1.000      -        
+  Fawry              1     1.000        -            1.000      -        
+  Giza Finance      26     1.000        -            1.000      -        
+  HSBC              29     0.619        -            1.000      -        
+  InstaPay           4     0.000        -            0.000      -        
+  Luxor Bank        32     0.960        -            1.000      -        
+  NileBank          48     0.976        -            1.000      -        
+  Orange Cash       27     0.294        -            1.000      -        
+  Pharos Pay        47     0.912        -            1.000      -        
+  Sinai Pay         13     1.000        -            1.000      -        
+  SphinxCard        11     0.875        -            1.000      -        
+  VF-Cash           49     0.067        -            1.000      -        
+  WE Pay             2     1.000        -            1.000      -        
+  e& cash            3     1.000        -            1.000      -        
+  valU               5     0.000        -            0.000      -        
+
+
+### split unseen_wording: 1803 train / 397 test
+v1 trained + scored in 35.9s
+
+========================================================================
+=== unseen_wording   (n=397)
+========================================================================
+metric                v1 sklearn  v2 MARBERT     delta
+------------------------------------------------------------------------
+tx_precision               0.839           -          
+tx_recall                  0.996           -          
+tx_f1                      0.911           -          
+non_tx_rejected            0.652           -          
+full_record_exact          0.488           -          
+------------------------------------------------------------------------
+per-field accuracy  
+  type                     0.851           -          
+  amount                   0.949           -          
+  currency                 0.941           -          
+  fee                      1.000           -          
+  balance_after            0.929           -          
+  merchant                 0.741           -          
+  channel                  0.859           -          
+  datetime                 0.980           -          
+  account_last4            0.996           -          
+
+  by sender (unseen_wording): full_record_exact / tx_f1
+  sender             n   v1 full  v2 full       d    v1 f1  v2 f1       d
+  BanK-AlAhly      124     0.516        -            1.000      -        
+  Banque Misr       23     0.304        -            1.000      -        
+  Cairo Wallet      15     0.267        -            1.000      -        
+  DeltaPay          16     0.438        -            0.968      -        
+  Fawry              7     0.000        -            1.000      -        
+  Giza Finance      29     0.714        -            1.000      -        
+  HSBC              14     0.000        -            1.000      -        
+  InstaPay          27     0.000        -            0.000      -        
+  Luxor Bank        10     0.000        -            1.000      -        
+  NileBank          47     0.865        -            0.925      -        
+  Pharos Pay        32     0.000        -            0.000      -        
+  Sinai Pay         10     0.000        -            0.000      -        
+  SphinxCard        13     1.000        -            0.667      -        
+  VF-Cash           26     0.000        -            0.000      -        
+  WE Pay             4     1.000        -            1.000      -        
+
+
+### split unseen_sender: 1367 train / 833 test
+v1 trained + scored in 36.7s
+
+========================================================================
+=== unseen_sender   (n=833)
+========================================================================
+metric                v1 sklearn  v2 MARBERT     delta
+------------------------------------------------------------------------
+tx_precision               0.803           -          
+tx_recall                  0.919           -          
+tx_f1                      0.857           -          
+non_tx_rejected            0.652           -          
+full_record_exact          0.402           -          
+------------------------------------------------------------------------
+per-field accuracy  
+  type                     0.806           -          
+  amount                   0.950           -          
+  currency                 0.914           -          
+  fee                      0.974           -          
+  balance_after            0.802           -          
+  merchant                 0.659           -          
+  channel                  0.961           -          
+  datetime                 0.815           -          
+  account_last4            0.927           -          
+
+  by sender (unseen_sender): full_record_exact / tx_f1
+  sender             n   v1 full  v2 full       d    v1 f1  v2 f1       d
+  CIB              230     0.426        -            0.966      -        
+  HSBC             131     0.443        -            0.737      -        
+  NileBank         184     0.658        -            0.957      -        
+  VF-Cash          288     0.000        -            0.674      -        
+
+
+### split real_formats: 1000 train / 1200 test
+v1 trained + scored in 34.9s
+
+========================================================================
+=== real_formats   (n=1200)
+========================================================================
+metric                v1 sklearn  v2 MARBERT     delta
+------------------------------------------------------------------------
+tx_precision               0.834           -          
+tx_recall                  0.900           -          
+tx_f1                      0.866           -          
+non_tx_rejected            0.657           -          
+full_record_exact          0.151           -          
+------------------------------------------------------------------------
+per-field accuracy  
+  type                     0.817           -          
+  amount                   0.918           -          
+  currency                 0.877           -          
+  fee                      0.985           -          
+  balance_after            0.765           -          
+  merchant                 0.451           -          
+  channel                  0.924           -          
+  datetime                 0.861           -          
+  account_last4            0.765           -          
+
+  by sender (real_formats): full_record_exact / tx_f1
+  sender             n   v1 full  v2 full       d    v1 f1  v2 f1       d
+  BanK-AlAhly      226     0.096        -            0.951      -        
+  Banque Misr      128     0.065        -            0.915      -        
+  CIB              230     0.373        -            0.966      -        
+  Fawry              7     1.000        -            1.000      -        
+  HSBC             131     0.278        -            0.675      -        
+  InstaPay          27     0.000        -            0.000      -        
+  Orange Cash      107     0.000        -            0.803      -        
+  VF-Cash          288     0.000        -            0.697      -        
+  WE Pay            13     0.000        -            1.000      -        
+  e& cash           20     0.000        -            1.000      -        
+  valU              23     0.000        -            1.000      -        
