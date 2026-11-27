@@ -1,7 +1,0 @@
-app:
-  firebase:
-    web-api-key: test-key
-  auth:
-    code-secret: test-secret-test-secret-test-secret-123
-  mail:
-    provider: log
