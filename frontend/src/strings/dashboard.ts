@@ -5,6 +5,8 @@ export const dashboardStrings = {
   totalExpense: 'Total Expense',
   currentBalance: 'Current Balance',
   cashBalance: (amount: string) => `Cash · ${amount}`,
+  loading: 'Loading your overview',
+  loadFailed: 'Couldn’t update your overview',
 
   moreActions: {
     title: 'More Actions',

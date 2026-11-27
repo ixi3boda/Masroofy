@@ -1,8 +1,10 @@
-import React from 'react';
-import { router } from 'expo-router';
+import React, { useCallback, useState } from 'react';
+import { router, useFocusEffect } from 'expo-router';
 import { spacing } from '@theme/index';
 import IconButton from '@components/atoms/IconButton';
 import { ActionChipProps } from '@components/molecules/ActionChip';
+import FeedbackBanner from '@components/molecules/FeedbackBanner';
+import InlineLoader from '@components/molecules/InlineLoader';
 import { QuickActionTileProps } from '@components/molecules/QuickActionTile';
 import ActionChipGroup from '@components/organisms/ActionChipGroup';
 import BottomTabBar from '@components/organisms/BottomTabBar';
@@ -14,10 +16,10 @@ import StatCardRow from '@components/organisms/StatCardRow';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { CATEGORY_ICONS } from '@/constants/categories';
 import { whenOpen } from '@/constants/features';
-import { useServiceData } from '@/hooks/useServiceData';
 import { ROUTES } from '@/navigation/routes';
 import { dashboardService } from '@/services/dashboardService';
 import { strings } from '@/strings';
+import { getErrorMessage } from '@/utils/errors';
 import { formatCurrency, formatDayMonth, formatSignedCurrency } from '@/utils/formatters';
 
 const copy = strings.dashboard;
@@ -36,12 +38,12 @@ const openAdd = whenOpen('transactions', () => router.push(ROUTES.transactions.a
 const openTransactions = whenOpen('transactions', () => router.push(ROUTES.transactions.list));
 const openSms = whenOpen('sms', () => router.push(ROUTES.sms.messages));
 
-const QUICK_ACTIONS: QuickActionTileProps[] = [
+const quickActions = (pendingReview: number): QuickActionTileProps[] => [
   { label: copy.quickActions.addTransaction, icon: 'plus', onPress: openAdd },
   {
     label: copy.quickActions.smsDetection,
     icon: 'sms',
-    hasAlert: true,
+    hasAlert: pendingReview > 0,
     onPress: openSms,
   },
   { label: copy.quickActions.scanReceipt, icon: 'scan' },
@@ -49,6 +51,29 @@ const QUICK_ACTIONS: QuickActionTileProps[] = [
 ];
 
 const DashboardScreen: React.FC = () => {
+  const [summary, setSummary] = useState(dashboardService.getSummary);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
+  // Reload every time Home is shown: a screen pushed on top may have changed the numbers.
+  useFocusEffect(
+    useCallback(() => {
+      let active = true;
+      dashboardService.loadSummary().then(
+        (next) => {
+          if (!active) return;
+          setSummary(next);
+          setLoadError(null);
+        },
+        (error) => {
+          if (active) setLoadError(getErrorMessage(error));
+        }
+      );
+      return () => {
+        active = false;
+      };
+    }, [])
+  );
+
   const {
     periodLabel,
     totalSalary,
@@ -56,8 +81,12 @@ const DashboardScreen: React.FC = () => {
     budgetLimit,
     primaryAccount,
     cashBalance,
+    currentBalance,
     recentTransactions,
-  } = useServiceData(dashboardService.getSummary);
+    pendingReview,
+  } = summary;
+  // Nothing loaded yet: only on the first visit with the dashboard on the real API.
+  const loaded = periodLabel !== '';
 
   const transactions = recentTransactions.map(({ id, title, category, date, amount }) => ({
     id,
@@ -76,31 +105,36 @@ const DashboardScreen: React.FC = () => {
       headerRight={<IconButton name="user" accessibilityLabel={strings.common.a11y.profile} />}
       bottomBar={<BottomTabBar activeTab="home" onAddPress={openAdd} />}
     >
-      <StatCardRow
-        items={[
-          { label: copy.totalSalary, value: formatCurrency(totalSalary), icon: 'wallet' },
-          { label: copy.totalExpense, value: formatCurrency(totalExpense), icon: 'wallet', variant: 'brand' },
-        ]}
-      />
-      <ActionChipGroup title={copy.moreActions.title} actions={MORE_ACTIONS} />
-      <QuickActionsGrid title={copy.quickActions.title} actions={QUICK_ACTIONS} />
-      <StatCardRow
-        items={[
-          {
-            label: copy.currentBalance,
-            value: formatCurrency(primaryAccount.balance + cashBalance),
-            variant: 'brand',
-          },
-          {
-            label: primaryAccount.name,
-            value: formatCurrency(primaryAccount.balance),
-            caption: copy.cashBalance(formatCurrency(cashBalance)),
-          },
-        ]}
-      />
-      <BudgetProgressCard spent={totalExpense} limit={budgetLimit} periodLabel={periodLabel} />
-      <IncomeExpenseChartCard income={totalSalary} expense={totalExpense} periodLabel={periodLabel} />
-      <RecentTransactions transactions={transactions} onViewAll={openTransactions} />
+      {loadError ? <FeedbackBanner tone="error" title={copy.loadFailed} message={loadError} /> : null}
+      {loaded ? (
+        <>
+          <StatCardRow
+            items={[
+              { label: copy.totalSalary, value: formatCurrency(totalSalary), icon: 'wallet' },
+              { label: copy.totalExpense, value: formatCurrency(totalExpense), icon: 'wallet', variant: 'brand' },
+            ]}
+          />
+          <ActionChipGroup title={copy.moreActions.title} actions={MORE_ACTIONS} />
+          <QuickActionsGrid title={copy.quickActions.title} actions={quickActions(pendingReview)} />
+          <StatCardRow
+            items={[
+              { label: copy.currentBalance, value: formatCurrency(currentBalance), variant: 'brand' },
+              {
+                label: primaryAccount.name,
+                value: formatCurrency(primaryAccount.balance),
+                caption: copy.cashBalance(formatCurrency(cashBalance)),
+              },
+            ]}
+          />
+          {budgetLimit > 0 ? (
+            <BudgetProgressCard spent={totalExpense} limit={budgetLimit} periodLabel={periodLabel} />
+          ) : null}
+          <IncomeExpenseChartCard income={totalSalary} expense={totalExpense} periodLabel={periodLabel} />
+          <RecentTransactions transactions={transactions} onViewAll={openTransactions} />
+        </>
+      ) : loadError ? null : (
+        <InlineLoader label={copy.loading} />
+      )}
     </ScreenLayout>
   );
 };
