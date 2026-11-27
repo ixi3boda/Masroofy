@@ -42,9 +42,9 @@ Always add packages with `npx expo install <package>` (keeps versions compatible
 
 Verification / password-reset code everywhere: **`123456`**. These live in `src/mocks/data/authAccounts.ts`.
 
-### SMS and Transactions are closed for now
+### Transactions is partly closed for now
 
-Their buttons are visible but unclickable (Home: Add Transaction, +, View All, recent transactions, SMS Detection; Bank Messages: + and View existing transaction). To open a section, set it to `true` in `src/constants/features.ts`. The two guides below assume it is open.
+Only adding is open: Add Transaction and the **+** button (Home and Bank Messages) work. The rest is visible but unclickable (Home: View All, recent transactions; Bank Messages: View existing transaction). SMS is open. Switches live in `src/constants/features.ts` (`addTransaction`, `transactions`); the Transactions guide below assumes both are open.
 
 ### Transactions (mock mode)
 
@@ -123,7 +123,7 @@ Before building any UI, look here first — extend an existing component instead
 `Avatar` · `Button` (primary / outline / danger / link / dangerLink, sizes md / sm) · `Card` (default / brand gradient) · `ChartBar` · `Checkbox` · `Chip` (info / success / error / warning, optional icon) · `Divider` · `Fab` · `Icon` (lucide, named set) · `IconBadge` (brand / error) · `IconButton` · `IconTile` · `Input` (label, hint, error, icons, multiline) · `OtpDigitBox` · `ProgressBar` (brand / danger) · `ProgressRing` · `Radio` · `SegmentedControl` (sliding highlight; `scrollable` inside scrolling content) · `SelectField` (tap-to-pick field, optional icon) · `ShutterButton` · `Skeleton` · `Switch` · `TabPanel` (animated body of the selected tab) · `Text` (`AppText`) · `Waveform`
 
 ### Molecules (29)
-`ActionChip` · `AmountSummaryCard` (one big figure + header/children) · `BarChartColumn` · `BrandMark` · `DateRangeCard` · `DividedCard` (rows separated by dividers) · `DonutChart` · `EmailPreviewRow` · `FeedbackBanner` (info / success / error / warning) · `FieldRow` (side-by-side fields) · `InlineLoader` · `LegendItem` · `ListRow` (the universal row: settings, details, messages, quotes…) · `MonthTimeline` · `NotificationCard` · `OptionCard` (radio / checkbox) · `OtpCodeField` · `ProfileSummary` · `ProgressSummary` · `QuickActionTile` · `ReceiptPreview` · `RecentSearchItem` · `SectionHeader` · `SkeletonRow` · `StatCard` · `StateSummary` (hero / compact, brand / error) · `TabBarItem` · `TranscriptCard` · `TrendChart`
+`ActionChip` · `AmountSummaryCard` (one big figure + header/children) · `BarChartColumn` · `BrandMark` · `DateRangeCard` · `DividedCard` (rows separated by dividers) · `DonutChart` · `EmailPreviewRow` · `FeedbackBanner` (info / success / error / warning) · `FieldRow` (side-by-side fields) · `InlineLoader` · `LegendItem` · `ListRow` (the universal row: settings, details, messages, quotes…) · `MonthTimeline` · `NotificationCard` · `OptionCard` (radio / checkbox) · `OtpCodeField` · `ProfileSummary` · `ProgressSummary` · `QuickActionTile` · `ReceiptPreview` · `RecentSearchItem` · `RequirementList` (live rule checklist, e.g. password) · `SectionHeader` · `SkeletonRow` · `StatCard` · `StateSummary` (hero / compact, brand / error) · `TabBarItem` · `TranscriptCard` · `TrendChart`
 
 ### Organisms (25)
 `ActionChipGroup` · `AmountEntryCard` · `BankMessageCard` (imported SMS in the messages list) · `BottomTabBar` · `BudgetProgressCard` · `CapturePanel` (receipt camera) · `ConfirmDialog` · `DeleteTransactionDialog` · `DetailList` (key–value block) · `GroupedBarChartCard` · `IncomeExpenseChartCard` · `OptionList` · `ProgressItemCard` (budgets / goals) · `QuickActionsGrid` · `RecentTransactions` · `ScreenHeader` · `SpendingBreakdownCard` · `StatCardRow` · `SummaryCard` · `TransactionForm` (add / edit fields) · `TransactionGroupCard` · `TransactionHistory` (dated groups) · `TransactionItem` · `TransactionRecordCard` · `VoiceCaptureCard`
@@ -215,6 +215,7 @@ Screens only ever import from `src/services/*`. The service file decides where t
 ## 6. Navigation & back button
 
 - Routes live in `src/app/` and are listed in `src/navigation/routes.ts` — add new screens to both.
+- Navigate with `router` from `@/navigation/router` (not `expo-router`): it ignores a second tap within 400 ms, so a double-tap opens or closes one screen, not two.
 - Use `useGoBack(ROUTES.x.y)` for header back buttons: it goes back when there is history and otherwise falls back to the given route (deep links, web refresh).
 - Use `useHardwareBack(handler)` when the Android back button must do something custom (e.g. "Password updated" always returns to Login) It only listens while its screen is focused, so screens pushed on top keep the normal back.
 - In multi-step flows, `router.replace` a step that should not be returned to (SMS: Import → Processing → Review), so the plain back arrow and Android back already land on the right screen.

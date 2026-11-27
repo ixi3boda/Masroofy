@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { Redirect, useLocalSearchParams } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
-import Input from '@components/atoms/Input';
 import SelectField from '@components/atoms/SelectField';
 import DividedCard from '@components/molecules/DividedCard';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
@@ -12,36 +11,33 @@ import SectionHeader from '@components/molecules/SectionHeader';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { smsService } from '@/services/smsService';
 import { strings } from '@/strings';
 import { formatCurrency, formatDateTime } from '@/utils/formatters';
-import { parseAmount } from '@/utils/validators';
 
 const review = strings.sms.review;
 const copy = review.match;
 
-/** 04-04 · Review Bank SMS: the message duplicates a recorded expense, so confirming only links them. */
+/**
+ * 04-04 · Review Bank SMS: the message duplicates a recorded expense, so confirming only links them.
+ * The extracted details are shown read-only: they are the existing record's, and linking doesn't change it.
+ */
 const SmsReviewMatchScreen: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const message = smsService.getMessage(id);
   const goBack = useGoBack(ROUTES.sms.messages);
 
-  const [amount, setAmount] = useState(() => (message ? String(message.amount) : ''));
-  const [merchant, setMerchant] = useState(message?.match?.merchant ?? '');
-  const [dateTime, setDateTime] = useState(() => (message ? formatDateTime(message.receivedAt) : ''));
-  const [submitted, setSubmitted] = useState(false);
   const [pending, setPending] = useState<'confirm' | 'ignore' | null>(null);
 
+  // Imported again after it was linked: show the link instead of reviewing (or ignoring) it twice.
+  if (message?.status === 'reviewed') {
+    return <Redirect href={{ pathname: ROUTES.sms.matchConfirmed, params: { id: message.id } }} />;
+  }
   if (!message?.match) return <Redirect href={ROUTES.sms.messages} />;
   const { match } = message;
 
-  const amountInvalid = submitted && parseAmount(amount) === null;
-  const merchantMissing = submitted && !merchant.trim();
-  const dateMissing = submitted && !dateTime.trim();
-
   const confirm = async () => {
-    setSubmitted(true);
-    if (parseAmount(amount) === null || !merchant.trim() || !dateTime.trim()) return;
     setPending('confirm');
     try {
       await smsService.confirmMatch(message.id);
@@ -100,28 +96,9 @@ const SmsReviewMatchScreen: React.FC = () => {
       />
 
       <SectionHeader title={review.detailsHeading} />
-      <Input
-        label={copy.amountLabel}
-        value={amount}
-        onChangeText={setAmount}
-        keyboardType="decimal-pad"
-        hasError={amountInvalid}
-        errorMessage={review.errors.amount}
-      />
-      <Input
-        label={copy.merchantLabel}
-        value={merchant}
-        onChangeText={setMerchant}
-        hasError={merchantMissing}
-        errorMessage={review.errors.required}
-      />
-      <Input
-        label={copy.dateLabel}
-        value={dateTime}
-        onChangeText={setDateTime}
-        hasError={dateMissing}
-        errorMessage={review.errors.required}
-      />
+      <SelectField label={copy.amountLabel} value={String(message.amount)} />
+      <SelectField label={copy.merchantLabel} value={match.merchant} />
+      <SelectField label={copy.dateLabel} value={formatDateTime(message.receivedAt)} />
       <SelectField label={copy.categoryLabel} value={strings.categories[match.category]} />
       <SelectField label={copy.accountLabel} value={match.account.label} />
 

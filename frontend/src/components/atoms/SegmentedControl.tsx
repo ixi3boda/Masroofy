@@ -92,6 +92,7 @@ const SegmentedControl = <T extends string>({
               onPress={select}
               {...(scrollable ? null : IMMEDIATE_PRESS_IN)}
               accessibilityRole="tab"
+              accessibilityLabel={option.label}
               // The aria prop, because react-native-web ignores `accessibilityState`.
               aria-selected={selected}
               style={styles.segment}

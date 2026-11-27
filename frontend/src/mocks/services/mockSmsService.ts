@@ -2,8 +2,9 @@ import { mockBankMessages, mockSharedMessageText, mockTrackingAccounts } from '@
 import { mockTransactionService } from '@/mocks/services/mockTransactionService';
 import { SmsService } from '@/services/types';
 import { strings } from '@/strings';
-import { BankMessage, BankMessageMatch, BankMessageReview } from '@/types/sms';
+import { BankMessage, BankMessageMatch } from '@/types/sms';
 import { AppError } from '@/utils/errors';
+import { reviewTypeOf } from '@/utils/sms';
 
 /**
  * In-memory stand-in for bank SMS import and review. It parses pasted text,
@@ -12,10 +13,10 @@ import { AppError } from '@/utils/errors';
  * each message's status until the app reloads. Screens use `@/services/smsService`, never this file.
  */
 
-const RESPONSE_DELAY_MS = 600;
-const EXTRACTION_DELAY_MS = 1500;
+const RESPONSE_DELAY_MS = 300;
+const EXTRACTION_DELAY_MS = 1000;
 const KNOWN_BANKS = ['CIB', 'NBE', 'Banque Misr', 'QNB', 'HSBC'];
-const UNKNOWN_BANK = 'Bank message';
+const UNKNOWN_BANK = 'Your bank';
 
 const AMOUNT = /EGP\s*([\d,]+(?:\.\d{1,2})?)/i;
 const DATE_TIME = /(\d{2})\/(\d{2})\/(\d{4})\s+(\d{2}):(\d{2})/;
@@ -73,11 +74,6 @@ const parse = (body: string): ParsedMessage | null => {
   };
 };
 
-const reviewFor = (message: BankMessage): BankMessageReview => {
-  if (message.kind === 'withdrawal') return 'withdrawal';
-  return message.match ? 'match' : 'unmatched';
-};
-
 let messages: BankMessage[] = mockBankMessages;
 
 const findMessage = (id: string): BankMessage => {
@@ -122,12 +118,16 @@ export const mockSmsService: SmsService = {
 
   async extractDetails(id) {
     await wait(EXTRACTION_DELAY_MS);
-    return reviewFor(withMatch(findMessage(id)));
+    return reviewTypeOf(withMatch(findMessage(id)));
   },
 
   async confirmMatch(id) {
     await wait(RESPONSE_DELAY_MS);
-    return updateMessage(id, { match: findMatch(findMessage(id)), status: 'reviewed' });
+    return updateMessage(id, {
+      match: findMatch(findMessage(id)),
+      status: 'reviewed',
+      reviewedAt: new Date().toISOString(),
+    });
   },
 
   async ignoreMessage(id) {

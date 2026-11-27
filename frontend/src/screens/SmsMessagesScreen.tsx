@@ -1,5 +1,4 @@
 import React from 'react';
-import { router } from 'expo-router';
 import { colors } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -19,21 +18,25 @@ import { whenOpen } from '@/constants/features';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { useServiceData } from '@/hooks/useServiceData';
 import { useTabParam } from '@/hooks/useTabParam';
-import { ROUTES } from '@/navigation/routes';
+import { ROUTES, SMS_REVIEW_ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { dashboardService } from '@/services/dashboardService';
 import { smsService } from '@/services/smsService';
 import { transactionService } from '@/services/transactionService';
 import { strings } from '@/strings';
 import { BankMessage } from '@/types/sms';
 import { formatCurrency, formatDateTime, formatMonthName } from '@/utils/formatters';
+import { reviewTypeOf } from '@/utils/sms';
 
 const TAB_ORDER = ['new', 'reviewed'] as const;
 
 const copy = strings.sms.messages;
 
 const openImport = () => router.push(ROUTES.sms.import);
-const openReview = (id: string) => router.push({ pathname: ROUTES.sms.processing, params: { id } });
-const openAdd = whenOpen('transactions', () => router.push(ROUTES.transactions.add));
+/** Its details were extracted on import, so the message opens its review directly. */
+const openReview = (message: BankMessage) =>
+  router.push({ pathname: SMS_REVIEW_ROUTES[reviewTypeOf(message)], params: { id: message.id } });
+const openAdd = whenOpen('addTransaction', () => router.push(ROUTES.transactions.add));
 const openTransaction = (id: string) => router.push({ pathname: ROUTES.transactions.details, params: { id } });
 const goHome = () => router.dismissTo(ROUTES.app.home);
 
@@ -87,7 +90,7 @@ const NewTab: React.FC<TabProps> = ({ newMessages }) => {
           }
           status={{ label: copy.newChip, tone: 'info' }}
           actionLabel={copy.reviewMessage}
-          onAction={() => openReview(message.id)}
+          onAction={() => openReview(message)}
         />
       ))}
       {unmatchedBanks.length > 0 ? (
@@ -162,7 +165,7 @@ const ReviewedTab: React.FC<TabProps> = ({ newMessages, reviewedMessages }) => {
                   trailing={formatCurrency(message.amount)}
                   status={{ label, tone: 'info' }}
                   meta={meta}
-                  onPress={() => openReview(message.id)}
+                  onPress={() => openReview(message)}
                 />
               );
             })}
@@ -191,7 +194,10 @@ const SmsMessagesScreen: React.FC = () => {
   const messages = useServiceData(smsService.getMessages);
 
   const newMessages = messages.filter((message) => message.status === 'new');
-  const reviewedMessages = messages.filter((message) => message.status === 'reviewed');
+  // Most recently linked first, so the banner names the message just reviewed.
+  const reviewedMessages = messages
+    .filter((message) => message.status === 'reviewed')
+    .sort((a, b) => (b.reviewedAt ?? '').localeCompare(a.reviewedAt ?? ''));
 
   const tabProps = { newMessages, reviewedMessages };
 

@@ -26,7 +26,7 @@ Run lint and typecheck before declaring any task done.
 ## Navigation & Routing
 
 - Use **Expo Router** for all navigation. Routes live in `src/app/` — every file there is a thin route file that just re-exports the real screen component (`export { default } from '@screens/XScreen'`). `_layout.tsx` files define navigators. Keep non-route code (components, hooks, utils) outside `src/app/`.
-- Import `Link`, `router`, and `useLocalSearchParams` from `expo-router`.
+- Import `Link` and `useLocalSearchParams` from `expo-router`, but navigate with `router` from `@/navigation/router`: it wraps Expo Router's `router` and drops a second navigation within 400 ms, so a double-tap never opens or closes two screens.
 - Docs: https://docs.expo.dev/router/introduction.md
 
 ## Project structure & conventions

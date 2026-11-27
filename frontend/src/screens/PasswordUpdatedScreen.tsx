@@ -1,5 +1,4 @@
 import React from 'react';
-import { router } from 'expo-router';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
 import StateSummary from '@components/molecules/StateSummary';
@@ -8,6 +7,7 @@ import SummaryCard from '@components/organisms/SummaryCard';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { strings } from '@/strings';
 import { useHardwareBack } from '@/hooks/useBackNavigation';
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { Redirect, useLocalSearchParams } from 'expo-router';
 import Button from '@components/atoms/Button';
 import Chip from '@components/atoms/Chip';
 import DividedCard from '@components/molecules/DividedCard';
@@ -9,22 +9,17 @@ import StateSummary from '@components/molecules/StateSummary';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
 import { useGoBack } from '@/hooks/useBackNavigation';
-import { ROUTES } from '@/navigation/routes';
+import { ROUTES, SMS_REVIEW_ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { smsService } from '@/services/smsService';
 import { strings } from '@/strings';
-import { BankMessageReview } from '@/types/sms';
 
 const copy = strings.sms.processing;
 
-const REVIEW_ROUTES = {
-  match: ROUTES.sms.reviewMatch,
-  unmatched: ROUTES.sms.reviewUnmatched,
-  withdrawal: ROUTES.sms.classifyWithdrawal,
-} as const satisfies Record<BankMessageReview, string>;
-
 /**
- * 04-03 · Reviewing Message: extracts the details, then replaces itself with the review that
- * fits the message. It always sits right above Bank Messages, so back = Cancel review.
+ * 04-03 · Reviewing Message: shown right after an SMS is imported. It extracts the details, then
+ * replaces itself with the review that fits the message. Messages already in the list skip it and
+ * open their review directly. It always sits right above Bank Messages, so back = Cancel review.
  */
 const SmsProcessingScreen: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -38,7 +33,7 @@ const SmsProcessingScreen: React.FC = () => {
     smsService
       .extractDetails(messageId)
       .then((review) => {
-        if (active) router.replace({ pathname: REVIEW_ROUTES[review], params: { id: messageId } });
+        if (active) router.replace({ pathname: SMS_REVIEW_ROUTES[review], params: { id: messageId } });
       })
       .catch(() => {
         if (active) router.replace(ROUTES.sms.importFailed);

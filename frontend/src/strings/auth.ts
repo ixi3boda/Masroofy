@@ -1,4 +1,4 @@
-import { PASSWORD_MIN_LENGTH } from '@/constants/app';
+import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from '@/constants/app';
 
 const previewNotice = 'Static design preview only. No account, sign-in or email action is performed.';
 
@@ -40,7 +40,6 @@ export const authStrings = {
     fullNameLabel: 'Full name',
     fullNamePlaceholder: 'Enter your name',
     passwordPlaceholder: 'Create a password',
-    passwordHint: `Use at least ${PASSWORD_MIN_LENGTH} characters, including a number and a capital letter.`,
     consentTitle: 'I agree to the Terms & Privacy Policy',
     consentDescription: 'Consent required before creating an account',
     submit: 'Create account',
@@ -104,6 +103,15 @@ export const authStrings = {
       `This design shows the request confirmation only. It has not checked an address or sent a message. Use ${code} in this preview.`,
   },
 
+  /** The live checklist under a new password, worded like the backend's PasswordPolicy rules. */
+  passwordRequirements: {
+    MIN_LENGTH: `At least ${PASSWORD_MIN_LENGTH} characters`,
+    MAX_LENGTH: `At most ${PASSWORD_MAX_LENGTH} characters`,
+    NUMBER_OR_SYMBOL: 'Includes a number or a symbol',
+    NO_PERSONAL_INFO: 'Does not include your name or email',
+    COMMON_PASSWORD: 'Not a common or easily guessed password',
+  },
+
   resetPassword: {
     title: 'Set new password',
     heading: 'Choose a new password',
@@ -113,13 +121,7 @@ export const authStrings = {
     confirmLabel: 'Confirm new password',
     confirmPlaceholder: 'Re-enter your new password',
     errorTitle: 'Could not update password',
-    requirementsHeading: 'Password requirements',
-    requirements: [
-      `○ At least ${PASSWORD_MIN_LENGTH} characters`,
-      '○ Include at least one number',
-      '○ Include at least one capital letter',
-      '○ Both passwords must match',
-    ],
+    passwordsMatch: 'Both passwords match',
     submit: 'Update password',
     previewNotice,
   },

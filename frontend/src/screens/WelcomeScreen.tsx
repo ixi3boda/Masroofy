@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { router } from 'expo-router';
 import { colors, spacing } from '@theme/index';
 import AppText from '@components/atoms/Text';
 import Button from '@components/atoms/Button';
@@ -12,6 +11,7 @@ import DividedCard from '@components/molecules/DividedCard';
 import ListRow from '@components/molecules/ListRow';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { ROUTES } from '@/navigation/routes';
+import { router } from '@/navigation/router';
 import { strings } from '@/strings';
 
 const copy = strings.auth.welcome;

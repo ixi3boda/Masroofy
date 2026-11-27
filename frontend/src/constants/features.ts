@@ -1,9 +1,11 @@
-type Feature = 'sms' | 'transactions';
+/** `addTransaction` = only the Add Transaction buttons; `transactions` = everything else in the section (list, details…). */
+type Feature = 'sms' | 'transactions' | 'addTransaction';
 
 /** Sections whose entry buttons are live. A closed one keeps its buttons visible but unclickable: set `true` to open it. */
 const IS_OPEN: Record<Feature, boolean> = {
-  sms: false,
+  sms: true,
   transactions: false,
+  addTransaction: true,
 };
 
 /** `action` while `feature` is open, otherwise nothing, which makes the control unclickable. */

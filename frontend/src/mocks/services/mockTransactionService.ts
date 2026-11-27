@@ -11,7 +11,7 @@ import { AppError } from '@/utils/errors';
  * `@/services/transactionService`, never this file.
  */
 
-const RESPONSE_DELAY_MS = 600;
+const RESPONSE_DELAY_MS = 300;
 const MAX_RECENT_SEARCHES = 5;
 
 const wait = () => new Promise((resolve) => setTimeout(resolve, RESPONSE_DELAY_MS));

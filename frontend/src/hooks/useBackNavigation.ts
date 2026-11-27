@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { BackHandler } from 'react-native';
-import { Href, router, useFocusEffect } from 'expo-router';
+import { Href, useFocusEffect } from 'expo-router';
+import { router } from '@/navigation/router';
 
 /**
  * Back action that never dead-ends: pops the stack when there is history,
