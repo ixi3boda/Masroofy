@@ -1,6 +1,0 @@
-# Local development: run with SPRING_PROFILES_ACTIVE=dev
-app:
-  mail:
-    provider: log
-  auth:
-    code-secret: ${AUTH_CODE_SECRET:dev-only-secret-change-me-0123456789abcdef}

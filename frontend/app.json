@@ -3,7 +3,6 @@
     "name": "frontend",
     "slug": "frontend",
     "version": "1.0.0",
-    "scheme": "masroofy",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -21,14 +20,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-router",
-      "expo-font",
-      "expo-secure-store"
-    ],
-    "experiments": {
-      "typedRoutes": true
     }
   }
 }
