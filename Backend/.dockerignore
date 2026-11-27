@@ -1,0 +1,10 @@
+target/
+.idea/
+.vscode/
+*.iml
+.env
+.env.*
+secrets/
+*firebase-adminsdk*.json
+service-account*.json
+README.md
