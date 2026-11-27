@@ -1,0 +1,48 @@
+# Finance local stack: PostgreSQL + Spring Boot backend. Run from this backend/ folder:
+#   cp .env.example .env    # then set DB_PASSWORD (Windows: copy .env.example .env)
+#   docker compose up --build
+# Prices page: http://localhost:${BACKEND_PORT}/   Charts: http://localhost:${BACKEND_PORT}/charts.html
+
+name: finance
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:?Set DB_NAME in a .env}
+      POSTGRES_USER: ${DB_USERNAME:?Set DB_USERNAME in a .env}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in a .env}
+      TZ: ${TZ:-Africa/Cairo}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+    image: finance-backend:local
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-}
+      PORT: 8080
+      DB_URL: jdbc:postgresql://db:5432/${DB_NAME:?Set DB_NAME in a .env}
+      DB_USERNAME: ${DB_USERNAME:?Set DB_USERNAME in a .env}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in a .env}
+      TZ: ${TZ:-Africa/Cairo}
+      JAVA_OPTS: ${JAVA_OPTS:--XX:MaxRAMPercentage=75 -XX:+ExitOnOutOfMemoryError}
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+
+volumes:
+  db-data:
