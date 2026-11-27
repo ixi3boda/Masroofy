@@ -15,8 +15,10 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @RestControllerAdvice
@@ -50,6 +52,21 @@ public class GlobalExceptionHandler {
                 .map(GlobalExceptionHandler::toDetail)
                 .toList();
         return respond(ErrorCode.VALIDATION_FAILED, request, fieldErrors);
+    }
+
+    /** A query parameter of the wrong type, e.g. {@code ?recentLimit=abc}: 400, not 500. */
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ErrorResponse> handleTypeMismatch(MethodArgumentTypeMismatchException ex,
+                                                            HttpServletRequest request) {
+        return respond(ErrorCode.VALIDATION_FAILED, request,
+                List.of(new FieldErrorDetail(ex.getName(), "TypeMismatch", "Has the wrong format")));
+    }
+
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public ResponseEntity<ErrorResponse> handleMissingParameter(MissingServletRequestParameterException ex,
+                                                                HttpServletRequest request) {
+        return respond(ErrorCode.VALIDATION_FAILED, request,
+                List.of(new FieldErrorDetail(ex.getParameterName(), "NotNull", "Is required")));
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)

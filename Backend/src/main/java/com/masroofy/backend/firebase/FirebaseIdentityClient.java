@@ -14,6 +14,9 @@ public interface FirebaseIdentityClient {
 
     void deleteUser(String uid);
 
+    /** The Firebase uid of the user with this email, if Firebase has one. */
+    java.util.Optional<String> findUidByEmail(String email);
+
     void markEmailVerified(String uid);
 
     void updatePassword(String uid, String newPassword);

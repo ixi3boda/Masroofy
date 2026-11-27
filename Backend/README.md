@@ -108,6 +108,7 @@ Protected endpoints need the header `Authorization: Bearer <accessToken>`.
 | 01-06 Check your email | `POST /auth/password/verify-code` | – | `200` `{resetToken, expiresInSeconds}` |
 | 01-07 Set new password → 01-08 | `POST /auth/password/reset` | – | `200` `{message}` |
 | Home header / profile | `GET /users/me` | Bearer | `200` `UserResponse` |
+| 02-01 Home dashboard | `GET /dashboard?month=YYYY-MM&recentLimit=3` | Bearer | `200` `DashboardResponse` |
 
 ### Request bodies
 
@@ -200,3 +201,86 @@ Every error has the same shape. The app should switch on `code`, not on `message
   (`app.firebase.check-revoked`) works in whole seconds and misses those.
 - `refreshToken` is opaque: the backend wraps Firebase's token as `<sessionVersion>.<HMAC>.<token>`.
 - Users whose email is not verified are authenticated but cannot reach any data endpoint.
+
+## Home dashboard (02-01)
+
+`GET /api/v1/dashboard` returns everything the home screen shows, read from **one database snapshot** (a read-only
+REPEATABLE READ transaction), so Total Expense, the budget's "spent" and the chart always agree.
+
+| Query | Default | Meaning |
+|---|---|---|
+| `month` | current month | `YYYY-MM` in the user's time zone. Future months → `400`. |
+| `recentLimit` | `3` | Recent transactions to return, `1`-`20`. |
+
+```jsonc
+{
+  "period":   { "month": "2026-11", "label": "Nov 2026", "startDate": "2026-11-01", "endDate": "2026-11-30",
+                "timezone": "Africa/Cairo", "asOf": "2026-11-25T10:00:00Z", "currentMonth": true },
+  "baseCurrency": "EGP",
+  "summary":  { "totalIncome": "30000.00", "totalExpense": "12450.00", "net": "17550.00" },   // "Total Salary" card = totalIncome
+  "balance":  { "total": "39100.00", "unconvertedCurrencies": [],
+                "accounts": [ { "id": "…", "name": "CIB Account", "type": "bank", "currency": "EGP", "cardLast4": "4821",
+                                "balance": "20550.00", "balanceInBase": "20550.00" },
+                              { "id": "…", "name": "Payoneer USD", "type": "e_wallet", "currency": "USD",
+                                "balance": "300.00", "balanceInBase": "14550.00", "fxRate": "48.500000" } ] },
+  "budget":   { "id": "…", "amount": "18000.00", "carriedOver": "0.00", "limit": "18000.00", "spent": "12450.00",
+                "remaining": "5550.00", "usedPercent": 69, "alertThresholdPct": 80, "status": "ON_TRACK", "rollover": false },
+  "recentTransactions": [
+    { "id": "…", "type": "EXPENSE", "title": "Carrefour", "merchant": "Carrefour",
+      "category": { "id": "…", "key": "groceries", "name": "Groceries" }, "account": { "id": "…", "name": "CIB Account" },
+      "amount": "850.00", "signedAmount": "-850.00", "currency": "EGP", "amountInBase": "850.00",
+      "date": "2026-11-24", "time": "12:38", "occurredAt": "2026-11-24T10:38:00Z" } ],
+  "badges":   { "pendingReview": 1 }
+}
+```
+
+Rules that keep the numbers accurate:
+
+- **Money is a string** with two decimals. Parse it with a decimal type, never a float.
+- **What counts:** only `confirmed`, non-deleted transactions. Transfers between the user's own accounts are neither
+  income nor expense. Items waiting for review (SMS, receipt, voice) only show in `badges.pendingReview`.
+- **Months use the user's time zone** (default Africa/Cairo); timestamps are stored in UTC.
+- **Currencies:** totals are in the user's base currency, converting each transaction with the rate stored on it
+  (`fx_rate_to_base`). Account balances are converted with the latest rate in `price_quotes` at `asOf`; an account
+  whose currency has no rate is listed with no `balanceInBase` and named in `unconvertedCurrencies`.
+- **Balances are computed** from the transactions (opening balance + money in − money out), never stored, so they
+  cannot drift.
+- **Budget:** the overall monthly budget in force for the month. `NEAR_LIMIT` from `alertThresholdPct`, `OVER` past
+  100% (`remaining` goes negative). With `rollover`, unspent amounts of earlier months are added; overspending is not.
+  `budget` is absent when the user has none.
+- **Recent transactions:** newest first; a transfer appears once with `account` (from) and `toAccount`.
+  `signedAmount` is absent for transfers. `category.key` is the app's category key (`groceries`, `salary`, …).
+
+Absent fields: `null` values are left out of the response (`budget`, `fxRate`, `toAccount`, …).
+
+### Database (migration V4)
+
+`accounts`, `categories` (14 system categories with the app's keys), `transfers`, `transactions`, `budgets`,
+`assets` and `price_quotes` (currency pairs such as `USD-EGP`). The database itself rejects inconsistent data:
+amounts must be positive; a transaction must use an account of the same user **and** the same currency; a category
+must be the user's or a system one and match income/expense; a transfer must be exactly one outgoing and one incoming
+leg (checked at commit); one overall budget per month, starting on the 1st.
+
+### Demo data (development only)
+
+So the dashboard is never empty while the app is being built, the backend can fill accounts with two months of
+realistic data that matches the Figma frame: current month income 30,000, expense 12,450, CIB 20,550 + Cash 4,000,
+budget 69% used, recent Carrefour / Uber / Vodafone, plus a USD wallet (300 USD) to show multi-currency.
+The data lives in one file, `src/main/resources/demo/demo-ledger.sql`, used by both the backend and the script below.
+
+| Setting (`.env`) | What it does |
+|---|---|
+| `DEMO_DATA_ENABLED=true` | At every start, creates or updates the demo users (`DEMO_USER_*`, `DEMO_USER2_*`) in **Firebase and PostgreSQL** (email already verified, linked by Firebase uid) and reloads their data, so the current month is always full. Log in with them right away. |
+| `DEMO_DATA_FOR_NEW_USERS=true` | Every new sign-up also gets the demo data on their own account. |
+
+Both are `false` unless set (see `application.yml`), so production never seeds. The demo users are shared by the team
+because the Firebase project is shared; their data is replaced at every start of anyone's backend.
+A restart reuses the existing Firebase users and only resets a password if it no longer matches the configured one.
+
+To (re)load the data for any other existing account by hand:
+
+```bash
+./scripts/load-demo-data.sh you@example.com
+```
+
+Running it again replaces that user's accounts, transactions, transfers and budgets; other users are not touched.

@@ -91,6 +91,18 @@ public class FirebaseIdentityClientImpl implements FirebaseIdentityClient {
     }
 
     @Override
+    public java.util.Optional<String> findUidByEmail(String email) {
+        try {
+            return java.util.Optional.of(firebaseAuth.getUserByEmail(email).getUid());
+        } catch (FirebaseAuthException e) {
+            if (e.getAuthErrorCode() == AuthErrorCode.USER_NOT_FOUND) {
+                return java.util.Optional.empty();
+            }
+            throw unavailable("findUidByEmail", e);
+        }
+    }
+
+    @Override
     public void markEmailVerified(String uid) {
         updateUser(new UserRecord.UpdateRequest(uid).setEmailVerified(true), "markEmailVerified");
     }

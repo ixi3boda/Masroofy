@@ -91,3 +91,16 @@ app:
     from-name: Masroofy
   cors:
     allowed-origins: ${CORS_ALLOWED_ORIGINS:}
+  demo:
+    # DEVELOPMENT ONLY. At startup, create/update these users in Firebase and PostgreSQL and reload their demo data
+    # (accounts, transactions, budget) so the dashboard always shows a full current month. Never enable in production.
+    enabled: ${DEMO_DATA_ENABLED:false}
+    # DEVELOPMENT ONLY. Also give every new sign-up the demo data.
+    for-new-users: ${DEMO_DATA_FOR_NEW_USERS:false}
+    users:
+      - email: ${DEMO_USER_EMAIL:}
+        password: ${DEMO_USER_PASSWORD:}
+        full-name: ${DEMO_USER_NAME:Mariam Ali}
+      - email: ${DEMO_USER2_EMAIL:}
+        password: ${DEMO_USER2_PASSWORD:}
+        full-name: ${DEMO_USER2_NAME:Omar Hassan}

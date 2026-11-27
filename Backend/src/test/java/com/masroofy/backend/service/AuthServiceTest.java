@@ -147,6 +147,26 @@ class AuthServiceTest {
         }
 
         @Test
+        void announcesTheNewUserOnlyAfterASuccessfulSignUp() {
+            java.util.List<Object> events = new java.util.ArrayList<>();
+            service.setEventPublisher(events::add);
+            when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
+            when(firebase.createUser(EMAIL, GOOD_PASSWORD, "Mariam Ali")).thenReturn(UID);
+            when(authCodeService.issueCode(any(), eq(AuthCodePurpose.EMAIL_VERIFICATION)))
+                    .thenReturn(new IssuedCode("042517", NOW.plusSeconds(600)));
+
+            RegisterResponse response = service.register(request);
+
+            assertThat(events).containsExactly(
+                    new com.masroofy.backend.service.UserRegisteredEvent(response.user().id(), EMAIL));
+
+            events.clear();
+            when(userRepository.existsByEmail(EMAIL)).thenReturn(true);
+            assertError(() -> service.register(request), ErrorCode.EMAIL_ALREADY_IN_USE);
+            assertThat(events).isEmpty();
+        }
+
+        @Test
         void rejectsDuplicateEmail() {
             when(userRepository.existsByEmail(EMAIL)).thenReturn(true);
 
