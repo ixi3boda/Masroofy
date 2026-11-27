@@ -45,20 +45,12 @@ class PasswordPolicyTest {
         assertThat(policy.check(password, NAME, EMAIL)).containsExactly(Rule.NO_PERSONAL_INFO);
     }
 
+    /** The common / easily guessed password rule was removed: these now pass. */
     @ParameterizedTest
     @ValueSource(strings = {"12345678", "87654321", "!!!!!!!!", "password1", "Password123!", "P@ssw0rd",
             "Qwerty123!", "qwertyuiop1", "1q2w3e4r", "Football#1"})
-    void rejectsCommonOrEasilyGuessedPasswords(String password) {
-        assertThat(policy.check(password, NAME, EMAIL)).contains(Rule.COMMON_PASSWORD);
-    }
-
-    @Test
-    void sequencesAndRepeatsAreCaughtWithoutTheList() {
-        assertThat(policy.isCommon("abcdefgh")).isTrue();
-        assertThat(policy.isCommon("zyxwvuts")).isTrue();
-        assertThat(policy.isCommon("aaaaaaaa")).isTrue();
-        assertThat(policy.isCommon("asdfghjk")).isTrue();
-        assertThat(policy.isCommon("abcdefgx")).isFalse();
+    void acceptsCommonOrEasilyGuessedPasswords(String password) {
+        assertThat(policy.check(password, NAME, EMAIL)).isEmpty();
     }
 
     @Test

@@ -165,7 +165,7 @@ Every error has the same shape. The app should switch on `code`, not on `message
 |---|---|---|---|
 | `VALIDATION_FAILED` | 400 | Missing or invalid field, or terms not accepted | `fieldErrors` |
 | `MALFORMED_REQUEST` | 400 | Body is not valid JSON | |
-| `WEAK_PASSWORD` | 400 | Breaks 01-07 rules: `MIN_LENGTH`, `NUMBER_OR_SYMBOL`, `NO_PERSONAL_INFO`, `MAX_LENGTH`, `COMMON_PASSWORD` | `fieldErrors[].code` |
+| `WEAK_PASSWORD` | 400 | Breaks 01-07 rules: `MIN_LENGTH`, `NUMBER_OR_SYMBOL`, `NO_PERSONAL_INFO`, `MAX_LENGTH`. (`COMMON_PASSWORD` was removed and is no longer sent) | `fieldErrors[].code` |
 | `PASSWORDS_DO_NOT_MATCH` | 400 | `newPassword` ≠ `confirmPassword` | |
 | `PASSWORD_REUSED` | 400 | The new password equals the current one | |
 | `INVALID_CODE` | 400 | Wrong code | `details.remainingAttempts` |

@@ -383,7 +383,7 @@ function Phase2 {
         Expect $Id weak $Case $r 400 WEAK_PASSWORD $same "rules=$($got -join ',')"
     }
     Weak 'PW-01' 'too short (7)' 'short1!' @('MIN_LENGTH')
-    Weak 'PW-02' 'letters only (and a straight sequence)' 'abcdefgh' @('NUMBER_OR_SYMBOL', 'COMMON_PASSWORD')
+    Weak 'PW-02' 'letters only (a straight sequence is no longer a rule)' 'abcdefgh' @('NUMBER_OR_SYMBOL')
     Weak 'PW-03' 'short and letters only' 'abcdefg' @('MIN_LENGTH', 'NUMBER_OR_SYMBOL')
     Weak 'PW-04' 'contains first name' 'Mariam-2025' @('NO_PERSONAL_INFO')
     Weak 'PW-05' 'contains first name in other case' 'mARIAM2025x' @('NO_PERSONAL_INFO')
@@ -400,10 +400,15 @@ function Phase2 {
 
     $r = Api POST /auth/register @{ fullName = 'Al Bo'; email = (New-Email 'p13'); password = 'AlBo-1234'; acceptedTerms = $true }
     Expect 'PW-13' valid '2-letter name parts are allowed in the password' $r 201
-    Weak 'PW-14' 'one repeated symbol' '!!!!!!!!' @('COMMON_PASSWORD') 'Hard Tester'
-    Weak 'PW-15' 'common word + digit' 'password1' @('COMMON_PASSWORD') 'Hard Tester'
-    Weak 'PW-16' 'digit sequence' '12345678' @('COMMON_PASSWORD') 'Hard Tester'
-    Weak 'PW-16b' 'keyboard row + symbol' 'Qwerty123!' @('COMMON_PASSWORD') 'Hard Tester'
+    # The common / easily guessed password rule was removed: these are now accepted.
+    function Accepted([string]$Id, [string]$Case, [string]$Password) {
+        $r = Api POST /auth/register @{ fullName = 'Hard Tester'; email = (New-Email $Id.ToLowerInvariant().Replace('-', '')); password = $Password; acceptedTerms = $true }
+        Expect $Id valid $Case $r 201
+    }
+    Accepted 'PW-14' 'one repeated symbol (no longer a rule)' '!!!!!!!!'
+    Accepted 'PW-15' 'common word + digit (no longer a rule)' 'password1'
+    Accepted 'PW-16' 'digit sequence (no longer a rule)' '12345678'
+    Accepted 'PW-16b' 'keyboard row + symbol (no longer a rule)' 'Qwerty123!'
     $r = Api POST /auth/register @{ fullName = 'Hard Tester'; email = (New-Email 'p17'); password = ('abcdefg' + [char]0x0663); acceptedTerms = $true }
     if ($r.Status -eq 201) { Info 'PW-17' weak 'letters + one Arabic-Indic digit is accepted' "$($r.Status)" 'counts as a number; not a common pattern' }
     else { Expect 'PW-17' weak 'letters + one Arabic-Indic digit' $r 400 WEAK_PASSWORD }
