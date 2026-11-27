@@ -1,0 +1,7 @@
+# Optional: synthetic audio generation and microphone recording for evaluation.
+edge-tts>=6.1
+gTTS>=2.5
+pydub>=0.25
+sounddevice>=0.4
+soundfile>=0.12
+numpy>=1.24

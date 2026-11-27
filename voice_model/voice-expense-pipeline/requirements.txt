@@ -1,0 +1,15 @@
+# Core requirements: enough to run the rule-based pipeline, the REST API,
+# the evaluation in text mode, the smoke test and the full test suite.
+# No torch, no Whisper model, no API key needed.
+pydantic>=2.5
+python-dateutil>=2.8
+rapidfuzz>=3.0
+fastapi>=0.110
+uvicorn>=0.27
+python-multipart>=0.0.9
+python-dotenv>=1.0
+jiwer>=3.0
+pytest>=7.4
+httpx>=0.25
+# Windows has no built-in timezone database; zoneinfo needs this package there.
+tzdata>=2023.3

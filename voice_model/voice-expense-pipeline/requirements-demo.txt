@@ -1,0 +1,2 @@
+# Web demo with microphone recording.
+gradio>=4.20
