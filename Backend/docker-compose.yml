@@ -1,0 +1,69 @@
+# Masroofy local stack: PostgreSQL + Spring Boot backend. Run from this Backend/ folder:
+#   cp .env.example .env    # then fill in the values
+#   docker compose up --build
+# Swagger UI: http://localhost:${BACKEND_PORT}/swagger-ui.html
+
+name: masroofy
+
+services:
+  db:
+    build:
+      context: ../Database
+    image: masroofy-db:local
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:?Set DB_NAME in .env}
+      POSTGRES_USER: ${DB_USERNAME:?Set DB_USERNAME in .env}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+    image: masroofy-backend:local
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-}
+      PORT: 8080
+      DB_URL: jdbc:postgresql://db:5432/${DB_NAME}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      FIREBASE_CREDENTIALS_PATH: /run/secrets/firebase_credentials
+      FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID:-}
+      FIREBASE_WEB_API_KEY: ${FIREBASE_WEB_API_KEY:-}
+      AUTH_CODE_SECRET: ${AUTH_CODE_SECRET:?Set AUTH_CODE_SECRET in .env (32+ characters)}
+      MAIL_PROVIDER: ${MAIL_PROVIDER:-smtp}
+      MAIL_HOST: ${MAIL_HOST:-}
+      MAIL_PORT: ${MAIL_PORT:-587}
+      MAIL_USERNAME: ${MAIL_USERNAME:-}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-}
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-true}
+      DEMO_DATA_ENABLED: ${DEMO_DATA_ENABLED:-false}
+      DEMO_DATA_FOR_NEW_USERS: ${DEMO_DATA_FOR_NEW_USERS:-false}
+      DEMO_USER_EMAIL: ${DEMO_USER_EMAIL:-}
+      DEMO_USER_PASSWORD: ${DEMO_USER_PASSWORD:-}
+      DEMO_USER_NAME: ${DEMO_USER_NAME:-Mariam Ali}
+      DEMO_USER2_EMAIL: ${DEMO_USER2_EMAIL:-}
+      DEMO_USER2_PASSWORD: ${DEMO_USER2_PASSWORD:-}
+      DEMO_USER2_NAME: ${DEMO_USER2_NAME:-Omar Hassan}
+      JAVA_OPTS: ${JAVA_OPTS:--XX:MaxRAMPercentage=75 -XX:+ExitOnOutOfMemoryError}
+    secrets:
+      - firebase_credentials
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+
+secrets:
+  firebase_credentials:
+    # The service-account JSON downloaded from Firebase (never committed).
+    file: ${FIREBASE_CREDENTIALS_FILE:-./secrets/firebase-service-account.json}
+
+volumes:
+  db-data:
