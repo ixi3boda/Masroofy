@@ -109,6 +109,10 @@ Protected endpoints need the header `Authorization: Bearer <accessToken>`.
 | 01-07 Set new password → 01-08 | `POST /auth/password/reset` | – | `200` `{message}` |
 | Home header / profile | `GET /users/me` | Bearer | `200` `UserResponse` |
 | 02-01 Home dashboard | `GET /dashboard?month=YYYY-MM&recentLimit=3` | Bearer | `200` `DashboardResponse` |
+| 03 Add Transaction: account picker | `GET /accounts` | Bearer | `200` `AccountResponse[]` |
+| 03 Add Transaction: category picker | `GET /categories?kind=expense\|income` | Bearer | `200` `CategoryResponse[]` |
+| 03-06 → 03-14 Save / Retry | `POST /transactions` | Bearer | `201` `TransactionResponse` (+ `Location`); `200` on a repeated `clientRequestId` |
+| 03-09 / 03-13 Transaction saved | `GET /transactions/{id}` | Bearer | `200` `TransactionResponse` |
 
 ### Request bodies
 
@@ -178,6 +182,9 @@ Every error has the same shape. The app should switch on `code`, not on `message
 | `ACCOUNT_DISABLED` | 403 | Disabled in Firebase | |
 | `EMAIL_ALREADY_IN_USE` | 409 | Sign-up with an existing email | |
 | `EMAIL_ALREADY_VERIFIED` | 409 | Verify called again. Go to log in. | |
+| `NOT_FOUND` | 404 | `GET /transactions/{id}`: no such transaction for this user | |
+| `IDEMPOTENCY_KEY_REUSED` | 409 | `POST /transactions` with a `clientRequestId` already used for a different transaction | |
+| `FX_RATE_UNAVAILABLE` | 422 | `POST /transactions` on an account whose currency has no exchange rate to the base currency | |
 | `TOO_MANY_ATTEMPTS` | 429 | 5 wrong codes. The code is burned. | |
 | `RESEND_COOLDOWN` | 429 | Asked for a new code within 60 s | `details.retryAfterSeconds`, `Retry-After` header |
 | `RATE_LIMITED` | 429 | Firebase throttled sign-in | |
@@ -294,3 +301,35 @@ To (re)load the data for any other existing account by hand:
 ```
 
 Running it again replaces that user's accounts, transactions, transfers and budgets; other users are not touched.
+
+## Add Transaction (03-06 → 03-14)
+
+Full spec, design choices and test list: [docs/add-transaction.md](docs/add-transaction.md). The app reaches the form
+from Home's **"+"**, Home's "Add transaction" quick action, the SMS messages screen and "Add another" on the Saved
+screen; all of them end in `POST /api/v1/transactions`.
+
+```jsonc
+// POST /api/v1/transactions
+{ "clientRequestId": "6f1c0b9e-…", "type": "EXPENSE", "amount": "850.00", "title": "Carrefour",
+  "categoryKey": "groceries", "date": "2026-11-26", "time": "11:51", "accountId": "…", "note": "Weekly groceries" }
+// 201 Created, Location: /api/v1/transactions/{id}; the same fields as the dashboard's recentTransactions[] plus
+// source, status, createdAt.
+```
+
+- **Amount** is positive with at most 2 decimals; `type` (`EXPENSE` / `INCOME`) gives the direction. The currency is
+  the account's; `fx_rate_to_base` is fixed from `price_quotes` at the moment of the transaction.
+- **Category:** `categoryKey` (the app's key) or `categoryId`, exactly one; its kind must match `type`.
+- **Date** in the user's time zone, from 2000-01-01 to today. Without `time`: today → now, an earlier day → 12:00.
+- **Retry is safe:** the same `clientRequestId` again returns the first transaction with `200`; the same id with a
+  different transaction is `409 IDEMPOTENCY_KEY_REUSED`. A unique index makes this hold under concurrent requests.
+- **Audit:** every create writes an `audit_log` row (`action = create`, `after` = the row as JSON) in the same
+  database transaction.
+- **Field errors** (`VALIDATION_FAILED`): `NotNull`, `Pattern`, `Positive`, `Digits`, `NotBlank`, `Size` (format),
+  then `Invalid`, `InFuture`, `NotFound`, `KindMismatch` (checked against the database).
+- **Accounts:** every user has a **Cash** account: V5 adds one to existing users without accounts, and new sign-ups
+  get one from `DefaultAccountListener`. `GET /accounts` lists open accounts oldest first.
+
+### Database (migration V5)
+
+`audit_log` (entity doc `AUDIT_LOG`, with a CHECK that `create` has only `after`, `update` both, `delete` only
+`before`); `transactions.client_request_id` with a unique index per user; the Cash backfill.

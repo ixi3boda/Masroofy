@@ -23,6 +23,10 @@ public enum ErrorCode {
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, "This method is not allowed."),
     EMAIL_ALREADY_IN_USE(HttpStatus.CONFLICT, "An account with this email already exists."),
     EMAIL_ALREADY_VERIFIED(HttpStatus.CONFLICT, "This email is already verified. You can log in."),
+    /** The same clientRequestId was sent again with a different transaction. */
+    IDEMPOTENCY_KEY_REUSED(HttpStatus.CONFLICT, "This request id was already used for a different transaction."),
+    /** The account's currency has no exchange rate to the user's base currency yet. */
+    FX_RATE_UNAVAILABLE(HttpStatus.UNPROCESSABLE_ENTITY, "There is no exchange rate for this account's currency yet."),
     TOO_MANY_ATTEMPTS(HttpStatus.TOO_MANY_REQUESTS, "Too many incorrect attempts. Request a new code."),
     RESEND_COOLDOWN(HttpStatus.TOO_MANY_REQUESTS, "Please wait before requesting another code."),
     RATE_LIMITED(HttpStatus.TOO_MANY_REQUESTS, "Too many requests. Try again later."),

@@ -13,7 +13,7 @@ const HAS_API: Record<ServiceName, boolean> = {
   auth: true,
   dashboard: true,
   sms: false,
-  transactions: false,
+  transactions: true,
 };
 
 const warn = (message: string) => {
@@ -46,11 +46,28 @@ const resolveSource = (service: ServiceName): DataSource => {
   return requested[service];
 };
 
+const AUTH_SOURCE = resolveSource('auth');
+const DASHBOARD_SOURCE = resolveSource('dashboard');
+
+/** Transactions are saved for the signed-in user, so `api` needs the real auth; Home should read the same data. */
+const resolveTransactionsSource = (): DataSource => {
+  const source = resolveSource('transactions');
+  if (source !== 'api') return source;
+  if (AUTH_SOURCE !== 'api') {
+    warn('transactions on "api" need EXPO_PUBLIC_AUTH_SOURCE=api; transactions use "mock".');
+    return 'mock';
+  }
+  if (DASHBOARD_SOURCE !== 'api') {
+    warn('transactions are on "api" but the dashboard is on "mock": Home won\'t show saved transactions.');
+  }
+  return source;
+};
+
 const SOURCES: Record<ServiceName, DataSource> = {
-  auth: resolveSource('auth'),
-  dashboard: resolveSource('dashboard'),
+  auth: AUTH_SOURCE,
+  dashboard: DASHBOARD_SOURCE,
   sms: resolveSource('sms'),
-  transactions: resolveSource('transactions'),
+  transactions: resolveTransactionsSource(),
 };
 
 /** Where a service gets its data: its in-memory mock or the real backend. */

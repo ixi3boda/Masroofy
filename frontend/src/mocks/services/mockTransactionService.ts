@@ -38,6 +38,8 @@ export const mockTransactionService: TransactionService = {
 
   getAccounts: () => mockTrackingAccounts,
 
+  loadAccounts: async () => mockTrackingAccounts,
+
   getToday: () => MOCK_TODAY,
 
   getRecentSearches: () => recentSearches,

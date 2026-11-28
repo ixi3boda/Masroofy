@@ -5,9 +5,11 @@ import Button from '@components/atoms/Button';
 import SegmentedControl from '@components/atoms/SegmentedControl';
 import TabPanel from '@components/atoms/TabPanel';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
+import InlineLoader from '@components/molecules/InlineLoader';
 import TransactionForm from '@components/organisms/TransactionForm';
 import ScreenLayout from '@components/templates/ScreenLayout';
 import { isMockSource } from '@/config/env';
+import { useAccountsLoad } from '@/hooks/useAccountsLoad';
 import { useGoBack } from '@/hooks/useBackNavigation';
 import { useTabParam } from '@/hooks/useTabParam';
 import { useTransactionForm } from '@/hooks/useTransactionForm';
@@ -34,11 +36,8 @@ const unchangedTotal = (type: TransactionType) => {
   return copy[type].unchanged(formatMonthName(transactionService.getToday()), total);
 };
 
-/**
- * 03-06 / 03-08 / 03-10 / 03-12 / 03-14 · Add Expense and Add Income, one screen with two tabs.
- * Each tab keeps what was typed and its own errors.
- */
-const AddTransactionScreen: React.FC = () => {
+/** The form itself; rendered once the accounts are known, so the new draft gets the default account. */
+const AddTransactionForm: React.FC = () => {
   const goBack = useGoBack(ROUTES.app.home);
   const [type, changeType] = useTabParam(TAB_ORDER);
   const { fields, invalid, failed, saving, attention, submit } = useTransactionForm({ type });
@@ -89,6 +88,31 @@ const AddTransactionScreen: React.FC = () => {
           </AppText>
         ) : null}
       </TabPanel>
+    </ScreenLayout>
+  );
+};
+
+/**
+ * 03-06 / 03-08 / 03-10 / 03-12 / 03-14 · Add Expense and Add Income, one screen with two tabs.
+ * Each tab keeps what was typed and its own errors. Waits for the accounts first (instant on the mock).
+ */
+const AddTransactionScreen: React.FC = () => {
+  const goBack = useGoBack(ROUTES.app.home);
+  const [type] = useTabParam(TAB_ORDER);
+  const { state, retry } = useAccountsLoad();
+
+  if (state.status === 'ready') return <AddTransactionForm />;
+
+  return (
+    <ScreenLayout title={copy[type].screenTitle} onBack={goBack}>
+      {state.status === 'failed' ? (
+        <>
+          <FeedbackBanner tone="error" icon="circle-alert" title={copy.accountsFailed} message={state.error} />
+          <Button title={copy.retry} variant="outline" onPress={retry} />
+        </>
+      ) : (
+        <InlineLoader label={copy.loadingAccounts} />
+      )}
     </ScreenLayout>
   );
 };

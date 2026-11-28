@@ -116,9 +116,13 @@ export const transactionStrings = {
     /** Mock only. */
     sampleNote: 'Mock data: saved entries update Home and reset when the app reloads.',
 
+    loadingAccounts: 'Loading your accounts',
+    accountsFailed: 'Couldn’t load your accounts',
+
     validation: {
       category: 'Choose a category.',
       date: 'Enter a date like 28 Oct 2026.',
+      dateInFuture: 'The date can’t be in the future.',
       account: 'Select an account.',
       otherFields: 'Correct the highlighted fields, then save again. Your other details are still here.',
     },

@@ -1,7 +1,7 @@
 import { CodeDelivery, UserProfile } from '@/types/auth';
 import { ApiErrorDetails, FieldError } from '@/utils/errors';
 
-/** Request and response bodies, as in docs/frontend-api/01…11. */
+/** Request and response bodies, as in docs/frontend-api/01…12. */
 
 /** The error body every endpoint uses (docs/frontend-api/00 §5). */
 export interface ApiErrorBody {
@@ -82,4 +82,48 @@ export interface DashboardResponse {
     time: string;
   }[];
   badges: { pendingReview: number };
+}
+
+/** Add Transaction (API 14), request body. Money is a string, e.g. `"850.00"` (docs/frontend-api/12-add-transaction.md). */
+export interface CreateTransactionRequest {
+  /** One per draft; the same one again on Retry, so a retry never saves twice. */
+  clientRequestId: string;
+  type: 'EXPENSE' | 'INCOME';
+  /** Positive, two decimals. */
+  amount: string;
+  title: string;
+  /** A `TransactionCategory`. */
+  categoryKey: string;
+  /** `YYYY-MM-DD`, not in the future. */
+  date: string;
+  accountId: string;
+  note?: string;
+}
+
+/** One income or expense (APIs 14 and 15): the same fields as the dashboard's recent transactions. */
+export interface TransactionResponse {
+  id: string;
+  type: 'EXPENSE' | 'INCOME';
+  title: string;
+  note?: string;
+  /** `key` is a `TransactionCategory`. */
+  category?: { id: string; key: string; name: string };
+  account: { id: string; name: string };
+  amount: string;
+  /** Negative for expenses. */
+  signedAmount: string;
+  currency: string;
+  amountInBase: string;
+  /** Local `YYYY-MM-DD` / `HH:mm` in the user's time zone. */
+  date: string;
+  time: string;
+}
+
+/** An account a transaction can be recorded against (API 12), oldest first. */
+export interface AccountResponse {
+  id: string;
+  name: string;
+  type: 'cash' | 'card' | 'bank' | 'e_wallet';
+  currency: string;
+  cardLast4?: string;
 }
