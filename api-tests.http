@@ -1,0 +1,160 @@
+### Backend API tests for VS Code.
+### Install the "REST Client" extension (humao.rest-client), then click "Send Request" above any request.
+### Start both services first (Terminal > Run Task... > "Start backend + voice service").
+
+@backend = http://localhost:8080
+@voice = http://localhost:8000
+
+### Is everything up? (database + voice service)
+GET {{backend}}/api/health
+
+### Voice service directly (should say "status": "ok"; asr_backend should be faster_whisper)
+GET {{voice}}/health
+
+
+########## 1. Turn a sentence into a draft (nothing is saved) ##########
+
+### Arabic + English
+POST {{backend}}/api/voice-expenses/parse-text
+Content-Type: application/json
+
+{
+  "text": "دفعت 150 جنيه في Uber امبارح"
+}
+
+### English, with a fixed reference time so "this morning" is predictable
+POST {{backend}}/api/voice-expenses/parse-text
+Content-Type: application/json
+
+{
+  "text": "I paid 80 pounds for coffee at Cilantro this morning",
+  "reference_time": "2026-11-27T14:00:00+02:00"
+}
+
+### A recording. Put an audio file (.m4a .mp3 .wav .ogg .webm) next to this file and change the two names below.
+### Easier: open http://localhost:8080/ and use the Record button (laptop microphone).
+POST {{backend}}/api/voice-expenses/parse-audio
+Content-Type: multipart/form-data; boundary=----MasroofyBoundary
+
+------MasroofyBoundary
+Content-Disposition: form-data; name="file"; filename="recording.m4a"
+Content-Type: audio/mp4
+
+< ./recording.m4a
+------MasroofyBoundary--
+
+
+########## 2. Confirm a draft = save it in PostgreSQL ##########
+### "draft" is normally the whole JSON returned by parse-text / parse-audio (copy it in).
+### "corrections" holds only the fields the user changed. Response 201 = saved.
+
+POST {{backend}}/api/voice-expenses/confirm
+Content-Type: application/json
+
+{
+  "draft": {
+    "transaction_type": "expense",
+    "amount": 150.0,
+    "currency": "EGP",
+    "merchant": "Uber",
+    "category": "transport",
+    "date": "2026-11-26",
+    "payment_method": "unknown",
+    "transcript": "دفعت 150 جنيه في Uber امبارح",
+    "language": "mixed",
+    "reference_time": "2026-11-27T20:58:00+02:00"
+  },
+  "corrections": {
+    "amount": "160",
+    "payment_method": "card"
+  }
+}
+
+### Confirm without an amount -> 422 amount_required (nothing saved)
+POST {{backend}}/api/voice-expenses/confirm
+Content-Type: application/json
+
+{
+  "draft": {
+    "amount": null,
+    "date": "2026-11-26",
+    "transcript": "دفعت في Uber",
+    "reference_time": "2026-11-27T20:58:00+02:00"
+  }
+}
+
+
+########## 3. Saved transactions ##########
+
+### Add one without voice (only amount is required)
+POST {{backend}}/api/transactions
+Content-Type: application/json
+
+{
+  "amount": 85.5,
+  "merchant": "Cilantro",
+  "category": "food_dining",
+  "date": "2026-11-27",
+  "time": "09:10",
+  "payment_method": "cash"
+}
+
+### Income
+POST {{backend}}/api/transactions
+Content-Type: application/json
+
+{
+  "transaction_type": "income",
+  "amount": 12000,
+  "note": "salary"
+}
+
+### List (newest first). Optional: from, to, category, type, limit
+GET {{backend}}/api/transactions?from=2026-11-01&to=2026-11-30
+
+### Monthly totals per currency and per category
+GET {{backend}}/api/transactions/summary?month=2026-11
+
+### One transaction (change the id)
+GET {{backend}}/api/transactions/1
+
+### Edit (change the id). Fields you leave out get their defaults, except date, which stays the same.
+PUT {{backend}}/api/transactions/1
+Content-Type: application/json
+
+{
+  "amount": 170,
+  "merchant": "Uber",
+  "category": "transport",
+  "payment_method": "card"
+}
+
+### Delete (change the id) -> 204
+DELETE {{backend}}/api/transactions/1
+
+### Allowed category ids
+GET {{backend}}/api/transactions/categories
+
+
+########## 4. Errors (all have {"error_code", "message"}) ##########
+
+### 422 validation_error
+POST {{backend}}/api/transactions
+Content-Type: application/json
+
+{
+  "amount": -5,
+  "payment_method": "visa"
+}
+
+### 422 invalid_field (unknown category)
+POST {{backend}}/api/transactions
+Content-Type: application/json
+
+{
+  "amount": 5,
+  "category": "food"
+}
+
+### 404 not_found
+GET {{backend}}/api/transactions/999999

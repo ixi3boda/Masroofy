@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masroofy backend test page</title>
+<!--
+  Test the backend from a browser on the laptop: record with the laptop microphone (or type),
+  review the draft, save it to PostgreSQL, and see/delete saved transactions.
+  Served by Spring Boot at http://localhost:8080/ . It only calls this backend's /api endpoints,
+  exactly like the mobile app will.
+-->
+<style>
+  :root { --line: #d0d7de; --muted: #57606a; --blue: #0969da; --green: #1a7f37; --red: #cf222e; --amber: #bf8700; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif; color: #1f2328; background: #f6f8fa; }
+  main { max-width: 980px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+  h1 { font-size: 20px; margin: 0; }
+  h2 { font-size: 16px; margin: 0 0 10px; }
+  section { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .grow { flex: 1; min-width: 220px; }
+  button { font: inherit; border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+  button.primary { background: var(--green); border-color: var(--green); color: #fff; font-weight: 600; }
+  button.mic { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600; min-width: 130px; }
+  button.mic.on { background: var(--red); border-color: var(--red); }
+  button:disabled { opacity: .5; cursor: default; }
+  input, select { font: inherit; padding: 7px 9px; border: 1px solid var(--line); border-radius: 6px; width: 100%; background: #fff; }
+  .status { font-size: 13px; color: var(--muted); }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; border: 1px solid var(--line); }
+  .ok { color: var(--green); } .bad { color: var(--red); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+  label { display: grid; gap: 3px; font-size: 13px; font-weight: 600; }
+  label.flag { color: var(--amber); }
+  label.flag input, label.flag select { border: 2px solid var(--amber); }
+  .transcript { font-style: italic; margin: 0 0 10px; }
+  .warn { font-size: 13px; color: var(--muted); margin: 8px 0 0; padding-left: 18px; }
+  .msg { margin-top: 8px; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: start; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; color: var(--muted); font-weight: 600; }
+  td.num, th.num { text-align: end; font-variant-numeric: tabular-nums; }
+  .totals { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 10px; }
+  .totals b { font-size: 18px; font-variant-numeric: tabular-nums; }
+  .small { font-size: 12px; color: var(--muted); }
+  .hidden { display: none; }
+  .scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <div class="row">
+    <h1 class="grow">Masroofy backend test page</h1>
+    <span id="health" class="status">checking…</span>
+  </div>
+
+  <section>
+    <h2>1. Say or type an expense</h2>
+    <div class="row">
+      <button id="mic" class="mic">🎙️ Record</button>
+      <input id="text" class="grow" placeholder="…or type: دفعت 150 جنيه في Uber امبارح">
+      <button id="parse">Parse text</button>
+    </div>
+    <div id="parseMsg" class="msg"></div>
+  </section>
+
+  <section id="review" class="hidden">
+    <h2>2. Review and save</h2>
+    <p id="transcript" class="transcript"></p>
+    <div id="fields" class="grid"></div>
+    <ul id="warnings" class="warn"></ul>
+    <div class="row" style="margin-top:10px">
+      <button id="confirm" class="primary">Confirm &amp; save</button>
+      <button id="discard">Discard</button>
+      <span class="small">Fields marked ⚠️ need checking.</span>
+    </div>
+    <div id="confirmMsg" class="msg"></div>
+  </section>
+
+  <section>
+    <div class="row" style="margin-bottom:10px">
+      <h2 class="grow" style="margin:0">3. Saved transactions (PostgreSQL)</h2>
+      <input id="month" type="month" style="width:auto">
+      <button id="refresh">Refresh</button>
+    </div>
+    <div id="summary"></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Date</th><th>Type</th><th class="num">Amount</th><th>Merchant</th><th>Category</th><th>Payment</th><th>Source</th><th>Corrected</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div id="listMsg" class="msg"></div>
+  </section>
+</main>
+
+<script>
+const CATEGORIES = ["food_dining", "groceries", "transport", "fuel", "shopping", "electronics", "bills_utilities",
+  "mobile_internet", "health", "education", "entertainment", "subscriptions", "housing", "personal_care",
+  "gifts_donations", "travel", "income", "other"];
+const FIELDS = [
+  { key: "transaction_type", label: "Type", options: ["expense", "income"] },
+  { key: "amount", label: "Amount" },
+  { key: "currency", label: "Currency" },
+  { key: "merchant", label: "Merchant" },
+  { key: "category", label: "Category", options: CATEGORIES },
+  { key: "date", label: "Date (YYYY-MM-DD)" },
+  { key: "time", label: "Time (HH:MM)" },
+  { key: "payment_method", label: "Payment", options: ["cash", "card", "wallet", "unknown"] },
+  { key: "note", label: "Note" },
+];
+const $ = id => document.getElementById(id);
+const text = v => (v === null || v === undefined ? "" : String(v));
+const esc = s => text(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const money = n => Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+let draft = null;
+
+async function api(path, options = {}) {
+  let res;
+  try {
+    res = await fetch(path, options);
+  } catch (e) {
+    throw new Error("Cannot reach the backend. Is Spring Boot running?");
+  }
+  if (res.status === 204) return null;
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(`${body.message || "HTTP " + res.status} (${body.error_code || res.status})`);
+  return body;
+}
+const postJson = (path, body) => api(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+const show = (id, msg, ok) => { $(id).innerHTML = msg ? `<span class="${ok ? "ok" : "bad"}">${esc(msg)}</span>` : ""; };
+const busy = on => ["mic", "parse", "confirm"].forEach(id => { if (!(id === "mic" && recorder && recorder.state === "recording")) $(id).disabled = on; });
+
+// ---------------- status ----------------
+async function checkHealth() {
+  try {
+    const h = await api("/api/health");
+    const part = (name, v) => `${name}: <span class="${v.startsWith("ok") ? "ok" : "bad"}">${esc(v)}</span>`;
+    $("health").innerHTML = `${part("database", h.database)} · ${part("voice service", h.voice_service)}`;
+  } catch (e) {
+    $("health").innerHTML = `<span class="bad">${esc(e.message)}</span>`;
+  }
+}
+
+// ---------------- 1. record / type ----------------
+let recorder = null, chunks = [];
+function pickMime() {
+  const types = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg;codecs=opus"];
+  return types.find(t => window.MediaRecorder && MediaRecorder.isTypeSupported(t)) || "";
+}
+const extensionFor = mime => mime.includes("mp4") ? "m4a" : mime.includes("ogg") ? "ogg" : "webm";
+
+$("mic").onclick = async () => {
+  if (recorder && recorder.state === "recording") { recorder.stop(); return; }
+  let stream;
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  } catch (e) {
+    show("parseMsg", "Microphone not available or permission denied: " + e.message, false);
+    return;
+  }
+  const mime = pickMime();
+  recorder = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
+  chunks = [];
+  recorder.ondataavailable = e => e.data.size && chunks.push(e.data);
+  recorder.onstop = async () => {
+    stream.getTracks().forEach(t => t.stop());
+    $("mic").classList.remove("on"); $("mic").textContent = "🎙️ Record";
+    const type = recorder.mimeType || mime || "audio/webm";
+    const form = new FormData();
+    form.append("file", new Blob(chunks, { type }), "recording." + extensionFor(type));
+    form.append("reference_time", new Date().toISOString());
+    await runParse(() => api("/api/voice-expenses/parse-audio", { method: "POST", body: form }), "Transcribing… (the first recording also loads Whisper)");
+  };
+  recorder.start();
+  $("mic").classList.add("on"); $("mic").textContent = "■ Stop";
+  show("parseMsg", "Recording… speak, then press Stop.", true);
+};
+
+$("parse").onclick = () => {
+  const t = $("text").value.trim();
+  if (!t) return;
+  runParse(() => postJson("/api/voice-expenses/parse-text", { text: t, reference_time: new Date().toISOString() }), "Reading…");
+};
+$("text").onkeydown = e => { if (e.key === "Enter") $("parse").click(); };
+
+async function runParse(job, waiting) {
+  busy(true); show("parseMsg", waiting, true); show("confirmMsg", "");
+  try {
+    showDraft(await job());
+    show("parseMsg", "");
+  } catch (e) {
+    show("parseMsg", e.message, false);
+  } finally {
+    busy(false);
+  }
+}
+
+// ---------------- 2. review / confirm ----------------
+function showDraft(d) {
+  draft = d;
+  $("review").classList.remove("hidden");
+  $("transcript").textContent = `“${d.transcript || "(nothing heard)"}”  ·  ${Math.round(d.timings_ms.total)} ms`;
+  $("fields").innerHTML = FIELDS.map(f => {
+    const flagged = d.needs_review.includes(f.key);
+    const value = text(d[f.key]);
+    const input = f.options
+      ? `<select id="f_${f.key}">${f.options.map(o => `<option${o === value ? " selected" : ""}>${o}</option>`).join("")}</select>`
+      : `<input id="f_${f.key}" value="${esc(value)}">`;
+    return `<label class="${flagged ? "flag" : ""}">${flagged ? "⚠️ " : ""}${f.label}${input}</label>`;
+  }).join("");
+  $("warnings").innerHTML = (d.warnings || []).map(w => `<li>${esc(w)}</li>`).join("");
+}
+
+$("confirm").onclick = async () => {
+  if (!draft) return;
+  // Only the fields the user changed, as typed ("1,500" and "١٥٠٠" are fine).
+  const corrections = {};
+  for (const f of FIELDS) {
+    const edited = $("f_" + f.key).value.trim();
+    if (edited !== text(draft[f.key])) corrections[f.key] = edited === "" ? null : edited;
+  }
+  busy(true);
+  try {
+    const saved = await postJson("/api/voice-expenses/confirm", { draft, corrections });
+    show("confirmMsg", `Saved #${saved.id}: ${money(saved.amount)} ${saved.currency}, ${saved.category}, ${saved.date}`, true);
+    draft = null; $("review").classList.add("hidden"); $("text").value = "";
+    $("month").value = saved.date.slice(0, 7);
+    await loadMonth();
+    checkHealth();
+  } catch (e) {
+    show("confirmMsg", e.message, false);
+  } finally {
+    busy(false);
+  }
+};
+$("discard").onclick = () => { draft = null; $("review").classList.add("hidden"); };
+
+// ---------------- 3. saved transactions ----------------
+function monthBounds(month) {
+  const [y, m] = month.split("-").map(Number);
+  const last = new Date(y, m, 0).getDate();
+  return { from: `${month}-01`, to: `${month}-${String(last).padStart(2, "0")}` };
+}
+
+async function loadMonth() {
+  const month = $("month").value;
+  const { from, to } = monthBounds(month);
+  show("listMsg", "");
+  try {
+    const [summary, rows] = await Promise.all([
+      api(`/api/transactions/summary?month=${month}`),
+      api(`/api/transactions?from=${from}&to=${to}&limit=500`),
+    ]);
+    $("summary").innerHTML = summary.currencies.length ? summary.currencies.map(c => `
+      <div class="totals">
+        <div><div class="small">Spent (${esc(c.currency)})</div><b>${money(c.total_expense)}</b></div>
+        <div><div class="small">Income</div><b>${money(c.total_income)}</b></div>
+        <div><div class="small">Net</div><b class="${c.net < 0 ? "bad" : "ok"}">${money(c.net)}</b></div>
+        <div class="small grow">${c.expenses_by_category.map(k => `${esc(k.category)} ${money(k.total)}`).join(" · ")}</div>
+      </div>`).join("") : `<p class="small">Nothing saved in ${esc(month)} yet.</p>`;
+    $("rows").innerHTML = rows.map(t => `
+      <tr>
+        <td>${esc(t.date)}${t.time ? `<div class="small">${esc(t.time)}</div>` : ""}</td>
+        <td>${esc(t.transaction_type)}</td>
+        <td class="num">${money(t.amount)} ${esc(t.currency)}</td>
+        <td>${esc(t.merchant) || "—"}${t.transcript ? `<div class="small" dir="auto">“${esc(t.transcript)}”</div>` : ""}</td>
+        <td>${esc(t.category)}</td>
+        <td>${esc(t.payment_method)}</td>
+        <td><span class="pill">${esc(t.source)}</span></td>
+        <td class="small">${esc((t.edited_fields || []).join(", ")) || "—"}</td>
+        <td><button data-delete="${t.id}" title="Delete">🗑</button></td>
+      </tr>`).join("");
+  } catch (e) {
+    show("listMsg", e.message, false);
+  }
+}
+
+$("rows").onclick = async e => {
+  const id = e.target.closest("button")?.dataset.delete;
+  if (!id || !confirm(`Delete transaction #${id}?`)) return;
+  try { await api(`/api/transactions/${id}`, { method: "DELETE" }); await loadMonth(); }
+  catch (err) { show("listMsg", err.message, false); }
+};
+$("refresh").onclick = () => { checkHealth(); loadMonth(); };
+$("month").onchange = loadMonth;
+
+const now = new Date();
+$("month").value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+checkHealth();
+loadMonth();
+</script>
+</body>
+</html>
