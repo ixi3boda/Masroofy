@@ -51,14 +51,17 @@ export interface DashboardService {
 
 /**
  * Transactions (Figma "03 / Transactions"). Reads are synchronous like
- * `dashboardService`; writes are async. Only a mock exists today.
+ * `dashboardService`; writes are async. The API version only adds
+ * transactions (APIs 12 and 14); list, edit and delete wait for their APIs.
  */
 export interface TransactionService {
   /** Newest date first. The same array until something changes. */
   getTransactions(): Transaction[];
   getTransaction(id: string): Transaction | undefined;
-  /** Accounts a transaction can be recorded against; the first is the default. */
+  /** Accounts a transaction can be recorded against; the first is the default. Empty until `loadAccounts()`. */
   getAccounts(): TrackingAccount[];
+  /** Fetches what `getAccounts()` returns. Call it before showing a form. */
+  loadAccounts(): Promise<TrackingAccount[]>;
   /** The date new entries start on, `YYYY-MM-DD`. */
   getToday(): string;
   /** Latest first. */

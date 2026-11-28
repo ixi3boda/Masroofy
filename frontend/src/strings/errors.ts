@@ -29,6 +29,8 @@ export const errorStrings = {
     METHOD_NOT_ALLOWED: 'Something went wrong. Try again.',
     EMAIL_ALREADY_IN_USE: 'An account with this email already exists. Log in or reset your password.',
     EMAIL_ALREADY_VERIFIED: 'This email is already verified. You can log in.',
+    IDEMPOTENCY_KEY_REUSED: 'Something went wrong. Try again.',
+    FX_RATE_UNAVAILABLE: 'We don’t have an exchange rate for this account’s currency yet.',
     TOO_MANY_ATTEMPTS: 'Too many incorrect tries. Request a new code.',
     RESEND_COOLDOWN: (retryAfterSeconds?: number) =>
       retryAfterSeconds === undefined

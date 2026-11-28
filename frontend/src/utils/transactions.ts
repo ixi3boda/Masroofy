@@ -17,6 +17,7 @@ import {
   formatSignedCurrency,
   parseDate,
 } from '@/utils/formatters';
+import { FieldError } from '@/utils/errors';
 import { parseAmount } from '@/utils/validators';
 
 const copy = strings.transactions;
@@ -67,6 +68,42 @@ export const filterTransactions = (
       (accountId === 'all' || transaction.accountId === accountId),
   );
 
+/** The form fields that can show an error. */
+type FormField = 'amount' | 'title' | 'category' | 'date' | 'accountId';
+
+/** Server `fieldErrors[].field` → the form field it belongs to. */
+const SERVER_FIELDS: Partial<Record<string, FormField>> = {
+  amount: 'amount',
+  title: 'title',
+  categoryKey: 'category',
+  categoryId: 'category',
+  date: 'date',
+  time: 'date',
+  accountId: 'accountId',
+};
+
+/**
+ * The backend's field errors (`VALIDATION_FAILED`) as the form's own messages, or
+ * `null` when one of them has no form field (then the save simply failed).
+ */
+export const toDraftErrors = (fieldErrors: FieldError[], type: TransactionType): TransactionDraftErrors | null => {
+  const { validation } = copy.form;
+  const messages: Record<FormField, (code: string) => string> = {
+    amount: () => copy.form[type].amountError,
+    title: () => copy.form[type].titleError,
+    category: () => validation.category,
+    date: (code) => (code === 'InFuture' ? validation.dateInFuture : validation.date),
+    accountId: () => validation.account,
+  };
+  const errors: TransactionDraftErrors = {};
+  for (const { field, code } of fieldErrors) {
+    const target = SERVER_FIELDS[field];
+    if (!target) return null;
+    errors[target] ??= messages[target](code);
+  }
+  return Object.keys(errors).length > 0 ? errors : null;
+};
+
 /** Matches merchant / title and note, or the amount with or without separators. */
 export const searchTransactions = (transactions: Transaction[], query: string) => {
   const term = query.trim().toLowerCase();
@@ -88,19 +125,24 @@ export const toTransactionDraft = (transaction: Transaction): TransactionDraft =
   note: transaction.note ?? '',
 });
 
-/** The input to save, or the message for each field that stops it being saved. */
+/**
+ * The input to save, or the message for each field that stops it being saved.
+ * `today` (`YYYY-MM-DD`) is the latest date allowed, as on the server.
+ */
 export const parseTransactionDraft = (
   draft: TransactionDraft,
   type: TransactionType,
   accountRequired: boolean,
+  today: string,
 ): { input: TransactionInput } | { errors: TransactionDraftErrors } => {
   const { validation } = copy.form;
   const amount = parseAmount(draft.amount);
   const title = draft.title.trim();
   const date = parseDate(draft.date);
+  const inFuture = date !== null && date > today;
   const accountMissing = accountRequired && !draft.accountId;
 
-  if (amount !== null && title && draft.category && date && !accountMissing) {
+  if (amount !== null && title && draft.category && date && !inFuture && !accountMissing) {
     return {
       input: {
         amount: type === 'expense' ? -amount : amount,
@@ -118,7 +160,7 @@ export const parseTransactionDraft = (
       amount: amount === null ? copy.form[type].amountError : undefined,
       title: title ? undefined : copy.form[type].titleError,
       category: draft.category ? undefined : validation.category,
-      date: date ? undefined : validation.date,
+      date: !date ? validation.date : inFuture ? validation.dateInFuture : undefined,
       accountId: accountMissing ? validation.account : undefined,
     },
   };

@@ -7,6 +7,8 @@ export const dashboardStrings = {
   cashBalance: (amount: string) => `Cash · ${amount}`,
   loading: 'Loading your overview',
   loadFailed: 'Couldn’t update your overview',
+  /** Temporary, dev builds only: lets manual testing switch accounts. */
+  devLogOut: 'Log out (testing only)',
 
   moreActions: {
     title: 'More Actions',
