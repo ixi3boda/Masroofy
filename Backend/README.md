@@ -165,7 +165,7 @@ Every error has the same shape. The app should switch on `code`, not on `message
 |---|---|---|---|
 | `VALIDATION_FAILED` | 400 | Missing or invalid field, or terms not accepted | `fieldErrors` |
 | `MALFORMED_REQUEST` | 400 | Body is not valid JSON | |
-| `WEAK_PASSWORD` | 400 | Breaks 01-07 rules: `MIN_LENGTH`, `NUMBER_OR_SYMBOL`, `NO_PERSONAL_INFO`, `MAX_LENGTH`. (`COMMON_PASSWORD` was removed and is no longer sent) | `fieldErrors[].code` |
+| `WEAK_PASSWORD` | 400 | Breaks 01-07 rules: `MIN_LENGTH`, `NUMBER_OR_SYMBOL`, `UPPERCASE`, `MAX_LENGTH`. (`COMMON_PASSWORD` and `NO_PERSONAL_INFO` were removed and are no longer sent) | `fieldErrors[].code` |
 | `PASSWORDS_DO_NOT_MATCH` | 400 | `newPassword` ≠ `confirmPassword` | |
 | `PASSWORD_REUSED` | 400 | The new password equals the current one | |
 | `INVALID_CODE` | 400 | Wrong code | `details.remainingAttempts` |
@@ -264,9 +264,18 @@ leg (checked at commit); one overall budget per month, starting on the 1st.
 ### Demo data (development only)
 
 So the dashboard is never empty while the app is being built, the backend can fill accounts with two months of
-realistic data that matches the Figma frame: current month income 30,000, expense 12,450, CIB 20,550 + Cash 4,000,
-budget 69% used, recent Carrefour / Uber / Vodafone, plus a USD wallet (300 USD) to show multi-currency.
-The data lives in one file, `src/main/resources/demo/demo-ledger.sql`, used by both the backend and the script below.
+realistic data. The data lives in one file, `src/main/resources/demo/demo-ledger.sql`, used by both the backend and the
+script below. It has three profiles, so each demo account shows a different dashboard:
+
+| Profile | Used for | This month |
+|---|---|---|
+| `standard` | new sign-ups, `load-demo-data.sh` (default) | the Figma frame, same as the app's mock: income 30,000, expense 12,450, CIB 20,550 + Cash 4,000, budget 18,000 (69%), recent Carrefour / Uber / Vodafone |
+| `saver` | demo user 1 (`DEMO_USER_PROFILE`) | income 43,200, expense 10,065, CIB 43,830 + Cash 3,305, budget 15,000 (67%), recent Gourmet Egypt / Costa Coffee / Careem |
+| `freelancer` | demo user 2 (`DEMO_USER2_PROFILE`) | income 34,125 (EGP + USD clients), expense 30,937.50, NBE 31,880 + Cash 3,350, budget 25,000 (123%, over), recent Talabat / Kiosk / InDrive |
+| `student` | by hand (`load-demo-data.sh`) | income 11,000, expense 4,580, Banque Misr 15,685 + Cash 2,035, budget 6,000 (76%), recent KFC / Microbus / Kazyon |
+| `family` | by hand (`load-demo-data.sh`) | income 62,000, expense 45,980, QNB 34,130 + Cash 4,890, budget 50,000 (91%, near the limit), recent Seoudi Market / Car wash / Abou El Sid |
+
+Every profile also has a USD wallet (Payoneer USD) to show multi-currency.
 
 | Setting (`.env`) | What it does |
 |---|---|
@@ -280,7 +289,8 @@ A restart reuses the existing Firebase users and only resets a password if it no
 To (re)load the data for any other existing account by hand:
 
 ```bash
-./scripts/load-demo-data.sh you@example.com
+./scripts/load-demo-data.sh you@example.com            # standard
+./scripts/load-demo-data.sh you@example.com saver      # or freelancer / student / family
 ```
 
 Running it again replaces that user's accounts, transactions, transfers and budgets; other users are not touched.

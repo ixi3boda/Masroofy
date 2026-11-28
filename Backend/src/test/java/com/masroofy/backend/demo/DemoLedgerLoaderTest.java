@@ -72,6 +72,65 @@ class DemoLedgerLoaderTest extends PostgresTestSupport {
                 .isZero();
     }
 
+    private BigDecimal overallBudget(UUID user) {
+        return jdbc.queryForObject("SELECT amount FROM budgets WHERE user_id = ? AND category_id IS NULL",
+                BigDecimal.class, user);
+    }
+
+    @Test
+    void eachProfileHasItsOwnNumbers() {
+        LedgerFixtures fx = new LedgerFixtures(jdbc);
+        UUID saver = fx.user("loader-saver-" + UUID.randomUUID() + "@example.com");
+        UUID freelancer = fx.user("loader-freelancer-" + UUID.randomUUID() + "@example.com");
+
+        assertThat(loader.load(saver, "saver")).isEqualTo(47);
+        assertThat(loader.load(freelancer, "freelancer")).isEqualTo(50);
+
+        assertThat(thisMonth(saver, "income")).isEqualByComparingTo("43200.00");
+        assertThat(thisMonth(saver, "expense")).isEqualByComparingTo("10065.00");
+        assertThat(balance(saver, "CIB Account")).isEqualByComparingTo("43830.00");
+        assertThat(balance(saver, "Cash")).isEqualByComparingTo("3305.00");
+        assertThat(balance(saver, "Payoneer USD")).isEqualByComparingTo("300.00");
+        assertThat(overallBudget(saver)).isEqualByComparingTo("15000.00");
+
+        assertThat(thisMonth(freelancer, "income")).isEqualByComparingTo("34125.00");
+        assertThat(thisMonth(freelancer, "expense")).isEqualByComparingTo("30937.50");
+        assertThat(balance(freelancer, "NBE Account")).isEqualByComparingTo("31880.00");
+        assertThat(balance(freelancer, "Cash")).isEqualByComparingTo("3350.00");
+        assertThat(balance(freelancer, "Payoneer USD")).isEqualByComparingTo("495.00");
+        assertThat(overallBudget(freelancer)).isEqualByComparingTo("25000.00");
+
+        UUID student = fx.user("loader-student-" + UUID.randomUUID() + "@example.com");
+        UUID family = fx.user("loader-family-" + UUID.randomUUID() + "@example.com");
+        assertThat(loader.load(student, "student")).isEqualTo(48);
+        assertThat(loader.load(family, "family")).isEqualTo(51);
+
+        assertThat(thisMonth(student, "income")).isEqualByComparingTo("11000.00");
+        assertThat(thisMonth(student, "expense")).isEqualByComparingTo("4580.00");
+        assertThat(balance(student, "Banque Misr")).isEqualByComparingTo("15685.00");
+        assertThat(balance(student, "Cash")).isEqualByComparingTo("2035.00");
+        assertThat(overallBudget(student)).isEqualByComparingTo("6000.00");
+
+        assertThat(thisMonth(family, "income")).isEqualByComparingTo("62000.00");
+        assertThat(thisMonth(family, "expense")).isEqualByComparingTo("45980.00");
+        assertThat(balance(family, "QNB Account")).isEqualByComparingTo("34130.00");
+        assertThat(balance(family, "Cash")).isEqualByComparingTo("4890.00");
+        assertThat(overallBudget(family)).isEqualByComparingTo("50000.00");
+
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM transactions WHERE occurred_at > now()", Integer.class))
+                .isZero();
+    }
+
+    @Test
+    void blankProfileMeansStandardAndAnUnknownOneIsRefused() {
+        LedgerFixtures fx = new LedgerFixtures(jdbc);
+        UUID user = fx.user("loader-profile-" + UUID.randomUUID() + "@example.com");
+
+        assertThat(loader.load(user, " ")).isEqualTo(52);
+        assertThat(thisMonth(user, "income")).isEqualByComparingTo("30000.00");
+        assertThatThrownBy(() -> loader.load(user, "spender")).hasMessageContaining("Unknown demo profile");
+    }
+
     @Test
     void reloadingReplacesOnlyThatUsersData() {
         LedgerFixtures fx = new LedgerFixtures(jdbc);

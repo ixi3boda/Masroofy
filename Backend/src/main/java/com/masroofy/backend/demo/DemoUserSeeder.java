@@ -76,11 +76,11 @@ public class DemoUserSeeder implements ApplicationRunner {
         if (demoUser.password() == null || demoUser.password().isBlank()) {
             throw new IllegalStateException("No password configured for this demo user");
         }
-        passwordPolicy.validate("password", demoUser.password(), fullName, email);
+        passwordPolicy.validate("password", demoUser.password());
 
         String uid = ensureFirebaseUser(email, demoUser.password(), fullName);
         User user = ensureDatabaseUser(email, fullName, uid);
-        int written = ledgerLoader.load(user.id());
+        int written = ledgerLoader.load(user.id(), demoUser.profile());
         log.info("Demo user {} is ready with {} transactions", EmailUtils.mask(email), written);
         return user;
     }

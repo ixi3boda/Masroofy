@@ -11,7 +11,7 @@ export type ServiceName = 'auth' | 'dashboard' | 'sms' | 'transactions';
 /** Services that have a backend API today. `api` for any other one falls back to `mock`. */
 const HAS_API: Record<ServiceName, boolean> = {
   auth: true,
-  dashboard: false,
+  dashboard: true,
   sms: false,
   transactions: false,
 };

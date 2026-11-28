@@ -43,7 +43,10 @@ export interface AuthService {
 
 /** Home dashboard (Figma "02 / Home Dashboard"). */
 export interface DashboardService {
+  /** The latest summary, synchronously (screens that only show a total). */
   getSummary(): DashboardSummary;
+  /** A fresh summary (API 11); Home calls it every time it is shown. */
+  loadSummary(): Promise<DashboardSummary>;
 }
 
 /**

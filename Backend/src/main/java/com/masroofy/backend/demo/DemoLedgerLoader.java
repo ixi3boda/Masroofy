@@ -19,6 +19,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 public class DemoLedgerLoader {
 
     static final String SCRIPT = "demo/demo-ledger.sql";
+    /** The default ledger: the Figma numbers, the same as the app's mock data. */
+    public static final String STANDARD_PROFILE = "standard";
 
     private final JdbcTemplate jdbcTemplate;
     private final TransactionTemplate transaction;
@@ -34,11 +36,22 @@ public class DemoLedgerLoader {
         }
     }
 
-    /** Returns the number of transactions written for the user. */
+    /** Loads the standard ledger. Returns the number of transactions written for the user. */
     public int load(UUID userId) {
+        return load(userId, STANDARD_PROFILE);
+    }
+
+    /**
+     * Loads the ledger of {@code profile} (standard, saver, freelancer, student or family; null or blank =
+     * standard). Returns the
+     * number of transactions written for the user.
+     */
+    public int load(UUID userId, String profile) {
+        String chosen = profile == null || profile.isBlank() ? STANDARD_PROFILE : profile.trim();
         Integer written = transaction.execute(status -> {
             jdbcTemplate.execute(script);
-            return jdbcTemplate.queryForObject("SELECT pg_temp.demo_load_ledger(?)", Integer.class, userId);
+            return jdbcTemplate.queryForObject("SELECT pg_temp.demo_load_ledger(?, ?)", Integer.class, userId,
+                    chosen);
         });
         return written == null ? 0 : written;
     }

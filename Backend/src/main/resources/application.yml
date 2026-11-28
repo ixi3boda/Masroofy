@@ -101,6 +101,10 @@ app:
       - email: ${DEMO_USER_EMAIL:}
         password: ${DEMO_USER_PASSWORD:}
         full-name: ${DEMO_USER_NAME:Mariam Ali}
+        # Which demo ledger to load: standard (the Figma numbers, same as the app's mock), saver, freelancer,
+        # student or family.
+        profile: ${DEMO_USER_PROFILE:saver}
       - email: ${DEMO_USER2_EMAIL:}
         password: ${DEMO_USER2_PASSWORD:}
         full-name: ${DEMO_USER2_NAME:Omar Hassan}
+        profile: ${DEMO_USER2_PROFILE:freelancer}

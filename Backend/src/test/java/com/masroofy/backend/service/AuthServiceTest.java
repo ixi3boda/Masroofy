@@ -140,7 +140,7 @@ class AuthServiceTest {
 
         @Test
         void rejectsWeakPasswordBeforeTouchingFirebase() {
-            RegisterRequest weak = new RegisterRequest("Mariam Ali", EMAIL, "mariam123", true);
+            RegisterRequest weak = new RegisterRequest("Mariam Ali", EMAIL, "abc12", true);
 
             assertError(() -> service.register(weak), ErrorCode.WEAK_PASSWORD);
             verifyNoInteractions(firebase);
@@ -580,7 +580,7 @@ class AuthServiceTest {
             when(authCodeService.findActiveResetToken("reset-token")).thenReturn(resetToken);
             when(userRepository.findById(user.id())).thenReturn(Optional.of(user));
 
-            assertError(() -> service.resetPassword(new ResetPasswordRequest("reset-token", "mariam99", "mariam99")),
+            assertError(() -> service.resetPassword(new ResetPasswordRequest("reset-token", "abc12", "abc12")),
                     ErrorCode.WEAK_PASSWORD);
             verify(authCodeService, never()).consume(any());
             verifyNoInteractions(firebase);

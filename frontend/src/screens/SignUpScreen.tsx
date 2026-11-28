@@ -33,10 +33,7 @@ const SignUpScreen: React.FC = () => {
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const passwordRules = usePasswordRequirements(password, {
-    personal: { fullName, email },
-    personalInfoComplete: fullName.trim().length > 0 && email.trim().length > 0,
-  });
+  const passwordRules = usePasswordRequirements(password);
 
   const canSubmit = fullName.trim().length > 0 && email.trim().length > 0 && password.length > 0 && agreed;
 

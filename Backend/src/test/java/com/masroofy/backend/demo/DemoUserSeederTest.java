@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
@@ -34,7 +35,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 class DemoUserSeederTest {
 
     private static final Instant NOW = Instant.parse("2026-11-26T10:00:00Z");
-    private static final DemoUser MARIAM = new DemoUser(" Mariam.Demo@Masroofy.app ", "Test-Lagoon-31", "Mariam Ali");
+    private static final DemoUser MARIAM = new DemoUser(" Mariam.Demo@Masroofy.app ", "Test-Lagoon-31", "Mariam Ali", "saver");
 
     @Mock
     private FirebaseIdentityClient firebase;
@@ -69,7 +70,7 @@ class DemoUserSeederTest {
         assertThat(inserted.getValue().isEmailVerified()).isTrue();
         assertThat(inserted.getValue().baseCurrency()).isEqualTo("EGP");
         assertThat(inserted.getValue().timezone()).isEqualTo("Africa/Cairo");
-        verify(ledgerLoader).load(user.id());
+        verify(ledgerLoader).load(user.id(), "saver");
         verify(firebase, never()).updatePassword(any(), any());
     }
 
@@ -87,7 +88,7 @@ class DemoUserSeederTest {
         verify(firebase, never()).updatePassword(any(), any());
         verify(userRepository, never()).insert(any());
         verify(userRepository, never()).relinkFirebaseUid(any(), any(), any());
-        verify(ledgerLoader).load(existing.id());
+        verify(ledgerLoader).load(existing.id(), "saver");
     }
 
     @Test
@@ -118,8 +119,8 @@ class DemoUserSeederTest {
 
     @Test
     void weakOrMissingPasswordsAreRefusedBeforeTouchingFirebase() {
-        DemoUser weak = new DemoUser("mariam.demo@masroofy.app", "mariam123", "Mariam Ali");
-        DemoUser none = new DemoUser("mariam.demo@masroofy.app", "", "Mariam Ali");
+        DemoUser weak = new DemoUser("mariam.demo@masroofy.app", "abc12", "Mariam Ali", null);
+        DemoUser none = new DemoUser("mariam.demo@masroofy.app", "", "Mariam Ali", null);
 
         assertThatThrownBy(() -> seeder(weak).seed(weak)).isInstanceOfSatisfying(ApiException.class,
                 e -> assertThat(e.getErrorCode()).isEqualTo(ErrorCode.WEAK_PASSWORD));
@@ -129,9 +130,9 @@ class DemoUserSeederTest {
 
     @Test
     void oneFailingDemoUserDoesNotStopTheOthersOrTheStartup() throws Exception {
-        DemoUser omar = new DemoUser("omar.demo@masroofy.app", "Test-Cedar-58", "Omar Hassan");
-        DemoUser blank = new DemoUser("", "x", "Nobody");
-        DemoUser noPassword = new DemoUser("nopass.demo@masroofy.app", "", "No Password");
+        DemoUser omar = new DemoUser("omar.demo@masroofy.app", "Test-Cedar-58", "Omar Hassan", "freelancer");
+        DemoUser blank = new DemoUser("", "x", "Nobody", null);
+        DemoUser noPassword = new DemoUser("nopass.demo@masroofy.app", "", "No Password", null);
         when(firebase.findUidByEmail("mariam.demo@masroofy.app"))
                 .thenThrow(new ApiException(ErrorCode.AUTH_PROVIDER_UNAVAILABLE));
         when(firebase.findUidByEmail("omar.demo@masroofy.app")).thenReturn(Optional.empty());
@@ -143,6 +144,6 @@ class DemoUserSeederTest {
         verify(firebase, never()).findUidByEmail("nopass.demo@masroofy.app");
 
         verify(firebase).createUser("omar.demo@masroofy.app", "Test-Cedar-58", "Omar Hassan");
-        verify(ledgerLoader).load(any());
+        verify(ledgerLoader).load(any(), eq("freelancer"));
     }
 }

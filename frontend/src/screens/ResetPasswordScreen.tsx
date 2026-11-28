@@ -23,7 +23,7 @@ type FieldName = 'password' | 'confirmPassword';
 const API_FIELDS: Record<string, FieldName> = { newPassword: 'password', confirmPassword: 'confirmPassword' };
 
 const ResetPasswordScreen: React.FC = () => {
-  const { resetToken, email, clear: clearResetFlow } = usePasswordResetStore();
+  const { resetToken, clear: clearResetFlow } = usePasswordResetStore();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
@@ -31,11 +31,7 @@ const ResetPasswordScreen: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [showMismatch, setShowMismatch] = useState(false);
   const goBack = useGoBack(ROUTES.auth.login);
-  // The account's name is not known on this screen, so only the server can confirm NO_PERSONAL_INFO.
-  const passwordRules = usePasswordRequirements(password, {
-    personal: { email: email ?? undefined },
-    personalInfoComplete: false,
-  });
+  const passwordRules = usePasswordRequirements(password);
 
   const passwordsMatch = confirmPassword.length > 0 && password === confirmPassword;
   const matchRequirement: Requirement = {

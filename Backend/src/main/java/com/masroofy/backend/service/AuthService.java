@@ -86,7 +86,7 @@ public class AuthService {
     public RegisterResponse register(RegisterRequest request) {
         String email = EmailUtils.normalize(request.email());
         String fullName = normalizeName(request.fullName());
-        passwordPolicy.validate("password", request.password(), fullName, email);
+        passwordPolicy.validate("password", request.password());
 
         // One sign-up per email at a time: the lock covers the duplicate check, the Firebase account and the insert.
         // Without it, parallel sign-ups each create a Firebase account (Firebase's own uniqueness does not hold
@@ -223,7 +223,7 @@ public class AuthService {
         User user = userRepository.findById(resetToken.userId())
                 .orElseThrow(() -> new ApiException(ErrorCode.INVALID_RESET_TOKEN));
 
-        passwordPolicy.validate("newPassword", request.newPassword(), user.fullName(), user.email());
+        passwordPolicy.validate("newPassword", request.newPassword());
         rejectCurrentPassword(user, request.newPassword());
 
         firebase.updatePassword(user.firebaseUid(), request.newPassword());

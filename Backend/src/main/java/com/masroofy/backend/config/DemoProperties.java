@@ -17,7 +17,8 @@ public record DemoProperties(
         @DefaultValue("false") boolean forNewUsers,
         @DefaultValue List<DemoUser> users) {
 
-    public record DemoUser(String email, String password, String fullName) {
+    /** {@code profile}: which demo ledger to load (standard, saver, freelancer, student or family); empty = standard. */
+    public record DemoUser(String email, String password, String fullName, String profile) {
 
         public boolean configured() {
             return email != null && !email.isBlank();
@@ -25,7 +26,7 @@ public record DemoProperties(
 
         @Override
         public String toString() {
-            return "DemoUser[email=" + email + ", password=***, fullName=" + fullName + "]";
+            return "DemoUser[email=" + email + ", password=***, fullName=" + fullName + ", profile=" + profile + "]";
         }
     }
 }

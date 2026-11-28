@@ -108,8 +108,7 @@ export const authStrings = {
     MIN_LENGTH: `At least ${PASSWORD_MIN_LENGTH} characters`,
     MAX_LENGTH: `At most ${PASSWORD_MAX_LENGTH} characters`,
     NUMBER_OR_SYMBOL: 'Includes a number or a symbol',
-    NO_PERSONAL_INFO: 'Does not include your name or email',
-    COMMON_PASSWORD: 'Not a common or easily guessed password',
+    UPPERCASE: 'Includes an uppercase letter',
   },
 
   resetPassword: {

@@ -3,6 +3,7 @@ import { mockTrackingAccounts } from '@/mocks/data/smsMessages';
 import { MOCK_TODAY, mockTransactions } from '@/mocks/data/transactions';
 import { mockTransactionService } from '@/mocks/services/mockTransactionService';
 import { DashboardService } from '@/services/types';
+import { DashboardSummary } from '@/types/dashboard';
 import { Transaction } from '@/types/transaction';
 
 /**
@@ -20,23 +21,26 @@ const isCurrentIncome = ({ amount, date }: Transaction) => amount > 0 && date.st
 const sumOf = (list: Transaction[], include: (transaction: Transaction) => boolean) =>
   list.reduce((total, transaction) => (include(transaction) ? total + transaction.amount : total), 0);
 
-export const mockDashboardService: DashboardService = {
-  getSummary() {
-    const transactions = mockTransactionService.getTransactions();
-    const changeIn = (include: (transaction: Transaction) => boolean) =>
-      sumOf(transactions, include) - sumOf(mockTransactions, include);
-    const { totalSalary, totalExpense, primaryAccount, cashBalance } = mockDashboardSummary;
+const getSummary = (): DashboardSummary => {
+  const transactions = mockTransactionService.getTransactions();
+  const changeIn = (include: (transaction: Transaction) => boolean) =>
+    sumOf(transactions, include) - sumOf(mockTransactions, include);
+  const { totalSalary, totalExpense, primaryAccount, cashBalance } = mockDashboardSummary;
+  const primaryBalance = primaryAccount.balance + changeIn(({ accountId }) => accountId === PRIMARY_ACCOUNT.id);
+  const cash = cashBalance + changeIn(({ accountId }) => accountId === CASH.id);
 
-    return {
-      ...mockDashboardSummary,
-      totalSalary: totalSalary + changeIn(isCurrentIncome),
-      totalExpense: totalExpense - changeIn(isCurrentExpense),
-      primaryAccount: {
-        ...primaryAccount,
-        balance: primaryAccount.balance + changeIn(({ accountId }) => accountId === PRIMARY_ACCOUNT.id),
-      },
-      cashBalance: cashBalance + changeIn(({ accountId }) => accountId === CASH.id),
-      recentTransactions: transactions.slice(0, RECENT_COUNT),
-    };
-  },
+  return {
+    ...mockDashboardSummary,
+    totalSalary: totalSalary + changeIn(isCurrentIncome),
+    totalExpense: totalExpense - changeIn(isCurrentExpense),
+    primaryAccount: { ...primaryAccount, balance: primaryBalance },
+    cashBalance: cash,
+    currentBalance: primaryBalance + cash,
+    recentTransactions: transactions.slice(0, RECENT_COUNT),
+  };
+};
+
+export const mockDashboardService: DashboardService = {
+  getSummary,
+  loadSummary: async () => getSummary(),
 };

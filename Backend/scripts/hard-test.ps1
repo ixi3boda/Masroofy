@@ -382,15 +382,12 @@ function Phase2 {
         $same = (($got -join ',') -eq (($Rules | Sort-Object) -join ','))
         Expect $Id weak $Case $r 400 WEAK_PASSWORD $same "rules=$($got -join ',')"
     }
-    Weak 'PW-01' 'too short (7)' 'short1!' @('MIN_LENGTH')
-    Weak 'PW-02' 'letters only (a straight sequence is no longer a rule)' 'abcdefgh' @('NUMBER_OR_SYMBOL')
-    Weak 'PW-03' 'short and letters only' 'abcdefg' @('MIN_LENGTH', 'NUMBER_OR_SYMBOL')
-    Weak 'PW-04' 'contains first name' 'Mariam-2025' @('NO_PERSONAL_INFO')
-    Weak 'PW-05' 'contains first name in other case' 'mARIAM2025x' @('NO_PERSONAL_INFO')
-    Weak 'PW-06' 'contains 3-letter last name' 'xxali9999' @('NO_PERSONAL_INFO')
-    Weak 'PW-07' 'breaks three rules at once' 'mariam' @('MIN_LENGTH', 'NUMBER_OR_SYMBOL', 'NO_PERSONAL_INFO')
-    Weak 'PW-08' 'contains a piece of the email (sara)' 'Sara-7700' @('NO_PERSONAL_INFO') 'Hard Tester' "hq$TAG.sara_ahmed@pq$TAG.example.com"
-    Weak 'PW-09' 'contains the whole email local part' "hq${TAG}pw9!" @('NO_PERSONAL_INFO') 'Hard Tester'
+    Weak 'PW-01' 'too short (7)' 'Short1!' @('MIN_LENGTH')
+    Weak 'PW-02' 'letters only (a straight sequence is no longer a rule)' 'Abcdefgh' @('NUMBER_OR_SYMBOL')
+    Weak 'PW-03' 'short and letters only' 'Abcdefg' @('MIN_LENGTH', 'NUMBER_OR_SYMBOL')
+    Weak 'PW-07' 'breaks three rules at once' 'mariam' @('MIN_LENGTH', 'NUMBER_OR_SYMBOL', 'UPPERCASE')
+    Weak 'PW-18' 'no uppercase letter' 'lowercase-only1' @('UPPERCASE')
+    Weak 'PW-19' 'digits only' '12345678' @('UPPERCASE')
     $r = Api POST /auth/register @{ fullName = 'Mariam Ali'; email = (New-Email 'pw'); password = 'mariam'; acceptedTerms = $true }
     Check 'PW-10' weak 'details.failedRules equals fieldErrors codes' ((@($r.Json.details.failedRules | Sort-Object) -join ',') -eq (@($r.Json.fieldErrors.code | Sort-Object) -join ',')) '' 'API'
     $r = Api POST /auth/register @{ fullName = 'Hard Tester'; email = (New-Email 'pw'); password = '        '; acceptedTerms = $true }
@@ -398,18 +395,22 @@ function Phase2 {
     $r = Api POST /auth/register @{ fullName = 'Hard Tester'; email = (New-Email 'pw'); password = 'a1' * 65; acceptedTerms = $true }
     Expect 'PW-12' boundary '130 chars hits the size limit first' $r 400 VALIDATION_FAILED
 
-    $r = Api POST /auth/register @{ fullName = 'Al Bo'; email = (New-Email 'p13'); password = 'AlBo-1234'; acceptedTerms = $true }
-    Expect 'PW-13' valid '2-letter name parts are allowed in the password' $r 201
-    # The common / easily guessed password rule was removed: these are now accepted.
-    function Accepted([string]$Id, [string]$Case, [string]$Password) {
-        $r = Api POST /auth/register @{ fullName = 'Hard Tester'; email = (New-Email $Id.ToLowerInvariant().Replace('-', '')); password = $Password; acceptedTerms = $true }
+    function Accepted([string]$Id, [string]$Case, [string]$Password, [string]$Name = 'Hard Tester', [string]$Email = (New-Email $Id.ToLowerInvariant().Replace('-', ''))) {
+        $r = Api POST /auth/register @{ fullName = $Name; email = $Email; password = $Password; acceptedTerms = $true }
         Expect $Id valid $Case $r 201
     }
-    Accepted 'PW-14' 'one repeated symbol (no longer a rule)' '!!!!!!!!'
-    Accepted 'PW-15' 'common word + digit (no longer a rule)' 'password1'
-    Accepted 'PW-16' 'digit sequence (no longer a rule)' '12345678'
+    # The name/email rule was removed: a password may contain the user's name or email.
+    Accepted 'PW-04' 'contains first name (no longer a rule)' 'Mariam-2025' 'Mariam Ali'
+    Accepted 'PW-05' 'contains first name in other case (no longer a rule)' 'mARIAM2025x' 'Mariam Ali'
+    Accepted 'PW-06' 'contains 3-letter last name (no longer a rule)' 'Xxali9999' 'Mariam Ali'
+    Accepted 'PW-08' 'contains a piece of the email (no longer a rule)' 'Sara-7700' 'Hard Tester' "hq$TAG.sara_ahmed@pq$TAG.example.com"
+    Accepted 'PW-09' 'contains the whole email local part (no longer a rule)' "Hq${TAG}pw9!"
+    # The common / easily guessed password rule was removed: these are now accepted.
+    Accepted 'PW-14' 'repeated symbol + capital (no longer a rule)' '!!!!!!!X'
+    Accepted 'PW-15' 'common word + digit (no longer a rule)' 'Password1'
+    Accepted 'PW-16' 'digit sequence + capital (no longer a rule)' '12345678A'
     Accepted 'PW-16b' 'keyboard row + symbol (no longer a rule)' 'Qwerty123!'
-    $r = Api POST /auth/register @{ fullName = 'Hard Tester'; email = (New-Email 'p17'); password = ('abcdefg' + [char]0x0663); acceptedTerms = $true }
+    $r = Api POST /auth/register @{ fullName = 'Hard Tester'; email = (New-Email 'p17'); password = ('Abcdefg' + [char]0x0663); acceptedTerms = $true }
     if ($r.Status -eq 201) { Info 'PW-17' weak 'letters + one Arabic-Indic digit is accepted' "$($r.Status)" 'counts as a number; not a common pattern' }
     else { Expect 'PW-17' weak 'letters + one Arabic-Indic digit' $r 400 WEAK_PASSWORD }
 
@@ -417,8 +418,8 @@ function Phase2 {
     $u = New-Verified 'pr' 'Mariam Ali'
     $token = Get-ResetToken $u
     function Do-Reset([string]$New, [string]$Confirm = $New) { Api POST /auth/password/reset @{ resetToken = $token; newPassword = $New; confirmPassword = $Confirm } }
-    $r = Do-Reset 'abcdefgh';    Expect 'PW-20' weak 'reset: letters only' $r 400 WEAK_PASSWORD ((@($r.Json.fieldErrors.field) | Select-Object -Unique) -eq 'newPassword')
-    $r = Do-Reset 'Mariam-2025'; Expect 'PW-21' weak 'reset: contains the name' $r 400 WEAK_PASSWORD (@($r.Json.fieldErrors.code) -contains 'NO_PERSONAL_INFO')
+    $r = Do-Reset 'Abcdefgh';    Expect 'PW-20' weak 'reset: letters only' $r 400 WEAK_PASSWORD ((@($r.Json.fieldErrors.field) | Select-Object -Unique) -eq 'newPassword')
+    $r = Do-Reset 'short1!';     Expect 'PW-21' weak 'reset: too short' $r 400 WEAK_PASSWORD (@($r.Json.fieldErrors.code) -contains 'MIN_LENGTH')
     $r = Do-Reset $PW;           Expect 'PW-22' weak 'reset: same as the current password' $r 400 PASSWORD_REUSED
     $r = Do-Reset $NEWPW 'Fresh-Start8'; Expect 'PW-23' invalid 'reset: confirmation differs' $r 400 PASSWORDS_DO_NOT_MATCH
     $r = Do-Reset $NEWPW;        Expect 'PW-24' valid 'reset: strong new password' $r 200
