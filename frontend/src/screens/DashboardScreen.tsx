@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react';
+import { DevSettings, Platform } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { spacing } from '@theme/index';
+import Button from '@components/atoms/Button';
 import IconButton from '@components/atoms/IconButton';
 import { ActionChipProps } from '@components/molecules/ActionChip';
 import FeedbackBanner from '@components/molecules/FeedbackBanner';
@@ -19,8 +21,10 @@ import { whenOpen } from '@/constants/features';
 import { useServiceData } from '@/hooks/useServiceData';
 import { ROUTES } from '@/navigation/routes';
 import { router } from '@/navigation/router';
+import { authService } from '@/services/authService';
 import { dashboardService } from '@/services/dashboardService';
 import { smsService } from '@/services/smsService';
+import { useSessionStore } from '@/store/sessionStore';
 import { strings } from '@/strings';
 import { getErrorMessage } from '@/utils/errors';
 import { formatCurrency, formatDayMonth, formatSignedCurrency } from '@/utils/formatters';
@@ -48,6 +52,23 @@ const quickActions = (hasNewSms: boolean): QuickActionTileProps[] => [
   { label: copy.quickActions.scanReceipt, icon: 'scan' },
   { label: copy.quickActions.voiceEntry, icon: 'mic' },
 ];
+
+/**
+ * TEMPORARY, dev builds only (`__DEV__`): log out from Home for manual testing.
+ * The app restarts afterwards, so no cached data of this user (accounts, summary) reaches the next one.
+ * Remove once a real profile / log-out screen exists.
+ */
+const DevLogOutButton: React.FC = () => {
+  const [busy, setBusy] = useState(false);
+  const logOut = async () => {
+    setBusy(true);
+    await authService.logOut();
+    useSessionStore.getState().signOut();
+    if (Platform.OS === 'web') (globalThis as { location?: { reload(): void } }).location?.reload();
+    else DevSettings.reload();
+  };
+  return <Button title={copy.devLogOut} variant="outline" loading={busy} onPress={logOut} />;
+};
 
 const DashboardScreen: React.FC = () => {
   const [summary, setSummary] = useState(dashboardService.getSummary);
@@ -135,6 +156,7 @@ const DashboardScreen: React.FC = () => {
       ) : loadError ? null : (
         <InlineLoader label={copy.loading} />
       )}
+      {__DEV__ ? <DevLogOutButton /> : null}
     </ScreenLayout>
   );
 };
