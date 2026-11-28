@@ -20,10 +20,18 @@ python bench.py extract        # standalone extraction
 python bench.py e2e            # end-to-end, every finished classifier
 python bench.py compare        # tables, charts, REPORT.md
 python bench.py status         # done / failed / incomplete / not run
-python -m pytest tests -q      # 42 tests, ~5 min (transformer tests fetch a tiny model)
+python -m pytest tests -q      # 63 tests, ~15 min (transformer tests fetch a tiny model)
 ```
 
-On Colab run `colab.ipynb` top to bottom; re-run it after a disconnect and it carries on.
+On Colab run `colab.ipynb` top to bottom. After a disconnect or runtime restart, run sections 0
+(configuration) and 1 (setup) — or Run all — and every later section works again, in any order;
+finished runs are skipped and an unfinished transformer resumes.
+
+To run code on Colab **without committing it**: `python pack_for_colab.py` writes `sms_colab.tgz`
+(code + data exactly as on disk, no results). Copy it to `MyDrive/masroofy_sms_v2/code/` and keep
+`CODE_SOURCE = 'drive'` (or use `'upload'` and pick the file). The notebook fetches the code fresh
+each time its section 1 (setup) runs, and every run's `metrics.json` records the archive's
+`code_version` (content hash, commit, uncommitted files).
 Results go to `outputs/` locally, or wherever `SMS_V2_OUTPUT` points (a Drive folder on Colab).
 
 Use the pipeline:
@@ -64,7 +72,7 @@ checkpoint and learning rate, which live in `config/settings.py`); `sms_pipeline
 `../sms_eval_final/` rather than being copied.
 
 Existing files are untouched except `colab.ipynb`, rebuilt with the original cells kept as an
-appendix (the pre-change copy is `colab.before_benchmark.ipynb.bak`).
+appendix (the separate `.bak` copy made at the time has since been removed).
 
 ## Labels
 
@@ -128,8 +136,8 @@ lowercases Latin, XLM-R is cased.
 | xlm_roberta | `FacebookAI/xlm-roberta-base` (278M), lr 2e-5 | same | same |
 | v1_gate | v1's own transaction decision (binary only, reference) | — | v1's |
 
-Transformer defaults: max_len 160, batch 32, ≤ 6 epochs, lr 3e-5, warmup 10 %, weight decay
-0.01, clip 1.0, patience 2, fp16 on CUDA, seed 42. Checkpoints are saved after every epoch
+Transformer defaults: max_len 160, batch 32, ≤ 10 epochs, lr 3e-5, warmup 10 %, weight decay
+0.01, clip 1.0, patience 3, fp16 on CUDA, seed 42. Checkpoints are saved after every epoch
 (`checkpoints/last` with optimizer/scheduler/scaler/RNG state, and `checkpoints/best`). Resuming
 checks a config fingerprint and refuses a mismatch. After a run completes, `final/` holds the
 best epoch and the epoch checkpoints are deleted (`--keep-checkpoints` keeps them).
@@ -191,7 +199,7 @@ false-record counts.
 ## Results so far (local CPU, split `template`)
 
 Only the CPU models have run. **MARBERT, AraBERT and XLM-R have not been trained yet**; their
-rows appear once `colab.ipynb` section 7 runs. Full tables are in
+rows appear once `colab.ipynb` section 5 runs. Full tables are in
 `outputs/results/template/summary/REPORT.md`.
 
 | exp | model | macro F1 (95 % CI) | tx recall | tx precision | missed | false records (e2e) |
@@ -232,3 +240,190 @@ How to read this:
   training; its test set is fixed by definition, so only validation was balanced.
 * Inference times depend on the machine; compare models within one environment (the `device`
   column says which).
+
+## New experiments: cross-model combinations (1) and one joint model (2)
+
+Both are **additive**. They reuse the data, the fixed splits, the preprocessing, the metrics,
+the checkpoint/resume/Drive-backup machinery and the existing classifier runs. They write
+only to new folders (below). No existing metric, model, checkpoint or `DONE.json` is
+rewritten; `tests/test_new_experiments.py` checks this byte for byte.
+
+```bash
+python bench.py extract-tf --models marbert,arabert     # Exp 1: train the 2 transformer extractors (GPU)
+python bench.py combos                                  # Exp 1: 4 combinations x binary + multiclass
+python bench.py joint --models arabert,marbert          # Exp 2: 4 joint models (GPU)
+python bench.py compare-new                             # tables, charts, REPORT_NEW.md
+python bench.py predict --combo arabert:marbert --experiment binary "SMS ..."
+python bench.py predict --joint arabert --experiment multiclass "SMS ..."
+```
+
+On Colab, `colab.ipynb` and `sms_tests.ipynb` both have one cell per configuration (sections
+E1.0–E3, before the appendix). Run sections 0 and 1, then only the cells you want.
+
+### What existed before, and what had to be added
+
+| piece | before | now |
+|---|---|---|
+| AraBERT / MARBERT **classifiers** (binary, 6-class) | `transformer_classifier.py`, trained by section 5 | reused as they are, never retrained |
+| **Extractor** used by the benchmark | only `v1_sklearn` (the v1 parser) | unchanged; still Stage 2 of the existing runs |
+| MARBERT extractor | architecture in `marbert.py`, **never trained**: `compare_results.json` has `v2: null` on every split, and no `runs/` folder exists. Its `train.py` used `dataset.py`'s own 80/20 split, which overlaps the benchmark's test set, and had no validation, early stopping or checkpoints | the same architecture, wrapped in the benchmark's split / checkpoint / resume / backup rules: `extraction/transformer_extractor.py` |
+| AraBERT extractor | did not exist | the same architecture on `aubmindlab/bert-base-arabertv02` |
+
+**No model is substituted.** A missing classifier or extractor raises `MissingCheckpoint`
+with the exact command that trains it. The v1 extractor is never used in place of a
+transformer.
+
+### Experiment 1: classifier → extractor combinations
+
+| | AraBERT extractor | MARBERT extractor |
+|---|---|---|
+| **AraBERT classifier** | `arabert__arabert` | `arabert__marbert` |
+| **MARBERT classifier** | `marbert__arabert` | `marbert__marbert` |
+
+These are run for experiment A (binary classifier) and experiment B (6-class classifier), so
+there are 8 configurations.
+
+**Flow** (`SmsPipeline`, one call, no manual step): SMS → classifier → label.
+* Label `transaction` → the extractor → JSON record. If no amount is found → no record
+  (v1's rule, `REQUIRE_AMOUNT`).
+* Any other label (binary `non_transaction`; 6-class `balance_inquiry`, `otp`,
+  `promotional`, `failed_transaction`, `other`) → no extraction, reason `stage 1: <label>`.
+
+```python
+from sms_pipeline import SmsPipeline
+pipe = SmsPipeline.from_combo("template", "binary", "arabert", "marbert")
+pipe.process(sms)        # {"sms", "stage1": {...}, "is_transaction", "record", "reason"}
+SmsPipeline.from_dirs(classifier_final_dir, extractor_final_dir)   # any dirs; kind auto-detected
+```
+
+**Extractor.** One encoder with three heads, as in `marbert.py`:
+* BIO token head with 17 labels: amount, fee, balance, last-4, merchant, currency, date, time;
+* type head (7 classes);
+* channel head (7 classes).
+
+The loss is the sum of the three cross-entropies. Decoding is `pipeline.py`'s
+`Pipeline._assemble`, unchanged. The output is the benchmark's record (`extraction/base.py`),
+the same shape as the v1 extractor's.
+* **Training data:** the gold transactions of the template train split (985).
+* **Model selection:** early stopping on full-record exact over the gold val transactions (219).
+* **Hyperparameters:** the classifiers' (`TRANSFORMER_DEFAULTS`) plus dropout 0.1.
+* **Input text:** always `spans.normalize` (= the `digits` preprocessing). It preserves
+  length, so the predicted spans stay valid offsets into the raw SMS.
+
+**Evaluation.** `bench.py combos` trains nothing.
+* It combines the classifier's saved test routing (`predictions.csv`) with the extractor's
+  saved test outputs.
+* It scores them with the existing end-to-end code: every gold transaction counts, misses are
+  scored wrong, false records are counted.
+* It then loads both models and runs the real pipeline one SMS at a time on 50 test messages.
+  This measures per-stage latency and checks that the live JSON equals the cached composition
+  (`timing.live.output_agreement_with_cached`, 1.0 on CPU).
+
+Each combination reports:
+* the classifier's accuracy, macro P/R/F1, per-class scores and confusion matrix;
+* field accuracy over all gold transactions: amount, currency, counterparty (accuracy and F1),
+  date, direction, type, account;
+* full-record exact precision, recall and F1;
+* missed transactions (split by stage) and false records (by true class);
+* classification, extraction and pipeline ms/SMS, both batched and live.
+
+### Experiment 2: one joint model (one workflow)
+
+Experiment 1 still uses two models. Experiment 2 uses **one AraBERT or MARBERT encoder**, with:
+* a classification head on [CLS];
+* the extractor's three heads.
+
+They are trained together, and one forward pass returns both the class and the record
+(`JointPipeline`).
+
+**Labels.** No new classes are defined and no gold label is changed. The class head uses the
+existing label sets:
+
+| run | class head | labels |
+|---|---|---|
+| `joint binary` | 2 classes | `transaction` / `non_transaction` = gold `is_transaction` |
+| `joint multiclass` | 6 classes | `transaction` + the 5 derived non-transaction classes of `config/labels.py` |
+
+**Why this is not a re-run of experiment B.** The 6-class experiment B was already a single
+classification task: one model, one softmax over 6 classes, no binary stage before it. It
+only decided whether to extract, and a separate extractor did the extraction. Experiment 2
+merges classification and extraction into one network.
+
+* **Loss:** class-weighted cross-entropy (as the classifiers), plus the three extraction
+  losses on gold transactions only. Non-transactions have no field labels, which is exactly
+  what the separate extractor sees. So the only change from Experiment 1 is the shared
+  encoder.
+* **Model selection:** early stopping on the mean of val macro-F1 and val full-record exact.
+* **Checkpoints:** existing classifier checkpoints cannot be reused. The network has heads
+  they lack, and its encoder is trained on a different objective. So all 4 joint runs are
+  new trainings (2 encoders × 2 label sets).
+
+### Results layout (all new folders)
+
+```
+models/<split>/extractor/{marbert,arabert}/final/            beside the existing v1_sklearn/
+models/<split>/joint/{binary,multiclass}/{arabert,marbert}/final/
+results/<split>/extractors/<model>/                          config, metrics (standalone), predictions.jsonl (every test SMS), DONE
+results/<split>/combos/<experiment>/<clf>__<ext>/            config, metrics, predictions.jsonl (final JSON per SMS),
+                                                             outcomes.csv, confusion_matrix.csv, DONE
+results/<split>/joint/<experiment>/<model>/                  config, metrics, predictions.csv, predictions.jsonl,
+                                                             extraction_predictions.jsonl, outcomes.csv, confusion_matrix.csv, DONE
+results/<split>/summary_new/                                 status.csv, extractors.csv, pipelines.csv, classification.csv,
+                                                             REPORT_NEW.md, charts/, confusion_matrices/
+```
+
+Checkpoints follow the classifiers' rules (VM disk on Colab, Drive backup slots under run keys
+`<split>/extractor/<model>` and `<split>/joint/<exp>/<model>`). A finished run is skipped
+unless you pass `--overwrite`. An interrupted run resumes from its last epoch. A combination
+is recomputed automatically if either of its two inputs is re-run.
+
+### Checkpoint requirements
+
+| to run | needs (finished, i.e. `DONE.json`) | trained by |
+|---|---|---|
+| combination `<exp>/<clf>__<ext>` | classifier `results/<split>/<exp>/<clf>` + extractor `results/<split>/extractors/<ext>` | section 5 / `bench.py classify`; `bench.py extract-tf` |
+| joint `<exp>/<model>` | nothing; it trains its own model | `bench.py joint` |
+| `compare-new` | any subset; `status.csv` lists what is missing and the command for it | — |
+
+**Training still to be done:**
+* the 2 extractors;
+* the 4 joint models;
+* any of the 4 AraBERT/MARBERT classifier runs not yet finished on Drive.
+
+### Reading the results
+
+* **Same extractor, different classifier** (`arabert__marbert` vs `marbert__marbert`): the
+  differences come from routing alone. Read them with missed transactions and false records.
+* **Same classifier, different extractor:** routing is identical, so the differences come from
+  extraction alone. Standalone extraction (`extractors.csv`, perfect Stage 1) gives the same
+  comparison without classifier noise.
+* **Joint vs the matching combination** (`joint_arabert` vs `arabert__arabert`): the cost or
+  benefit of sharing one encoder, plus the latency of one pass instead of two.
+* **`ref` rows** are the existing classifier with the v1 extractor. They show what replacing
+  v1 with a transformer extractor changes.
+* **Exact-record F1 can rise when a stricter gate drops messages the extractor would get
+  wrong anyway.** Always read it together with the miss and false-record counts.
+* **Timing:**
+  * "Batched" = the whole test set at once, per SMS.
+  * "Live" = one SMS at a time (median).
+  * The pipeline cost is classification + share routed × extraction.
+  * Compare only rows from the same device (the `device` fields).
+
+### Limitations of the new experiments
+
+* **The extractors learn only the spans `spans.gold_spans` can locate.** A field it cannot
+  find in the text is all-O for that message (see `dataset.py coverage`).
+* **Validation is thin for the joint model's type head on the template split.** It has no
+  `bill_payment` or tx-`other`, and has only one template each for `debit` and
+  `atm_withdrawal`. Early stopping therefore sees a narrow set of transaction wordings.
+* **Combinations reuse the classifiers' cached test predictions.** That is exact for the
+  routing decision. On GPU with fp16 the live re-run can flip near-ties; the agreement rate
+  is recorded.
+* **The joint selection rule (mean of two val scores) is a design choice**, documented in each
+  run's `config.json`.
+* **Everything above inherits the benchmark's limits:** synthetic data, derived 6-class
+  labels, a small test set per class, and wide intervals.
+* **Bug found in the existing code, not changed.** `run_classify.py`'s final log line cannot
+  format a `None` transaction precision. This happens when a model predicts no transaction at
+  all. The run is complete (`DONE.json` is written first), but the command reports a failure.
+  Only a degenerate model triggers it.

@@ -61,7 +61,7 @@ found and of the decisions it forced.
 
 * `sms_v2/` is untracked in git: edits to existing files there could not be undone. Hence the
   benchmark is **new modules beside** the existing ones; the only existing file rewritten is
-  `colab.ipynb` (original kept verbatim as its appendix and as `colab.before_benchmark.ipynb.bak`).
+  `colab.ipynb` (original kept verbatim as its appendix; a `.bak` copy was also made, later removed).
 * The suggested `pipeline/` package would shadow the existing `pipeline.py`, so the two-stage
   pipeline is `sms_pipeline.py`.
 * v1's `predict()` decides transaction-or-not itself. To use it as Stage 2 without editing it,

@@ -5,3 +5,8 @@ __pycache__/
 
 # local retrain of the v1 model, not the shipped one
 sms_eval_final/*.local.joblib
+
+# local fine-tuned checkpoints (1.2 GB, over GitHub's 100 MB file limit): kept on disk, not in git
+sms_model/arabert_classifier/
+sms_model/marbert_extractor/
+sms_model/*.tar

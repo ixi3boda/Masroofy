@@ -116,12 +116,12 @@ TRANSFORMER_DEFAULTS = {
     "max_len": 160,            # corpus max is 145 tokens (AraBERT/XLM-R), so nothing truncates
     "batch_size": 32,          # fits a T4 (16 GB) at fp16 and max_len 160 for base models
     "eval_batch_size": 64,
-    "epochs": 6,
+    "epochs": 10,
     "lr": 3e-5,
     "weight_decay": 0.01,
     "warmup_ratio": 0.1,
     "grad_clip": 1.0,
-    "early_stopping_patience": 2,      # epochs without val macro-F1 improvement
+    "early_stopping_patience": 3,      # epochs without val macro-F1 improvement
     "class_weighting": "balanced",     # "balanced" | "none"
     "fp16": True,                      # used only on CUDA
     "seed": 42,
@@ -145,3 +145,33 @@ SVM_MARGIN = None
 
 # v1's rule, kept: a message the extractor finds no amount in yields no record.
 REQUIRE_AMOUNT = True
+
+# ===================================================================== new experiments
+# Experiment 1 (cross-model combinations) and Experiment 2 (one joint model). Both are
+# additive: they write to their own folders and never touch the runs above.
+#
+# Transformer EXTRACTORS (Stage 2) for Experiment 1. Architecture = sms_v2/marbert.py's
+# extractor, unchanged: one encoder + BIO token head (17 labels) + type head (7) +
+# channel head (7), loss = plain sum of the three cross-entropies. Trained on the gold
+# transactions of the benchmark's TRAIN split, early-stopped on val full-record exact.
+# Checkpoints are the classifiers' checkpoints, so the two stages of a combination start
+# from the same pretrained encoder.
+EXTRACTOR_MODELS = {
+    "marbert": {"checkpoint": TRANSFORMER_MODELS["marbert"]["checkpoint"]},
+    "arabert": {"checkpoint": TRANSFORMER_MODELS["arabert"]["checkpoint"]},
+}
+# Experiment 2: ONE model per run = one encoder with a classification head (binary or
+# 6-class, the existing gold labels) AND the extractor's three heads, trained jointly.
+JOINT_MODELS = {
+    "marbert": {"checkpoint": TRANSFORMER_MODELS["marbert"]["checkpoint"]},
+    "arabert": {"checkpoint": TRANSFORMER_MODELS["arabert"]["checkpoint"]},
+}
+# Hyperparameters on top of TRANSFORMER_DEFAULTS (same max_len, batch, lr, epochs,
+# patience, warmup, fp16, seed as the classifiers).
+EXTRACTOR_DEFAULTS = {"dropout": 0.1}
+# Experiment 1 pairs these classifiers with these extractors (4 combinations x 2 exps).
+COMBO_CLASSIFIERS = ["arabert", "marbert"]
+COMBO_EXTRACTORS = ["arabert", "marbert"]
+# Messages run one at a time through the LIVE pipeline (classifier -> extractor) to
+# measure real per-SMS latency of each stage and to check it reproduces the cached result.
+COMBO_LATENCY_SAMPLE = 50

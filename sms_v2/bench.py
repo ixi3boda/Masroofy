@@ -9,6 +9,14 @@
     python bench.py status                        # what is done / failed / missing
     python bench.py predict --model-dir <dir> "SMS text"   # the live pipeline
 
+New experiments (BENCHMARK.md, "Experiment 1" / "Experiment 2"):
+    python bench.py extract-tf --models marbert,arabert   # Exp 1: train transformer extractors
+    python bench.py combos                                # Exp 1: 4 combinations x 2 experiments
+    python bench.py joint --models arabert --experiments binary    # Exp 2: one joint model
+    python bench.py compare-new                           # tables + charts -> summary_new/
+    python bench.py predict --combo arabert:marbert --experiment binary "SMS"
+    python bench.py predict --joint arabert --experiment multiclass "SMS"
+
 All results land under config.settings.OUTPUT_ROOT (env SMS_V2_OUTPUT).
 Nothing completed is redone or overwritten without --overwrite.
 """
@@ -107,9 +115,68 @@ def cmd_status(a):
     status.print_status(_csv(a.splits))
 
 
+def _run_many(fn, jobs, stop_on_error):
+    """Run each job; a failure (e.g. a missing checkpoint) is reported and the rest go on."""
+    failures = []
+    for job in jobs:
+        try:
+            fn(*job)
+        except Exception as e:
+            failures.append((job, f"{type(e).__name__}: {e}"))
+            print(f"!! FAILED {'/'.join(map(str, job))}: {type(e).__name__}: {e}")
+            if stop_on_error:
+                raise
+    if failures:
+        print(f"\n{len(failures)} run(s) failed or could not start:")
+        for job, err in failures:
+            print("  ", "/".join(map(str, job)), "--", err)
+        raise SystemExit(1)
+
+
+def cmd_extract_tf(a):
+    from benchmark import run_extract_tf
+    ov = json.loads(a.override) if a.override else None
+    _run_many(lambda split, model: run_extract_tf.run(
+        split, model, overwrite=a.overwrite, keep_checkpoints=a.keep_checkpoints,
+        device=a.device, overrides=ov),
+        [(s, m) for s in _csv(a.splits) for m in _csv(a.models)], a.stop_on_error)
+
+
+def cmd_combos(a):
+    from benchmark import run_combos
+    _run_many(lambda split, exp, clf, ext: run_combos.run(
+        split, exp, clf, ext, overwrite=a.overwrite, live_latency=a.live_latency, device=a.device),
+        [(s, e, c, x) for s in _csv(a.splits) for e in _csv(a.experiments)
+         for c in _csv(a.classifiers) for x in _csv(a.extractors)], a.stop_on_error)
+
+
+def cmd_joint(a):
+    from benchmark import run_joint
+    ov = json.loads(a.override) if a.override else None
+    _run_many(lambda split, exp, model: run_joint.run(
+        split, exp, model, overwrite=a.overwrite, keep_checkpoints=a.keep_checkpoints,
+        device=a.device, overrides=ov),
+        [(s, e, m) for s in _csv(a.splits) for e in _csv(a.experiments) for m in _csv(a.models)],
+        a.stop_on_error)
+
+
+def cmd_compare_new(a):
+    from evaluation import compare_new
+    for split in _csv(a.splits):
+        compare_new.run(split, make_charts=not a.no_charts)
+
+
 def cmd_predict(a):
-    from sms_pipeline import SmsPipeline
-    pipe = SmsPipeline.from_dirs(a.model_dir, a.extractor_dir, device=a.device)
+    from sms_pipeline import JointPipeline, SmsPipeline
+    if a.joint:
+        pipe = JointPipeline.from_run(a.split, a.experiment, a.joint, device=a.device)
+    elif a.combo:
+        clf, _, ext = a.combo.partition(":")
+        pipe = SmsPipeline.from_combo(a.split, a.experiment, clf, ext, device=a.device)
+    elif a.model_dir and a.extractor_dir:
+        pipe = SmsPipeline.from_dirs(a.model_dir, a.extractor_dir, device=a.device)
+    else:
+        raise SystemExit("give --model-dir and --extractor-dir, or --combo CLF:EXT, or --joint MODEL")
     texts = a.sms or [line.rstrip("\n") for line in sys.stdin if line.strip()]
     for out in pipe.process_many(texts):
         print(json.dumps(out, ensure_ascii=False, indent=None if a.compact else 2))
@@ -164,11 +231,54 @@ def main():
 
     p = sub.add_parser("predict", help="run the two-stage pipeline on messages")
     p.add_argument("sms", nargs="*")
-    p.add_argument("--model-dir", required=True, help="a classifier's final/ directory")
-    p.add_argument("--extractor-dir", required=True, help="a fitted extractor directory")
+    p.add_argument("--model-dir", help="a classifier's final/ directory")
+    p.add_argument("--extractor-dir", help="a fitted extractor directory (v1 or transformer)")
+    p.add_argument("--combo", help="Exp 1: CLASSIFIER:EXTRACTOR, e.g. arabert:marbert")
+    p.add_argument("--joint", help="Exp 2: joint model name, e.g. arabert")
+    p.add_argument("--experiment", default="binary", choices=S.EXPERIMENTS,
+                   help="with --combo / --joint")
+    p.add_argument("--split", default=S.PRIMARY_SPLIT, help="with --combo / --joint")
     p.add_argument("--device", default="auto")
     p.add_argument("--compact", action="store_true")
     p.set_defaults(fn=cmd_predict)
+
+    p = sub.add_parser("extract-tf", help="Exp 1: train + evaluate transformer extractors")
+    p.add_argument("--models", default=",".join(S.EXTRACTOR_MODELS))
+    p.add_argument("--splits", default=S.PRIMARY_SPLIT)
+    p.add_argument("--overwrite", action="store_true")
+    p.add_argument("--keep-checkpoints", action="store_true")
+    p.add_argument("--device", default="auto")
+    p.add_argument("--override", default=None, help='JSON, e.g. {"epochs": 1}')
+    p.add_argument("--stop-on-error", action="store_true")
+    p.set_defaults(fn=cmd_extract_tf)
+
+    p = sub.add_parser("combos", help="Exp 1: classifier x extractor combinations, end to end")
+    p.add_argument("--experiments", default=",".join(S.EXPERIMENTS))
+    p.add_argument("--classifiers", default=",".join(S.COMBO_CLASSIFIERS))
+    p.add_argument("--extractors", default=",".join(S.COMBO_EXTRACTORS))
+    p.add_argument("--splits", default=S.PRIMARY_SPLIT)
+    p.add_argument("--live-latency", type=int, default=S.COMBO_LATENCY_SAMPLE,
+                   help="messages run one at a time through the live pipeline (0 = skip)")
+    p.add_argument("--overwrite", action="store_true")
+    p.add_argument("--device", default="auto")
+    p.add_argument("--stop-on-error", action="store_true")
+    p.set_defaults(fn=cmd_combos)
+
+    p = sub.add_parser("joint", help="Exp 2: one joint classifier+extractor model")
+    p.add_argument("--models", default=",".join(S.JOINT_MODELS))
+    p.add_argument("--experiments", default=",".join(S.EXPERIMENTS))
+    p.add_argument("--splits", default=S.PRIMARY_SPLIT)
+    p.add_argument("--overwrite", action="store_true")
+    p.add_argument("--keep-checkpoints", action="store_true")
+    p.add_argument("--device", default="auto")
+    p.add_argument("--override", default=None)
+    p.add_argument("--stop-on-error", action="store_true")
+    p.set_defaults(fn=cmd_joint)
+
+    p = sub.add_parser("compare-new", help="tables + charts for Exp 1 and Exp 2")
+    p.add_argument("--splits", default=S.PRIMARY_SPLIT)
+    p.add_argument("--no-charts", action="store_true")
+    p.set_defaults(fn=cmd_compare_new)
 
     a = ap.parse_args()
     a.fn(a)

@@ -141,7 +141,27 @@ def environment():
             env["gpu"] = torch.cuda.get_device_name(0)
     except ImportError:
         env["cuda"] = False
+    env["code_version"] = code_version()
     return env
+
+
+def code_version():
+    """The pack_for_colab.py stamp when running from an archive, else the git commit."""
+    stamp = os.path.join(HERE, "CODE_VERSION.json")
+    if os.path.exists(stamp):
+        v = read_json(stamp)
+        return {k: v.get(k) for k in ("content_hash", "packed", "git_branch", "git_commit",
+                                      "uncommitted")}
+    try:
+        import subprocess
+        out = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=HERE,
+                             capture_output=True, text=True, timeout=10)
+        dirty = subprocess.run(["git", "status", "--porcelain", "--", "."], cwd=HERE,
+                               capture_output=True, text=True, timeout=10)
+        return {"git_commit": out.stdout.strip() or None,
+                "uncommitted": [ln[3:] for ln in dirty.stdout.splitlines()]}
+    except (OSError, subprocess.SubprocessError):
+        return None
 
 
 class Run:
